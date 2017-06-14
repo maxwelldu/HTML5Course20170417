@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      [class^="box-"] {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        color: #fff;
+      }
+      .box-a {
+        background: coral;
+      }
+      .box-b {
+        top: 100px;
+        left: 100px;
+        z-index: -1;
+        background: lightblue;
+      }
+      .box-c {
+        top: 150px;
+        left: 150px;
+        z-index: 1;
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-a"> Box a </div>
+    <div class="box-b"> Box b </div>
+    <div class="box-c"> Box c </div>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // debugger;
+      // var obj = doucment.getElementById('a');
+      var obj = document.getElementById('a');
+      console.log(obj);
+      // obj.innerText = "content a";
+
+      // throw new Error('我自己要出错,你能怎样');
+
+      try {
+        //通常有些内容不是由你决定的，你可以尝试
+        //不可控因素，比如网络请求
+      // } catch() {
+        throw new Error('我自己要出错,你能怎样');
+      } catch(error) {
+        console.dir(error);
+        console.error(error);
+      }
+    </script>
+  </body>
+</html>

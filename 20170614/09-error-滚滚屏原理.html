@@ -1,0 +1,95 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html, body, .container, .page{
+            height: 100%;
+            width: 100%;
+        }
+        html, body{
+            overflow: hidden;
+        }
+        .container{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /*.page {*/
+            /*background: hsl(181, 45%, 52%);*/
+        /*}*/
+        .page0{background: hsl(181, 45%, 52%)}
+        .page1{background: hsl(181, 55%, 52%)}
+        .page2{background: hsl(181, 65%, 52%)}
+        .page3{background: hsl(181, 75%, 52%)}
+        .page4{background: hsl(181, 85%, 52%)}
+    </style>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="page page0">
+        <h1>1</h1>
+    </div>
+    <div class="page page1">
+        <h1>2</h1>
+    </div>
+    <div class="page page2">
+        <h1>3</h1>
+    </div>
+    <div class="page page3">
+        <h1>4</h1>
+    </div>
+    <div class="page page4">
+        <h1>5</h1>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    /*
+    * 绑定滚轮事件 (事件兼容)
+    * 阻止默认行为
+    * 获取滚轮方向 (事件兼容)
+    * 设置container的top为百分之几百
+    * */
+
+    //1.信号量
+    var index = 0;
+    var container = document.getElementById("container");
+    var mousewheelHandler = function (event) {
+        //console.log(event);
+        event = event || window.event;
+
+        //能力检测
+        if(event.preventDefault){
+            event.preventDefault();
+        }else {
+            event.returnValue = false;
+        }
+        //获取事件
+        if(event.wheelDelta){
+            var direction = event.wheelDelta > 0 ? 1 : -1;
+        }else {
+            var direction = event.detail > 0 ? -1 : 1;
+        }
+        index -= direction;
+        if(index < 0){
+            index = 0;
+        }else  if(index > 4){
+            index = 4;
+        }
+        container.style.top = -index * 100 + "%"
+
+    }
+    document.onmousewheel = mousewheelHandler;
+    try {
+        document.addEventListener('DOMMouseScroll',mousewheelHandler,false);
+    }catch(error){
+
+    }
+</script>
+</html>

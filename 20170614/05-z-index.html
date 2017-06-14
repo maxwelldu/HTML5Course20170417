@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      nav {
+        position: fixed;
+        top: 0;
+      }
+      nav ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background: coral;
+        padding: 1em;
+        width: 10em;
+      }
+      #dialog {
+        z-index: 1;
+        position: absolute;
+        top: 5em;
+        left: 5em;
+        background: lightblue;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li> 菜单1 </li>
+        <li> 菜单2 </li>
+      </ul>
+    </nav>
+    <div id="dialog">
+      dialog content
+    </div>
+  </body>
+</html>
