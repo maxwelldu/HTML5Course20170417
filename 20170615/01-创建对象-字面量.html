@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //全部都是变量（属性）
+      /*
+      你
+      a
+      //标准的数据类型
+      "你"
+      '好'
+      1
+      true
+      false
+      function t(){}
+      /\d+/
+      */
+
+      /*
+      JSON: JavaScript Object Notation
+      [] //值的集合，数组里面能放所有的数据类型
+      {} //键值对的集合, 什么可以当键，值可以是任意类型
+      [
+        {},
+        {}
+      ]
+      {
+        [],
+        []
+      }
+      [ [] ]
+      { {} }
+      */
+      console.log(["a","b"]);
+      console.log({"a": "b"});
+
+      //字面量
+      //对象形式
+
+      //标识符 就是对象，变量方法等等一切的名字
+      //关键字，保留字都是标识符
+      //关键字 是现在已经在使用的标识符
+      //保留字 未来可能会用到的
+      var obj = {
+        name: "范",
+        "范": "name",
+        "list": [ { "name": "maxwelldu" } ]
+      }
+      console.log(obj);
+      console.log(obj["范"]);
+      var name = "name";
+      console.log(obj[name]);//变量
+      console.log(obj["name"]);//字符串
+      console.log(obj.name);
+      console.log(obj.name);
+      console.log(obj.list[0].name);
+
+
+
+    </script>
+  </body>
+</html>

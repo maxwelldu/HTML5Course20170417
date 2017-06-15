@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div { width: 100px;
+        height: 100px;
+        background: coral; }
+    </style>
+  </head>
+  <body>
+    <div id="box"> </div>
+    <script type="text/javascript">
+      function fun() {
+        console.log(this);
+      }
+      fun();
+      window.fun();
+
+      window.f = function() {
+        console.log(this);
+      }
+      window.f();
+
+      var fun1 = function() {
+        console.log(this);
+      }
+      var fun2 = new Function
+      ('a,b', "return a+b");
+
+      var fun3 = new Function
+      ('a', 'b', 'c', "return a + b + c");
+
+      //直接用()调用函数，函数里面的this
+      //指的是window对象
+    </script>
+  </body>
+</html>

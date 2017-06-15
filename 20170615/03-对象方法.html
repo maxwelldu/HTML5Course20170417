@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var obj = new Object();
+      var obj = {};
+
+      var obj = {
+        name: "max",
+        getSex: function() {
+          return 18;
+        }
+      }
+      console.log(obj.getSex);
+      console.log(obj.getSex());
+
+      //undefined
+      console.log(obj.age);
+      console.log(window.a);
+
+      var a;
+      console.log(a);
+      function add(a,b) {
+        console.log(a+b);
+      }
+      console.log(add(1,2));
+
+      function add2(a,b) {
+        console.log(a+b);
+        return;//取消函数执行 返回内容
+      }
+      console.log(add2(1,2));
+
+      function add3(a,b) {
+        // console.log(a+b);
+        return a+b;
+      }
+      var a = add3(1,2) + add3(1,3);
+      var b = a / 8 * 100;
+
+      //===================
+      var fanjinyu = {
+        name: "范晋宇",
+        age: 20,
+        sex: "男",
+        hobby: "女",
+        hometown: "山西",
+        intro: function() {
+          console.log("I'm from " + this.hometown)
+        }
+      }
+      fanjinyu.intro();
+
+    </script>
+  </body>
+</html>
