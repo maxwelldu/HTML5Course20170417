@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div { width: 100px;
+        height: 100px;
+        background: coral; }
+    </style>
+  </head>
+  <body>
+    <div id="box"> </div>
+    <script type="text/javascript">
+      function fun() {
+        console.log(this);
+      }
+      fun(); //window
+
+      var oBox = document.getElementById("box");
+      oBox.onclick = fun;
+
+      // setInterval(fun, 1500);
+
+      var jinyu = {
+        name: "jinyu",
+        haha: fun
+      };
+      jinyu.haha();
+
+      var mingliang = {
+        name: "mingliang"
+      }
+      fun.call(mingliang);
+      fun.apply(mingliang);
+
+    </script>
+  </body>
+</html>

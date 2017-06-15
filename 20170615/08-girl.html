@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div { width: 79px;
+        height: 108px;
+        background-image: url(./images/girl.png);
+        background-repeat: no-repeat;
+        background-position: 0px -218px;
+        position: absolute; top: 0; left: 0; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+        var oGirl = document.createElement('div');//创建一个div
+        document.body.appendChild(oGirl);//追加到页面
+
+        var step = 0;//当前第几步
+        var nowLeft = 0;//小女孩离左边的距离
+        setInterval(function(){
+          step++;//步子加1
+          if (step > 7) {//if后验证，到最后一张则自动变第一张
+            step = 0;
+          }
+          //背景的定位
+          oGirl.style.backgroundPositionX = - 79*step + "px";
+
+          nowLeft += 4;//左边的距离每次+4
+          oGirl.style.left = nowLeft + 'px';
+        }, 30);
+    </script>
+  </body>
+</html>

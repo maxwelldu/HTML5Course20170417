@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /**
+      不断的生成多个苹果，每个苹果上面有一个随机的字母
+      你可以敲键，如果这个键能够对应到屏幕上的某个苹果，
+      该苹果消失，游戏得分+1
+      */
+      function Apple(char) {
+        this.char = char;
+        this.init = function(){ }
+        this.drop = function(){ }
+        this.die = function(){ }
+      }
+      var chars = ["a","b","c","d"];
+
+      var apples = [];
+      setInterval(function(){
+        apples.push(new Apple(chars[Math.random()*chars.length]));
+        if (苹果数量太多了) {
+          alert('游戏结果，您的得分是多少');
+        }
+        if (得分>10) {
+          难度指数+1
+        }
+      }, 1000);
+
+      难度指数默认是1
+      document.onkeydown = function(){
+        for (var i = 0; i < apples.length; i++) {
+          if (键码 == apples[i].char) {
+            //把这个苹果从数组里面删除
+            apples[i].die();
+            //总分增加
+          }
+        }
+      }
+
+    </script>
+  </body>
+</html>

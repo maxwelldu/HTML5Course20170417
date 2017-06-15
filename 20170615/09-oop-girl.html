@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div { width: 79px;
+        height: 108px;
+        background-image: url(./images/girl.png);
+        background-repeat: no-repeat;
+        background-position: 0px -218px;
+        position: absolute; top: 0; left: 0; }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /**
+      * 小女孩对象
+      属性：
+        dom 小女孩这个DOM实体
+        left 位置
+        top
+        speed 速度
+        step  步子
+        timer 定时器
+      方法：(生命周期方法和普通方法)
+        init
+        行走
+        die
+      */
+      function Girl(top, left, speed) {
+        this.dom = null;
+        this.top = top;
+        this.left = left;
+        this.speed = speed;
+        this.step = 0;
+        this.timer = 0;
+
+        this.init = function() {
+            this.dom = document.createElement('div');
+            this.dom.style.left = this.left + 'px';
+            this.dom.style.top = this.top + 'px';
+            document.body.appendChild(this.dom);
+        }
+        this.walk = function() {
+          var self = this;
+          //this是指方法外面的this
+          this.timer = setInterval(function(){
+            console.log(this);
+            //改变背景图片的位置
+            self.step++;
+            if (self.step > 7) {
+              self.step = 0;
+            }
+            self.dom.style.backgroundPositionX =
+                - self.step * 79 + "px";
+
+            //改变自身位置
+            self.left += 4;//4是速度
+            if (self.left > 1000) {
+              // self.die();
+              self.left = 1000;
+            }
+            self.dom.style.left = self.left + 'px';
+          }, this.speed);
+        }
+        this.die = function() {
+          clearInterval(this.timer);
+          document.body.removeChild(this.dom);
+        }
+
+        this.init();
+        this.walk();
+      }
+
+      // setInterval(function(){
+        new Girl(Math.random() * 400, Math.random() * 100,
+        Math.random() * 30)
+      // }, 500)
+    </script>
+  </body>
+</html>

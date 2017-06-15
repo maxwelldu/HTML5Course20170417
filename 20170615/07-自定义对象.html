@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person() {
+        //只有在new的时候会执行以下步骤
+        //1.var obj = {}
+        //2.var this = obj;
+        //3.
+        this.name = "mingliang";
+        this.age = 18;
+        this.sex = "男";
+        //4.return this;
+      }
+      var mingliang = new Person();
+      console.log(mingliang);
+
+      //类，Person类
+      //Person这个函数通过new关键字的调用，会把这个Person称为构造函数
+      function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.intro = function(){
+          return 'My name is ' + name;
+        }
+      }
+      //Person是类,是抽象
+      //changkun是实例,是具体的
+      var changkun = new Person('常坤');
+      console.log(changkun);
+      console.log(changkun.intro());
+      var zihao = new Person('子浩');
+      console.log(zihao);
+      console.log(zihao.intro());
+
+    </script>
+  </body>
+</html>
