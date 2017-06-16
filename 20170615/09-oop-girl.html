@@ -15,18 +15,18 @@
   <body>
     <script type="text/javascript">
       /**
-      * 小女孩对象
+      * 小女孩对象的模型       抽象 --> 构造函数
       属性：
-        dom 小女孩这个DOM实体
-        left 位置
+        dom 小女孩这个DOM实体,肉身
+        left 位置           坐标
         top
-        speed 速度
-        step  步子
-        timer 定时器
+        speed 速度          智商
+        step  步子          年龄
+        timer 定时器         时间，(每天要吃饭)
       方法：(生命周期方法和普通方法)
-        init
-        行走
-        die
+        init                出生（出生证明...)
+        行走                 变化
+        die                 死亡
       */
       function Girl(top, left, speed) {
         this.dom = null;

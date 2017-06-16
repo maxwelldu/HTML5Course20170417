@@ -26,12 +26,12 @@
         this.age = age;
         this.sex = sex;
         this.intro = function(){
-          return 'My name is ' + name;
+          return 'My name is ' + this.name;
         }
       }
-      //Person是类,是抽象
+      //Person是类(构造函数),是抽象
       //changkun是实例,是具体的
-      var changkun = new Person('常坤');
+      var changkun = new Person('常坤', 18, '男');
       console.log(changkun);
       console.log(changkun.intro());
       var zihao = new Person('子浩');
