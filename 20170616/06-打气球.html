@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      body {
+        background: url(./images/bg.jpg);
+        background-size: cover;
+        overflow: hidden;
+      }
+      div {
+        background: url(./images/ballon.png) no-repeat;
+        width: 96px;
+        height: 120px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <audio src="./images/bgm.mp3" autoplay="true"></audio>
+    <audio id="boom" src="./images/c.wav"></audio>
+    <script type="text/javascript">
+      /**
+      气球：
+        属性：
+          速度
+          位置
+          肉身
+          定时器
+          分数
+        方法：
+          出生
+          上飘
+          死亡
+      游戏：
+        属性：
+          定时器（不断生成气球）
+          总分
+          总分的肉体
+        方法：
+          生成气球
+      */
+      function Ballon(left) {
+        this.speed = 10;
+        this.bottom = 0;
+        this.left = left;
+        this.dom = null;
+        this.timer = 0;
+        this.score = 0;
+
+        this.init();
+        this.fly();
+      }
+      Ballon.prototype.init = function() {
+        this.dom = document.createElement('div');
+        this.dom.style.bottom = this.bottom + 'px';
+        this.dom.style.left = this.left + 'px';
+        document.body.appendChild(this.dom);
+
+        this.score = parseInt(Math.random() * 7) + 1;
+        var x = - (this.score - 1 ) % 4 * 96;
+        var y = - parseInt((this.score - 1 ) / 4) * 120;
+        this.dom.style.backgroundPositionX = x + 'px';
+        this.dom.style.backgroundPositionY = y + 'px';
+        /*
+        (1-1）%4*96 (2-1)%4*96 (7-1)%4*96
+        (1-1)/4*120 (1-1)/4*120
+        */
+
+        //绑定事件
+        var self = this;
+        this.dom.onclick = function() {
+          self.die();
+          game.score += self.score;
+        }
+      }
+      Ballon.prototype.fly = function() {
+        var self = this;
+        this.timer = setInterval(function(){
+          self.bottom += 3;
+          var bodyHeight = document.documentElement.clientHeight || document.body.clientHeight;
+          if (self.bottom > bodyHeight-120) {
+            game.dieBallon(self);
+            game.misscount ++;
+            if (game.misscount > 10) {
+              game.die();
+            }
+          }
+          self.dom.style.bottom = self.bottom + 'px';
+        }, 30);
+      }
+      Ballon.prototype.die = function() {
+        game.music.play();
+        clearInterval(this.timer);
+        document.body.removeChild(this.dom);
+      }
+
+      function Game() {
+        this.timer = 0;
+        this.score = 0;
+        this.misscount = 0;//漏掉的个数
+        this.scoreDom = null;
+        this.ballons = [];
+        this.music = null;
+
+        this.init();
+        this.createBallon();
+      }
+      Game.prototype.init = function() {
+        this.music = document.getElementById('boom');
+      }
+      Game.prototype.createBallon = function() {
+        var self = this;
+        this.timer = setInterval(function(){
+          var bodyWidth = document.documentElement.clientWidth || document.body.clientWidth;
+          var ballon = new Ballon((Math.random() * bodyWidth) - 96);
+          self.ballons.push(ballon);
+        }, 500);
+      }
+      Game.prototype.dieBallon = function(ballon) {
+        for (var i = 0; i < this.ballons.length; i++) {
+          if (this.ballons[i] === ballon) {
+            this.ballons[i].die();
+            this.ballons.splice(i, 1);
+            return;
+          }
+        }
+      }
+      Game.prototype.die = function() {
+        clearInterval(this.timer);
+        for (var i = 0; i < this.ballons.length; i++) {
+          this.ballons[i].die();
+          this.ballons.splice(i, 1);
+        }
+        alert('您的分数是:' + this.score);
+      }
+      var game = new Game();
+
+    </script>
+  </body>
+</html>
