@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //原型，任何的函数都有原型，如果函数是普通函数的话，
+      // 原型没用
+      function fun() {
+        console.log(1);
+      }
+      console.log(fun.prototype);
+      console.log(typeof fun.prototype);
+
+      fun.maxwell = "maxwell";
+      console.log(fun.maxwell);
+      fun.max = function(){
+        console.log('max');
+      }
+      fun.max();
+
+      function Person() {
+        this.dom = null;
+        this.init = function() {
+          this.dom = document.createElement('div');
+          document.body.appendChild(this.dom);
+        }
+      }
+      var jinyu = new Person();
+      jinyu.init();
+      var mingliang = new Person();
+      mingliang.init();
+      console.log(jinyu.init === mingliang.init);
+      //
+
+      function Student() {
+        this.dom = null;
+      }
+      Student.prototype.init = function() {
+          this.dom = document.createElement('div');
+          document.body.appendChild(this.dom);
+      }
+      var changkun = new Student();
+      changkun.init();
+      var zihao = new Student();
+      // zihao.init = function() {
+        // console.log('zihao init');
+      // }
+      zihao.init();
+      console.log(changkun.__proto__ === Student.prototype);
+      //
+
+      function Teacher() {
+        // this.init = function() {
+          // console.log('teacher init');
+        // }
+      }
+      Teacher.prototype = zihao;
+      var maxwell = new Teacher();
+      maxwell.init();
+
+    </script>
+  </body>
+</html>

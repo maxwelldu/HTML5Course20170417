@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Person(name) {
+        this.name = name;
+      }
+      Person.prototype.sayHello = function() {
+        console.log("I'm " + this.name);
+      }
+      var zhangmei = new Person('张美');
+      var haixia = new Person('海霞');
+
+      zhangmei.sayHello();
+      haixia.sayHello();
+      console.log(zhangmei.sayHello === haixia.sayHello);
+    </script>
+  </body>
+</html>

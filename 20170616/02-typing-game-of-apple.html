@@ -96,6 +96,7 @@
       game.init();
       game.createApple();
       game.bindEvent();
+
       function Game() {
         this.timer = 0;
         this.score = 0;
@@ -107,8 +108,8 @@
           //准备工作
           this.scoreDom = document.getElementById('score');
           //生成苹果的字符范围
-          for (var i = 0; i < 50; i++) {
-            this.chars.push( String.fromCharCode(97+i) );
+          for (var i = 0; i < 26; i++) {
+            this.chars.push( String.fromCharCode(65+i) );
           }
         }
         this.createApple = function () {
@@ -120,7 +121,7 @@
             var left = Math.random()*clientWidth - 20;//20苹果的宽度
             var apple = new Apple(char, top, left);
             self.apples.push(apple);
-          }, 500);
+          }, 200);
         }
         this.bindEvent = function() {
           var self = this;
