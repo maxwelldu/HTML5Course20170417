@@ -16,7 +16,6 @@
         position: absolute;
         width: 30px;
         height: 30px;
-        background-color: lightblue;
         border-radius: 50%;
       }
     </style>
@@ -49,7 +48,7 @@
       }
       Ball.prototype.init = function() {
         this.dom = document.createElement('div');
-        this.dom.style.backgroundcolor = this.color;
+        this.dom.style.backgroundColor = this.color;
         document.body.appendChild(this.dom);
       }
       //小球的渲染
@@ -80,6 +79,11 @@
 
       new Ball(100, 100, 10, "coral", 5, 5);
       new Ball(200, 200, 20, "skyblue", 10, 10);
+      new Ball(200, 200, 30, "skyblue", 9, 9);
+      new Ball(200, 200, 40, "skyblue", 8, 8);
+      new Ball(200, 200, 50, "skyblue", 7, 7);
+      new Ball(200, 200, 60, "skyblue", 6, 6);
+      new Ball(200, 200, 70, "skyblue", 5, 5);
 
     </script>
   </body>
