@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+      div {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: lightblue;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //小球
+      /*
+      属性：
+        颜色
+        大小
+      方法：
+        生成
+        显示
+        移动
+      */
+      function Ball(left, top, speed, color, deltaX, deltaY) {
+        //每次移动的x的量，y的量
+        this.deltaX = deltaX || 5;
+        this.deltaY = deltaY || 5;
+        this.color = color;
+        this.left = left;
+        this.top = top;
+        this.d = 30;//直径
+        this.speed = speed;
+        this.dom = null;
+        this.timer = 0;
+        this.init();
+        this.move();
+      }
+      Ball.prototype.init = function() {
+        this.dom = document.createElement('div');
+        this.dom.style.backgroundcolor = this.color;
+        document.body.appendChild(this.dom);
+      }
+      //小球的渲染
+      Ball.prototype.render = function() {
+        this.dom.style.left = this.left + 'px';
+        this.dom.style.top = this.top + 'px';
+      }
+      //移动
+      Ball.prototype.move = function() {
+        var self = this;
+        var width = document.documentElement.clientWidth || document.body.clientWidth;
+        var height = document.documentElement.clientHeight || document.body.clientHeight;
+        this.timer = setInterval(function(){
+          self.top += self.deltaY;
+          self.left += self.deltaX;
+
+          //碰撞检测
+          if (self.left <= 0 || self.left >= width - self.d) {
+            self.deltaX = -self.deltaX;
+          }
+          if (self.top <= 0 || self.top >= height - self.d) {
+            self.deltaY = -self.deltaY;
+          }
+
+          self.render();
+        }, this.speed);
+      }
+
+      new Ball(100, 100, 10, "coral", 5, 5);
+      new Ball(200, 200, 20, "skyblue", 10, 10);
+
+    </script>
+  </body>
+</html>

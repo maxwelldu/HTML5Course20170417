@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var object = {b:1};
+      Object.defineProperty(object, 'age', {
+        value: 10,
+        "configurable": true,
+        writable: true,
+        enumerable: true
+      });
+      Object.defineProperty(object, 'b', {
+        get: function() {
+          return 10;
+        }
+      });
+      console.log(object.age);
+      console.log(object.b);
+      object.age = 10;
+
+      for (var prop in object) {
+        console.log(prop);
+      }
+    </script>
+  </body>
+</html>

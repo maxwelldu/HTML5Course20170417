@@ -88,12 +88,14 @@
         this.timer = setInterval(function(){
           self.bottom += 3;
           var bodyHeight = document.documentElement.clientHeight || document.body.clientHeight;
-          if (self.bottom > bodyHeight-120) {
-            game.dieBallon(self);
-            game.misscount ++;
-            if (game.misscount > 10) {
+          if (self.bottom >= bodyHeight-120) {
+            if (game.misscount >= 10) {
               game.die();
+              return;
             }
+            // game.dieBallon(self);
+            self.die();
+            game.misscount ++;
           }
           self.dom.style.bottom = self.bottom + 'px';
         }, 30);

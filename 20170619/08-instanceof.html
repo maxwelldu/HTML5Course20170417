@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function Dog() { }
+      function Cat() {}
+      Cat.prototype = new Dog();
+      var cat = new Cat();
+      console.log(cat.constructor);
+      console.log(cat instanceof Cat);
+      console.log(cat instanceof Dog);
+
+      ///
+      var arr = [];
+      console.log(typeof arr);
+
+      var reg = /1[35789]\d{9}/;
+      console.log(typeof reg);
+
+      console.log(arr instanceof Array);
+      console.log(Array.isArray(arr));
+    </script>
+  </body>
+</html>

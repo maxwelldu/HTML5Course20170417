@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*人类*/
+      function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+      }
+      Person.prototype.eat = function() {
+        console.log('Person 正在吃饭');
+      }
+      /*小学生类*/
+      function Student(name, age, sex, lolLevel) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.lolLevel = lolLevel;
+      }
+      Student.prototype.eat = function(){
+        console.log('Person 正在吃饭');
+      }
+      Student.prototype.lol = function(){
+        console.log('Person 正在玩lol');
+      }
+
+      ///继承
+      function People() {
+        // this.age = 18;//4
+      }
+      People.prototype.age = 30;//5
+      var mingliang = new People();
+      // mingliang.age = 17;//3
+
+      function Student() {
+        // this.age = 8;//2
+      }
+      Student.prototype = mingliang;//继承
+      var changkun = new Student();
+      // changkun.age = 7; //1
+      console.log(changkun);
+      console.log(changkun.age);
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"> </div>
+    <script type="text/javascript">
+      var oBox = document.getElementById('box');
+      oBox.onclick = function() {
+        // changeColor();
+        // oBox.changeColor();//n
+        // changeColor.call(oBox);//y
+        changeColor.call(this);//y
+      }
+      function changeColor() {
+        this.style.backgroundColor = 'lightgreen';
+      }
+    </script>
+  </body>
+</html>

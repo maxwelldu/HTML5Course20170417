@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      div {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        font-size: 26px;
+        font-weight: bold;
+        color: white;
+        background: red;
+        text-align: center;
+      }
+      body {
+        background: lightgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="score" class="score"> </h1>
+    <script type="text/javascript">
+      /**
+      不断的生成多个苹果，每个苹果上面有一个随机的字母
+      你可以敲键，如果这个键能够对应到屏幕上的某个苹果上的字母，
+      该苹果消失，游戏得分+1
+
+
+      游戏
+        属性：
+          定时器（不断生成苹果）
+          分数
+          分数的DOM
+          难度
+          随机的字符（a-z)
+          苹果的集合,用数组记录
+        方法：
+          开始
+          结束
+          得分
+          绑定事件
+          生苹果
+          削苹果
+      苹果
+        属性：
+          颜色,土豪金
+          大小,难度越大，苹果越小
+          类型：真苹果，毒苹果
+          速度
+          位置 top lfet
+          DOM
+          定时器
+          字符
+          分数:苹果的分数
+        方法：
+          出生
+          死亡
+          下落
+      */
+      function Apple(char, top, left) {
+        this.char = char;
+        this.top = top;
+        this.left = left;
+        this.dom = null;
+        this.timer = 0;
+        this.init = function () {
+          this.dom = document.createElement('div');
+          this.dom.style.left = this.left + "px";
+          this.dom.style.top = this.top + "px";
+          this.dom.innerText = this.char;
+          document.body.appendChild(this.dom);
+        }
+        this.down = function () {
+          var self =this;
+          document.onkeydown = function(event){
+            event = event || window.event;
+            console.log(event.key, self.char);
+            if (event.key == self.char) {
+              self.die();
+            }
+          }
+          this.timer = setInterval(function() {
+            self.top += 3;
+            if (self.top > 500) {//500 :todo
+              // self.die();//自己移除的话，在游戏对象里还存在
+              game.dieApple(self.char);
+            }
+            self.dom.style.top = self.top + 'px';
+          }, 30);
+        }
+        this.die = function () {
+          clearInterval(this.timer);
+          document.body.removeChild(this.dom);
+        }
+        this.init();
+        this.down();
+      }
+
+      var game = new Game();
+      game.init();
+      game.createApple();
+      game.bindEvent();
+
+      function Game() {
+        this.timer = 0;
+        this.score = 0;
+        this.scoreDom = null;
+        this.level = 1;
+        this.chars = [];
+        this.apples = [];
+        this.init = function(){
+          //准备工作
+          this.scoreDom = document.getElementById('score');
+          //生成苹果的字符范围
+          for (var i = 0; i < 26; i++) {
+            this.chars.push( String.fromCharCode(97+i) );
+          }
+        }
+        this.createApple = function () {
+          var self = this;
+          this.timer = setInterval(function(){
+            var char = self.chars[ parseInt(Math.random()*self.chars.length) ];
+            var top = 0;
+            var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+            var left = Math.random()*clientWidth - 20;//20苹果的宽度
+            var apple = new Apple(char, top, left);
+            self.apples.push(apple);
+          }, 2000);
+        }
+        this.bindEvent = function() {
+          // var self = this;
+          // document.body.onkeydown = function(event) {
+          //   event = event || window.event;
+          //   //苹果消失
+          //   self.dieApple(event.key, true);
+          // }
+        }
+        this.dieApple = function (char, hit) {//字符，是否打中
+          for (var i = 0; i < this.apples.length; i++) {
+            if (char === this.apples[i].char) {
+              this.apples[i].die();
+              if (hit) {
+                this.addScore();
+              }
+              this.apples.splice(i, 1);
+              break;
+            }
+          }
+        }
+        this.addScore = function() {
+          this.score ++;
+          this.scoreDom.innerText = this.score;
+        }
+        this.end = function() {
+          clearInterval(this.timer);
+          alert("您的分数是:" + this.score);
+        }
+      }
+    </script>
+
+  </body>
+</html>

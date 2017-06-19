@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+      <input type="text" name="username" value="">
+      <input type="text" name="email" value="">
+      <input type="text" name="password" value="">
+    </form>
+    <script type="text/javascript">
+      //1.字面量
+      function checkUsername(){
+        //验证用户名
+      }
+      function checkEmail() {}
+      function checkPassword() {}
+      checkUsername();
+
+      //2.函数表达式,调用只能在表达式赋值之后
+      var checkUsername = function(){}
+      var checkEmail = function(){}
+      var checkPassword = function(){}
+      checkUsername();
+
+      //3.用对象收编变量
+      var CheckObject = {
+        checkUsername: function() { },
+        checkEmail: function() { },
+        checkPassword: function() { }
+      }
+      CheckObject.checkUsername();
+
+      //4.对象的另一种形式,函数也是对象,然后加属性
+      var CheckObject = function() {}
+      CheckObject.checkUsername = function(){};
+      CheckObject.checkEmail = function(){};
+      CheckObject.checkPassword = function(){};
+
+      //5.是构造函数吗？ 不是
+      var CheckObject = function() {
+        return {
+          checkUsername: function(){},
+          checkEmail: function(){},
+          checkPassword: function(){}
+        }
+      }
+      var checkObject = CheckObject();
+      checkObject.checkUsername();
+
+      //6.构造函数
+      var CheckObject = function() {
+        this.checkUsername = function() {};
+        this.checkPassword = function() {};
+        this.checkEmail = function() {};
+      }
+      var checkObject = new CheckObject();
+      checkObject.checkUsername();
+
+      //7.1 用一个检测类
+      var CheckObject = function() {}
+      CheckObject.prototype.checkUsername = function(){};
+      CheckObject.prototype.checkEmail = function(){};
+      CheckObject.prototype.checkPassword = function(){};
+
+      //7.2
+      var CheckObject = function() {}
+      CheckObject.prototype = {
+        checkUsername: function() {},
+        checkEmail: function() {},
+        checkPassword: function() {}
+      }
+
+      var checkObject = new CheckObject();
+      checkObject.checkEmail();
+
+      //8
+      var CheckObject = {
+        checkUsername: function() {
+          //验证姓名
+          return this;
+        },
+        checkEmail: function() {
+          //验证邮箱
+          return this;
+        },
+        checkPassword: function() {
+          //验证密码
+          return this;
+        }
+      }
+      CheckObject.checkUsername();//返回的还是CheckObject这个对象
+      CheckObject.checkUsername().checkEmail().checkPassword();
+
+      var CheckObject = function() {};
+      CheckObject.prototype = {
+        checkUsername: function() {
+          //验证姓名
+          return this;
+        },
+        checkEmail: function() {
+          //验证邮箱
+          return this;
+        },
+        checkPassword: function() {
+          //验证密码
+          return this;
+        }
+      }
+      var checkObject = new CheckObject();
+      checkObject.checkUsername().checkPassword().checkEmail();
+
+      //9. 函数的祖先 （prototype.js)
+      // var add = new Function('a','b','return a + b');
+      Function.prototype.checkEmail = function() {
+        console.log('check email');
+      }
+      var checkObject = function(){}
+      checkObject.checkEmail();
+      var checkObject = new Function();
+      checkObject.checkEmail();
+
+    </script>
+    <div class="container">
+      <div class="box">
+        <div class="block">
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var oBlock = document.getElementsByTagName('div')[0].getElementsByTagName('div')[0].getElementsByTagName('div')[0];
+    </script>
+  </body>
+</html>
