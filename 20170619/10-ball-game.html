@@ -149,9 +149,9 @@
         this.scoreDom = document.getElementById('score');
         this.levelDom = document.getElementById('level');
         new Ball(100, 100, 10, "coral", 5, 5);
-        setTimeout(function(){
-          new Ball(300, 150, 10, "green", 5, 5);
-        },500);
+        // setTimeout(function(){
+          // new Ball(300, 150, 10, "green", 5, 5);
+        // },500);
       };
       Game.prototype.addScore = function() {
         this.score += this.deltaScores[this.level];

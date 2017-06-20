@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .board {
+        height: 4px;
+        position: absolute;
+        background-color: green;
+        border-radius: 2px;
+      }
+      .ball {
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      数据结构：球的对象，板的对象，游戏的对象
+      算法：反弹，检测碰撞到板
+
+      算法：
+        反弹算法
+          到了边界点就把迭代信号量取反，10 -10 --10 ---10
+        检测碰撞到板
+          ball.top + ball.d === board.top
+          && ball.left + ball.d/2 >= board.offsetLeft
+          && ball.left + ball.d/2 <= board.offsetLeft + board.width
+      数据结构：
+        球
+          属性：
+            top,left,speed,deltaX,deltaY,d,dom,timer,color
+          方法：
+            init(),move(),render()
+        板
+          属性：
+            dom,top,left
+          方法：
+            init(), render(), bindEvent()
+        游戏
+          属性：
+            score, scoreDom, level, levelDom
+            levelScores(等级和升级分数之间的关系:例如[0,3,10])
+            levelScore(等级和对应的分值的关系：例如[0,1,2])
+            levelDelta(等级和迭代的信号量，
+            就是球的left和top每次增加的量: 例如[0,3,5,6])
+          方法：
+            init(), render(), addScore(), setLevel()
+        伪代码的实现：
+        function 板(top, left) {
+          this.dom = null;
+          this.top = top;
+          this.left = left;
+        }
+        板.原型.init = function() {
+            this.dom = 创建元素
+            插入到 body当中
+          }
+        板.原型.render = function() {
+            this.dom.style.top = this.top + 'px';
+            this.dom.style.left = this.left + 'px';
+          }
+          板.原型.bindEvent = function() {
+            给document添加鼠标移动事件 = function(){
+              板.left = 获取到鼠标的X坐标
+              板.render();
+            }
+          }
+      */
+      function Board(top, left, width) {
+        this.dom = null;
+        this.top = top;
+        this.left = left;
+        this.width = width;
+        this.init();
+        this.render();
+        this.bindEvent();
+      }
+      Board.prototype.init = function() {
+          this.dom = document.createElement('div');
+          this.dom.className = 'board';
+          this.dom.style.width = this.width + 'px';
+          document.body.appendChild(this.dom);
+      }
+      Board.prototype.render = function() {
+          this.dom.style.top = this.top + 'px';
+          this.dom.style.left = this.left + 'px';
+      }
+      Board.prototype.bindEvent = function() {
+        var self = this;
+        document.onmousemove = function(event){
+          event = event || window.event;
+          self.left = event.clientX;
+          if (self.left < 0) {
+            self.left = 0;
+          }
+          if (self.left > width - self.width) {
+            self.left = width - self.width;
+          }
+          self.render();
+        }
+      }
+      var height = document.documentElement.clientHeight || document.body.clientHeight;
+      var width = document.documentElement.clientWidth || document.body.clientWidth;
+      var board = new Board(height - 4 - 100, (width-200)/2, 200);
+
+      /*
+      function 球(top, left, deltaX, deltaY) {
+        this.top = top;
+        this.left = left;
+        this.speed = 30;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.d = 30;//直径
+        this.dom = null;
+        this.timer = 0;
+        this.init();
+        this.move();
+    }
+    球.原型.init = function(){
+      创建元素
+      将元素放到body中
+    }
+    球.原型.move = function(){
+      开启一个定时器(function(){
+        left属性 += x的步长
+        top属性 += y的步长
+        //判断折反
+        如果 (到达左右两边的边界) {
+          步长x的值 = -步长x的值
+        }
+        如果 (到达顶部) {
+          步长y的值 = -步长y的值
+        }
+        如果 （ball.top + ball.d === board.top) {
+          if (ball.left + ball.d/2 >= board.offsetLeft
+          && ball.left + ball.d/2 <= board.offsetLeft + board.width) {
+            步长y的值 = -步长y的值
+            //得分
+          } else {
+            定时器清除
+            提示游戏结束
+          }
+        }
+        球的渲染
+      }, this.speed);
+    }
+    球.原型.render = function(){
+      球的DOM.左边的值 = left属性 + 'px';
+      球的DOM.上边的值 = top属性 + 'px';
+    }
+      */
+
+      function Ball(top, left, deltaX, deltaY, color) {
+        this.top = top;
+        this.left = left;
+        this.speed = 30;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.color = color;
+        this.d = 30;
+        this.dom = null;
+        this.timer = 0;
+        this.init();
+        this.move();
+    }
+    Ball.prototype.init = function(){
+      this.dom = document.createElement('div');
+      this.dom.className = 'ball';
+      this.dom.style.backgroundColor = this.color;
+      document.body.appendChild(this.dom);
+    }
+    Ball.prototype.render = function(){
+      this.dom.style.left = this.left + 'px';
+      this.dom.style.top = this.top + 'px';
+    }
+    Ball.prototype.move = function(){
+      var self = this;
+      this.timer = setInterval(function(){
+        //获取当前等级对应的deltaX和deltaY
+        var deltaX = game.levelDeltaX[game.level];
+        if (self.deltaX > 0) {
+          self.deltaX = deltaX;
+        } else {
+          self.deltaX = -deltaX;
+        }
+        var deltaY = game.levelDeltaY[game.level];
+        if (self.deltaY > 0) {
+          self.deltaY = deltaY;
+        } else {
+          self.deltaY = -deltaY;
+        }
+        // self.deltaY = game.levelDeltaY[game.level];
+
+        self.left += self.deltaX;
+        self.top += self.deltaY;
+        if (self.left < 0) {
+          self.left = 0;
+        }
+        if (self.left > width - self.d) {
+          self.left = width - self.d;
+        }
+        if (self.top < 0) {
+          self.top = 0;
+        }
+        if (self.top > board.top - self.d) {
+          self.top = board.top - self.d;
+        }
+
+        if (self.left <= 0 || self.left >= width - self.d) {
+          self.deltaX = -self.deltaX;
+        }
+        if (self.top <= 0) {
+          self.deltaY = -self.deltaY;
+        }
+        if (self.top + self.d >= board.top) {
+          if (self.left + self.d/2 >= board.dom.offsetLeft
+          && self.left + self.d/2 <= board.dom.offsetLeft + board.width) {
+            self.deltaY = -self.deltaY;
+            //得分
+            game.addScore();
+          } else {
+            clearInterval(self.timer);
+            alert('game over');
+          }
+        }
+        self.render();
+      }, this.speed);
+    }
+
+    function Game() {
+      this.score = 0;
+      this.scoreDom = null;
+      this.level = 1;
+      this.levelDom = null;
+      this.levelScore = [0, 1, 2, 3, 4, 5];
+      this.levelScores = [0, 0, 5, 12, 21, 33];
+      this.levelDeltaX = [0, 5, 10, 15, 20, 25];
+      this.levelDeltaY = [0, 10, 20, 30, 40, 50];
+      this.ballColor = ['red', 'orange', 'yellowgreen', 'green', 'cyan', 'purple'];
+      this.init();
+      this.render();
+    }
+    Game.prototype.init = function() {
+      this.scoreDom = document.createElement('div');
+      this.scoreDom.className = 'score';
+      document.body.appendChild(this.scoreDom);
+
+      this.levelDom = document.createElement('div');
+      this.levelDom.className = 'level';
+      document.body.appendChild(this.levelDom);
+
+      new Ball(0, 0, this.levelDeltaX[this.level], this.levelDeltaY[this.level], this.ballColor[parseInt(Math.random()*this.ballColor.length)])
+    }
+    Game.prototype.render = function() {
+      this.scoreDom.innerText = "分数：" + this.score;
+      this.levelDom.innerText = "等级：" + this.level;
+    }
+    Game.prototype.addScore = function() {
+      //根据不同等级，每次加不同等级对应的分值
+      this.score += this.levelScore[this.level];
+      this.setLevel();//可能会造成升级
+      this.render();
+    }
+    Game.prototype.setLevel = function() {
+      //
+      var i = this.levelScores.length - 1;
+      // this.levelScores = [0, 0, 5, 12, 21, 33];
+      //10
+      while( !(this.score > this.levelScores[i]) ) {
+        i--;
+      }
+      this.level = i;
+      //上面的代码不会写也可以，写多个if else就可以
+    }
+    var game = new Game();
+    </script>
+  </body>
+</html>

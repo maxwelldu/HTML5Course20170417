@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      table {
+        margin: 100px auto;
+      }
+      table,tr,td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        background: green;
+      }
+      td {
+        width: 18px;
+        height: 18px;
+      }
+      .snake {
+        background: red;
+      }
+      .food {
+        background: coral;
+      }
+      .score {
+        position: absolute;
+        top: 0px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="./script/Direction.js" charset="utf-8"></script>
+    <script src="./script/Food.js" charset="utf-8"></script>
+    <script src="./script/Game.js" charset="utf-8"></script>
+    <script src="./script/Map.js" charset="utf-8"></script>
+    <script src="./script/Snake.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      /*
+      数据结构：
+        地图存储, 蛇的身子(数组存储，数组里面存储对象
+      ，例如：[{x:1,y:1}, {x:2,y:1}])
+        蛇，食物，地图，游戏
+      算法：
+        蛇的移动
+
+      伪代码：
+        地图对象画出来
+        蛇画出来
+        蛇移动
+        加上键盘事件
+        蛇朝不同的方向移动，不能后退
+        让食物出现，食物不能出现在蛇身上
+        判断让蛇吃食物长大
+        判断蛇不能碰到边界，碰到就挂
+        判断蛇不能碰到自己的身体，碰到就挂
+      */
+      var mapObject = new GameMap(20, 20);
+      var snake = new Snake();
+      var food = new Food();
+      var game = new Game();
+    </script>
+  </body>
+</html>

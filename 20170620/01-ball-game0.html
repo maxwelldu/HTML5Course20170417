@@ -1,0 +1,149 @@
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"> <title></title> <style media="screen"> .board { height: 4px; position: absolute; background-color: green; border-radius: 2px; } .ball { width: 30px; height: 30px; border-radius: 30px; position: absolute; } </style> </head> <body>
+    <script type="text/javascript">
+      function Board(top, left, width) {
+        this.dom = null;
+        this.top = top;
+        this.left = left;
+        this.width = width;
+        this.init();
+        this.render();
+        this.bindEvent();
+      }
+      Board.prototype.init = function() {
+          this.dom = document.createElement('div');
+          this.dom.className = 'board';
+          this.dom.style.width = this.width + 'px';
+          document.body.appendChild(this.dom);
+      }
+      Board.prototype.render = function() {
+          this.dom.style.top = this.top + 'px';
+          this.dom.style.left = this.left + 'px';
+      }
+      Board.prototype.bindEvent = function() {
+        var self = this;
+        document.onmousemove = function(event){
+          event = event || window.event;
+          self.left = event.clientX;
+          if (self.left < 0) {
+            self.left = 0;
+          }
+          if (self.left > width - self.width) {
+            self.left = width - self.width;
+          }
+          self.render();
+        }
+      }
+      var height = document.documentElement.clientHeight || document.body.clientHeight;
+      var width = document.documentElement.clientWidth || document.body.clientWidth;
+      var board = new Board(height - 4 - 100, (width-200)/2, 200);
+      function Ball(top, left, deltaX, deltaY, color) {
+        this.top = top;
+        this.left = left;
+        this.speed = 30;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
+        this.color = color;
+        this.d = 30;
+        this.dom = null;
+        this.timer = 0;
+        this.init();
+        this.move();
+    }
+    Ball.prototype.init = function(){
+      this.dom = document.createElement('div');
+      this.dom.className = 'ball';
+      this.dom.style.backgroundColor = this.color;
+      document.body.appendChild(this.dom);
+    }
+    Ball.prototype.render = function(){
+      this.dom.style.left = this.left + 'px';
+      this.dom.style.top = this.top + 'px';
+    }
+    Ball.prototype.move = function(){
+      var self = this;
+      this.timer = setInterval(function(){
+        var deltaX = game.levelDeltaX[game.level];
+        if (self.deltaX > 0) {
+          self.deltaX = deltaX;
+        } else {
+          self.deltaX = -deltaX;
+        }
+        var deltaY = game.levelDeltaY[game.level];
+        if (self.deltaY > 0) {
+          self.deltaY = deltaY;
+        } else {
+          self.deltaY = -deltaY;
+        }
+        self.left += self.deltaX;
+        self.top += self.deltaY;
+        if (self.left < 0) {
+          self.left = 0;
+        }
+        if (self.left > width - self.d) {
+          self.left = width - self.d;
+        }
+        if (self.top < 0) {
+          self.top = 0;
+        }
+        if (self.top > board.top - self.d) {
+          self.top = board.top - self.d;
+        }
+        if (self.left <= 0 || self.left >= width - self.d) {
+          self.deltaX = -self.deltaX;
+        }
+        if (self.top <= 0) {
+          self.deltaY = -self.deltaY;
+        }
+        if (self.top + self.d >= board.top) {
+          if (self.left + self.d/2 >= board.dom.offsetLeft
+          && self.left + self.d/2 <= board.dom.offsetLeft + board.width) {
+            self.deltaY = -self.deltaY;
+            game.addScore();
+          } else {
+            clearInterval(self.timer);
+            alert('game over');
+          }
+        }
+        self.render();
+      }, this.speed);
+    }
+    function Game() {
+      this.score = 0;
+      this.scoreDom = null;
+      this.level = 1;
+      this.levelDom = null;
+      this.levelScore = [0, 1, 2, 3, 4, 5];
+      this.levelScores = [0, 0, 5, 12, 21, 33];
+      this.levelDeltaX = [0, 5, 10, 15, 20, 25];
+      this.levelDeltaY = [0, 10, 20, 30, 40, 50];
+      this.ballColor = ['red', 'orange', 'yellowgreen', 'green', 'cyan', 'purple'];
+      this.init();
+      this.render();
+    }
+    Game.prototype.init = function() {
+      this.scoreDom = document.createElement('div');
+      this.scoreDom.className = 'score';
+      document.body.appendChild(this.scoreDom);
+      this.levelDom = document.createElement('div');
+      this.levelDom.className = 'level';
+      document.body.appendChild(this.levelDom);
+      new Ball(0, 0, this.levelDeltaX[this.level], this.levelDeltaY[this.level], this.ballColor[parseInt(Math.random()*this.ballColor.length)])
+    }
+    Game.prototype.render = function() {
+      this.scoreDom.innerText = "分数：" + this.score;
+      this.levelDom.innerText = "等级：" + this.level;
+    }
+    Game.prototype.addScore = function() {
+      this.score += this.levelScore[this.level];
+      this.setLevel();//可能会造成升级
+      this.render();
+    }
+    Game.prototype.setLevel = function() {
+      var i = this.levelScores.length - 1;
+      while( !(this.score > this.levelScores[i]) ) {
+        i--;
+      }
+      this.level = i;
+    }
+    var game = new Game();
+    </script> </body> </html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      table {
+        margin: 100px auto;
+      }
+      table,tr,td {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        background: green;
+      }
+      td {
+        width: 18px;
+        height: 18px;
+      }
+      .snake {
+        background: red;
+      }
+      .food {
+        background: coral;
+      }
+      .score {
+        position: absolute;
+        top: 0px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+      数据结构：
+        地图存储, 蛇的身子(数组存储，数组里面存储对象
+      ，例如：[{x:1,y:1}, {x:2,y:1}])
+        蛇，食物，地图，游戏
+      算法：
+        蛇的移动
+
+      伪代码：
+        地图对象画出来
+        蛇画出来
+        蛇移动
+        加上键盘事件
+        蛇朝不同的方向移动，不能后退
+        让食物出现，食物不能出现在蛇身上
+        判断让蛇吃食物长大
+        判断蛇不能碰到边界，碰到就挂
+        判断蛇不能碰到自己的身体，碰到就挂
+      */
+      function Map(row, col) {
+        this.row = row;//行数
+        this.col = col;//列数
+        this.dom = null;//表格存储
+        this.map = [];//二维数组存储表格地图
+        this.init();//初始化
+      }
+      Map.prototype.init = function(){//初始化
+        this.dom = document.createElement('table');//创建一个表格
+        document.body.appendChild(this.dom);//将表格追加到body
+        for (var i = 0; i < this.row; i++) {//遍历行
+          var tr = document.createElement('tr');//创建行
+          //存放当前行的td的数组，存放td的dom元素
+          var thisrowtd = [];
+          for (var j = 0; j < this.col; j++) {//遍历列数
+            var td = document.createElement('td');//创建列
+            tr.appendChild(td);//将列添加到行
+            thisrowtd.push(td);//将列放到thisrowtd数组中
+          }
+          this.dom.appendChild(tr);//将tr添加到表格中
+          this.map.push(thisrowtd);//将当前行的数组添加到tds中
+        }
+      }
+      var Direction = {//方向
+        UP:     0,
+        DOWN:   1,
+        LEFT:   2,
+        RIGHT:  3
+      };
+      //蛇类
+      function Snake() {
+        this.bodyArr = [
+          {x:3, y:5},
+          {x:3, y:4},
+          {x:3, y:3}
+        ];
+        //移动方向
+        this.direction = Direction.RIGHT;
+        this.render();
+        this.bindEvent();
+      }
+      //渲染出来
+      Snake.prototype.render = function(){
+        for (var i = 0; i < mapObject.row; i++) {//遍历行
+          for (var j = 0; j < mapObject.col; j++) {//遍历列数
+            mapObject.map[i][j].className = '';
+          }
+        }
+
+        for (var i = 0; i < this.bodyArr.length; i++) {
+          var body = this.bodyArr[i];
+          mapObject.map[body.x][body.y].className = 'snake';
+        }
+      }
+      Snake.prototype.findHead = function() {
+        var head = this.bodyArr[0];
+        console.log(head);
+        var newhead = {};
+        switch(this.direction) {
+          case Direction.RIGHT:
+            //在头部加一项
+            newhead = {x:head.x, y:head.y+1};
+            break;
+          case Direction.LEFT:
+            newhead = {x:head.x, y:head.y-1};
+            break;
+          case Direction.UP:
+            newhead = {x:head.x-1, y:head.y};
+            break;
+          case Direction.DOWN:
+            newhead = {x:head.x+1, y:head.y};
+            break;
+        }
+        return newhead;
+      }
+      Snake.prototype.move = function() {
+        //到底加哪个头
+        var newhead = this.findHead();
+        //判断蛇是否到了边界
+        if (newhead.x < 0
+          || newhead.x >= mapObject.col
+          || newhead.y < 0
+          || newhead.y >= mapObject.row) {
+          game.gameover();
+          return;
+        }
+        //判断是否撞到自身
+        for (var i = 0; i < this.bodyArr.length; i++) {
+          if (newhead.x === this.bodyArr[i].x && newhead.y === this.bodyArr[i].y) {
+            game.gameover();
+            return;
+          }
+        }
+
+        //判断是否吃到了食物, 尾巴不删，否则删除尾巴
+        if (newhead.x === food.x && newhead.y === food.y) {
+          food.change();
+          game.addScore();
+          //判断屏幕上是否还有空位，如果没有则赢了
+          game.gameVictory();
+        } else {//没吃到食物时删除尾巴
+          this.bodyArr.pop();//删除尾巴
+        }
+        this.bodyArr.unshift(newhead);
+      }
+      Snake.prototype.bindEvent = function(){
+        var self = this;
+        document.onkeydown = function(event) {
+          event = event || window.event;
+          switch(event.keyCode) {
+            case 37: //左
+              if (self.direction !== Direction.RIGHT) self.direction = Direction.LEFT;
+              break;
+            case 38://上
+              if (self.direction !== Direction.DOWN) self.direction = Direction.UP;
+              break;
+            case 39://右
+              if (self.direction !== Direction.LEFT) self.direction = Direction.RIGHT;
+              break;
+            case 40:
+              if (self.direction != Direction.UP) self.direction = Direction.DOWN;
+              break;
+          }
+        console.log(self.direction);
+        }
+      }
+
+      function Food() {
+        this.x = 0;
+        this.y = 0;
+        this.change();
+      }
+      Food.prototype.render = function(){
+        mapObject.map[this.x][this.y].className = 'food';
+      }
+      //生成一个食物
+      Food.prototype.change = function() {
+        this.x = parseInt(Math.random() * mapObject.col);
+        this.y = parseInt(Math.random() * mapObject.row);
+
+        //判断食物是否在身上，如果在身上就继续执行这个方法
+        for (var i = 0; i < snake.bodyArr.length; i++) {
+          if (this.x === snake.bodyArr[i].x && this.y === snake.bodyArr[i].y) {
+            this.change();
+            return;
+          }
+        }
+        console.log(this);
+      }
+
+      function Game() {
+        this.timer = 0;
+        this.score = 0;
+        this.scoreDom = null;
+        this.init();
+      }
+      Game.prototype.init = function(){
+        this.scoreDom = document.createElement('div');
+        this.scoreDom.className = 'score';
+        document.body.appendChild(this.scoreDom);
+
+        this.timer = setInterval(function(){
+          snake.move();
+          snake.render();
+
+          food.render();
+
+          game.render();
+        }, 100);
+      }
+      Game.prototype.gameover = function() {
+        clearInterval(this.timer);
+        alert('game over');
+      }
+      Game.prototype.gameVictory = function() {
+        if (snake.bodyArr.length === mapObject.row * mapObject.col) {
+          clearInterval(this.timer);
+          alert('Victory');
+        }
+      }
+      Game.prototype.render = function() {
+        this.scoreDom.innerText = "得分：" + this.score;
+      }
+      Game.prototype.addScore = function() {
+        this.score ++;
+      }
+      var mapObject = new Map(20, 20);
+      var snake = new Snake();
+      var food = new Food();
+      var game = new Game();
+
+    </script>
+  </body>
+</html>
