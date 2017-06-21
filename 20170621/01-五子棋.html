@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        margin: 100px auto;
+        background: url(./img/bak.jpg) no-repeat;
+      }
+      table, tr, td {
+        border-collapse: collapse;
+        border: 1px solid #fff;
+      }
+      .black {
+        background: url(./img/black.png) no-repeat;
+        background-size: cover;
+      }
+      .white {
+        background: url(./img/white.png) no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var Type = {
+        EMPTY: 0,//空
+        BLACK: 1,
+        WHITE: 2
+      }
+      var Direction = {
+        UP:         0,
+        DOWN:       1,
+        LEFT:       2,
+        RIGHT:      3,
+        LEFTUP:     4,
+        RIGHTUP:    5,
+        LEFTDOWN:   6,
+        RIGHTDOWN:  7
+      }
+      function GameMap (row, col, span) {
+        this.row = row;//行
+        this.col = col;//列
+        this.span = span;//间距
+        this.maps = [];//地图，用来存储所有的td
+        this.table = null;
+        this.init();
+      }
+      GameMap.prototype.init = function() {
+        this.table = document.createElement('table');
+        document.body.appendChild(this.table);
+        for (var i = 0; i < this.row; i++) {
+          var tr = document.createElement('tr');
+          this.table.appendChild(tr);
+          var mapTr = [];//一行的数组
+          for (var j = 0; j < this.col; j++) {
+            var td = document.createElement('td');
+            td.style.width = this.span + 'px';
+            td.style.height = this.span + 'px';
+            td.title = Type.EMPTY;
+            td.innerText = Type.EMPTY;//:TODO
+            tr.appendChild(td);
+            mapTr.push(td);
+          }
+          this.maps.push(mapTr);
+        }
+      }
+
+      function Game() {
+        this.playerBlack = true;//现在是黑子开始
+        this.gameover = false;
+        this.winSize = 5;
+        this.bindEvent();
+      }
+      Game.prototype.bindEvent = function() {
+        var self = this;
+        document.body.onclick = function(event) {
+          if (self.gameover) return;
+
+          event = event || window.event;
+          var x = event.pageX - map.table.offsetLeft;//计算鼠标在横盘上面的x坐标
+          var y = event.pageY - map.table.offsetTop;
+
+          var row = parseInt(y / map.span);//根据X坐标的值和格子的距离，计算row
+          var col = parseInt(x / map.span);//列
+
+          //判断当前落子的位置的title是否为空，如果不为空则不允许落
+          var target = map.maps[row][col];
+          if (target.title == Type.EMPTY) {
+            //落子
+            target.className = self.playerBlack ? 'black' : 'white';
+            target.title = self.playerBlack ? Type.BLACK : Type.WHITE;
+            target.innerText = self.playerBlack ? Type.BLACK : Type.WHITE;
+            self.judgeVictory(target, row, col);//调用判断赢的规则
+            self.playerBlack = !self.playerBlack;
+          }
+        }
+      }
+      //根据当前的子不同的方向计算个数
+      //target 当前的子，row当前子的row, col当前子的col
+      Game.prototype.countByDirection = function(target, row, col, direction) {
+        var total = 0;
+        switch (direction) {
+          case Direction.LEFT:
+            while(col-1 >= 0 && map.maps[row][col-1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;//计数加一
+              col--;//下一次往左移动一格
+            }
+            break;
+          case Direction.RIGHT:
+            // col+1, 10列的话，值是0-9, <10是合法的
+            while(col+1 < map.col && map.maps[row][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              col++;
+            }
+            break;
+          case Direction.UP:
+            while(row-1 >= 0 && map.maps[row-1][col].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              row--;
+            }
+            break;
+          case Direction.DOWN:
+            while(row+1 < map.row && map.maps[row+1][col].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;//计数加一
+              row++;//下一次往左移动一格
+            }
+            break;
+          case Direction.LEFTUP:
+            while(col-1 >= 0 && row-1 >= 0 && map.maps[row-1][col-1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              row--;
+              col--;
+            }
+            break;
+          case Direction.RIGHTUP:
+            while(col+1 < map.col && row-1 >= 0 && map.maps[row-1][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              col++;
+              row--;
+            }
+            break;
+          case Direction.LEFTDOWN:
+            while(col-1 >= 0 && row+1 < map.row && map.maps[row+1][col-1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              col--;
+              row++;
+            }
+            break;
+          case Direction.RIGHTDOWN:
+            while(col+1 < map.col && row+1 < map.row &&  map.maps[row+1][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+              total++;
+              col++;
+              row++;
+            }
+            break;
+        }
+        return total;
+      }
+      //判断胜负
+      Game.prototype.judgeVictory = function(target, row, col) {
+        if (
+          (this.countByDirection(target, row, col, Direction.LEFT) + this.countByDirection(target, row, col, Direction.RIGHT) + 1 == this.winSize) //横
+          || (this.countByDirection(target, row, col, Direction.UP) + this.countByDirection(target, row, col, Direction.DOWN) + 1 == this.winSize) //横
+          || (this.countByDirection(target, row, col, Direction.LEFTUP) + this.countByDirection(target, row, col, Direction.RIGHTDOWN) + 1 == this.winSize) //横
+          || (this.countByDirection(target, row, col, Direction.LEFTDOWN) + this.countByDirection(target, row, col, Direction.RIGHTUP) + 1 == this.winSize) //横
+        ) {
+          console.log(this.playerBlack);
+          this.gameover = true;
+          alert(this.playerBlack ? '黑子赢' : '白子赢');
+        }
+      }
+
+      var map = new GameMap(10, 10, 50);
+      var game = new Game();
+
+      //抽取属性，抽取方法
+    </script>
+  </body>
+</html>
