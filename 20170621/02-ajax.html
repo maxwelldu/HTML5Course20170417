@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var obj = {"name":"max"};
+      console.log(obj);
+      var objString = JSON.stringify(obj);
+      console.log(objString);
+      console.log(JSON.parse(objString));
+
+      //1.创建xhr对象
+      var xhr = new XMLHttpRequest();
+      //2.设置一下收到结果之后怎么样
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          console.log(xhr.responseText);
+          var response = JSON.parse(xhr.responseText);
+          for (var i = 0; i < response.data.length; i++) {
+            var obj = response.data[i];
+            console.log(obj);
+            var oDiv = document.createElement('div');
+            oDiv.innerText = obj.cat_name;
+            document.body.appendChild(oDiv);
+          }
+          /*
+          遍历obj.data {
+            创建DOM元素，比如div
+            给元素的innerText赋值为obj.data[i].cat_name
+            把元素放到body里面
+          }
+          */
+        }
+      };
+      //3.配置请求
+      xhr.open('GET', 'http://h6.duchengjiu.top/shop/api_cat.php');
+      //4.发送请求
+      xhr.send();
+
+    </script>
+  </body>
+</html>

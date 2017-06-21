@@ -15,6 +15,7 @@
       table, tr, td {
         border-collapse: collapse;
         border: 1px solid #fff;
+        cursor: pointer;
       }
       .black {
         background: url(./img/black.png) no-repeat;
@@ -63,7 +64,6 @@
             td.style.width = this.span + 'px';
             td.style.height = this.span + 'px';
             td.title = Type.EMPTY;
-            td.innerText = Type.EMPTY;//:TODO
             tr.appendChild(td);
             mapTr.push(td);
           }
@@ -88,6 +88,10 @@
 
           var row = parseInt(y / map.span);//根据X坐标的值和格子的距离，计算row
           var col = parseInt(x / map.span);//列
+          if (row < 0) row = 0;
+          if (row >= map.row) row = map.row-1;
+          if (col < 0) col = 0;
+          if (col >= map.col) col = map.col-1;
 
           //判断当前落子的位置的title是否为空，如果不为空则不允许落
           var target = map.maps[row][col];
@@ -95,7 +99,6 @@
             //落子
             target.className = self.playerBlack ? 'black' : 'white';
             target.title = self.playerBlack ? Type.BLACK : Type.WHITE;
-            target.innerText = self.playerBlack ? Type.BLACK : Type.WHITE;
             self.judgeVictory(target, row, col);//调用判断赢的规则
             self.playerBlack = !self.playerBlack;
           }
@@ -114,46 +117,46 @@
             break;
           case Direction.RIGHT:
             // col+1, 10列的话，值是0-9, <10是合法的
-            while(col+1 < map.col && map.maps[row][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(col+1 < map.col && map.maps[row][col+1].title == target.title) {
               total++;
               col++;
             }
             break;
           case Direction.UP:
-            while(row-1 >= 0 && map.maps[row-1][col].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(row-1 >= 0 && map.maps[row-1][col].title == target.title) {
               total++;
               row--;
             }
             break;
           case Direction.DOWN:
-            while(row+1 < map.row && map.maps[row+1][col].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(row+1 < map.row && map.maps[row+1][col].title == target.title) {
               total++;//计数加一
               row++;//下一次往左移动一格
             }
             break;
           case Direction.LEFTUP:
-            while(col-1 >= 0 && row-1 >= 0 && map.maps[row-1][col-1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(col-1 >= 0 && row-1 >= 0 && map.maps[row-1][col-1].title == target.title) {
               total++;
               row--;
               col--;
             }
             break;
           case Direction.RIGHTUP:
-            while(col+1 < map.col && row-1 >= 0 && map.maps[row-1][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(col+1 < map.col && row-1 >= 0 && map.maps[row-1][col+1].title == target.title) {
               total++;
               col++;
               row--;
             }
             break;
           case Direction.LEFTDOWN:
-            while(col-1 >= 0 && row+1 < map.row && map.maps[row+1][col-1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(col-1 >= 0 && row+1 < map.row && map.maps[row+1][col-1].title == target.title) {
               total++;
               col--;
               row++;
             }
             break;
           case Direction.RIGHTDOWN:
-            while(col+1 < map.col && row+1 < map.row &&  map.maps[row+1][col+1].title == target.title) {//可以用title, className等，只要能够表现出他们的不同即可
+            while(col+1 < map.col && row+1 < map.row &&  map.maps[row+1][col+1].title == target.title) {
               total++;
               col++;
               row++;
@@ -165,18 +168,33 @@
       //判断胜负
       Game.prototype.judgeVictory = function(target, row, col) {
         if (
-          (this.countByDirection(target, row, col, Direction.LEFT) + this.countByDirection(target, row, col, Direction.RIGHT) + 1 == this.winSize) //横
-          || (this.countByDirection(target, row, col, Direction.UP) + this.countByDirection(target, row, col, Direction.DOWN) + 1 == this.winSize) //横
-          || (this.countByDirection(target, row, col, Direction.LEFTUP) + this.countByDirection(target, row, col, Direction.RIGHTDOWN) + 1 == this.winSize) //横
-          || (this.countByDirection(target, row, col, Direction.LEFTDOWN) + this.countByDirection(target, row, col, Direction.RIGHTUP) + 1 == this.winSize) //横
+          (this.countByDirection(target, row, col, Direction.LEFT) + this.countByDirection(target, row, col, Direction.RIGHT) + 1 >= this.winSize)
+          || (this.countByDirection(target, row, col, Direction.UP) + this.countByDirection(target, row, col, Direction.DOWN) + 1 >= this.winSize)
+          || (this.countByDirection(target, row, col, Direction.LEFTUP) + this.countByDirection(target, row, col, Direction.RIGHTDOWN) + 1 >= this.winSize)
+          || (this.countByDirection(target, row, col, Direction.LEFTDOWN) + this.countByDirection(target, row, col, Direction.RIGHTUP) + 1 >= this.winSize)
         ) {
           console.log(this.playerBlack);
           this.gameover = true;
           alert(this.playerBlack ? '黑子赢' : '白子赢');
+          return;
+        }
+
+        //遍历地图，如果没有空位则和棋
+        var count = 0;
+        for (var i = 0; i < map.maps.length; i++) {
+          for (var j = 0; j < map.maps[i].length; j++) {
+            if (map.maps[i][j].title != Type.EMPTY) {
+              count++;
+            }
+          }
+        }
+        if (count == map.col*map.row) {
+          this.gameover = true;
+          alert('和棋');
         }
       }
 
-      var map = new GameMap(10, 10, 50);
+      var map = new GameMap(5, 5, 50);
       var game = new Game();
 
       //抽取属性，抽取方法
