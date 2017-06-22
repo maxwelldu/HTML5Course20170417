@@ -1,0 +1,110 @@
+/*.declaration-order {*/
+    /*!* Positioning *!*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*z-index: 100;*/
+
+    /*!* Box-model *!*/
+    /*display: block;*/
+    /*float: right;*/
+    /*width: 100px;*/
+    /*height: 100px;*/
+
+    /*!* Typography *!*/
+    /*font: normal 13px "Helvetica Neue", sans-serif;*/
+    /*line-height: 1.5;*/
+    /*color: #333;*/
+    /*text-align: center;*/
+
+    /*!* Visual *!*/
+    /*background-color: #f5f5f5;*/
+    /*border: 1px solid #e5e5e5;*/
+    /*border-radius: 3px;*/
+
+    /*!* Misc *!*/
+    /*opacity: 1;*/
+/*}*/
+/*PBTVM*/
+/*Position Box-model Typography Visual Misc*/
+/*头部*/
+.header {
+    /*B*/
+    height: 100px;
+    /*V*/
+    background-color: #333;
+}
+.header .container {
+    /*B*/
+    width:1000px;
+    margin: 0 auto;
+}
+.header a{
+    /*B*/
+    display: block;
+    float: left;
+    width:100px;
+}
+.header a h2{
+    /*B*/
+    width: 100px;
+    /*T*/
+    color: white;
+    font-size: 30px;
+    line-height: 100px;
+}
+.header .login{
+    width: 200px;
+    float: right;
+    display: none;
+}
+.header .login a{
+    color: white;
+    line-height: 100px;
+}
+.header .userinfo {
+    float: right;
+    line-height: 300px;
+    display: none;
+    color: white;
+}
+.header .userinfo .username{
+    float: left;
+    width: 100px;
+    line-height: 100px;
+}
+.header .userinfo .logout{
+    float: left;
+    width: 100px;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+/*中间内容*/
+.container {
+    /*B*/ width: 1000px;
+    margin: 10px auto;
+}
+/*商品分类*/
+.container .goods_category_container {
+
+}
+.container .goods_category {
+    /*B*/
+    height:30px;
+}
+.container .goods_category li {
+    /*B*/
+    float: left;
+    width: 70px;
+    height:30px;
+}
+/*底部*/
+.footer{
+    /*B*/
+    height: 100px;
+    /*V*/
+    background-color: #999;
+}

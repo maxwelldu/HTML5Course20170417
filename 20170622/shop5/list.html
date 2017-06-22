@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/list.css">
+</head>
+<body>
+<div class="header">
+  <div class="container">
+    <a href="index.html"><h2>良仓</h2></a>
+    <div class="login">
+      <a href="login.html">登录</a>
+      <a href="register.html">注册</a>
+    </div>
+    <div class="userinfo">
+      <div class="username"></div>
+      <div class="logout" id="logout">退出</div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <!--商品分类-->
+  <div class="goods_category_container">
+    <ul id="goods_category" class="goods_category"></ul>
+  </div>
+  <!--商品列表-->
+  <div class="goods_container">
+    <ul id="goods_ul" class="goods_ul"></ul>
+  </div>
+</div>
+<div class="footer"></div>
+
+
+<script src="libs/max1.0.js"></script>
+<script>
+    $.loadScript(['scripts/common.js', 'scripts/list.js']);
+</script>
+</body>
+</html>

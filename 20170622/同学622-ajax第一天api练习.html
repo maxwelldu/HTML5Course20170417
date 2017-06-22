@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: black;
+
+        }
+        #top{
+            width: 500px;
+            height: 50px;
+
+            float: left;
+            margin-left: 800px;
+            line-height: 50px;
+        }
+        #top ul{
+            list-style: none;
+        }
+        #top ul li{
+            float: left;
+            margin-left: 20px;
+        }
+        #top ul li.sousuo{
+            margin-left: 100px;
+        }
+        #top ul li a{
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+        }
+        nav{
+            width: 100%;
+            height: 30px;
+            background-color: darkgrey;
+            float: left;
+        }
+        #daohang{
+            width: 300px;
+            height: 30px;
+
+            float: left;
+        }
+        #daohang ul{
+            list-style: none;
+        }
+        #daohang ul li{
+            float: left;
+            margin-left: 10px;
+            color: white;
+        }
+        #nav{
+            float: left;
+            width: 100%;
+        }
+        #nav div{
+            float: left;
+            margin-left: 20px;
+            color: palevioletred;
+            font-size: 20px;
+        }
+
+        #content{
+           float: left;
+            width: 100%;
+            height: 1000px;
+        }
+        #content div{
+
+        }
+        #content div span{
+            font-weight: bold;
+            color: #fede4e;
+        }
+        #content div b{
+            font-size: 14px;
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="top">
+            <ul>
+                <li><a href="">登录</a></li>
+                <li><a href="">注册</a></li>
+                <li class="sousuo">
+                    <input type="text">　<a href="">搜索</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <div id="nav">
+
+    </div>
+    <div id="content">
+
+    </div>
+
+</body>
+<script type="text/javascript">
+    var content = document.getElementById("content");
+    var nav = document.getElementById("nav");
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if(xhr.readyState == 4){
+            console.log(xhr.responseText);
+            var obj = JSON.parse(xhr.responseText);
+            console.log(obj);
+            var html="";
+            for(var i = 0; i < obj.data.length; i++){
+//                var oDiv = document.createElement("div");
+                var oDiv = obj.data[i].cat_name;
+//                oDiv.className = "nav-top";
+//                document.body.appendChild(oDiv);
+                html += "<div>"
+                    +oDiv
+                    + "</div>"
+
+            }
+            nav.innerHTML = html;
+        }
+    }
+    xhr.open("GET", "http://lc.shudong.wang/api_cat.php")
+    xhr.send();
+
+
+    var xhr1 = new XMLHttpRequest();
+    xhr1.onreadystatechange = function () {
+        if(xhr1.readyState == 4){
+            console.log(xhr1.responseText);
+            var obj = JSON.parse(xhr1.responseText);
+            console.log(obj);
+            console.log(obj.data[0].goods_thumb);
+            var html="";
+            for(var i = 0; i < obj.data.length; i++){
+//                var oDiv = document.createElement("div");
+//               var oDiv = obj.data[i].goods_name;
+
+//                oDiv.className = "neirong";
+//                document.body.appendChild(oDiv);
+                html += "<div>"
+                        +"<img src='" + obj.data[i].goods_thumb + "'>"
+                        +"</br>"
+                        +obj.data[i].goods_name
+                        +"<span>"
+                        +obj.data[i].price
+                        +"元"
+                        +"</span>"
+                        +"</br>"
+                        +"<b>"
+                        +obj.data[i].goods_desc
+                        +"</b>"
+                        + "</div>"
+
+
+            }
+            content.innerHTML=html;
+        }
+
+    }
+
+    xhr1.open("GET", "http://lc.shudong.wang/api_goods.php")
+    xhr1.send();
+</script>
+
+</html>

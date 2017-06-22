@@ -1,0 +1,124 @@
+/*轮播图*/
+.carousel {
+    /*P*/
+    position: relative;
+    /*B*/
+    width: 1000px;
+    height: 475px;
+}
+
+.carousel ul {
+    /*V*/
+    list-style: none;
+}
+
+.carousel ul li {
+    /*B*/
+    display: none;
+}
+
+.carousel ul li.current {
+    /*B*/
+    display: block;
+}
+
+.carousel span {
+    /*P*/
+    position: absolute;
+    /*B*/
+    width: 55px;
+    height: 55px;
+    top: 45%;
+    /*M*/
+    cursor: pointer;
+}
+
+.carousel .leftBtn {
+    /*P*/
+    left: 10px;
+    /*V*/
+    background: url(../images/slide-btnL.png);
+}
+
+.carousel .rightBtn {
+    /*P*/
+    right: 10px;
+    /*V*/
+    background: url(../images/slide-btnR.png);
+}
+
+.carousel .circles {
+    /*P*/
+    position: absolute;
+    /*B*/
+    width: 250px;
+    height: 17px;
+    left: 50%;
+    bottom: 10px;
+    margin-left: -170px;
+    padding: 5px;
+    /*V*/
+    background: #cccccc;
+    border-radius: 5px;
+}
+
+.carousel .circles ol {
+    /*V*/
+    list-style: none;
+}
+
+.carousel .circles ol li {
+    /*B*/
+    float: left;
+    width: 17px;
+    height: 17px;
+    margin-right: 13px;
+    /*V*/
+    background: gold;
+    border-radius: 50%;
+    /*M*/
+    cursor: pointer;
+}
+
+.carousel .circles ol li.current {
+    /*V*/
+    background: purple;
+}
+/*热门商品*/
+.hot_goods_container {
+    /*B*/
+    height: 100%;
+}
+
+.hot_goods_ul {
+    /*V*/
+    overflow: hidden;
+}
+
+.hot_goods_ul li {
+    /*B*/
+    float: left;
+    width: 250px;
+    height: 380px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-top: 10px;
+    /*V*/
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.hot_goods_ul li img {
+    /*V*/
+    border-radius: 50%;
+}
+
+.hot_goods_ul li span {
+    /*T*/
+    color: orangered;
+}
+
+.hot_goods_ul li div .detail {
+    /*T*/
+    color: #666666;
+}

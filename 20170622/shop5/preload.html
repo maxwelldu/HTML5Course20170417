@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>无标题文档</title>
+  <script>
+    window.onload = function() {
+
+      var oImg = document.getElementById('img1');
+
+      var oImage = new Image();
+      /*
+       属性：
+       src : 当我们给Image对象的src属性赋值一个url的时候，这个Image对象就去会加载url资源，加载完成以后的资源被保存到了浏览器的缓存文件夹里面，下次如果我们要去调用这个url地址的时候，直接是从缓存文件夹读取到的，所以速度很快。
+       onload : 当资源加载完成的时候触发
+       onerror : 当资源加载失败的时候触发
+       */
+      oImage.src = 'http://b.hiphotos.baidu.com/image/w%3D2048/sign=526ef7bda41ea8d38a227304a332314e/1ad5ad6eddc451dae05f4cedb4fd5266d016320e.jpg';
+      oImage.onload = function() {
+//        alert('加载完成');
+
+//        document.onclick = function() {
+          oImg.src = 'http://b.hiphotos.baidu.com/image/w%3D2048/sign=526ef7bda41ea8d38a227304a332314e/1ad5ad6eddc451dae05f4cedb4fd5266d016320e.jpg';
+//        }
+      }
+
+      /*oImage.onerror = function() {
+       alert('加载出错');
+       }*/
+
+
+    }
+  </script>
+</head>
+
+<body>
+<img src="" id="img1" />
+</body>
+</html>

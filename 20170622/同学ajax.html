@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     .div2{
+          width: 70%;
+          margin: 0 auto;
+     }
+     #header{
+          margin: 0 auto;
+          width: 100%;
+          float: left;
+     }
+     .cat{
+     	width: 100px;
+     	float: left;
+     	background: red;
+     	font-size: 20px;
+          margin-left: 20px;
+          text-align: center;
+
+     }
+     #div1{
+          width: 100%;
+          margin: 0 auto;
+          background:yellow;
+          float: left;
+     }
+     .goods{
+     	width:20%;
+          float: left;
+          text-align: center;
+     }
+     .imgs{
+          width: 200px;
+          height: 200px;
+     }
+	</style>
+</head>
+<body>
+<div class="div2">
+<header id="header"></header>
+<div id="div1"></div>
+</div>
+</body>
+<script type="text/javascript" src="changkun.js"></script>
+<script>
+     var  oHeader = document.getElementById('header');
+     var  oDiv = document.getElementById('div1');
+     $.ajax({
+          "url": 'http://lc.shudong.wang/api_cat.php',
+          "type": "GET",
+          "dataType": "json",
+          "success": function(response) {
+               for (var i = 0; i < response.data.length; i++)
+               {
+                    var dom = document.createElement('div');
+                    dom.className = "cat";
+                    dom.innerText = response.data[i].cat_name;
+                    oHeader.appendChild(dom);
+               }
+               console.log(response);
+          },
+          "error": function(message) {
+               console.log(message);
+          }
+     });
+    $.ajax({
+          "url": 'http://lc.shudong.wang/api_goods.php',
+          "type": "GET",
+          "dataType": "json",
+          "success": function(response) {
+              for (var i = 0; i < response.data.length; i++)
+               {
+                    var dom = document.createElement('div');
+                    var imgs = document.createElement('img');
+                    imgs.src = response.data[i].goods_thumb;
+                    imgs.className = "imgs";
+                    dom.className = "goods";
+                    dom.innerText = response.data[i].goods_name;
+                    oDiv.appendChild(dom);
+                    dom.appendChild(imgs);
+               }
+               console.log(response);
+          },
+          "error": function(message) {
+               console.log(message);
+          }
+     });
+</script>
+
+</html>

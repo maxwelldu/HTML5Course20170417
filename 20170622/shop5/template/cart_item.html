@@ -1,0 +1,33 @@
+<!--<li>-->
+  <!--<div>-->
+    <!--<a href="detail.html?goods_id=%goods_id%"><img width="50" height="50" src="%goods_thumb%" alt="%goods_name%" title="%goods_name%"></a>-->
+    <!--<a href="detail.html?goods_id=%goods_id%">-->
+      <!--<div>%goods_name% <span>￥%goods_price%</span></div>-->
+    <!--</a>-->
+    <!--<input type="text" name="number" value="%goods_number%">-->
+  <!--</div>-->
+<!--</li>-->
+<tr class="itemlist2">
+  <td valign="top">
+    <input type="checkbox" class="chkbox" name="car_items[]" value="541700" amount="1" price="1299.00" discount_price="0">
+    <a href="/i/goods/?id=%goods_id%" target="_blank" class="gimgCon">
+      <img width="50" src="%goods_thumb%"></a>
+  </td>
+  <td class="txtl">
+    <p class="t">
+      <a href="/i/goods/?id=%goods_id%">%goods_name%</a></p>
+    <p class="b">黑色</p>
+    <p class="b" style="color:#d20019;"></p>
+  </td>
+  <td>
+    <span class="opt" onclick="addAmount(0,541700)">
+      <img src="http://www.iliangcang.com/images/default/minus.png"></span>
+    <input type="text" id="goodsAmount541700" readonly="" value="1" class="num2">
+    <span class="opt" onclick="addAmount(1,541700)">
+      <img src="http://www.iliangcang.com/images/default/add.png"></span>
+  </td>
+  <td>%goods_price%</td>
+  <td>%goods_price%</td>
+  <td>
+    <a href="javascript:;" onclick="removeCar(this);" class="blue">删除</a></td>
+</tr>

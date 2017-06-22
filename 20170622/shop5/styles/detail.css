@@ -1,0 +1,19 @@
+.addToCart {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    width:100px;
+    background-color:#fff;
+    padding:8px;
+    cursor:pointer;
+    color:#3498db;
+    text-align:center;
+    text-decoration:none;
+    -moz-transition:background-color 0.2s ease-in;
+    transition:background-color 0.2s ease-in;
+    border: 0;
+}
+.addToCart:hover{
+    background-color:#71b7e6;
+    color:#fff;
+}

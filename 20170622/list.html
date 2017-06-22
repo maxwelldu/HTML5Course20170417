@@ -13,10 +13,13 @@
     <div class="goods">
       <ul id="goods-ul"></ul>
     </div>
+
     <script src="changkun.js" charset="utf-8"></script>
     <script type="text/javascript">
+
       var navUl = document.getElementById('nav-ul');
       var goodsUl = document.getElementById('goods-ul');
+      //请求商品分类数据
       $.ajax({
         "url": 'http://lc.shudong.wang/api_cat.php',
         "type": "GET",
@@ -40,12 +43,13 @@
         }
       });
 
+      //请求分类中的商品
+      var cat_id = $.getQueryString('cat_id');
       $.ajax({
-        "url": 'http://lc.shudong.wang/api_goods.php',
+        "url": "http://lc.shudong.wang/api_goods.php?cat_id=" + cat_id,
         "type": "GET",
         "dataType": "json",
-        "success": function(response){
-          //处理返回的数据
+        "success": function(response) {
           console.log(response);
           for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
@@ -61,12 +65,22 @@
             oLi.appendChild(oP);
             goodsUl.appendChild(oLi);
           }
-        },
-        "error": function(message) {
-          //
-          console.log(message);
         }
       });
+      //得到cat_id, 然后进行ajax请求
+      // var search = location.search.substr(1);
+      // console.log(search);
+      // //cat_id=ajksldfjkl&name=2
+      // var reg = /(&|^)cat_id=([^&]*)(&|$)/;
+      // var r = search.match(reg);
+      // // if (r === null) return null;
+      // // return r[2];
+      // console.log(decodeURI(r[2]));
+      // console.log(r);
+      //
+      // console.log(encodeURI(' '));
+
+
     </script>
   </body>
 </html>

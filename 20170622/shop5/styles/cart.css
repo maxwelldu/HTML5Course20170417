@@ -1,0 +1,134 @@
+/*购物车*/
+.shoppingStepV2 {
+    width: 100%;
+    color: #333;
+    vertical-align: middle;
+    padding: 50px 0px 10px 0px;
+    height: 32px;
+    text-align: center;
+    font-size: 14px;
+}
+.shoppingStepV2 .item{
+    width: auto;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+}
+.shoppingStepV2 .item .txt{
+    width: 135px;
+    height: 20px;
+    display: block;
+    color: #666;
+}
+.shoppingcarList{
+    width: 100%;
+    margin-top: 20px;
+    color: #666;
+}
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.shoppingcarList .carTab{
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+}
+.shoppingcarList .carTab tr th {
+    border-bottom: 2px solid #ccc;
+    padding: 15px 5px;
+    font-size: 15px;
+}
+.shoppingcarList .carTab tr .txtl{
+    text-align: left;
+}
+.shoppingcarList .carTab tr td{
+    padding: 15px 5px;
+    text-align: center;
+    vertical-align: top;
+}
+.shoppingcarList .carTab tr.itemlist2 td{
+    border-bottom: 1px solid #f0f0f0;
+}
+.shoppingcarList .carTab tr .chkbox{
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 2px;
+}
+.shoppingcarList .carTab tr td .gimgCon{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    vertical-align: top;
+}
+.shoppingcarList .carTab tr td .gimgCon img{
+    width: 68px;
+    height: 68px;
+    border: 1px solid #f0f0f0;
+    vertical-align: top;
+}
+.shoppingcarList .carTab tr td .opt{
+    margin: 0 -4px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    line-height: 18px;
+    cursor: pointer;
+}
+.shoppingcarList .carTab tr td .num2{
+    width: 24px;
+    height: 18px;
+    border: none;
+    display: inline-block;
+    text-align: center;
+}
+.shoppingcarList .carTab tr td .blue{
+    color: #6393b4;
+}
+.shoppingcarOptV2, .shoppingcarOpt{
+    width: 100%;
+    clear: both;
+    text-align: center;
+    padding: 20px 0;
+}
+.shoppingcarOptV2 p{
+    font-size: 14px;
+    line-height: 30px;
+}
+.shoppingcarOptV2 p .priceNo{
+    color: #197bc9;
+    font-size: 20px;
+    display: inline-block;
+    margin-left: 10px;
+}
+.shoppingcarOptV2 p .checkoutBtn{
+    display: inline-block;
+    width: 168px;
+    height: 30px;
+    color: #fff;
+    _margin-bottom: 15px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    background: #7fa6c5;
+    margin-top: 5px;
+    border: none;
+}
+.shoppingcarOptV2 fieldset {
+    border: 1px solid #ccc;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    font-size: 14px;
+    color: #404040;
+    width: 60px;
+    padding: 0 54px;
+    display: inline-block;
+    margin-top: 15px;
+}
+.shoppingcarOptV2 fieldset a {
+    color: #404040;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="styles/reset.css">
+	<link rel="stylesheet" href="styles/base.css">
+	<link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+<div class="header">
+	<div class="container">
+		<a href="index.html"><h2>良仓</h2></a>
+		<div class="login">
+			<a href="login.html">登录</a>
+			<a href="register.html">注册</a>
+		</div>
+		<div class="userinfo">
+			<div class="username"></div>
+			<div class="logout" id="logout">退出</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<form class="m-form" name="registerForm" target="result" autocomplete="off">
+		<input type="hidden" name="status" value="register">
+		<legend>用户名注册</legend>
+		<fieldset>
+			<div class="msg" id="message"></div>
+			<div>
+				<label for="telephone">用户名：</label>
+				<input id="telephone" name="username" type="text" class="u-txt" maxlength="20"
+							 required pattern="^[a-zA-Z0-9_]{3,20}$"><br/>
+				<span class="tip">用户名（数字字母下划线3-20位）</span>
+			</div>
+			<div>
+				<label for="password">密　码：</label>
+				<input id="password" name="password" type="password" class="u-txt"><br/>
+				<span class="tip">至少6位，同时包含数字和字母</span>
+			</div>
+			<div><button name="loginBtn">注　册</button></div>
+		</fieldset>
+	</form>
+</div>
+<div class="footer"></div>
+
+
+<script src="libs/max1.0.js"></script>
+<script src="libs/md5.min.js"></script>
+<script>
+	$.loadScript(['scripts/common.js', 'scripts/register.js']);
+</script>
+</body>
+</html>
