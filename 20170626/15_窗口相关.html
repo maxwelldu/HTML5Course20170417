@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			height: 4343px;
+			background-image:-webkit-linear-gradient(top,red,orange,yellow,green,blue,purple,white);
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="冲锋" />
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// $(window).scroll(function(){
+		// 	console.log($(window).scrollTop());
+		// })
+
+
+		$("input").click(function(){
+			$("html,body").animate({
+				"scrollTop" : 4000
+			},1000);
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/list.css">
+  </head>
+  <body>
+    <div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+    <script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+    </script>
+    <div class="goods">
+      <ul id="goods-ul"></ul>
+    </div>
+    <script src="scripts/changkun.js" charset="utf-8"></script>
+    <script src="scripts/common.js" charset="utf-8"></script>
+    <script src="scripts/list.js" charset="utf-8"></script>
+  </body>
+</html>

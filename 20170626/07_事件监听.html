@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 160px;
+			height: 160px;
+			background-color: orange;
+			position: absolute;
+			top: 100px;
+			left: 100px;
+		}
+		.box2{
+			top: 300px;
+		}
+	</style>
+</head>
+<body>
+	<p class="box1"></p>
+	<p class="box2"></p>
+
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$("p").mouseenter(function(){
+			//鼠标进入p之后做的事情
+			$(this).animate({"width" : 400},600)
+		});
+
+		$("p").mouseleave(function(){
+			//鼠标进入p之后做的事情
+			$(this).animate({"width" : 160},600)
+		});
+	</script>
+</body>
+</html>

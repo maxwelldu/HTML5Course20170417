@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.tip{
+			display: none;
+		}
+		.wrong{
+			background-color: yellow;
+			color:red;
+		}
+		.correct{
+			background-color: greenyellow;
+			color:green;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		请输入你的用户名：<input type="text" id="yonghuming" />
+	</p>
+	<p class="tip" id="tip"></p>
+
+	<script type="text/javascript">
+		//得到文本框
+		var yonghumingTxt = document.getElementById("yonghuming");
+		var tip = document.getElementById("tip");
+
+		//监听文本框的blur事件，失去焦点
+		yonghumingTxt.onblur = function(){
+			//得到文本框中的内容
+			var yonghuming = yonghumingTxt.value;
+			//Ajax大模板，就是那么几句固定的话
+			//第1步，创建xhr对象
+			var xhr = new XMLHttpRequest();
+			//第2步，设置一下收到结果之后怎么处理
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					//结果回来之后干什么
+					if(xhr.responseText == "n"){
+						tip.style.display = "block";
+						tip.className = "tip wrong";
+						tip.innerHTML = "对不起，用户名已经被占用";
+					}else{
+						tip.style.display = "block";
+						tip.className = "tip correct";
+						tip.innerHTML = "恭喜，用户名可以使用！！";
+					}
+				}
+			}
+			//第3步配置请求：
+			xhr.open("get","php/check.php?yonghuming=" + yonghuming,true);
+			//第4步发送请求：
+			xhr.send(null);
+		}
+
+
+		yonghumingTxt.onfocus = function(){
+			tip.style.display = "none";
+		}
+	</script>
+</body>
+</html>

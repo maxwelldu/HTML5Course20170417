@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+    #menu{
+      width:150px;
+    }
+  </style>
+</head>
+<body>
+<ul id="menu">
+  <li>
+    <a href="#">Java</a>
+    <ul>
+      <li><a href="#">Java EE</a></li>
+      <li><a href="#">Java SE</a></li>
+    </ul>
+  </li>
+  <li>C</li>
+  <li>C++</li>
+  <li>PHP</li>
+</ul>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+//$("#menu").menu({position:{at:"left bottom"}});
+$("#menu").menu({position:{at:"right bottom"}});
+</script>
+</body>
+</html>

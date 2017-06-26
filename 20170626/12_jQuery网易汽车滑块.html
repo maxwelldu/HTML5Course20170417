@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.car_pic{
+			width: 500px;
+			height: 421px;
+			border: 1px solid #000;
+			margin-left:100px;
+			position: relative;
+		}
+		.car_pic ul{
+			list-style: none;
+			height: 381px;
+		}
+		.car_pic ul li{
+			display: none;
+			width: 500px;
+			height: 375px;
+		}
+		.car_pic ul li img{
+			width: 500px;
+			height: 375px;
+		}
+		.car_pic ul li.cur{
+			display: block;
+		}
+		.car_pic_ctr{
+			width: 405px;
+			height: 26px;
+			line-height: 26px;
+			font-size: 12px;
+			margin: 0 auto;
+			background: url(images/h1/car_pic_ctr.png) repeat-x 0 -26px;
+		}
+		.car_pic_ctr .ctr_l{
+			float: left;
+			width: 0px;
+			height: 26px;
+			padding-left: 20px;
+			background: url(images/h1/car_pic_ctr.png) no-repeat 0 0px;
+		}
+		.car_pic_ctr .ctr_r{
+			float: right;
+			width: 0px;
+			height: 26px;
+			padding-right: 45px;
+			background: url(images/h1/car_pic_ctr.png) no-repeat 25px -78px;
+		}
+		.car_pic_ctr .ctr_center{
+			float: left;
+			width: 300px;
+			height: 26px;
+			background: url(images/h1/car_pic_ctr.png) repeat-x 0px -52px;
+			margin: 0 20px;
+			position: relative;
+			cursor: pointer;
+		}
+		.car_pic_ctr .ctr_center b{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 21px;
+			height: 26px;
+			background: url(images/h1/car_pic_ctr.png) repeat-x 0px -104px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="car_pic">
+		<div class="imglist" id="imglist">
+			<ul>
+				<li class="cur"><img src="images/h1/0.jpg" alt="" /></li>
+				<li><img src="images/h1/1.jpg" alt="" /></li>
+				<li><img src="images/h1/2.jpg" alt="" /></li>
+				<li><img src="images/h1/3.jpg" alt="" /></li>
+				<li><img src="images/h1/4.jpg" alt="" /></li>
+			</ul>
+		</div>
+		<div class="car_pic_ctr">
+			<div class="ctr_l">0°</div>
+			<div class="ctr_center" id="ctr_center">
+				<b id="barB"></b>
+			</div>
+			<div class="ctr_r">180°</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		var $barB = $("#barB");
+		var $ctr_center = $("#ctr_center");
+		var $imagelis = $("#imglist li");
+
+		var step = ($ctr_center.outerWidth() - $barB.outerWidth()) / 4;
+
+		var idx = 0;
+
+		$barB.draggable({
+			"axis" : "x",
+			"containment" : "parent",
+			"grid" : [step],
+			"drag" : function(event,ui){
+				if(idx != parseInt(ui.position.left / step)){
+					//老图淡出，淡出之后新图淡入
+					$imagelis.eq(idx).stop(true).fadeOut(10,function(){
+						//老图淡出之后改变信号量
+						idx = parseInt(ui.position.left / step);
+						$imagelis.eq(idx).stop(true).fadeIn(30);
+					});
+				}
+
+			}
+		});
+
+		$ctr_center.click(function(event){
+			var x = event.clientX - $ctr_center.offset().left;
+			
+			//老图淡出，淡出之后新图淡入
+			$imagelis.eq(idx).stop(true).fadeOut(10,function(){
+				//老图淡出之后改变信号量
+				idx = Math.round(x / step);
+				$imagelis.eq(idx).stop(true).fadeIn(30);
+				$barB.css("left",idx * step);
+			});
+		});
+	</script>
+</body>
+</html>

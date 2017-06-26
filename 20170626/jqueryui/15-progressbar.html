@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+</head>
+<body>
+<div id="pb"></div>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+  var pb;
+  var max = 100;
+  var current = 0;
+  $(document).ready(function(){
+    pb = $("#pb");
+    pb.progressbar({max:100});
+    setInterval(changepb, 100);
+  });
+
+  function changepb() {
+    current++;
+    if(current>=100) {
+      current = 0;
+    }
+    pb.progressbar("option","value",current);
+  }
+</script>
+</body>
+</html>

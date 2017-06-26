@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+    div{
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+    .changediv{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div class="changediv"></div>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+$("div").click(function(){
+  $(this).removeClass('changediv', 1000, 'easeInCirc');
+})
+</script>
+</body>
+</html>

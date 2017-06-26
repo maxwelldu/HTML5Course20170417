@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+
+  </style>
+</head>
+<body>
+<div id="tabs">
+  <ul>
+    <li><a href="#hello1">hello</a></li>
+    <li><a href="#hello2">hello</a></li>
+    <li><a href="#hello3">hello</a></li>
+  </ul>
+  <div id="hello1">
+    hello hello1
+  </div>
+  <div id="hello2">
+    hello hello2
+  </div>
+  <div id="hello3">
+    hello hello3
+  </div>
+</div>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+  $(function(){
+    $("#tabs").tabs();
+  })
+</script>
+</body>
+</html>

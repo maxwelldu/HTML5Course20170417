@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="biaoti">====</h1>
+	<input type="button" id="btn" value="按我异步读取文件" />
+
+	<script type="text/javascript">
+		//得到元素
+		var biaoti = document.getElementById("biaoti");
+		var btn = document.getElementById("btn");
+
+		//监听
+		btn.onclick = function(){
+			//Ajax的一个固定的模板：
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					biaoti.innerHTML = xhr.responseText;
+				}
+			}
+
+			var str = "我是一个文本";
+			//encodeURIComponent就是把当前字符集的文字转为URI编码
+			xhr.open("get","php/do.php?wenben=" + encodeURIComponent(str),true);
+			xhr.send(null);
+		}
+	</script>
+</body>
+</html>

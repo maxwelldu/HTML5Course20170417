@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		.container{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.page{
+			width: 100%;
+			height: 100%;
+			background: yellowgreen;
+			position: relative;
+		}
+		.page0{background-color: yellowgreen;}
+		.page1{background-color: orange;}
+		.page2{background-color: skyblue;}
+		.page3{background-color: gold;}
+		.page4{background-color: rgb(111,222,123);}
+
+		.page1 .shishi{
+			position: absolute;
+			left: -600px;
+		}
+
+		.page1 .longlong{
+			position: absolute;
+			left: -600px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container" id="container">
+		<div class="page page0"><h1>0</h1></div>
+		<div class="page page1">
+			<h1>1</h1>
+			<img src="images/shishi.jpg" class="shishi" />
+			<img src="images/longlong.jpg" class="longlong" />
+		</div>
+		<div class="page page2"><h1>2</h1></div>
+		<div class="page page3"><h1>3</h1></div>
+		<div class="page page4"><h1>4</h1></div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easie.js"></script>
+	<script type="text/javascript">
+		$container = $("#container");
+
+		var idx = 0;
+
+		var INARRAY = [];	//里面放的是所有进场动画 INARRAY[1] ，就是进入1这个屏幕的动画
+		var OUTARRAY = [];	//出场动画
+
+		$(document).mousewheel(function(event){
+			if($container.is(":animated")) return;
+			//鼠标滚轮↓  信号量+1   deltaY -1
+			//鼠标滚轮↑  信号量-1   deltaY +1
+			var oldidx = idx;
+			idx -= event.deltaY;
+
+			if(idx < 0){
+				idx = 0;
+			}else if(idx > 4){
+				idx = 4;
+			}
+
+			if(oldidx != idx){
+				if(typeof OUTARRAY[oldidx] == "function"){
+					OUTARRAY[oldidx]();
+				}
+				//新不等于旧
+				$container.animate({"top":-100 * idx + "%"},600,function(){
+				//滚动完之后进行动画
+					if(typeof INARRAY[idx] == "function"){
+						INARRAY[idx]();
+					}
+				});
+			}
+		});
+
+
+		//定义动画
+
+		//1号页面的进场动画
+		INARRAY[1] = function(){
+			$(".shishi").show().animate({"left":400},500);
+			$(".longlong").show().delay(600).animate({"left":600,"top":300},500);
+		}
+
+		//1号页面的出场动画
+		OUTARRAY[1] = function(){
+			$(".shishi").fadeOut(300,function(){
+				$(".shishi").css("left",-600);
+				
+			});
+
+			$(".longlong").fadeOut(300,function(){
+				$(".longlong").css("left",-600);
+			});
+		}
+	</script>
+</body>
+</html>	

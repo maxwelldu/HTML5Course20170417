@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		var a = 3;
+		// $("p").css("background-color","red");
+		//  $("p:first").css("background-color","red");
+		//  $("p:last").css("background-color","red");
+		// $("p:eq(a)").css("background-color","red");
+		// $("p:lt(3)").animate({"width":400},1000);
+		//  $("p:gt(3)").animate({"width":400},1000);
+		// $("p:odd").animate({"width":400},1000);
+		// $("p:even").animate({"width":400},1000);
+		$("p").eq(a).animate({"width":400},1000);
+	</script>
+</body>
+</html>

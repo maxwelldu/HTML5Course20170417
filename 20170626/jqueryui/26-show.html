@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+    div{
+      display: none;
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+<button>show the div</button>
+<div></div>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+$("button").click(function(){
+  $("div").show("drop", 2000);
+})
+</script>
+</body>
+</html>

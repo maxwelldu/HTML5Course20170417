@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/json2.js"></script>
+	<script type="text/javascript" src="js/myajax.js"></script>
+	<script type="text/javascript">
+		myajax.get("php/a.json",{},function(err,data){
+			if(err) return;
+			// console.log(typeof data);	//string
+			// 读取的responseText是string，要转为JSON
+			
+			// 方法1，使用eval语句
+			// var obj = eval("(" + data + ")");
+			// alert(obj.result[1].name);
+
+
+			//方法2：使用new Function()的奇淫技巧
+			// var obj = new Function("return " + data)();
+			// console.log(obj);
+
+			//方法3：使用内置对象JSON对象的parse方法
+			var obj = JSON.parse(data);
+			alert(obj.result[0].name);
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript" src="js/myajax.js"></script>
+	<script type="text/javascript">
+		myajax.post("php/do2.php",{"xingming":"考拉","age":18},function(err,data){
+			if(err){
+				// throw err;	//抛出错误
+				alert("非常抱歉，服务器故障，请稍后再试");
+				return;
+			}
+
+			alert(data);
+		});
+	</script>
+</body>
+</html>

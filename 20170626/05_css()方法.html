@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		alert( $("p:first").css("background-color") );
+		alert( $("p:first").css("backgroundColor") );
+
+		 $("p:odd").css("backgroundColor","blue");
+
+		 $("p:lt(4)").css({
+		 	"width" : 20,
+		 	"height" : 20,
+		 	"backgroundColor" : "red"
+		 })
+
+		 $("p:lt(4)").css("width",20);
+		 $("p:lt(4)").css("height",20);
+		 $("p:lt(4)").css("backgroundColor","red");
+		
+		$("p:eq(5)").css("width","+=20px");
+	</script>
+</body>
+</html>

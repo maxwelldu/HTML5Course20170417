@@ -1,0 +1,19 @@
+01:	 最最简单的Ajax“经文”，模板4步走，必须要背诵
+02： 检测用户名是否被占用，用的是一个php当做查询程序，但是php是假的，没有检索数据库
+03:  什么是异步。不会死等。
+04:  encodeURIComponent介绍
+05:  Ajax中的post
+06:  HTTP状态码
+07:	 IE6的兼容。至此，一个完整的“经文”的就有了
+08:  测试我们自己的轮子，myajax这个轮子。myajax的api就是：
+	myajax.get(URL,{},function(err,data){
+	});
+	
+	myajax.post(URL,{},function(err,data){
+	});
+	
+09: 表单序列化
+10: 解析JSON，三种方法
+11: eval语句
+
+liuyanben:一个完整留言本

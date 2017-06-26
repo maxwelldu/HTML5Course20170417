@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			float: left;
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+			margin-right: 10px;
+		}
+		#box{
+			clear: both;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background-color: yellowgreen;
+			position: absolute;
+			top: 111px;
+			left: 111px;
+		}
+
+		.circles ol{
+			list-style: none;
+		}
+		.circles ol li{
+			float: left;
+			width: 20px;
+			height: 20px;
+			background-color: orange;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+<body>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+	<div id="box">
+		<ul>
+			<li><span>哈哈</span></li>
+			<li class="haha"><span>哈哈</span></li>
+			<li class="haha"><span>哈哈</span></li>
+			<li class="haha"><span>哈哈</span></li>
+			<li><span>哈哈</span></li>
+		</ul>
+	</div>
+
+	<div class="box"></div>
+
+
+	<div class="circles">
+		<ol>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ol>
+	</div>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// 页面上所有的p变红，并不需要写循环语句，$选择的是所有符合条件的元素
+		$("p").css("background-color","red");
+
+		// 颤抖吧！少年！！jQuery的超强选择元素能力！！一辈子不用写getElementById了！
+		$("#box ul li.haha span").css("background-color","red");
+
+		// jQuery涵盖计算后的样式
+		// alert(  $(".box").css("width")  );
+
+		// 设置样式，特别注意的是，opacity已经帮我们写了兼容：
+		$(".box").css({
+			"width":700,
+			"height" : 300,
+			"opacity" : 0.4
+		});
+
+		// jQuery牛逼的运动功能！比我们上课封装的牛逼多了：
+		$(".box").animate({"left":900,"width":100},4000,function(){
+		 	console.log("运动完成");
+		});
+
+
+		//批量添加监听，以及节点关系的能力：
+		$(".circles ol li").mouseenter(function(){
+			//自己变红，自己的兄弟恢复为橙色
+			$(this).css("background-color","red").siblings().css("background-color","orange");
+		});
+
+	</script>
+
+</body>
+</html>

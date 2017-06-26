@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="biaoti">====</h1>
+	<input type="button" id="btn" value="按我异步读取文件" />
+
+	<script type="text/javascript">
+		//得到元素
+		var biaoti = document.getElementById("biaoti");
+		var btn = document.getElementById("btn");
+
+		//监听
+		btn.onclick = function(){
+			//IE6兼容
+			if(window.XMLHttpRequest){
+				var xhr = new XMLHttpRequest();
+			}else{
+				var xhr = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status >= 200 && xhr.status < 300 || xhr.status == 304){
+						biaoti.innerHTML = xhr.responseText;
+					}else{
+						biaoti.innerHTML = "服务器错误，请稍后再试";
+					}
+				}
+			}
+			xhr.open("get","php/a.txt",true);
+			xhr.send(null);
+		}
+	</script>
+</body>
+</html>

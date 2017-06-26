@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 600px;
+			height: 600px;
+			background-color: #ccc;
+			position: relative;
+			margin: 100px;
+		}
+		p{
+			width: 60px;
+			height: 60px;
+			background-color: skyblue;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+</head>
+<body>
+	<div class="box">
+		<p></p>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+		$("p").draggable({
+			// axis: "x",		 //约束在某个轴上
+			containment: "parent",	//在父盒子中拖拽
+			// grid : [100],			//步长
+			drag : function(event, ui){
+				console.log(ui.position.left,ui.position.top);
+			}
+		});
+
+
+		$("div").resizable();
+	</script>
+</body>
+</html>

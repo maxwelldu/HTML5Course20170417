@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+
+  </style>
+</head>
+<body>
+<span id="span">0</span>
+<div id="slider"></div>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+var valueSpan,slider;
+
+//$("#slider").slider();
+$(document).ready(function(){
+  slider = $("#slider");
+  valueSpan = $("#span");
+
+//  slider.slider({
+//    change:function(event,ui){
+//      valueSpan.text(slider.slider("option", "value"));
+//    }
+//  });
+
+  slider.slider({
+    slide:function(event,ui){
+      valueSpan.text(slider.slider("option", "value"));
+    }
+  });
+
+})
+</script>
+</body>
+</html>

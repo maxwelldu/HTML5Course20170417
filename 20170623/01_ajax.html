@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1 id="biaoti">====</h1>
+	<input type="button" id="btn" value="按我异步读取文件" />
+
+	<script type="text/javascript">
+		//得到元素
+		var biaoti = document.getElementById("biaoti");
+		var btn = document.getElementById("btn");
+
+		//监听
+		btn.onclick = function(){
+			//Ajax的一个固定的模板：
+			//第1步创建一个xhr对象，使用new关键来调用一个内置构造函数
+			var xhr = new XMLHttpRequest();
+			//第2步指定接收回来的内容，怎么处理。监听xhr对象的onreadystatechange事件，这个事件在xhr对象的“就绪状态”改变的时候触发。我们只关心就绪状态为4的时候的事情。
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					//接收完文件要做的事情，让h1的内容变为读取的东西
+					biaoti.innerHTML = xhr.responseText;
+				}
+			}
+
+			//第3步创建一个请求，第一个参数是请求的类型get或者post，第二个参数就是请求的路径，第三个参数叫做是否使用异步机制
+			xhr.open("get","php/a.txt?r=" + Math.random(),true);
+			//第4步发送请求，圆括号里面是请求头内容，get请求没有报文头写null
+			xhr.send(null);
+		}
+	</script>
+</body>
+</html>

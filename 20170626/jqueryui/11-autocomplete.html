@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+</head>
+<body>
+<label for="tags">Tags:</label>
+<input type="text" id="tags">
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var autotags = ['html','css','javascript','java','android','php','asp','ios'];
+    $('#tags').autocomplete({
+      source: autotags
+    });
+  });
+</script>
+</body>
+</html>

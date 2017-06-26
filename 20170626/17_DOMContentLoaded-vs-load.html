@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    // 不兼容老的浏览器，兼容写法见[jQuery中ready与load事件](http://www.imooc.com/code/3253)，或用jQuery
+    document.addEventListener("DOMContentLoaded", function() {
+       // ...代码...
+       alert(1);
+    }, false);
+    document.addEventListener("DOMContentLoaded", function() {
+       // ...代码...
+       alert(2);
+    }, false);
+
+    window.addEventListener("load", function() {
+        // ...代码...
+        alert(0);
+    }, false);
+    </script>
+  </body>
+</html>

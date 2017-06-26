@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+    #elem{
+      border: 4px solid #f00;
+      color:#006;
+      background-color:#aaa;
+      font-size:25px;
+      padding:1em;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+<div id="elem">color animation</div>
+<button id="toggle">click me</button>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+$("#toggle").click(function(){
+  $("#elem").animate({
+    "color": "purple",
+    backgroundColor: "blue",
+    borderColor: "green"
+  })
+});
+</script>
+</body>
+</html>

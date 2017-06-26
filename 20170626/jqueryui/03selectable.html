@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../jquery-ui.min.css">
+  <style>
+    .ui-selected{
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+<strong>世界上最美丽的人是？</strong>
+<ul id="select">
+  <li id="right">A.me</li>
+  <li>B.我</li>
+  <li>C.I</li>
+</ul>
+<a href="#" id="btn">提交</a>
+<script src="../js/jquery-1.12.3.min.js"></script>
+<script src="../js/jquery-ui.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#btn').button();
+    $("#select").selectable();
+    $('#btn').on('click', function(){
+//      alert('hello');
+      if ($("#right").hasClass('ui-selected')) {
+        alert("恭喜你答对了");
+      }
+    });
+  });
+</script>
+</body>
+</html>
