@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .red {
+        color: red;
+      }
+      #box, li {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <ul>
+        <li>常坤1</li>
+        <li class="changkun"><span>常坤2</span></li>
+        <li class="changkun"><span>常坤3</span></li>
+      </ul>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $('#box ul li.changkun span').addClass('red');
+      console.log($('#box').css('width'));
+      $('#box').css('width', 300);
+      console.log($('#box').css('width'));
+      $('#box').css({'width':100, 'height':200});
+      console.log($('#box').css('width'));
+      function move(){
+        $('#box').animate({'left': 500}, 1000, 'swing', function(){
+          $(this).animate({'top': 300}, 1000, 'linear', function(){
+            $(this).animate({'left': 0}, 1000, 'swing', function(){
+              $(this).animate({'top': 0}, 1000, 'linear', function(){
+                // move();
+              });
+            });
+          });
+        });
+      }
+      move();
+      function moveli(li) {
+        li.animate({'left': 300}, 1000);
+      }
+      $('li').click(function(){
+        console.log('1');
+        moveli($(this));
+      });
+    </script>
+  </body>
+</html>

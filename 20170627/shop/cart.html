@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>购物车</title>
+    <style media="screen">
+      .operate {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background: #ccc;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>您的购物清单</h2>
+
+    <div class="container">
+      <div id="shoppingcarList" style="margin-top:20px;">
+        <table class="carTab">
+          <tbody>
+          <tr>
+            <th class="txtl" width="110">
+              <input type="checkbox" class="chkbox" id="chec" style="margin-left:12px;" onclick="selectAll('all',this);">全选
+            </th>
+            <th width="300">良品</th>
+            <th width="120">数量</th>
+            <th width="160">单价（元）</th>
+            <th width="160">小计（元）</th>
+            <th>操作</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="shoppingcarOptV2">
+        <input type="hidden" name="payCartIds" id="payCartIds" value="">
+        <input type="hidden" name="payMoney" id="payMoney" value="0.00">
+        <input type="hidden" name="payAmount" id="payAmount" value="0">
+        <p>良品总价 <font style="font-size:18px;">/</font> <span class="priceNo">¥<font id="payMoneyTxt">0.00</font></span></p>
+        <p class="origPrice" id="origPrice" style="display: none;"> &nbsp;¥<span>0.00</span>&nbsp;</p>
+        <p style="display:none;color:#d20019;text-decoration:;" id="origsave"> &nbsp;为您节省 <span>1060</span>元&nbsp;</p>
+        <p><input type="button" class="checkoutBtn" onclick="submitCart();" value="立即结算"></p>
+      </div>
+  </div>
+
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $(function(){
+        $.ajax({
+          "url": "http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.getItem('token'),
+          "type": "GET",
+          "dataType": "json",
+          "success": function(response) {
+            console.log(response);
+            if (response.data.length > 0) {
+              for (var i = 0; i < response.data.length; i++) {
+                var obj = response.data[i];
+                var tr = `<tr>
+                  <th class="txtl" width="110">
+                    <input type="checkbox" class="chkbox" id="chec" style="margin-left:12px;" onclick="selectAll('all',this);">
+                  </th>
+                  <th width="300"><img width="100px" src="${obj.goods_thumb}" /><br /> ${obj.goods_name}</th>
+                  <th width="120"><span class="operate minus" onclick="updateCart(-1)">-</span>${obj.goods_number}<span class="operate plus">+</span></th>
+                  <th width="160">${obj.goods_price}</th>
+                  <th width="160">${obj.goods_price * obj.goods_number}</th>
+                  <th>删除</th>
+                </tr>`;
+
+                $('.carTab tbody').html($('.carTab tbody').html() + tr);
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

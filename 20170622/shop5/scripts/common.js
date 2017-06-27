@@ -8,8 +8,8 @@
      * API地址前缀
      * @type {string}
      */
-    // API_PREFIX: "http://h6.duchengjiu.top/shop/",
-    API_PREFIX: "http://lc.shudong.wang/",
+    API_PREFIX: "http://h6.duchengjiu.top/shop/",
+    // API_PREFIX: "http://lc.shudong.wang/",
     /**
      * 错误码, 0表示成功
      * @type {number}
