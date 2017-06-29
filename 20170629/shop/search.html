@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/search.css">
+  </head>
+  <body>
+    <div class="search">
+      <input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+      <button id="search-btn">搜索</button>
+    </div>
+    <div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+    <div id="container"> </div>
+    <script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+    </script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script src="scripts/common.js" charset="utf-8"></script>
+    <script src="scripts/search.js" charset="utf-8"></script>
+  </body>
+</html
