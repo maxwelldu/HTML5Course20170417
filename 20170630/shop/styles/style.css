@@ -1,0 +1,252 @@
+/**
+整站风格样式，或者通用样式
+像头部样式，底部样式，导航样式
+都写到这个文件里面
+*/
+
+.head-img{
+    width: 100%;
+    height: 80px;
+}
+.head-img img{
+    width: 100%;
+    height: 80px;
+}
+nav{
+    width: 100%;
+    height: 30px;
+    background-color: #f2f2f2;
+}
+.nav-main{
+    width: 1090px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+.nav-main-enter{
+    color: #666;
+    margin-left: 20px;
+    line-height: 30px;
+}
+#nav-main-register{
+    color: #666;
+    display: inline-block;
+    /*float: left;*/
+}
+#nav-main-register span{
+    cursor:pointer;
+    color: #666;
+}
+.nav-main em{
+    padding: 0 5px;
+    line-height: 25px;
+}
+.nav-list{
+    float: right;
+}
+.nav-list li{
+    float: left;
+    width: 73px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.nav-list li a{
+    color: #666;
+}
+.search{
+    width: 100%;
+    height: 100px;
+}
+
+.logo{
+    display: inline-block;
+    width: 220px;
+    height: 42px;
+    float: left;
+    background: url(../images/2.png) no-repeat;
+    margin-top: 30px;
+    margin-left: 200px;
+}
+.search-text{
+    width: 511px;
+    height: 36px;
+    border:2px solid #333;
+    display: inline-block;
+    margin-left: 120px;
+    margin-top: 30px;
+}
+.search-text span{
+    width: 38px;
+    height: 36px;
+    display: inline-block;
+    float: left;
+    background: url(../images/3.png) no-repeat center center;
+
+}
+.search-text input{
+    float: left;
+    width: 423px;
+    height: 24px;
+    border:none;
+    margin: 8px 0 0 0;
+    outline:medium;
+}
+.search-text em{
+    float: right;
+    width: 50px;
+    height: 36px;
+    cursor:pointer;
+    background: url(../images/4.png) no-repeat center  center;
+    background-color: #333;
+}
+
+.shop{
+
+    width: 1200px;
+    height: 635px;
+    margin: 50px auto;
+
+}
+.shop li{
+    display: inline-block;
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+.shop li img{
+    width: 197px;
+    height: 197px;
+}
+.shop li img:hover{
+    opacity:0.8;
+}
+.shop li p{
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    margin: 10px auto;
+}
+.shop li a{
+    font-size: 12px;
+    color: darkorange;
+    display: inline-block;
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.shop li a:hover{
+    text-decoration:none;
+}
+.shop li em{
+    display: block;
+    text-align: left;
+    margin: 5px 0 0 5px ;
+    color: #e31436;
+}
+.button{
+    /*position: absolute;*/
+    /*right: 90px;*/
+    /*bottom: -12px;*/
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+}
+#ButtonPrev{
+    color: black;
+    display: inline-block;
+    float: left;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+#ButtonNext{
+    color: black;
+    display: inline-block;
+    float: right;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+.button-center{
+    float: left;
+    overflow: hidden;
+    width:690px;
+    height: 30px;
+}
+#ButtonCenter{
+    float: left;
+    width: 4000px;
+    height:30px;
+    margin-left: 0;
+}
+#ButtonCenter span{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border:1px solid #666666;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 20px;
+    cursor:pointer;
+}
+#ButtonCenter span.button-center-span{
+    background: firebrick;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+.nav ul li {
+  float: left;
+  display: inline-block;
+  width: 50px;
+  line-height: 30px;
+  background: #ccc;
+  margin-left: 10px;
+  text-align: center;
+}
+.goods {
+  clear: both;
+}
+.goods ul li {
+  display: block;
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.goods ul li img {
+  width: 100%;
+  height: 100%;
+}
+.goods ul li p{
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 14px;
+  color: coral;
+  background-color: rgba(0, 0, 0, .3);
+  width: 100%;
+  height: 20px;
+}

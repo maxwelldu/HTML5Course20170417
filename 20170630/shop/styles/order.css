@@ -1,0 +1,6 @@
+.order-item {
+  margin: 10px 0;
+  border: 1px solid gray;
+}
+.order-item-header {
+  border-bottom: 1px solid gray;

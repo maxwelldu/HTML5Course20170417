@@ -27,7 +27,7 @@
           <tbody>
           <tr>
             <th class="txtl" width="110">
-              <input type="checkbox" id="selectAll" onclick="selectAll(this)" checked="true" style="margin-left:12px;">全选
+              <input type="checkbox" id="selectAll" checked="true" style="margin-left:12px;">全选
             </th>
             <th width="300">良品</th>
             <th width="120">数量</th>
@@ -39,13 +39,10 @@
         </table>
       </div>
       <div id="shoppingcarOptV2">
-        <input type="hidden" name="payCartIds" id="payCartIds" value="">
-        <input type="hidden" name="payMoney" id="payMoney" value="0.00">
-        <input type="hidden" name="payAmount" id="payAmount" value="0">
         <p>良品总价 <font style="font-size:18px;">/</font> <span class="priceNo">¥<font id="payMoneyTxt">0.00</font></span></p>
         <p class="origPrice" id="origPrice" style="display: none;"> &nbsp;¥<span>0.00</span>&nbsp;</p>
         <p style="display:none;color:#d20019;text-decoration:;" id="origsave"> &nbsp;为您节省 <span>1060</span>元&nbsp;</p>
-        <p><input type="button" class="checkoutBtn" onclick="submitCart();" value="立即结算"></p>
+        <p><input type="button" class="checkoutBtn" value="立即结算"></p>
       </div>
   </div>
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
@@ -73,8 +70,8 @@
             showSum();
           }
         }); //ajax方法结束
-
       });
+
       //显示总价
       function showSum() {
         var trs = $('#shoppingcarList tr:gt(0)');
@@ -83,8 +80,6 @@
         for (var i = 0; i < trs.length; i++) {
           var tr = trs[i];
           //判断一下当前行的选中框是否选中，如果选中则计算到总价中
-          console.log($(tr).children("td:first"));
-          console.log($(tr).children("td:first").children('input'));
           if ($(tr).children("td:first").children("input").is(':checked')) {
             sum += parseInt($(tr).children('td:eq(4)').text());
           }
@@ -94,19 +89,15 @@
 
       //事件委托，点击表格中任意元素都会触发
       $('table').click(function(event){
-        console.log(event.target);
-        console.log($(event.target));
         //当点击的是加号，臣妾更新一下购物的数量
         // if (event.target.innerText === '+') {
         if (event.target.className === "operate plus") {
-          console.log('++');
           //修改数量
           var oNumber = $(event.target).prev();
           var number = oNumber.val();
           oNumber.val(++number);
           //小计调整
           var price = parseInt($(event.target).parent().next().text());
-          console.log(price);
           var oSubtotal = $(event.target).parent().next().next();
           var subtotal = price * number;
           oSubtotal.text(subtotal);
@@ -122,9 +113,7 @@
         if (event.target.id === 'selectAll') {
           //全选的事情
           var selected = event.target.checked;
-          console.log(selected);
           var checkboxs = document.getElementsByClassName('chkbox');
-          console.log(checkboxs);
           for (var i = 0; i < checkboxs.length; i ++) {
             checkboxs[i].checked = selected;
           }
@@ -136,13 +125,6 @@
           checkSelectAll();
         }
       });
-
-      //全部选中
-      function selectAll(obj) {
-        // $('input[class="chkbox"]').prop('checked', obj.checked);
-        console.log(obj);
-        showSum();
-      };
 
       //检查全选的状态,不等于购物车里面的数量的时候就是 false
       function checkSelectAll() {

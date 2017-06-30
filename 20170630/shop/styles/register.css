@@ -1,0 +1,89 @@
+.success {
+  display: none;
+  color: green;
+}
+.error {
+  display: none;
+  color: red;
+}
+
+
+.register{
+    background-color:#fff ;
+    margin: 0 auto;
+    border-radius:20px;
+    padding-top: 1px;
+}
+.register-us{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 290px;
+    margin-top: 150px;
+    font-size: 16px;
+}
+.register-us span{
+    display: none;
+    margin-left: 10px;
+}
+.register-us input{
+    width: 202px;
+    height: 46px;
+    border:1px solid #ddd;
+    text-indent:10px;
+}
+.register-us ::-webkit-input-placeholder{
+    color: #ddd;
+}
+.register-pa{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 290px;
+    font-size: 16px;
+    margin-top: 23px;
+}
+.register-pa input{
+    width: 322px;
+    height: 46px;
+    border:1px solid #ddd;
+    text-indent:10px;
+}
+.register-pa span{
+    display: none;
+    margin-left: 10px;
+}
+.register-pa ::-webkit-input-placeholder{
+
+    color:#ddd;
+}
+.register-pas{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-indent: 257px;
+    font-size: 16px;
+    margin-top: 23px;
+}
+.register-pas input{
+    width: 322px;
+    height: 46px;
+    border:1px solid #ddd;
+    color: #dddddd;
+    text-indent:10px;
+}
+.register-pas span{
+    display: none;
+    margin-left: 10px;
+}
+.but{
+    width: 322px;
+    height: 46px;
+    background-color: #ca5252;
+    text-align: center;
+    line-height:46px;
+    font-size: 20px;
+    color: white;
+    margin: 0 auto;
+    margin-top: 100px;
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/register.css">
+  </head>
+  <body>
+    <div class="head-img">
+        <a href="#">
+            <img src="images/1.jpg" alt="">
+        </a>
+    </div>
+    <nav>
+        <div class="nav-main">
+            <span>考拉欢迎你！</span>
+            <a href="/login.html" class="nav-main-enter" id="nav-main-enter">登录</a>
+            <em>|</em>
+            <div id="nav-main-register">
+                <a href="/register.html" class="nav-main-register" >免费注册</a>
+            </div>
+            <ul id="nav-list" class="nav-list"></ul>
+            <script type="text/mingliang" id="nav-li-template">
+              <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+            </script>
+        </div>
+    </nav>
+    <div class="search">
+        <a href="" class="logo"></a>
+        <div class="search-text">
+            <span></span>
+            <input type="text" placeholder="热气球" id="search-text">
+            <em id="search-btn"></em>
+        </div>
+    </div>
+    <div class="register">
+      <p class="register-us" id="registerUs">账号：<input type="text" name="username" placeholder="6-18位字母数字组合" id="Username"><span id="register-us-span"></span><span class="success">用户名可用</span>
+      <span class="error"></span></p>
+      <p class="register-pa">密码：<input type="password" name="password" id="Password"><span id="register-pa-span"></span></p>
+      <p class="register-pas">确认密码：<input type="password" name="passwords" id="Passwords"> <span id="register-pas-span"></span></p>
+      <div id="register" class="but">注册</div>
+      <div class="but" id="login">已有帐号？</div>
+    </div>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script src="scripts/common.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    //当页面DOM结构加载完成之后执行
+      $(function(){
+        //添加检测用户名是否被用
+        $('input[name="username"]').blur(function(){
+          console.log( $(this).val() );
+          shop.api.checkUsernameUnique($(this).val(), function(response){
+              console.log(response);
+              if (response.code === 0) {
+                $("span[class='success']").show();
+                $("span[class='error']").hide();
+              } else if(response.code === 2001){//用户名已存在
+                $('span[class="success"]').hide();
+                $("span[class='error']").show();
+                $('span[class="error"]').html("用户名已存在");
+              }
+          });
+        });
+
+        $('#login').click(function(){
+          location.assign('login.html');
+        });
+        //点击注册按钮
+        $('#register').click(function(){
+          //获得用户名和密码
+          var username = $('input[name="username"]').val();
+          var password = $('input[name="password"]').val();
+          //验证密码最小长度6位
+          if (password.length < 6 || password.length > 20) {
+            alert('密码长度在6到20位');
+            return;
+          }
+          shop.api.register(username, password, function(response){
+              console.log(response);
+          });
+        });
+      });
+
+      /*
+      *:TODO
+      //表单验证，用户名，密码，并给出友好的提示
+      //提交表单之后有两种情况：
+          成功的时候给出注册成功的提示
+          失败的时候把错误信息显示出来
+      //防止表单重复提交
+      //用户名是否可以被注册
+      */
+    </script>
+  </body>
+</html>
