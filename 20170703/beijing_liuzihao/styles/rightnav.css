@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.red{
+    color: red;
+    height: 18px;
+}
+.ccc{
+    color: #ccc;
+    height: 18px;
+}
+.usernameshow{
+    width:200px;
+    height: 18px;
+
+}
+.passwordshow{
+    width:200px;
+    height: 18px;
+}

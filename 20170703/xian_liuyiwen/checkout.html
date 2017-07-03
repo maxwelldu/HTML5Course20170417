@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color:#FAEBD7;
+        }
+        #addUserAddress{
+            cursor: pointer;
+            margin-left: 620px;
+            color: palevioletred;
+           position: absolute;
+            top: 140px;
+
+        }
+        #addUserAddress:hover{
+            color:hotpink;
+        }
+        .layer{
+            display: none;
+            background: rgba(144,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: white;
+        }
+        .dialog{
+            width: 600px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid gainsboro;
+            text-align: center;
+        }
+        .dialog h3{
+            line-height: 30px;
+            text-align: left;
+            border-bottom: 1px solid gainsboro;
+        }
+        .dialog h3 span {
+            display: inline-block;
+            float: right;
+            padding: 0px 10px;
+            border-left: 1px solid gainsboro;
+            border-bottom: 1px solid gainsboro;
+            cursor: pointer;
+        }
+
+        /*.normal {*/
+            /*border: 1px solid gray;*/
+            /*padding: 2px 5px;*/
+            /*text-align: center;*/
+            /*cursor: pointer;*/
+        /*}*/
+        /*.normal:hover {*/
+            /*background: black;*/
+            /*color: white;*/
+        /*}*/
+        /*.selected {*/
+            /*border: 1px solid red;*/
+        /*}*/
+        form input{
+            margin-top: 38px;
+        }
+
+        form p2{
+            margin-left: -15px;
+        }
+        #order{
+            font-size: 20px;
+            color: hotpink;
+            margin-top: 10px;
+            position: absolute;
+            top:400px;
+            left: 1000px;
+        }
+        #total{
+            font-size: 20px;
+            color: hotpink;
+            margin-top: 10px;
+            position: absolute;
+            top:400px;
+            left: 900px;
+        }
+        #oAddress{
+            width: 400px;
+            height: 200px;
+            border: 1px solid gainsboro;
+            float: left;
+            margin-left: 480px;
+            margin-top: 80px;
+        }
+        h1{
+            margin-top: 50px;
+            text-align: center;
+            font-size: 20px;
+            color: palevioletred;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div id="top">
+            <ul>
+                <li><a href="login.html" id="denglu">登录</a></li>
+                <li><a href="register.html" id="zhuce">注册</a></li>
+            </ul>
+        </div>
+        <span class="out">退出登录</span>
+        <span class="cart"><a href="cart.html">购物车</a></span>
+        <p class="index">
+            <a href="index.html">返回首页</a>
+        </p>
+    </header>
+    <div class="body">
+    <h1>快来付钱带我回家~</h1>
+    <div id="address"></div>
+    <span id="addUserAddress">新增收货人信息</span>
+    <span id="total">总计：</span>
+    <span id="order">下订单</span>
+    <div class="layer">
+        <div class="dialog">
+            <h3>新增收货人信息 <span>x</span></h3>
+            <form >
+                所在省份:　<input type="text" name="province"><br />
+                所在城市:　<input type="text" name="city"><br />
+                所在地区:　<input type="text" name="district"><br />
+                具体地址:　<input type="text" name="address"><br />
+                <p2>收件人姓名:</p2>　<input type="text" name="address_name"><br />
+                <p2>收件人电话:</p2>　<input type="text" name="mobile"><br />
+                <input type="button" id="add" value="添加到收货地址">
+            </form>
+        </div>
+    </div>
+    <div id="oAddress"></div>
+    </div>
+    <footer>
+        <div id="dibu">
+            在每一丝曙光破晓之前，一定是快要窒息的漫长黑夜；</br>
+            在每一次荣光到来之前，一定有太多狼狈的时刻，被看不起的日子；</br>
+            在每一阵掌声到来之前，总有太多唏嘘，太多冷眼；</br>
+            所以在每一个快要放弃的时刻，记得对自己说：要加油，不要哭。</br>
+        </div>
+
+    </footer>
+</body>
+<script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+<script src="scripts/common.js" charset="utf-8"></script>
+<script type="text/javascript">
+    //开发一个选择框小组件
+//    function SelectComponent(width,height,content,value,className,selectClassName) {
+//        this.selected = false;  //是否选中
+//        this.width = width;
+//        this.height = height;
+//        this.content = content;
+//        this.value = value;
+//        this.className = className;
+//        this.selectClassName = selectClassName;
+//        this.dom = null;
+//        this.init();
+//        this.bindEvent();
+//    }
+//    SelectComponent.prototype.init = function () {
+//        this.dom = document.createElement("div");
+//        this.dom.style.width = this.width + "px";
+//        this.dom.style.height = this.height + "px";
+//        this.dom.innerText = this.content;
+//        this.dom.className = this.className;
+//        document.body.appendChild(this.dom);
+//    }
+//    SelectComponent.prototype.bindEvent = function () {
+//        var self = this;
+//        this.dom.addEventListener("click",function () {
+//            self.dom.classList.add(self.selectClassName)
+//        })
+//    }
+
+    //得到总价，显示在当前页面
+    var total = $.getQueryString("total");
+    $("#total").text("总计:" + total);
+    console.log(total)
+    var address_id = 0;
+    //给地址栏加上一个点击事件
+    $("#address").click(function () {
+        console.log(event.target);
+        if(event.target){
+            address_id = event.target.getAttribute("data-id")
+        }
+    })
+    $(function () {
+        //点击下订单
+        //提交一个ajax请求，真实的下一个订单
+        //下完订单后跳转到订单列表页面
+        $("#order").click(function () {
+            if(address_id === 0){
+                alert("请选择地址后再下订单")
+                return
+            }
+            shop.api.addOrder(address_id,total,function (response) {
+                console.log(response);
+                location.assign("order.html")
+            })
+        })
+        //点击新增按钮显示新增表单
+        $("#addUserAddress").click(function () {
+            $(".layer").show();
+        });
+        $(".layer h3 span").click(function () {
+            $(".layer").hide();
+        });
+        $("#add").click(function () {
+            var data = $("form").serialize();
+            console.log(data);
+            shop.api.addUserAddress(data,function (response) {
+                console.log(response);
+                if(response.code === 0){
+                    $(".layer").hide();
+                    fetchUserAddress();
+
+                }
+            })
+        });
+        fetchUserAddress();
+        function fetchUserAddress() {
+            shop.api.fetchUserAddress(function (response) {
+                var html = "";
+                for(var i = 0;i < response.data.length; i++){
+//                    console.log(response.data[0].city)
+                    var obj = response.data[i];
+//                    console.log(obj.address_id)
+//                    console.log(obj.country)
+//                    console.log(obj.province)
+                    html += '<div class="address-item" data-id="' +obj.address_id+'">' + obj.province + ' ' + obj.city + ' '
+                        + obj.district + '  '
+                        + obj.address + ' ' + obj.address_name + ' ' + obj.mobile + ' </div>';
+                }
+                $('#oAddress').html(html);
+            })
+        }
+
+    })
+
+</script>
+</html>

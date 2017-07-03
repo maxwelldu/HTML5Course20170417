@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<title>购物车</title>
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/shopping.css">
+   
+</head>
+<body>
+
+
+	<div class="headers">
+        <div class="headerstwo">
+          <div class="menu">
+            <ul>
+              <li><a href="login.html" class="header">登录</a>
+                <div class="twomenu">
+                  <p><a href="javascript:;" >个人设置</a></p>
+                  <p><a href="javascript:;">我的订单</a></p>
+                  <p><a href="javascript:;">收货地址</a></p>
+                  <p class="out"><a href="">退出</a></p>    
+                </div>
+              </li>
+              <li><a href="register.html" >注册</a></li>
+              <li><a href="javascript:;" class="shopp">我的购物车</a></li>
+            </ul>
+           </div>
+        </div>
+    </div>
+  	<div class="nav">
+		<ul id="nav-ul"></ul>
+	</div>
+	<div class="search">
+		<input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+		<button id="search-btn">搜索</button>
+	</div>
+    <h2>您的购物清单</h2>
+    <div class="container">
+	    <div id="shoppingcarList">
+	    	<table class="carTab">
+	    		<tbody>
+		    		<tr>
+		    			<th>
+		    				<input type="checkbox" id="selectAll"  checked="true">全选
+		    			</th>
+		    			<th>良品</th>
+		    			<th>数量</th>
+		    			<th>单价 元）</th>
+		    			<th>小计（元）</th>
+		    			<th>操作</th>
+
+		    		</tr>
+	    		</tbody>
+	    	</table>
+    	</div>
+	</div>
+	<div class="shoppingcar">
+		<p>
+			良品总价 
+			<font >/</font> 
+			<span class="priceNo">
+			¥:
+				<font id="payMoneyTxt">0.00</font>
+			</span>
+		</p>
+		 <p>
+		 	<input type="button"c lass="checkoutBtn" value="立即结算" id="checkout">
+      
+		 </p>
+	</div>
+
+   
+	</body>
+<script type="text/javascript" src="../jquery-3.2.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/common.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/shopping.js" charset="utf-8"></script>
+
+
+<script type="text/javascript">
+	 $(function(){
+    $('#checkout').click(function() {
+      location.assign('address.html?total=' + $('#payMoneyTxt').text());
+    });
+
+        shop.api.fetchCart(function(response){
+          // console.log(response);
+          if (response.data.length > 0) {
+            for (var i = 0; i < response.data.length; i++) {
+              var obj = response.data[i];
+              obj.subtotal = parseInt(obj.goods_price) * parseInt(obj.goods_number);
+              var tr = '<tr data-id="'+obj.goods_id+'">\
+                <th class="txtl" >\
+                  <input type="checkbox" class="chkbox goods_id" checked="true" value='+obj.goods_id+'>\
+                </th>\
+                <th >\
+                <img  src="'+obj.goods_thumb+'" /><br /> ' + obj.goods_name + '\
+                </th>\
+                <th >\
+	                <span class="operate minus"  id="minus-'+obj.goods_id+'">-</span>\
+	                <input type="text" value="'+obj.goods_number+'" class="goods_number" />\
+	                <span class="operate plus" id="plus-'+obj.goods_id+'">+</span>\
+                </th>\
+                <th  class="goods_price">'+obj.goods_price+'</th>\
+                <th id="subtotal_'+obj.goods_id+'" class="subtotal">'+obj.subtotal+'</th>\
+                <th class="delete"><span class="delete-span">删除</span></th>\
+              </tr>';
+              $('.carTab tbody').append($(tr));
+            };
+            showSum();
+            var deletes = document.getElementsByClassName('delete')[0];
+          }
+         
+
+        }); //ajax方法结束
+
+
+      });
+	//全部选中
+		
+	 function showSum() {
+        var trs = $('#shoppingcarList tr:gt(0)');
+        //找到每行中的小计，累加起来就是总和
+        var sum = 0;
+        for (var i = 0; i < trs.length; i++) {
+          var tr = trs[i];
+          //判断一下当前行的选中框是否选中，如果选中则计算到总价中
+          // console.log($(tr).children("th:first"));
+          // console.log($(tr).children("th:first").children('input'));
+          if ($(tr).children("th:first").children("input").is(':checked')) {
+            sum += parseInt($(tr).children('th:eq(4)').text());
+          }
+
+        }
+        $('#payMoneyTxt').text(sum);
+      }
+
+	 $('table').click(function(event){
+        console.log(event.target);
+        console.log($(event.target));
+        //当点击的是加号，臣妾更新一下购物的数量
+        // if (event.target.innerText === '+') {
+        if (event.target.className === "operate plus") {
+          console.log('++');
+          //修改数量
+          var oNumber = $(event.target).prev();
+          var number = oNumber.val();
+          oNumber.val(++number);
+          //小计调整
+          var price = parseInt($(event.target).parent().next().text());
+          console.log(price);
+          var oSubtotal = $(event.target).parent().next().next();
+          var subtotal = price * number;
+          oSubtotal.text(subtotal);
+          //总价
+          showSum();
+          //ajax
+          var goods_id = $(event.target).parent().parent().attr('data-id');
+          shop.api.updateCart(goods_id, number, function(response){
+            console.log(response);
+          });
+          return;
+        }
+		  if (event.target.className === "operate minus") {
+          console.log('++');
+          //修改数量
+          var oNumber = $(event.target).next();
+          var number = oNumber.val();
+          oNumber.val(--number);
+          console.log(number)
+          //小计调整
+          var price = parseInt($(event.target).parent().next().text());
+          console.log(price);
+          var oSubtotal = $(event.target).parent().next().next();
+          var subtotal = price * number;
+          console.log(subtotal)
+          oSubtotal.text(subtotal);
+          //总价
+          showSum();
+          //ajax
+          var goods_id = $(event.target).parent().parent().attr('data-id');
+          shop.api.updateCart(goods_id, number, function(response){
+            console.log(response);
+          });
+          return;
+        }
+		 if (event.target.id === 'selectAll') {
+          //全选的事情
+          var selected = event.target.checked;
+          console.log(selected);
+          var checkboxs = document.getElementsByClassName('chkbox');
+          console.log(checkboxs);
+          for (var i = 0; i < checkboxs.length; i ++) {
+            checkboxs[i].checked = selected;
+          }
+          showSum();
+          return;
+        }
+        if (event.target.type === 'checkbox') {
+          showSum();
+          checkSelectAll();
+        }
+        if(event.target.className === 'delete-span') {
+          deleteGoods(event.target);
+
+        }
+      });
+
+
+	  function selectAll(obj) {
+        $('input[class="chkbox"]').prop('checked', obj.checked);
+        console.log(obj);
+        showSum();
+      };
+   function checkSelectAll() {
+        var goods_count = $('input:checkbox').filter('[class="chkbox"]').length;
+        if ($('input:checkbox').filter('[class="chkbox"]').filter(":checked").length !== goods_count) {
+          $('#selectAll').prop('checked', false);
+        } else {
+          $('#selectAll').prop('checked', true);
+        }
+      }
+//从购物车中删除某件商品
+	 function deleteGoods(obj) {
+        updateCart(obj, 0);
+        //删除DOM元素
+        var tr = obj.parentNode.parentNode;
+        tr.parentNode.removeChild(tr);
+      }
+	//减某件商品
+	 function minusGoods(obj) {
+        updateCart(obj, '-1');
+      }
+	//加某件商品
+	function plusGoods(obj) {
+        updateCart(obj, '+1');
+      }
+      //设置某件商品
+      function setGoods(obj) {
+        var num = parseInt($(obj).val());
+        if (num < 1 || isNaN(num)) $(obj).val(1);
+        if (num > 10) $(obj).val(10);
+        updateCart(obj, $(obj).val());
+      }
+	//键盘上下
+	function stepSetGoods(obj, event) {
+        event.preventDefault();
+        //如果是上则加，下则减
+        if (event.keyCode === 40) {
+          minusGoods(obj);
+        } else if(event.keyCode === 38) {
+          plusGoods(obj);
+        }
+      }
+
+
+	function updateCart(obj, num) {
+        //数量为1的时候不处理，数量大于1的时候
+        //商品数量减1，最少数量是1
+        //商品小计重新计算和赋值
+        //显示总价
+        //请求ajax
+        var tr = obj.parentNode.parentNode;
+
+        var goods_id = tr.getElementsByClassName('goods_id')[0].value;//商品ID的隐藏元素, 把商品ID给元素的属性赋值也可以
+       	console.log(goods_id);
+        var goods_number = tr.getElementsByClassName('goods_number')[0];//商品数量的元素
+        var goods_number_value = parseInt(goods_number.value);//商品数量的值
+        var goods_price = tr.getElementsByClassName('goods_price')[0];//商品单价的元素
+        var goods_price_value = parseInt(goods_price.innerText);//商品单价的值
+        var goods_subtotal = tr.getElementsByClassName('subtotal')[0];
+
+        //获得商品编号 和 数量
+        if (num === '-1' && goods_number_value <= 1) {
+          //当前商品数量为1, 并且是减，不允许再减
+          return;
+        }
+        if (num === '+1' && goods_number_value >= 10) {
+          //当前商品数量为10, 并且是加操作，不允许再加
+          return;
+        }
+
+        if (num === '-1') {//-1
+          goods_number_value--;
+        } else if(num === '+1') {//+1
+          goods_number_value++;
+        } else if(num > 0) {//设置固定的数
+          goods_number_value = num;
+        } else {//删除
+          goods_number_value = 0;
+        }
+        goods_number.value = goods_number_value;
+        //小计的费用
+        var subtotal = goods_number_value * goods_price_value;
+        goods_subtotal.innerText = subtotal;
+        //请求ajax
+        updateCartInfo(goods_id, goods_number_value, function(){
+        });
+        //显示总价
+        showSum();
+      }
+
+
+</script>
+</html>

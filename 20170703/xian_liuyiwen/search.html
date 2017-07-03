@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/search.css">
+</head>
+<body>
+<header>
+    <div id="top">
+        <ul>
+            <li><a href="login.html" id="denglu">登录</a></li>
+            <li><a href="register.html" id="zhuce">注册</a></li>
+
+        </ul>
+    </div>
+    <p class="index">
+        <a href="index.html">返回首页</a>
+    </p>
+</header>
+<div class="body">
+    <div class="search">
+        <input type="text" id="search_text" placeholder="请输入要搜索的商品">
+        <button id="search-btn">搜索</button>
+    </div>
+    <div class="nav">
+        <ul id="nav-ul"></ul>
+    </div>
+    <div id="container">
+
+    </div>
+</div>
+
+<footer>
+    <div id="dibu">
+        在每一丝曙光破晓之前，一定是快要窒息的漫长黑夜；</br>
+        在每一次荣光到来之前，一定有太多狼狈的时刻，被看不起的日子；</br>
+        在每一阵掌声到来之前，总有太多唏嘘，太多冷眼；</br>
+        所以在每一个快要放弃的时刻，记得对自己说：要加油，不要哭。</br>
+    </div>
+
+</footer>
+</body>
+<script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+</script>
+<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/common.js"></script>
+<script type="text/javascript" src="scripts/search.js"></script>
+</html>

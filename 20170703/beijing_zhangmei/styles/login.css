@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+header {
+    width: 100%;
+    height: 160px;
+}
+header .header {
+    width: 100%;
+    height: 30px;
+    background: #F8F8FF;
+}
+.header .leftA {
+    float: left;
+    margin-left: 1200px;
+    color: red;
+}
+.header .rightA {
+    float: left;
+    margin-left: 20px;
+    color: #000;
+}
+.header a {
+    line-height: 30px;
+    font-family: 楷体;
+}
+header .search {
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    background: url(../images/logo.png) no-repeat 25% 100%;
+}
+.search img {
+    float: left;
+    margin-left: 635px;
+    margin-top: 35px;
+}
+.right-conter {
+    width: 100%;
+    height: 39px;
+}
+.right-conter p {
+    float: right;
+    margin-right: 410px;
+    color: #000;
+}
+.right-conter p a {
+    color: blue;
+}
+.right-conter span {
+    color: red;
+}
+section {
+    width: 100%;
+    height: 450px;
+    background: url(../images/logEWM.gif) no-repeat 17% 3%;
+}
+.login {
+    width: 1000px;
+    height: 350px;
+    border: 2px solid #e78f08;
+    float: left;
+    margin-left: 500px;
+}
+.login-left {
+    width: 650px;
+    height: 350px;
+    background: #fbfdfe;
+    float: left;
+}
+.login-left input {
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    float: left;
+    margin-left: 100px;
+    margin-top: 50px;
+}
+.login-left .checkbox input{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 295px;
+    left: 507px;
+}
+.login-left .checkbox label {
+    position: absolute;
+    top: 345px;
+    left: 630px;
+}
+.login-left p{
+    float: left;
+    margin-left: -75px;
+    margin-top: 100px;
+}
+.login-left p a {
+    color: blue;
+}
+.login-left button {
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    background: red;
+    font-size: 20px;
+    font-family: 楷体;
+    color: #fff;
+    float: left;
+    margin-left: 100px;
+    margin-top: 70px;
+    border: none;
+    border-radius: 5px;
+}
+.login-right {
+    width: 350px;
+    height: 350px;
+    background: #fede4e;
+    float: left;
+}
+.login-right p{
+    float: left;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+.login-right div {
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid red;
+    border-radius: 5px;
+    float: left;
+    margin-left: 130px;
+    margin-top: 20px;
+    text-align: center;
+    line-height:30px;
+}
+.login-right div a{
+    color: red;
+    font-family: 楷体;
+    font-size: 16px;
+}

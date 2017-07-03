@@ -1,0 +1,11 @@
+.container{
+	width: 1000px;
+	margin: 0 auto;
+}
+.container>div{width: 433px;margin: 10px auto;}
+.container>div img{position: relative;border: 1px solid #f2f2f2}
+.container>div p {
+	margin: 3px auto;
+	text-align: center;
+	color: black;
+}

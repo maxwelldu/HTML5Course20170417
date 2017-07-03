@@ -1,0 +1,150 @@
+body{
+	position: relative;
+	height: 100%;
+}
+a{
+	color: #878787;
+}
+input{
+	border: 0;
+	outline: none;
+}
+#verify-name {
+	float: left;
+	color: red;
+	line-height: 16px;
+}
+#verify-pwd {
+	float: left;
+	color: red;
+	line-height: 16px;
+}
+#fullbg{
+	width: 100%;
+	height: 100%;
+	background: #878787;
+}
+#signMain{
+	width: 1000px;
+    	margin: 0 auto;
+    	padding-top: 110px;
+    	clear: both;
+}
+#signForm{
+	width: 100%;
+    	display: inline-block;
+    	color: #333;
+}
+#signTable{
+	width: 550px;
+	border-collapse: separate;
+	border-spacing: 10px;
+	margin: 97px auto 0;
+	padding-bottom: 40px;
+	position: relative;
+}
+.regLabel{
+    width: 60px;
+    float: left;
+    line-height: 50px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #ffffff;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	padding-right: 20px;
+	text-align: left;
+}
+::-webkit-input-placeholder { /* WebKit browsers */ 
+color: #fff; 
+} 
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+color: #fff; 
+} 
+::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+color: #fff; 
+} 
+:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+color: #fff; 
+} 
+.regInpt{
+	background: url(../images/loginuserBg.png) no-repeat;
+	width: 280px;
+	height: 50px;
+	border: 0;
+	float: left;
+   	line-height: 50px;
+	padding-left: 20px;
+	font-family: 微软雅黑;
+	color: #fff;
+   	opacity: 0.99;
+   	filter: alpha(opacity=99);
+   	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+.agreeLC {
+    position: relative;
+    left: -4px;
+    top: 3px;
+}
+.vertPos {
+    vertical-align: middle;
+}
+.regBtn {
+    cursor: pointer;
+    width: 300px;
+    height: 50px;
+    border: 0;
+    background: #25292e;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0;
+    position: relative;
+    top: -9px;
+    margin-bottom: 10px;
+}
+.quikLoginIcon {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    margin: 0px;
+    position: relative;
+}
+.icon_QQ_36 {
+    background: url(../images/qqnormal.png) no-repeat;
+    margin-left: 5px;
+}
+.icon_QQ_36:hover{
+    background: url(../images/qqmouse.png) no-repeat;
+}
+.icon_sina_36 {
+    background: url(../images/xinlangnormal.png) no-repeat;
+}
+.icon_sina_36:hover {
+    background: url(../images/xinlangmouse.png) no-repeat;
+}
+.icon_douban_36 {
+    background: url(../images/doubannormal.png) no-repeat;
+}
+.icon_douban_36:hover {
+    background: url(../images/doubanmouse.png) no-repeat;
+}
+.icon_qqwb_36 {
+    background: url(../images/tengxunnormal.png) no-repeat;
+}
+.icon_qqwb_36:hover {
+    background: url(../images/tengxunmouse.png) no-repeat;
+}
+.regLC {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    float: right;
+    margin-right: 20px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #ffffff;
+}
+
+

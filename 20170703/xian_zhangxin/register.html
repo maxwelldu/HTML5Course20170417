@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="css/register.css"/>
+    </head>
+    <body>
+        <div id="oDiv">
+			      <h2>注册账号</h2>
+			      <div class="obox">
+		                                 用户名：<input type="text" name="username">
+		            <span class="success">用户名可用</span>
+		            <span class="error">用户名已存在</span>
+		        </div>
+				    <div class="obox">
+				                     密码&nbsp;&nbsp;&nbsp;：<input type="password" name="password">
+				    </div>
+				    <div class="obox">
+				    	  <input type="button" id="register" value="注册">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				        <a href="login.html" >立即登录>>></a>
+				    </div>
+		    </div>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+        <script type="text/javascript">
+			      $(function(){
+			          $('input[name="username"]').blur(function(){
+			              console.log( $(this).val() );
+			              $.ajax({
+			                  "url": "http://h6.duchengjiu.top/shop/api_user.php",
+						            "type": "POST",
+						            "data": {
+						              "status": "check",
+						              "username": $(this).val()
+						            },
+						            "dataType": "json",
+						            "success": function(response) {
+						                console.log(response);
+						                if (response.code === 0) {
+							                  $("span[class='success']").show();
+							                  $("span[class='error']").hide();
+							              } else if(response.code === 2001){//用户名已存在
+						                    $('span[class="success"]').hide();
+								                $("span[class='error']").show();
+								                $('span[class="error"]').html("用户名已存在");
+			                      }
+			                  }
+			              });
+			          });
+
+		        //点击注册按钮
+		        $('#register').click(function(){
+		          //获得用户名和密码
+		          var username = $('input[name="username"]').val();
+		          var password = $('input[name="password"]').val();
+		          //验证密码最小长度6位
+		          if (password.length < 6 || password.length > 20) {
+		            alert('密码长度在6到20位');
+		            return;
+		          }
+		          console.log([username, password]);
+		          $.ajax({
+		            "url": "http://h6.duchengjiu.top/shop/api_user.php",
+		            "type": "POST",
+		            "dataType": "json",
+		            "data": {
+		              "status": "register",
+		              "username": username,
+		              "password": password
+		            },
+		            "success": function(response){
+		              console.log(response);
+		            }
+		          });
+		          alert("注册成功！")
+		        });
+		      });
+		
+		      /*
+		      *:TODO
+		      //表单验证，用户名，密码，并给出友好的提示
+		      //提交表单之后有两种情况：
+		          成功的时候给出注册成功的提示
+		          失败的时候把错误信息显示出来
+		      //防止表单重复提交
+		      //用户名是否可以被注册
+		      */
+		    </script>
+		  </body>
+</html>

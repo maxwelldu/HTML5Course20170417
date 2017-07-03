@@ -1,0 +1,593 @@
+.head-text{
+    width: 1090px;
+    height:265px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.head-text h2{
+    width: 100%;
+    height: 28px;
+    font-size: 18px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    margin-bottom: 15px;
+}
+.head-text-link{
+    width: 100%;
+    height: 220px;
+    position: relative;
+}
+.head-text-link-add{
+    width: 100%;
+    height: 176px;
+    padding-bottom: 12px;
+
+    overflow:hidden;
+}
+#Add{
+    width: 112px;
+    height: 28px;
+    float: left;
+    border:1px solid #999;
+    text-align: center;
+    line-height: 28px;
+    cursor:pointer;
+    position: absolute;
+   bottom: 12px;
+}
+#Add:hover{
+    border: 1px solid #e31436;
+    color: #e31436;
+}
+.adds{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    position:fixed;
+    top:0;
+    z-index: 1000;
+    display: none;
+}
+.adds-texts{
+    width:100%;
+    height:53px;
+    border-bottom: 1px dotted #999;
+}
+.adds-text{
+    width: 660px;
+    height: 556px;
+    margin: auto;
+    background-color: white;
+    margin-top: 80px;
+}
+.adds-text h2{
+    width: 600px;
+    height: 100%;
+    padding:0 30px;
+    line-height: 53px;
+    font-size: 18px;
+    color: #999;
+}
+.adds-text h2 span{
+    float: right;
+    cursor:pointer;
+    font-size: 25px;
+}
+.adds-text h2 span:hover{
+    font-size: 36px;
+}
+
+.adds-list{
+    width: 620px;
+    height: 396px;
+    padding: 0 20px;
+    margin-top: 30px;
+}
+.adds-list-add{
+    width: 615px;
+    height:36px;
+    float: right;
+    line-height: 36px;
+    padding-top: 20px;
+}
+.adds-list-add span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-add span i{
+    font-style: normal;
+  font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 50px;
+}
+.adds-list-add input{
+    width: 125px;
+    height: 20px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.adds-list-region{
+    width: 615px;
+    height:66px;
+    float: right;
+    padding-top: 20px;
+}
+.adds-list-region span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-region span i{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 50px;
+}
+.adds-list-region textarea{
+    line-height: normal;
+    width: 440px;
+    height: 46px;
+    resize: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    outline:none;
+}
+.adds-list-name{
+    width: 615px;
+    height:36px;
+    float: right;
+    padding-top: 20px;
+}
+.adds-list-name span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-name span i{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 38px;
+}
+.adds-list-name input{
+    width: 440px;
+    height: 20px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.adds-list-phone{
+    width: 615px;
+    height:36px;
+    float: right;
+    padding-top: 20px;
+}
+.adds-list-phone span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-phone span i{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 38px;
+}
+.adds-list-phone input{
+    width: 440px;
+    height: 20px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.adds-list-Cphone{
+    width: 615px;
+    height:36px;
+    float: right;
+    padding-top: 20px;
+}
+.adds-list-Cphone span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-Cphone span i{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 38px;
+}
+.adds-list-Cphone input{
+    width: 125px;
+    height: 20px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.adds-list-email{
+    width: 615px;
+    height:36px;
+    float: right;
+    padding-top: 20px;
+}
+.adds-list-email span{
+    padding-left: 30px;
+    padding-right: 20px;
+    float: left;
+    text-align: right;
+    width:80px;
+    height:36px;
+    line-height: 36px;
+    position: relative;
+}
+.adds-list-email span i{
+    font-style: normal;
+    font-size: 15px;
+    line-height: 36px;
+    color: #e31436;
+    position: absolute;
+    top:2px;
+    left: 38px;
+}
+.adds-list-email input{
+    width: 440px;
+    height: 20px;
+    padding: 7px 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+.adds-list-btn{
+    width: 100%;
+    height: 60px;
+    float: left;
+    /*background-color: #e31436;*/
+}
+.adds-list-btn span{
+    width: 128px;
+    height: 38px;
+    margin-top:20px ;
+    text-align: center;
+    float: left;
+    line-height: 40px;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+    font-size: 15px;
+    margin-left: 135px;
+    margin-right: 50px;
+}
+.adds-list-btn span:hover{
+    border:1px solid #e31436;
+    color: #e31436;
+}
+.adds-list-btn em{
+    font-style: normal;
+    width: 130px;
+    height: 40px;
+    margin-top:20px ;
+    text-align: center;
+    float: left;
+    line-height: 40px;
+   background-color: #e31436;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+}
+.adds-list-btn em:hover{
+    opacity: 0.8;
+}
+
+.place{
+    width: 342px;
+    height: 158px;
+    /*background-color: yellow;*/
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    position: relative;
+}
+.place:hover .place-shad{
+    display: block;
+}
+.place-shad{
+    width: 342px;
+    height: 158px;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: #dddddd;
+    display: none;
+    z-index: -1;
+}
+.place h1{
+    width: 300px;
+    height: 39px;
+    margin: 0 auto;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    line-height: 39px;
+}
+.place em{
+    display:block;
+    width:300px;
+    height: 63px;
+    margin: 0 auto;
+    margin-top: 5px;
+    line-height: 20px;
+}
+.place span{
+    display: none;
+    cursor: pointer;
+    margin: 17px 0 0 24px;
+}
+.place span:hover{
+    text-decoration:underline;
+    color: #e31436;
+}
+.place:hover span{
+    display: block;
+
+}
+.place-link{
+
+    border: 2px solid #e31436 ;
+    background: url(../images/6.png) no-repeat right bottom;
+    background-color: #fffbee;
+    background-position:312px 128px ;
+}
+.shop{
+    width: 1090px;
+    /*height: 636px;*/
+    margin: 0 auto;
+    margin-top:20px;
+
+}
+.shop h2{
+    width: 100%;
+    height: 28px;
+    font-size: 18px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    margin-bottom: 5px;
+}
+.shop-text{
+    width: 1050px;
+    height: 33px;
+    padding:0 20px;
+}
+.shop-text-one{
+    display: inline-block;
+    width: 649px;
+    height: 100%;
+    line-height:33px ;
+    color: #999;
+}
+.shop-text-two{
+    display: inline-block;
+    width: 130px;
+    height: 100%;
+    line-height:33px ;
+    color: #999;
+}
+.shop-text-three{
+    display: inline-block;
+    width: 130px;
+    height: 100%;
+    line-height:33px ;
+    color: #999;
+}
+.shop-text-four{
+    display: inline-block;
+    width: 130px;
+    height: 100%;
+    line-height:33px ;
+    color: #999;
+}
+.shop-list{
+    width: 1090px;
+    margin-bottom:20px ;
+    border: 1px solid #ddd;
+}
+.shop-list-top{
+    width: 1049px;
+    height: 20px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+.shop-list-top em{
+    float: right;
+    padding-right: 50px;
+
+
+}
+.shop-list-top b{
+    position: absolute;
+    right: 112px;
+    bottom: -4px;
+    border: 1px solid #999;
+    width: 6px;
+    height: 6px;
+    margin-left: 5px;
+    border-color: transparent transparent #ddd #ddd;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+    background-color: #fff;
+    /*z-index: -1;*/
+}
+.goods{
+    width: 1050px;
+    padding: 0 20px;
+    height: 83px;
+}
+.goods-list{
+    display: inline-block;
+    width: 658px;
+    height:60px;
+    float: left;
+    padding: 13px 0 10px 0;
+    /*line-height:33px ;*/
+    color: #999;
+    position: relative;
+}
+.goods-list img{
+    float: left;
+    width: 50px;
+    height: 50px;
+}
+.goods-list span{
+    margin-left: 10px;
+    float: left;
+    width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+.goods-list p{
+    position: absolute;
+    left: 61px;
+    bottom: 22px;
+    float: left;
+    background: url(../images/7.png) no-repeat center left;
+    text-indent:20px;
+}
+.goods-list-one{
+    float: left;
+    width: 136px;
+    height: 60px;
+    padding: 13px 0 10px 0;
+}
+.goods-list-two{
+    float: left;
+    width: 136px;
+    height: 60px;
+    padding: 13px 0 10px 0;
+}
+.goods-list-three{
+    float: left;
+    width: 100px;
+    height: 60px;
+    font-weight:bold;
+    padding: 13px 0 10px 0;
+}
+.shop-balance{
+    width: 1090px;
+    height: 417px;
+    border:1px solid #dddddd;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.shop-balance-top{
+    width: 1028px;
+    height: 72px;
+    padding:15px 31px ;
+}
+.shop-balance-bottom{
+    width: 1028px;
+    height: 241px;
+    padding:20px 31px;
+    background-color: #f3f3f3;
+}
+.shop-balance-bottom span{
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+
+    color: white;
+    font-size: 20px;
+    font-weight:bold;
+    background-color: #e31436;
+    text-align: center;
+    cursor:pointer;
+}
+.shop-balance-bottom-text{
+    width: 640px;
+    height: 100%;
+    float: left;
+    background-color: #222222;
+}
+.shop-balance-bottom-mas{
+    float: right;
+    width: 350px;
+    height: 100%;
+}
+.shop-balance-bottom-mas p{
+    width: 100%;
+    height: 24px;
+    float: right;
+    font-size: 18px;
+    text-align: right;
+}
+.shop-balance-bottom-mas p em{
+    float: left;
+    text-align: right;
+    width: 200px;
+    font-size: 16px;
+}
+#Money{
+    font-style: normal;
+    font-size:18px;
+}
+#dMoney{
+    font-style: normal;
+    font-size:18px;
+    color: #e31436;
+    font-weight:bold;
+}
+.shop-balance-bottom-mas-up{
+    margin-top: 30px;
+    float: right;
+}
+.shop-balance-bottom-mas-up a{
+    color: deepskyblue;
+    margin-right: 10px;
+}
+.shop-balance-bottom-mas-up a:hover{
+   text-decoration:underline;
+}

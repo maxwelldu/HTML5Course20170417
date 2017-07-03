@@ -1,0 +1,388 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+.broadside {
+    width: 40px;
+    height: 200px;
+    float: right;
+    position: fixed;
+    top: 300px;
+    right: 0px;
+    background: #000;
+    border-radius: 5px;
+}
+.broadside-one {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: url(../images/1.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+.broadside-one:hover {
+    background: url(../images/11.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+#broadside-one-user {
+    width: 250px;
+    height: 200px;
+    background: #fff;
+    position: fixed;
+    right: 41px;
+    top: 300px;
+    display: none;
+}
+#broadside-one-user img {
+    width: 72px;
+    height: 72px;
+    float: left;
+    margin-left: 90px;
+    margin-top: 30px;
+}
+#broadside-one-user>p {
+    width: 250px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+    float: left;
+    margin-top: 40px;
+}
+#broadside-one-user>p>span>a{
+    color: red;
+}
+.broadside-two{
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: url(../images/2.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+.broadside-two:hover {
+    background: url(../images/22.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+#broadside-two-cart {
+    width: 90px;
+    height: 40px;
+    background: #666666;
+    border-radius: 5px;
+    position: fixed;
+    right: 40px;
+    top: 341px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+#broadside-two-cart a {
+    color: #fff;
+    font-size: 14px;
+    font-family: 楷体;
+}
+#broadside-two-cart a:hover {
+    color: #e78f08;
+}
+.broadside-three {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: url(../images/3.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+.broadside-three:hover {
+    background: url(../images/33.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+#broadside-three-love {
+    width: 90px;
+    height: 40px;
+    background: #666666;
+    border-radius: 5px;
+    position: fixed;
+    right: 40px;
+    top: 381px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+#broadside-three-love a {
+    color: #fff;
+    font-size: 14px;
+    font-family: 楷体;
+}
+#broadside-three-love a:hover {
+    color: #e78f08;
+}
+.broadside-four {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background: url(../images/4.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+.broadside-four:hover {
+    background: url(../images/44.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+#broadside-four-music {
+    width: 90px;
+    height: 40px;
+    background: #666666;
+    /*background: green;*/
+    border-radius: 5px;
+    position: fixed;
+    right: 40px;
+    top: 421px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+#broadside-four-music a {
+    color: #fff;
+    font-size: 14px;
+    font-family: 楷体;
+}
+#broadside-four-music a:hover {
+    color: #e78f08;
+}
+
+.broadside-five {
+    width: 40px;
+    height: 40px;
+    float: left;
+    background:#000 url(../images/7.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+.broadside-five:hover {
+    background:#000 url(../images/77.png) no-repeat 100% 100%;
+    background-size: 40px 40px;
+    cursor: pointer;
+}
+#broadside-five-index {
+    width: 90px;
+    height: 40px;
+    background: #666666;
+    border-radius: 5px;
+    position: fixed;
+    right: 40px;
+    top: 461px;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+}
+#broadside-five-index a {
+    color: #fff;
+    font-size: 14px;
+    font-family: 楷体;
+}
+#broadside-five-index a:hover {
+    color: #e78f08;
+}
+footer {
+    float: left;
+    margin-top: 30px;
+    width: 100%;
+    height: 560px;
+    background: #fff;
+}
+.footer-top {
+    float: left;
+    margin-left: 510px;
+}
+.footer-center {
+    width: 1000px;
+    height: 250px;
+    float: left;
+    margin-left: 510px;
+    margin-top: 10px;
+    border-top: 1px solid #C0C0C0;
+    border-bottom: 1px solid #C0C0C0;
+}
+.matter {
+    width: 600px;
+    height: 200px;
+    float: left;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+.matter li {
+    width: 149px;
+    height: 210px;
+    float: left;
+    border-right: 1px dashed #d9d9d9;
+}
+.matter .matter-last {
+    border-right: none;
+}
+.matter li .matter-top {
+    width: 145px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-family: 楷体;
+    font-size: 20px;
+}
+.matter li .subst {
+    width: 145px;
+    height: 160px;
+    float: left;
+    text-align: center;
+}
+.subst li {
+    width: 145px;
+    height: 40px;
+    float: left;
+    margin-left: 0px;
+    line-height: 40px;
+    border: none;
+}
+.subst li>a {
+    color: #C0C0C0;
+    font-size: 16px;
+    font-family: 楷体;
+}
+.subst li>a:hover {
+    color: red;
+}
+.footer-right {
+    width: 300px;
+    height: 210px;
+    float: left;
+    margin-top: 20px;
+}
+.footer-right-top {
+    width: 300px;
+    height: 80px;
+    float: left;
+    margin-top: 20px;
+}
+.footer-right .footer-img-left {
+    width: 80px;
+    height: 80px;
+    float: left;
+    margin-left: 20px;
+}
+.footer-right .footer-img-right {
+    width: 149px;
+    height: 38px;
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.footer-right p {
+    float: left;
+    margin-top: 0px;
+    margin-left: 30px;
+}
+.footer-right p a {
+     color: #2d2d2d;
+    font-size: 13px;
+}
+.footer-right span {
+    float: left;
+    margin-top: 20px;
+    margin-left: -65px;
+}
+.footer-right span a {
+    color: #C0C0C0;
+    font-size: 13px;
+}
+.footer-bottom {
+    width: 1000px;
+    height: 135px;
+    float: left;
+    margin-left: 510px;
+    margin-top: 20px;
+}
+.footer-nav {
+    width: 900px;
+    height: 20px;
+    float: left;
+    margin-left: 50px;
+    text-align: center;
+}
+.footer-nav li {
+    width: 74px;
+    height: 20px;
+    float: left;
+    border-right: 1px solid #d9d9d9;
+    line-height: 20px;
+}
+.footer-nav li a {
+    color: #2d2d2d;
+    font-size: 14px;
+    font-family: 楷体;
+}
+.footer-nav li a:hover {
+    color: red;
+}
+.footer-nav .footer-nav-last {
+    border-right: none;
+}
+.explain {
+    width: 1000px;
+    height: 15px;
+    font-size: 13px;
+    font-family: 楷体;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    color: #C0C0C0;
+}
+.company {
+    width: 1000px;
+    height: 15px;
+    font-size: 13px;
+    font-family: 楷体;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    color: #C0C0C0;
+}
+.site {
+    width: 1000px;
+    height: 15px;
+    font-size: 13px;
+    font-family: 楷体;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    color: #C0C0C0;
+}
+.site a {
+    color: #C0C0C0;
+    margin-left: 10px;
+}
+.site a:hover {
+    color: red;
+}
+.holder {
+    width: 1000px;
+    height: 20px;
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    background: url(../images/bei.png) no-repeat 40% 100%;
+}
+.holder a {
+    font-size: 13px;
+    font-family: 楷体;
+    color: #C0C0C0;
+}
+.holder a:hover {
+    color: red;
+}

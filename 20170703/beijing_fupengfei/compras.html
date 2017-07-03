@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/compras.css">
+</head>
+<body>
+<header>
+    <div class="nav" id="nav">
+        <div class="cen">
+            <div class="conta-left">
+                <a href="#">每天惠</a>
+                <a href="#">慧顾家</a>
+                <a href="#">兑换中心</a>
+            </div>
+            <div class="conta-wei">
+                <a href="#"><em>&#9742</em>手机版</a>
+                <a href="#"><em>&#9733</em>收藏</a>
+            </div>
+            <div class="conta-rgt">
+                <a href="compras.html">购物车</a>
+                <a href="#">我的订单</a>
+                <a href="#">商家中心</a>
+            </div>
+            <div class="conta">
+                <a href="register.html">注册</a>
+                <a href="login.html">登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="search">
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+        <input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+        <button id="search-btn">搜索</button>
+        <div class="log"></div>
+    </div>
+</header>
+<div class="nav-list">
+    <ul class="list" id="list"></ul>
+    <script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+    </script>
+</div>
+<div class="box-one">
+    <h2>我的购物车</h2>
+    <div class="container">
+        <div id="shoppingcarList">
+            <ul class="carTab">
+                <li class="txt1">
+                    <input type="checkbox" class="chkbox" id="selectAll" checked="true">全选
+                </li>
+                <li class="txt2">商品</li>
+                <li class="txt3">数量</li>
+                <li class="txt4">单价（元）</li>
+                <li class="txt5">小计（元）</li>
+                <li class="txt6">操作</li>
+            </ul>
+        </div>
+        <div id="shoppingcarOptV2">
+            <p>良品总价：¥
+                <span id="payMoneyTxt">0.00</span>
+            </p>
+            <p>
+                <input type="button" class="checkoutBtn" id="checkouBtn" value="立即结算">
+            </p>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <img src="images/background/foot1.png" alt="">
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/common.js"></script>
+<script src="js/compras.js"></script>
+<script type="text/javascript">
+    if (localStorage.getItem('token')){
+        $('.conta').html(localStorage.getItem('username')+'<a>　　退出</a>');
+    }
+    $('.conta>a').click(function () {
+        localStorage.clear();
+        location.href = 'index.html';
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #f6f6f6;
+        }
+        .cont{
+            margin: 0 auto;
+            width: 850px;
+            height: 450px;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: #ffffff;
+        }
+        .logo{
+            width: 132px;
+            height: 58px;
+            background: url("images/index/logo .png");
+            margin: 20px 130px;
+            float: left;
+        }
+        .logo a{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+        .ligin{
+            width: 372px;
+            height: 372px;
+            background: url("images/index/login.png");
+            float: left;
+            margin-top: 39px;
+        }
+        h1{
+            text-align: center;
+            line-height: 60px;
+        }
+        .login{
+            width: 350px;
+            height: 350px;
+            /*margin: 100px auto;*/
+            background-color: #fff;
+            padding: 50px;
+            float: left;
+        }
+        p{
+            height: 30px;
+            line-height: 30px;
+        }
+        .username{
+            border:1px solid #cccccc;
+            width: 250px;
+            height: 30px;
+        }
+        #error{
+            color: red;
+        }
+        .password{
+            border:1px solid #cccccc;
+            width: 250px;
+            height: 30px;
+        }
+        #codes{
+            color: red;
+        }
+        #login{
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            background-color: #dd4f50;
+            border:none;
+            color: #ffffff;
+            font-size: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html"></a>
+    </div>
+</header>
+<div class="cont">
+    <div class="ligin"></div>
+    <div class="login">
+        <h1>欢迎登录</h1>
+        <p>用户名：　　<input type="text" name="username" id="username" class="username" placeholder="请输入账号"></p>
+        <p id="error" class="hint"></p>
+        <p>密码：　　　<input type="password" name="password" id="password" class="password" placeholder="请输入密码"></p>
+        <p id="codes" class="hint"></p>
+        <p><input type="checkbox" checked="checked" id="ourtreaty" class="vertPos"><span>自动登录</span></p>
+        <p><input type="button" name="btn" value="登录" id="login"></p>
+    </div>
+</div>
+<div class="foot">
+    <img src="images/background/foot1.png" alt="">
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#login').click(function () {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            console.log([username,password]);
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "dataType":"json",
+                "data":{
+                    "status":"login",
+                    "username":username,
+                    "password":password
+                },
+                "success":function (response) {
+                    console.log(response);
+                    if(response.code === 0){
+                        var data = response.data;
+                        for (var prop in data){
+                            if(data.hasOwnProperty(prop)){
+                                localStorage.setItem(prop,data[prop]);
+                            }
+                        }
+                        location.assign('index.html');
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

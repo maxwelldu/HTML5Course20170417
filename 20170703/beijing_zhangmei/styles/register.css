@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+header {
+    width: 100%;
+    height: 160px;
+}
+header .header {
+    width: 100%;
+    height: 30px;
+    background: #F8F8FF;
+}
+.header .leftA {
+    float: left;
+    margin-left: 1200px;
+    color: red;
+}
+.header .rightA {
+    float: left;
+    margin-left: 20px;
+    color: #000;
+}
+.header a {
+    line-height: 30px;
+    font-family: 楷体;
+}
+header .search {
+    width: 100%;
+    height: 90px;
+    background-color: #fff;
+    background: url(../images/logo.png) no-repeat 25% 100%;
+}
+.search img {
+    float: left;
+    margin-left: 635px;
+    margin-top: 35px;
+}
+.right-conter {
+    width: 100%;
+    height: 39px;
+}
+.right-conter p {
+    float: right;
+    margin-right: 445px;
+    color: #000;
+}
+.right-conter span a {
+    color: blue;
+}
+section {
+    width: 100%;
+    height: 650px;
+    background: url(../images/logEWM.gif) no-repeat 17% 3%;
+}
+.top {
+    width: 1470px;
+    height: 40px;
+    float: left;
+    margin-left: 503px;
+    margin-top: 20px;
+}
+.left-top {
+    width: 220px;
+    height: 40px;
+    background: orangered url(../images/iphone.png) no-repeat 20% 50%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-family: 楷体;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 12px;
+}
+.right-top {
+    width: 220px;
+    height: 40px;
+    background: #c4e3f3 url(../images/watch.png) no-repeat 15% 50%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    font-family: 楷体;
+    cursor: pointer;
+    color: #000;
+    border-radius: 12px;
+}
+.buttom {
+    width: 1000px;
+    height: 500px;
+    border: 2px solid #e78f08;
+    float: left;
+    margin-left: 503px;
+    margin-top: 0px;
+    position: relative;
+    border-radius: 10px;
+}
+.buttom .buttom-all {
+    width: 450px;
+    height: 450px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+.buttom label {
+    float: left;
+    margin-left: 50px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.buttom input {
+    float: left;
+    margin-left: 10px;
+    margin-top: 20px;
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    cursor: pointer;
+}
+.buttom-6 input {
+    width: 20px;
+    height: 20px;
+    margin-left: 160px;
+}
+.buttom-6 span {
+    width:220px;
+    height: 30px;
+    float: left;
+    margin-top: 20px;
+}
+.buttom-6 span p {
+    color: blue;
+}
+.buttom-7 input {
+    width: 200px;
+    height: 30px;
+    background: red;
+    font-size: 20px;
+    color: #fff;
+    outline: none;
+    border: 1px solid #fff;
+    margin-left: 100px;
+}
+/*.buttom-3 .success {*/
+    /*display: inline-block;*/
+    /*width: 200px;*/
+    /*height: 30px;*/
+    /*background: #ccc;*/
+    /*float: left;*/
+    /*position: relative;*/
+    /*left: 186px;*/
+    /*top: 5px;*/
+    /*display: none;*/
+    /*text-align: center;*/
+    /*line-height:30px;*/
+    /*color: greenyellow;*/
+    /*border: 1px solid  greenyellow;*/
+/*}*/
+/*.buttom-3 .error {*/
+    /*display: inline-block;*/
+    /*width: 200px;*/
+    /*height: 30px;*/
+    /*background: #000;*/
+    /*float: left;*/
+    /*position: relative;*/
+    /*left: -13px;*/
+    /*top: 5px;*/
+    /*display: none;*/
+    /*text-align: center;*/
+    /*line-height:30px;*/
+    /*color: red;*/
+    /*border: 1px solid red;*/
+/*}*/
+.below {
+    width:400px;
+    height:500px;
+    float: right;
+    margin-top: 470px;
+    position: relative;
+}
+.below .success {
+    position: absolute;
+    top:-285px;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    color: greenyellow;
+    border: 1px solid greenyellow;
+    background: #d9d9d9;
+    line-height: 30px;
+    display: none;
+}
+.below .error {
+    position: absolute;
+    top:-290px;
+    width: 270px;
+    height: 30px;
+    text-align: center;
+    color: red;
+    border: 1px solid red;
+    line-height: 30px;
+    display: none;
+    background: #d9d9d9;
+}
+.below p {
+    position: absolute;
+    top:0;
+    font-size: 12px;
+}
+.below p .iphone {
+    color: red;
+}
+.init {
+    position: absolute;
+    top: 10px;
+    left: 130px;
+    width: 400px;
+    height: 50px;
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-family: 楷体;
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style media="screen">
+	::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	  color: red;
+	}
+	::-moz-placeholder { /* Firefox 19+ */
+	  color: red;
+	}
+	:-ms-input-placeholder { /* IE 10+ */
+	  color: red;
+	}
+	:-moz-placeholder { /* Firefox 18- */
+	  color: red;
+	}
+	</style>
+</head>
+<body>
+	<form id="form">
+		<p>
+			请输入姓名：
+			<input type="text" name="xingming" placeholder="请输入姓名" />
+		</p>
+		<p>
+			请选择性别：
+			<input type="radio" name="sex" value="男"/> 男
+			<input type="radio" name="sex" value="女"/> 女
+			<input type="radio" name="sex" value="保密"/> 保密
+		</p>
+		<p>
+			请选择国籍：
+			<input type="radio" name="nationality" value="中国"/> 中国
+			<input type="radio" name="nationality" value="外国"/> 外国
+		</p>
+		<p>
+			请选择你的爱好：
+			<input type="checkbox" name="hobby[]" value="足球"/> 足球
+			<input type="checkbox" name="hobby[]" value="篮球"/> 篮球
+			<input type="checkbox" name="hobby[]" value="吃饭"/> 吃饭
+			<input type="checkbox" name="hobby[]" value="睡觉"/> 睡觉
+			<input type="checkbox" name="hobby[]" value="打豆豆"/> 打豆豆
+		</p>
+		<p>
+			选择你的省份：
+			<select name="hometown" >
+				<option value="10">北京</option>
+				<option value="11">上海</option>
+				<option value="12">东莞</option>
+				<option value="13">广州</option>
+			</select>
+		</p>
+		<p>
+			你的爱好：
+			<select name="your-hobby" multiple>
+				<option value="10">吃饭</option>
+				<option value="11">睡觉</option>
+				<option value="12">打豆豆</option>
+			</select>
+		</p>
+		<p>
+			密码：
+			<input type="password" name="password" placeholder="请输入密码"/>
+		</p>
+		<p>
+			留言：
+			<textarea name="message" id="" cols="30" rows="10"></textarea>
+		</p>
+		<p>
+			<input type="button" value="点击提交" id="btn"/>
+		</p>
+	</form>
+
+	<script type="text/javascript" src="js/myajax.js"></script>
+	<script type="text/javascript">
+		var btn = document.getElementById('btn');
+		var form = document.getElementById('form');
+		btn.onclick = function() {
+			var inputs = form.elements;
+			var arr = [];
+			for (var i = 0; i < inputs.length; i ++) {
+				var e = inputs[i];
+				switch (e.type) {
+					case "button":
+					case "submit":
+					case "reset":
+						break;
+					case "text":
+					case "password":
+					case "hidden":
+					case "textarea":
+						arr.push(e.name + '=' + e.value);
+						break;
+					case "radio":
+					case "checkbox":
+						e.checked && arr.push(e.name + '=' + e.value);
+						break;
+					case "select-one":
+					case "select-multiple":
+						var options = e.getElementsByTagName('option');
+						for (var j = 0; j < options.length; j++) {
+							var o = options[j];
+							o.selected && arr.push(e.name + '=' + o.value);
+						}
+						break;
+				}//swtich end
+			}//for i end
+			console.log(arr.join(','));
+		}
+
+
+	/*
+		var biaodan = document.getElementById("biaodan");
+		var btn = document.getElementById("btn");
+
+		btn.onclick = function(){
+			//得到表单中的所有控件
+			var elems = biaodan.elements;
+			//结果数组
+			var arr = [];
+
+			//遍历所有的控件
+			for(var i = 0 ; i < elems.length ; i++){
+				//当前遍历的小元素
+				var e = elems[i];
+				//分类讨论：
+				switch(e.type){
+					//如果控件的类型是个按钮，那么没有任何返回值
+					case "button" :
+					case "submit" :
+					case "reset" :
+						break;
+					case "text" :
+					case "password" :
+					case "textarea" :
+						arr.push(e.name + "=" + e.value);
+						break;
+					case "radio":
+					case "checkbox":
+						e.checked && arr.push(e.name + "=" + e.value);
+						break;
+					case "select-one":
+					case "select-multiple":
+						var options = e.getElementsByTagName("option");
+						console.log(options);
+						for(var j = 0 ; j < options.length; j++){
+							if(options[j].selected){
+								arr.push(e.name + "=" + options[j].value);
+							}
+						}
+						break;
+				}
+			}
+
+			console.log(arr.join("&"));
+		}
+		*/
+	</script>
+</body>
+</html>

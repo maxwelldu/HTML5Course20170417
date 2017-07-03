@@ -1,0 +1,100 @@
+            * {
+			    margin: 0;
+			    padding: 0;
+			}
+			li{
+				list-style: none;
+			}
+			#ODiv{
+				width: 100%;
+				height: 50px;
+			}
+			#ODiv ul{
+				height: 50px;
+				width: 700px;
+				float: left;
+				margin-left: 600px;
+				font-weight: bold;
+			}
+			#ODiv ul li {
+				float: left;
+				margin-left: 30px;
+				line-height: 50px;
+			}
+			#ODiv ul li a{
+				text-decoration: none;
+				font-weight: 200px;
+				color: black;
+				font-weight: bold;
+				font-size: 15px;
+			}
+			#ODiv ul li a:hover{
+				color: red;
+			}
+			.Lis{
+				margin-top: -20px;
+			}
+			#search-btn{
+				width: 50px;
+				height: 20px;
+				border-radius: 0;
+				margin-left: 0px;
+				border: 1px solid black;
+			}
+			.nav{
+				width: 100%;
+				height: 50px;
+				background-color: plum;
+			}
+			.nav ul {
+				margin-left: 130px;
+			}
+			.nav ul li {
+			    float: left;
+			    display: inline-block;
+			    width: 50px;
+		  	    line-height: 50px;
+			    margin-left: 50px;
+			    text-align: center;
+			}
+			.nav ul li a{
+				text-decoration: none;
+				font-size: 18px;
+				color: white;
+			}
+			.nav ul li a:hover{
+				color: red;
+			}
+			.goods {
+				width: 100%;
+				height: 330px;
+			    clear: both;
+			}
+			.goods ul li {
+			    display: block;
+			    float: left;
+			    width: 200px;
+		  	    height: 320px;
+			    margin-left: 55px;
+			    margin-top: 30px;
+			    position: relative;
+			}
+			.goods ul li img:hover{
+				border-color: red;
+			}
+			.goods ul li img {
+				 border: 1px solid purple;
+			    width: 100%;
+			    height: 62%;
+			}
+			.goods ul li p{
+			    position: absolute;
+			    overflow: hidden;
+			    font-size: 14px;
+			    color: black;
+			    margin-top: 10px;
+			    margin-left: 10px;
+			    font-weight: bold;
+			    width: 100%;
+			    height: 15px;
+			}

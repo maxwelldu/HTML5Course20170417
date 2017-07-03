@@ -1,0 +1,91 @@
+.content{
+  width:1050px;
+  margin:0 auto;
+}
+.content .goods{
+  margin-top: 20px;
+}
+
+.content .goods img{
+  float: left;
+  width: 400px;
+}
+.content .goods .goods-right{
+  display: inline-block;
+  width: 630px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.content .goods .goods-right-ul{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.content .goods .goods-right-ul li{
+  margin-top:10px;
+  font-size:14px;
+}
+.content .goods .goods-right-ul li em{
+  margin-right:20px;
+}
+
+.content .goods .goods-right-ul li span{
+  margin-right:10px;
+}
+.content .goods .goods-right-ul .goods-count input{
+  width: 20px;
+  text-align: center;
+}
+.content .goods .goods-right-ul .goods-count a{
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  width:20px;
+  height:20px;
+  background: #F3F3F3;
+}
+.content .goods .goods-right-ul .goods-buy{
+  margin-top:40px;
+}
+.content .goods .goods-right-ul  .goods-buy span{
+  display: inline-block;
+  width:160px;
+  height:50px;
+  background: #E31436;
+  margin-right:20px;
+  font-size: 18px;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+.content .goods .goods-right img{
+  vertical-align: top;
+  float: left;
+}
+.content .goods .goods-right>p{
+  font-size: 10px;
+  color: red;
+  margin-top: 10px;
+}
+.content .goods .goods-right .goods-price{
+  height: 104px;
+  background: #F9F9F9;
+  margin-top: 20px;
+  line-height: 50px;
+  border:1px dashed grey;
+}
+.content .goods .goods-right .goods-price .price em{
+  text-decoration: line-through;
+}
+.content .goods .goods-right .goods-price span{
+  margin-left: 10px;
+  font-size: 16px;
+}
+.content .goods .goods-right .goods-price span>em{
+  margin-left:20px;
+  color: darkred;
+}
+.content .goods .goods-right .goods-price span>a{
+  color: red;
+  font-size: 14px;
+}

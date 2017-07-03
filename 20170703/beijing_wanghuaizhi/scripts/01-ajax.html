@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+
+    <div class="goods">
+      <ul id="goods-ul"></ul>
+    </div>
+    <script src="changkun.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      var navUl = document.getElementById('nav-ul');
+      var goodsUl = document.getElementById('goods-ul');
+      $.ajax({
+        "url": 'http://lc.shudong.wang/api_cat.php',
+        "type": "GET",
+        "dataType": "json",
+        "success": function(response){
+          //处理返回的数据
+          console.log(response);
+          for (var i = 0; i < response.data.length; i++) {
+            var obj = response.data[i];
+            var oLi = document.createElement('li');
+            var oA = document.createElement('a');
+            oA.innerText = obj.cat_name;
+            oA.href = "list.html?cat_id=" + obj.cat_id;
+            oLi.appendChild(oA);
+            navUl.appendChild(oLi);
+          }
+        },
+        "error": function(message) {
+          //
+          console.log(message);
+        }
+      });
+
+      $.ajax({
+        "url": 'http://lc.shudong.wang/api_goods.php',
+        "type": "GET",
+        "dataType": "json",
+        "success": function(response){
+          //处理返回的数据
+          console.log(response);
+          for (var i = 0; i < response.data.length; i++) {
+            var obj = response.data[i];
+            var oLi = document.createElement('li');
+            if (i % 5 === 4) {
+              oLi.className += " diy";
+            }
+            var oImage = document.createElement('img');
+            oImage.src = obj.goods_thumb;
+            var oP = document.createElement('p');
+            oP.innerText = obj.goods_name;
+            oLi.appendChild(oImage);
+            oLi.appendChild(oP);
+            goodsUl.appendChild(oLi);
+          }
+        },
+        "error": function(message) {
+          //
+          console.log(message);
+        }
+      });
+    </script>
+  </body>
+</html>

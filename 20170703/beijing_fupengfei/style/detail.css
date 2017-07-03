@@ -1,0 +1,63 @@
+.log{
+    width:160px;
+    height: 92px;
+    background-image: url("../images/index/ewm.png");
+    background-size: 100% 100%;
+    float: right;
+    margin-top: 4px;
+}
+.intro{
+    height: 450px;
+    width:95%;
+    padding:10px 0;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.2)
+}
+.intro img{
+    float: left;
+    border: 2px solid #f40;
+    margin-left: 10px;
+}
+.intro>div{
+    float: left;
+    padding: 30px;
+    position: relative;
+    height: 300px;
+    width: 490px;
+}
+.intro>div h2{
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 70px;
+}
+.intro>div h3{
+    padding-top: 20px;
+    font-size: 18px;
+    color: red;
+    line-height: 50px;
+}
+.intro>div p{
+    line-height: 30px;
+    margin-top: 30px;
+}
+
+.intro>div .goshop{
+    position: absolute;
+    background-color: pink;
+    color: red;
+    padding: 10px 20px;
+    bottom: 20px;
+    right: 180px;
+    border:1px solid #f40;
+}
+.intro>div .shop{
+    color: #ffffff;
+    padding: 10px 10px 10px 30px;
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    cursor: pointer;
+    background: url("../images/index/shop.png") 4px 5px no-repeat #f40;
+}

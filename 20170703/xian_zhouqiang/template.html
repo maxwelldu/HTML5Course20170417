@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    var templateStr = '<a herf="list.html?cat_id={cat_id}"' +
+        '> <h1>{cat_name}</h1> </a>';
+    //字典数据
+    var dict = {
+        "cat_id":1,
+        "cat_name":"家居",
+        "cat_desc":"宜家家居"
+    };
+    console.log(dict);
+
+    //思路是替换内容,用正则替换
+    var result = templateStr.replace(/\{([a-zA-Z_0-9]+)\}/g, function(match, $1){
+        console.log(arguments);
+        return dict[$1];
+    });
+    console.log(result);
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+.page{
+	width: 1050px;
+	height: 100px;
+	margin: 0 auto;
+	background: #000;
+}
+.pagelist{
+	height: 100%;
+	width: 40%;
+	padding: 0 10px;
+	margin: 0 auto;
+	background: red;
+	overflow: hidden;
+}
+.last{
+	display: inline-block;
+	float: left;
+	margin-top: 40px;
+	width: 70px;
+	height: 30px;
+}
+.next{
+	display: inline-block;
+	margin-top: 40px;
+	width: 70px;
+	height: 30px;
+	float: right;
+}
+.pagebox{
+	display: inline-block;
+	float: left;
+	margin-top: 40px;
+	width: 280px;
+	height: 30px;
+	background: green;
+}

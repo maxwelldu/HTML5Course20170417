@@ -1,0 +1,40 @@
+.login{
+    width: 400px;
+    height: 500px;
+    border: 3px solid red;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.login h1{
+    font-size: 22px;
+    font-weight: bold;
+    color: darkred;
+    margin: 40px 0;
+}
+.login div{
+    width: 278px;
+    height: 50px;
+    line-height: 50px;
+    margin: 30px 60px;
+    border: 1px solid orangered;
+}
+.login div input{
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.login div input:focus{
+    background: palegreen;
+}
+.login .button{
+    border: none;
+}
+.login .button input{
+    font-size: 22px;
+    font-weight: bold;
+    color: darkred;
+    background-color: white;
+    border:1px solid darkred;
+    padding: 5px 8px;
+}

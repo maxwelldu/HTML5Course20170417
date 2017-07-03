@@ -1,0 +1,159 @@
+/**
+整站风格样式，或者通用样式
+像头部样式，底部样式，导航样式
+都写到这个文件里面
+*/
+header{
+  width: 100%;
+}
+.header-nav {
+	width: 1366px;
+	height: 100px;
+  background: url(../images/2.jpg) no-repeat;
+  background-size: 100% 100px;
+  border-bottom: 2px solid orange;
+}
+.head img {
+	width: 200px;
+	height: 120px;
+	float: left;
+	margin-left: 150px;
+}
+.head {
+	float: left;
+}
+.head .head-nav {
+	position: absolute;
+	top: 45px;
+	left: 465px;
+	font-size: 20px;
+	font-family: 华文彩云;
+	color: black;
+}
+.head .head-nav a {
+	border-right: 2px solid orange;
+	padding: 0 20px;
+	text-decoration: none;
+}
+
+#last:hover {
+	color: red;
+}
+.head .head-nav a:hover {
+	color: red;
+	text-decoration: underline;
+}
+.search {
+	float: right;
+	margin-right: 100px;
+}
+.search input {
+	width: 150px;
+	height: 26px;
+}
+.search button {
+	width: 60px;
+	height: 30px;
+}
+.search #cart {
+	font-size: 20px;
+	font-family: 华文彩云;
+	position: absolute;
+	top: 45px;
+	left: 665px;
+	color: black;
+}
+.search #cart:hover {
+	color: red;
+	text-decoration: underline;
+}
+.search #search-text {
+	position: absolute;
+	top: 0px;
+	right: 159px;
+}
+section {
+	width: 100%;
+	background-color: #F5FFFA;
+}
+.section-nav {
+	width: 900px;
+	height: 450px;
+	margin: 0 auto;
+
+}
+.nav ul li {
+	font-size: 20px;
+	font-family: 华文彩云;
+  float: left;
+  display: inline-block;
+  width: 50px;
+  line-height: 30px;
+  margin-left: 10px;
+  text-align: center;
+  margin-left: 20px;
+  margin-top: 20px;
+  position: relative;
+  left: -30px;
+}
+.nav ul li a {
+  text-decoration: none;
+  color: gold;
+}
+.nav ul li:hover a {
+  color: blue;
+  text-decoration: underline;
+}
+.goods {
+  clear: both;
+}
+.goods ul li {
+  display: block;
+  float: left;
+  width: 150px;
+  height: 150px;
+  border: 1px solid lightblue;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  margin-left: 14px;
+  margin-top: 25px;
+  border-radius: 50%;
+}
+.goods ul li img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.goods ul li p{
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 14px;
+  color: orangered;
+  width: 100%;
+  height: 28px;
+  top: 158px;
+}
+footer {
+	width: 100%;
+}
+.foot-nav {
+	border-top: 2px solid orange;
+	width: 1366px;
+	height: 108px;
+	background-color:	#CDC9C9;
+}
+.foot-nav p {
+	color: black;
+	font-family: "楷体";
+	font-size: 20px;
+	margin-top: 20px;
+	margin-left: 20px;
+}
+.foot-nav span {
+	margin-left: 800px;
+	font-family: "楷体";
+	font-size: 20px;
+}

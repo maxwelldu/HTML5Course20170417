@@ -1,0 +1,263 @@
+body
+{
+	background-color: #eee;
+}
+body>h2
+{
+	margin-bottom: 20px;
+	color: orange;
+	background-color: white;
+	font-weight: bold;
+	height: 60px;
+	text-indent: 60px;
+	line-height: 60px;
+
+}
+header{
+	height: 40px;
+	width: 100%
+}
+header>a
+{
+	float: left;
+	color: red;
+	padding:10px;
+	text-decoration: none;
+}
+.address
+{
+	border-bottom: 4px solid orange;
+	background-color: white;
+	width: 1000px;
+	margin: 0 auto;
+
+}
+.container-head
+{
+	margin-left: 100px;
+	font-weight: bold;
+	color: crimson;
+	margin-top: 20px;
+}
+.container-head b
+{
+	margin-right: 150px;
+}
+.container-head span
+{margin-right: 200px;}
+.item-container
+{
+	margin-left: 80px;
+	margin-top:20px;
+}
+.item-container li
+{
+	border:1px solid orange;
+	background-color: white;
+	margin-bottom: 15px;
+	width: 1173px;
+	height: 100px;
+	padding:10px; 
+}
+.item-container li>*
+{
+	float: left;
+}
+.clear
+{
+	clear: both;
+	height: 0;
+}
+.item-container span
+{
+	font-size: 16px;
+	display: block;
+	width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 100px;
+	line-height: 100px;
+}
+.item-container .item-name
+{	
+	display:block;
+	height: 56px;
+	padding-top: 44px;
+	width: 200px;
+}
+.item-container .item-num
+{
+	margin-left: 125px;
+}
+.item-container .item-price
+{
+	margin-left: 120px;
+}
+.item-container .all-price
+{
+	margin-left: 140px;
+}
+.body-mask{
+	width:100%;
+	height:100%;
+	left:0;
+	top:0;
+	padding:0;
+	background-color: rgba(0,0,0,.3);
+	border:0;
+	z-index: 9;
+}
+.address
+{
+	padding:50px 100px;
+	position: relative;
+}
+.address button
+{
+	border: 0;
+	outline: 0;
+	position: absolute;
+	height: 24px;
+	background:url(../img/add.png) no-repeat left;
+	top: 10px;
+	left: 100px;
+	padding-left: 20px;
+	color: #6cf;
+	font-weight: bold;
+	cursor: pointer;
+}
+.add-address-ui
+{
+	background-color: white;
+	width: 760px;	
+	margin: 50px 300px;
+}
+.add-address-ui>button
+{
+	float: right;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+.add-address-ui>h2
+{
+	background-color: #ddd;
+	font-weight: bold;
+	padding:10px 20px;
+}
+.form
+{
+	padding:20px;
+}
+.ui-area
+{
+	padding:10px 30px;
+}
+.ui-area h3
+{
+	font-size: 12px;
+	margin-bottom: 8px;
+	color: #aaa;
+}
+.ui-area h3 sup
+{
+	color: red;
+	margin-right: 0.5em;
+}
+.ui-area span
+{
+	margin-left: 20px;
+	color: red;
+}
+.ui-area .area-select
+{
+	width: 240px;
+	height: 21px;
+	position: relative;
+	color: #aaa;
+	border: 1px solid #aaa;
+	line-height: 21px;
+	
+}
+.ui-area .area-select a
+{
+	text-decoration: none;
+}
+.ui-area .area-select p
+{
+	position: relative;
+	z-index: 100;
+	background-color: white;
+}
+.ui-area .area-select:hover>div
+{
+	display: block;
+}
+.ui-area .area-select:hover>p
+{
+	padding-bottom: 2px;
+}
+.ui-area .area-select>div
+{
+	display: none;
+	width: 400px;
+	padding:10px;
+	border:1px solid #aaa;
+	position: absolute;
+	left: -1px;
+	top:21px;
+	z-index: 99;
+	background-color:white;
+}
+.ui-area .area-select>div .area-box
+{
+	background-color: white;
+	width: 100%;
+	display: none;
+}
+.ui-area .area-select>div .area-box.current
+{
+	display: block;
+}
+.ui-area .area-select>div .area-box a
+{
+	float: left;
+	width: 33%;
+	height: 20px;
+	line-height: 20px;
+	color: blue;
+	display: block;
+	padding: 5px 0;
+
+}
+.ui-area .area-select .area-container{
+	border-bottom: 2px solid red;
+	position: relative;
+	z-index: 990;
+}
+.ui-area .area-select .area-container-column
+{
+	max-width: 120px;
+	height: 25px;
+	line-height: 25px;
+	overflow: visible;
+	border-width: 2px 2px 0 2px;
+	border-style: solid;;
+	border-color: #ddd;
+	padding: 0 10px;
+	float: left;
+	margin-right: 5px;
+	display: none;	
+}
+.ui-area .area-select .area-container-column.show
+{
+	display: block;
+}
+.ui-area .area-select .area-container-column.current
+{
+	border-color: red;
+	padding-bottom: 2px;
+	background-color: white;
+	position: relative;
+	top: 2px;
+	z-index: 999;
+}

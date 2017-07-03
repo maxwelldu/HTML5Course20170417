@@ -1,0 +1,143 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    background-color: #F2F2F2;
+}
+/*.header ul{*/
+    /*!*float: right;*!*/
+    /*margin-right: 200px;*/
+    /*line-height: 50px;*/
+/*}*/
+.header-list{
+    float: right;
+    width: 200px;
+    height: 50px;
+    margin-right: 200px;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 微软雅黑;
+
+}
+.header-list ul li a{
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 20px;
+    font-family: 微软雅黑;
+}
+.header ul li a{
+    color: deeppink;
+}
+span.exit{
+    position: absolute;
+    top:0;
+    right: 60px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    line-height: 50px;
+}
+
+.search{
+    position: absolute;
+    left: 500px;
+    top: 80px;
+}
+.search input{
+    border: 4px solid #F52648;
+    width: 330px;
+    height: 35px;
+}
+.search button{
+    background-color: #F52648;
+    display: inline-block;
+    border: 4px solid #F52648;
+    width: 77px;
+    height: 43px;
+    position: absolute;
+    left: 337px;
+    top: 0px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    color: #F2F2F2;
+}
+.shop-list{
+    width: 85px;
+    height: 45px;
+    border-radius: 50%;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    background-color: #F2F2F2;
+    line-height: 45px;
+    margin:31px 330px 0px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.nav{
+    background-color: #F52648;
+    width: 100%;
+    height: 50px;
+}
+.nav ul {
+    margin: 110px;
+
+}
+.nav ul li {
+    float: left;
+    display: inline-block;
+    width: 125px;
+    line-height: 50px;
+    /*background: rgba(0,0,0,0.8);*/
+
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    text-align: center;
+}
+.nav ul li a{
+    color:white;
+    padding-right: 20px;
+}
+.goods {
+    clear: both;
+    width: 1170px;
+    height: 460px;
+    margin-left: 90px;
+    padding-top: 10px;
+}
+.goods ul li {
+    display: block;
+    float: left;
+    width: 204px;
+    height: 210px;
+    border: 5px solid deeppink;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.goods ul li img {
+    width: 100%;
+    height: 100%;
+}
+.goods ul li p{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    overflow: hidden;
+    font-size: 14px;
+    color: coral;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 20px;
+}
+
+

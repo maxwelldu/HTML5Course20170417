@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.order-list{
+			margin: 10px 0;
+			border:3px solid #ccc;
+		}
+	</style>
+</head>
+<body>
+	 <h2>订单页</h2>
+    <div id="order-list">
+
+    </div>
+    <button>购买</button>
+</body>
+<script type="text/javascript" src="../jquery-3.2.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/common.js" charset="utf-8"></script>
+<script type="text/javascript">
+	shop.api.fetchOrder(function(response) {
+		console.log(response);
+		var html = '';
+		for (var i = 0; i < response.data.length; i++) {
+			var obj = response.data[i];
+			html += '<div class="order-item">';
+			for (var i = 0; i < obj.goods_list.length; i++) {
+				var goods = obj.goods_list[i];
+				goods.subtotal = goods.goods_price * goods.goods_number;
+				html += '<div data-id="'+goods.goods_id+'">\
+                  <img width="100px" src="'+goods.goods_thumb+'" /><br /> ' + goods.goods_name + goods.goods_number+goods.goods_price +
+                  goods.subtotal + '<span>删除</span></div>';
+				
+ 			}
+ 			html+='</div>;'
+		}
+		$('#order-list').html(html);
+
+	})
+</script>
+</html>

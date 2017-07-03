@@ -1,0 +1,8 @@
+.details{
+	width: 433px;
+	margin: 0 auto;position: relative;
+}
+.details img{margin: 10px auto;}
+.details p{height: 35px;width: 433px;position:absolute;left:0;
+	background: rgba(0,0,0,0.5);
+bottom: 35px;text-align: center; }

@@ -1,0 +1,15 @@
+.success,.error{
+    display: none;
+    color:#dd4f50;
+}
+table {
+    width: 520px;
+    margin: 0 auto;
+}
+table,tr,td {
+    height: 40px;
+    vertical-align: middle;
+}
+table tr td #submit {
+    margin: 30px 60px;
+}

@@ -1,0 +1,14 @@
+a, button {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    /*border-radius: 20%;*/
+    background-color: #F52648;
+    border: 2px solid ;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+}
+a, button:hover{
+    color: white;
+}

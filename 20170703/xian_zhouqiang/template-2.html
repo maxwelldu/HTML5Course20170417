@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script type="text/mingliang" id="mingliang">
+    <a href="list.html?cat_id={cat_id}"><h1>{cat_name}</h1></a>
+    <p>{cat_desc}</p>
+</script>
+<script type="text/javascript">
+    //模板
+    var templateStr = document.getElementById('mingliang').innerHTML;
+    console.log(templateStr);
+
+    //字典，数据
+    var dict = {
+        "cat_id": 1,
+        "cat_name": "家居",
+        "cat_desc": "宜家家居"
+    };
+    //思路是替换内容,用正则替换
+
+    var result = templateStr.replace(/\{([a-zA-Z_0-9]+)\}/g, function(match, $1){
+        return dict[$1];
+    });
+    function compile(templateStr, dictionObj) {
+        return templateStr.replace(/\{([a-zA-Z0-9_]+)\}/g, function(match, $1) {
+            return dictionObj[$1];
+        });
+    };
+    console.log(compile(templateStr, dict));
+
+</script>
+
+</html>

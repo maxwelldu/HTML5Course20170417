@@ -1,0 +1,154 @@
+.cardlist{
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#mingxi{
+    list-style: none;
+    border-bottom: 1px solid;
+    padding: 5px;
+    overflow: hidden;
+}
+#mingxi > li{
+    float: left;
+
+    margin-right: 100px;
+}
+#cardshop{
+    padding: 10px 10px 30px;
+    /*background: red;*/
+}
+.dombox{
+    width:100%;
+    height: 60px;
+    margin-top:20px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+
+.cardshopsdel{
+    float: left;
+    margin-left: 100px;
+}
+
+.cardshopsimg{
+    height: 70%;
+    float: left;
+    margin-left: 25px;
+}
+.cardshopsjiage{
+    float: left;
+    margin-left: 50px;
+}
+.cardshopsname{
+    display: inline-block;
+    float: left;
+    margin-left: 40px;
+    width: 100px;
+    height: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    /*white-space:normal;*/
+}
+.cardshopsshuliang{
+    float: left;
+    margin-left: 104px;
+    overflow: hidden;
+    text-align: center;
+}
+.cardshopsjia{
+    display: inline-block;
+    border: none;
+    float: right;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.cardshopszi{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.cardshopsjian{
+    border: none;
+    float: left;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.cardshopsxiaoji{
+    float: left;
+    margin-left: 110px;
+}
+.dombox > input{
+    float: left;
+    margin: 0 20px;
+}
+.zongji{
+    padding-bottom: 5px;
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid;
+    border-left: none;
+    border-right: none;
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+
+#zongji{
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    width: 10%;
+    text-align: left;
+    background: red;
+}
+
+#zongj{
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    width: 10%;
+    text-align: center;
+    background: red;
+}
+
+#dizhi{
+    position: relative;
+    float: left;
+    padding: 5px;
+    margin-left: 100px;
+    width: 100px;
+}
+
+.zongji > div.adddizhibox{
+    position: absolute;
+    margin-left: 100px;
+    left: 120px;
+    width: 300px;
+    height: 48px;
+    border-bottom: none;
+    background: white;
+    /*overflow: hidden;*/
+}
+
+.zongji > div.adddizhibox1{
+    position: absolute;
+    margin-left: 100px;
+    left: 120px;
+    width: 300px;
+    background: white;
+    /*overflow: hidden;*/
+}
+
+.zongji > div > p{
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册接口和检查用户名是否被占用接口</title>
+    <style type="text/css">
+        .success{
+            display: none;
+        }
+        .error{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" name="username">
+        <span class="success">用户名可用</span>
+        <span class="error">用户名被占用</span>
+    </div>
+    <div>
+        <input type="password" name="password">
+    </div>
+    <div>
+        <input type="button" id="register" value="注册">
+    </div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $("input[name='username']").blur(function () {
+//            console.log($(this).val());
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type": "POST",
+                "dataType": "JSON",
+                "data" : {
+                    "status": "check",
+                    "username": $(this).val()
+                },
+                "success": function (response) {
+//                    console.log(response);
+                    if (response.code === 0){
+                        $("span[class='success']").show();
+                        $("span[class='error']").hide();
+                    }else if (response.code === 2001){
+                        $("span[class='success']").hide();
+                        $("span[class='error']").show();
+                    }
+                }
+            })
+        })
+        $("#register").click(function () {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            if (password.length < 6 || password.length > 11) {
+                alert('请重新输入,密码在6-20位之间');
+                return;
+            }
+
+            console.log([username, password]);
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type": "POST",
+                "dataType": "JSON",
+                "data": {
+                    "status": "register",
+                    "username": username,
+                    "password": password
+                },
+                "success": function (response) {
+                    alert(response.message);
+                    location.assign('login.html');
+                }
+
+            })
+        })
+    })
+
+</script>
+</html>

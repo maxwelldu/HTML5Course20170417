@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div>
+    <p>地址名称：<input type="text" id="address_name"></p>
+    <p>省：<input type="text" id="province"></p>
+    <p>市：<input type="text" id="city"></p>
+    <p>镇：<input type="text" id="district"></p>
+    <p>收件人：<input type="text" id="consignee"></p>
+    <p>详细地址<input type="text" id="address"></p>
+    <p>电话<input type="text" id="tel"></p>
+    <p><input type="button" value="添加" id="tj"></p>
+</div>
+</body>
+<script src="scripts/jquery-3.2.1.js"></script>
+<script>
+        var address_name = document.getElementsByTagName("input")[0];
+        var province = document.getElementsByTagName("input")[1];
+        var city = document.getElementsByTagName("input")[2];
+        var district = document.getElementsByTagName("input")[3];
+        var consignee = document.getElementsByTagName("input")[4];
+        var address = document.getElementsByTagName("input")[5];
+        var tel = document.getElementsByTagName("input")[6];
+        var tj = document.getElementsByTagName("input")[7].onclick =function () {
+            $.ajax({
+                "url" : "http://h6.duchengjiu.top/shop/api_useraddress.php?status=add&token="+localStorage.token,
+                "type" : "POST",
+                "datatype" : "json",
+                "data" : {
+                    "token" : localStorage.token,
+                    "username" : localStorage.username
+                },
+                "success" : function (success) {
+                    console.log(success);
+                }
+            })
+            location.href = "pay.html";
+        }
+</script>
+</html>

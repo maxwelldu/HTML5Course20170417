@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/navlist.css">
+    <link rel="stylesheet" href="styles/detail.css">
+</head>
+<body>
+<ul id = "shopLists" class="navlist"></ul>
+<div id= "shopdetail" class="shoppingdetail">
+    <a href="card.html" class="ddd">查看购物车</a>
+</div>
+</body>
+    <script type="text/nav" id="nav-li-template">
+        <li class="{className}"><a href="shoplist.html?cat_id={cat_id}">{cat_name}</a></li>
+    </script>
+    <script type="text/detail" id="detail">
+        <div class="{class1}">
+        <img src= "{src1}" class= "{class4}">
+        <span class="{class2}">{goods_name}</span>
+        <p class="{class3}">{goods_desc}</p>
+        <button class="{class5}" id="card">加入购物车
+        </div>
+    </script>
+    <!--<script src="scripts/changkun.js"></script>-->
+
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/navlist.js"></script>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/detail.js"></script>
+</html>

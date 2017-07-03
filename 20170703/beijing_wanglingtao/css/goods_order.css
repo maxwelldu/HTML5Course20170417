@@ -1,0 +1,80 @@
+.order-content{
+  width: 1050px;
+  margin: 0 auto;
+}
+.order-content-top{
+  height: 50px;
+  line-height: 50px;
+  background: #F5F5F5;
+}
+.order-content-top span{
+  margin-left: 10px;
+  font-weight: bold;
+  color: #976666;
+}
+.order-content-bottom {
+  margin-top: 10px;
+  border: 1px dashed #000;
+}
+.order-content-bottom .order-th{
+  background: lightskyblue;
+}
+.order-content-bottom .order-th span{
+  display: inline-block;
+  width: 142px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  font-weight: bold;
+}
+.order-content-bottom .order-th span:nth-child(1){
+  width: 460px;
+}
+.order-td{
+  margin-top: 10px;
+}
+.order-td .order-td-top{
+  background: #FFF4E8;
+  height: 30px;
+  line-height: 30px;
+}
+.order-td .order-td-top .order_time{
+  margin-right: 50px;
+  margin-left: 10px;
+}
+.order-td .order-td-top .orderNumber{
+  margin-right: 10px;
+}
+.order-td .order-td-bottom{
+  margin-top: 10px;
+}
+.order-td .order-td-bottom .order-bottom-tr{
+  background: #F5F5F5;
+}
+.order-td .order-td-bottom .order-bottom-tr div{
+  float:left;
+  width: 142px;
+  text-align: center;
+  padding-top:10px;
+}
+.order-td .order-td-bottom .order-bottom-tr .orderDetail{
+  width: 460px;
+  padding-top:0;
+  text-align: left;
+}
+.order-td .order-td-bottom .order-bottom-tr  .orderTotal p{
+  margin-left:45px;
+}
+.order-td .order-td-bottom .order-bottom-tr .orderDetail img,p{
+  float: left;
+}
+.order-bottom-tr .orderDetail p{
+  width: 20em ;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top:10px;
+  margin-left:10px;
+
+}

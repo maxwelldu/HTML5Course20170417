@@ -1,0 +1,42 @@
+#oDiv{
+		    	width: 400px;
+		    	height: 300px;
+		    	border: 2px solid purple;
+		    	border-radius: 3%;
+		    	margin: 100px auto;
+		    	text-align: center;
+		    }
+		    #oDiv h2{
+		    	color: purple;
+		    }
+		    .obox{
+		    	height: 30px;
+		    	font-size: 18px;
+		    	font-weight: bold;
+		    	margin-top: 30px;
+		    }
+		    .obox input{
+		    	width: 260px;
+		    	height: 30px;
+		    }
+		    
+		    #register{
+		    	font-size: 18px;
+		    	width: 100px;
+		    	border: none;
+		    	height: 40px;
+		    	margin-left: 60px;
+		    	background-color: crimson;
+		    }
+			.success {
+		        display: none;
+		        margin-left: 50px;
+		        position: absolute;
+		        color: green;
+		    }
+		    .error {
+		        display: none;
+		        margin-left: 50px;
+		        position: absolute;
+		        color: red;
+		    }

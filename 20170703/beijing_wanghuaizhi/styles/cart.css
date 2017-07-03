@@ -1,0 +1,144 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+ul
+{list-style: none;
+
+	}
+header
+{
+	height: 100px;
+	background-color: #eee;
+}
+#all-check
+{
+	margin-left: 100px;
+	width:15px;
+	height: 15px;
+	margin-top: 10px;
+	display: block;
+	float: left;
+}
+article>div
+{
+	width: 1000px;
+	margin:0 auto;
+	height: 30px;
+	background-color: orange;
+	line-height: 30px;
+}
+article>div span
+{
+	color: white;
+	display: block;
+	margin-left: 15px;
+	float: left;
+}
+article>ul li i
+{
+	font-style: normal;
+	float: left;
+	display: block;
+	margin-right:30px;
+	font-size: 14px;
+	margin-top: 10px;
+}
+article>div a
+{
+	float: right;
+	margin-right: 90px;
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+article ul
+{
+	width: 1000px;
+	margin:0px auto;
+	background-color: white;
+}
+article ul li
+{
+	width: inherit;
+	border-bottom: 2px solid #e1f4a2;
+	padding:80px 0;
+}
+article ul li img
+{
+	float: left;
+	margin-right: 50px;
+	height: 100px;
+	width: 100px;
+	position: relative;
+	top:-40px;
+}
+article ul li a
+{
+	float: left;
+	margin-right: 20px;
+	color: red;
+	height: inherit;
+	font-size: 16px;
+	line-height: 40px;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+article ul li .cart-check
+{
+	width: 15px;
+	height: 15px;
+	float:left;
+	margin-right: 100px;
+	margin-left:100px;
+
+}
+article ul li .cart-num
+{
+	width: 25px;
+	outline: none;
+	float: left;
+	height:20px;
+	font-size: 14px;
+	margin:10px 10px 0 10px;
+}
+article ul li .left-icon,article ul li .right-icon
+{
+	float: left;
+	height: 20px;
+	width: 20px;
+	background-color: orange;
+	color: white;
+	display: block;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	margin-top: 12px;
+}
+.right-icon
+{
+	margin-right: 80px;
+}
+article ul li span
+{
+	font-size: 14px;
+	margin-top: 10px;
+	margin-right: 30px;
+	display: block;
+	float: left;
+	width: 40px;
+}
+article ul li button
+{
+	background-color: white;
+	outline: none;
+	border: 0;
+	font-size: 14px;
+	color: blue;
+	text-decoration: underline;
+	float: left;
+	margin-top: 9px;
+}	
+article h2
+{color: orange}

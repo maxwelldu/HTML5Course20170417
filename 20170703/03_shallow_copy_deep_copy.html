@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      var xiaolei = {
+        "name": "晓磊",
+        "sex": "女",
+        "soulmate": {
+          "name": "MM",
+          "sex": "男"
+        }
+      }
+      var xiaoyu = clone(xiaolei);
+      console.log(xiaoyu);
+      function clone(origin) {
+        var dest = {};
+        for (var k in origin) {
+          dest[k] = origin[k];
+        }
+        return dest;
+      }
+
+      function deepClone(origin) {
+        var dest = {};
+        for (var k in origin) {
+          if (typeof origin[k] === 'object') {
+            var obj = {};
+            for (var q in origin[k]) {
+              obj[q] = origin[k][q];
+            }
+            dest[k] = obj;
+          } else {
+            dest[k] = origin[k];
+          }
+        }
+        return dest;
+      }
+      var xiaochang = deepClone(xiaolei);
+      console.log(xiaochang);
+
+      /**
+      {
+      a: {
+      b: {
+      c : {
+        d: '1'
+          }
+        }
+      }
+    }
+    function deepClone(origin) {
+      var dest = {};
+      for (var i in origin) {
+        // dest[i] = origin[i]
+        如果说源对象里面的值不是对象则直接拷贝
+        如果是对象，调用自身
+        if (typeof origin[i] === 'object') {
+          dest[i] = deepClone(origin[i]);
+        } else {
+          dest[i] = origin[i];
+        }
+      }
+      return dest;
+    }
+      */
+      function deepClone(origin) {
+        var dest = {};
+        for (var i in origin) {
+          if (typeof origin[i] === 'object') {
+            dest[i] = deepClone(origin[i]);
+          } else {
+            dest[i] = origin[i];
+          }
+        }
+        return dest;
+      }
+
+      var xiaoming = {
+        name: 'xiaoming',
+        age: 18,
+        father: {
+          name: "daming",
+          wife: {
+            "name": "xiaoming ta ma",
+            }
+          }
+        }
+      }
+      var xiaomingdidi = deepClone(xiaoming);
+      console.log(xiaomingdidi);
+    </script>
+  </body>
+</html>

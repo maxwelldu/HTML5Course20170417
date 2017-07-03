@@ -1,0 +1,91 @@
+.goodsDetails{
+    width:100%;
+    border-top:2px solid #ff4411;
+    border-bottom:2px solid #ff4411;
+    overflow: hidden;
+    font-size: 25px;
+    padding: 50px 0 50px 0;
+    margin-bottom: 20px;
+}
+#purchase{
+    cursor: pointer;
+}
+.goodsDetails h1{
+    width: 640px;
+    font-size: 25px;
+    padding: 50px;
+    float:left;
+}
+.goodsDetails b{
+    color:red;
+    float:left;
+}
+.goodsDetails p{
+    width: 640px;
+    padding: 30px;
+    text-indent: 2em;
+    float:left;
+}
+.goodsNumber{
+    width: 600px;
+    float:left;
+    padding-left: 30px;
+}
+.goodsNmu{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.numLeft, .numRight{
+    width: 54px;
+    height: 54px;
+}
+.goodsDetails a{
+    float:left;
+    width: 150px;
+    height: 50px;
+    background:#fb3434;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin: 30px 30px;
+}
+#ImgContainer{
+    width: 433px;
+    height: 433px;
+    float:left;
+    border:1px solid #ff4411;
+    margin: 10px;
+    position: relative;
+}
+#ImgContainer>img{
+    width: 433px;
+    height: 433px;
+}
+.detailsShade{
+    width: 200px;
+    height: 200px;
+    background:rgba(0,255,0,0.5);
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+.detailBigImg{
+    width:500px;
+    height: 500px;
+    border: 1px solid #757373;
+    position: absolute;
+    top:0;
+    left: 450px;
+    overflow: hidden;
+    display: none;
+    position: relative;
+}
+.detailBigImg>img{
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top:0;
+    left:0;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <input type="checkbox" id="selectAll" name="" value="">
+    <input type="checkbox" name="" value="">
+    <input type="checkbox" name="" value="">
+    <input type="checkbox" name="" value="">
+    <input type="checkbox" name="" value="">
+    <input type="checkbox" name="" value="">
+    <script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $("#selectAll").click(function(){
+        // console.log('ab');
+        $('input[type="checkbox"]').attr('checked', this.checked);
+      });
+    </script>
+  </body>
+</html>

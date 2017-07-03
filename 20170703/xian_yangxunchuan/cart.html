@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/cart.css">
+</head>
+<body>
+    <div class="shop" id="Shop">
+        <h1>我的购物车</h1>
+        <div class="shop-list">
+            <div class="shop-list-check">
+                <input type="checkbox" id="selectAll" onclick="selectAll(this)">
+                <i>全选</i>
+            </div>
+            <div class="shop-list-mas">商品信息</div>
+            <div class="shop-list-one">单价</div>
+            <div class="shop-list-s">数量</div>
+            <em>金额（元）</em>
+            <span>操作</span>
+        </div>
+    </div>
+    <div class="shop-set" id="shopSet"></div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script src="scripts/fetch.js"></script>
+<script src="scripts/cart.js"></script>
+</html>

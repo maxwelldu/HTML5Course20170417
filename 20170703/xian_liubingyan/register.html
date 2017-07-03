@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.op1{
+				margin-top: 30px;
+				margin-left: 300px;
+				
+				display: block;
+			}
+		    .op1 input{
+		    	width: 250px;
+		    	height: 30px;
+		    	outline: none;
+		    	padding-left: 10px;
+		    }
+			.op1 .password1{
+				margin-left:30px;
+			}
+			.op1 .password2{
+				margin-left:16px;
+			}
+			#register{
+				width: 345px;
+				height: 40px;
+				margin-left: 300px;
+				line-height: 40px;
+				margin-top: 30px;
+				font-size: 16px;
+				background-color: orange;
+				outline: none;
+				border: none;
+			}
+			.op1 span{
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p class="op1">
+			用户名：<input type="text" name="username" id="userName" value="" class="password2"/>
+			<span class="success">
+				用户名注册成功
+			</span>
+			<span class="error">
+				用户名失败
+			</span>
+		</p>
+		<p class="op1">
+			密码：<input type="password" name="password1" value="" class="password1" />
+			
+		</p >
+		<p class="op1">
+			确认密码：<input type="password" name="password2" value="" />
+			
+		</p>
+		<p class="op1">
+			手机验证：<input type="tel" name="phone" value="" />
+			
+		</p>
+		<input type="button" name="" id="register" value="提交" />
+		
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("input[name='username']").blur(function(){
+//				console.log(1)
+				console.log($(this).val());
+				$.ajax({
+				"url":"http://h6.duchengjiu.top/shop/api_user.php",
+				"type":"POST",
+				"data":{
+					"status":"check",
+					"username":$(this).val()
+				},
+				"dataType":"json",
+				"success":function(response){
+					if (response.code===0) {
+						$("span[class='success']").show();
+						$("span[class='error']").hide();
+						
+					}else if(response.code===2001){
+						$("span[class='success']").hide();
+						$("span[class='error']").show();
+					}
+				}
+			})
+			})
+			
+			$("#register").click(function(){
+				var username = $("input[name='username']").val();
+				var password1 = $("input[name='password1']").val();
+				var password2 = $("input[name='password2']").val();
+				var phone = $("input[name='phone']").val();
+		     console.log([username,password1]);
+		     if (password1.length<6||password1.length>20) {
+		     	alert("密码长度不能超过20位不能少于6位");
+		     	return
+		     }
+		      if (!(password1==password2)) {
+		     	alert("两次密码不一致");
+		     	return
+		     }
+		      if (!/^1[3,5,7,8]\d{9}$/.test(phone)) {
+		      	alert("电话号码不合法");
+		      	return
+		      }
+		     if (!/^\w{3,20}$/.test(username)) {
+				alert("用户名不合法，请填写3-20位的英文数字下划线");
+				return 
+			}else{
+				alert("注册成功")
+			}
+		      $.ajax({
+                
+                'url': 'http://h6.duchengjiu.top/shop/api_user.php',
+                'dataType': 'json',
+                'type': 'POST',
+                'data': {
+                    'status': 'register',
+                    'username': username,
+                    'password1': password1
+                },
+                'success': function (reponse) {
+                    
+                }
+            })
+            
+            
+            location.assign('logit.html');
+        })
+    })
+
+	</script>
+</html>

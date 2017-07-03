@@ -1,0 +1,50 @@
+.register{
+    width: 400px;
+    height: 500px;
+    border: 3px solid red;
+    margin: 50px auto;
+    text-align: center;
+}
+.register h1{
+    font-size: 22px;
+    font-weight: bold;
+    color: darkred;
+    margin: 40px 0;
+}
+.register div{
+    width: 278px;
+    height: 50px;
+    line-height: 50px;
+    margin: 30px 60px;
+    border: 1px solid orangered;
+}
+.register div span{
+    font-size: 18px;
+}
+.register div input{
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+.register div input:focus{
+    background: palegreen;
+}
+.register .button{
+    border: none;
+}
+.register .button input{
+    font-size: 22px;
+    font-weight: bold;
+    color: darkred;
+    background-color: white;
+    border:1px solid darkred;
+    padding: 5px 8px;
+}
+.success-username{
+    display: none;
+    color: green;
+}
+.error-username{
+    display: none;
+    color: red;
+}

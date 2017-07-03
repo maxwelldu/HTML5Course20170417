@@ -1,0 +1,47 @@
+.serch{
+	margin: 0 auto;
+	width: 1050px;
+	height: 80px;
+}
+.serch > p{
+	width: 40%;
+	height: 100%;
+  float: right;
+}
+
+.serch > span{
+	width: 40%;
+	height: 100%;
+	line-height: 200%;
+	float: left;
+	font-size: 40px;
+	text-align: center;
+}
+
+#serchtext{
+	/*border: none;*/
+	margin-top: 3%;
+	width: 65%;
+	height: 50%;
+	float: left;
+}
+
+#goserch{
+	margin-top: 3%;
+	display: inline-block;
+	/*border: none;*/
+	width: 30%;
+	height: 57%;
+}
+
+.rightnav{
+	position: fixed;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #cccccc;
+}
+
+.rightnav a{
+    color: black;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+       /*#body{*/
+            /*width: 100%;*/
+            /*height: 600px;*/
+        /*} */
+        .order-item {
+            margin: 10px 0;
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <div id="top-2">
+        <a id="denglu" href="login.html">登陆</a>
+        <a id="zhuce" href="biaodanyanzheng.html">注册</a>
+    </div>
+    <a id="tuichu" href="#">退出登录</a>
+
+    <a class="oA" href="index2.html">首页</a>
+    <a class="cart" href="cart.html">购物车</a>
+    <input id="search_text" type="text" placeholder="输入搜索内容"><button id="osearch">搜索</button>
+</div>
+<div id="body">
+<h2>订单页</h2>
+
+</div>
+<div id="order-list">
+
+</div>
+<div class="bottom">
+    <div class="bottomnav">
+        <p> I like for you to be still: it is as though you are absent</p>
+        <p>我喜欢你是寂静的，仿佛你消失了一样</p>
+        <p>and you hear me from far away and my voice does not touch you</p>
+        <p> 你从远处聆听我，我的声音却无法触及你</p>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/common.js"></script>
+<script>
+    shop.api.fetchOrder(function(response){
+        console.log(response);
+        var html = '';
+        for (var i = 0; i < response.data.length; i++) {
+
+            var obj = response.data[i];//订单信息
+            html += '<div class="order-item">';
+            for (var j = 0; j < obj.goods_list.length; j++) {
+                var goods = obj.goods_list[j];//商品列表
+                goods.subtotal = goods.goods_price * goods.goods_number;
+                html += '<div data-id="'+goods.goods_id+'">\
+                  <img width="100px" src="'+goods.goods_thumb+'" /><br /> ' + goods.goods_name + goods.goods_number+goods.goods_price +
+                    goods.subtotal + '<span>删除</span></div>';
+            }
+            html += '</div>';
+        }
+        $('#order-list').html(html);
+        console.log(response);
+    });
+
+</script>
+</html>

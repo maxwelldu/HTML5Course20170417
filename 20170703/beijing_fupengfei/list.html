@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表页</title>
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/list.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header>
+    <div class="nav" id="nav">
+        <div class="cen">
+            <div class="conta-left">
+                <a href="#">每天惠</a>
+                <a href="#">慧顾家</a>
+                <a href="#">兑换中心</a>
+            </div>
+            <div class="conta-wei">
+                <a href="#"><em>&#9742</em>手机版</a>
+                <a href="#"><em>&#9733</em>收藏</a>
+            </div>
+            <div class="conta-rgt">
+                <a href="compras.html">购物车</a>
+                <a href="#">我的订单</a>
+                <a href="#">商家中心</a>
+            </div>
+            <div class="conta">
+                <a href="register.html">注册</a>
+                <a href="login.html">登录</a>
+            </div>
+        </div>
+    </div>
+    <div class="search">
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+        <input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+        <button id="search-btn">搜索</button>
+        <div class="log"></div>
+    </div>
+</header>
+<div class="nav-list">
+    <ul class="list" id="list"></ul>
+</div>
+<script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+</script>
+<div class="box">
+    <ul class="list-two" id="list-two"></ul>
+</div>
+<div class="foot">
+    <img src="images/background/foot.png" alt="">
+</div>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/common.js"></script>
+<script src="js/list.js"></script>
+<script type="text/javascript">
+    if (localStorage.getItem('token')){
+        $('.conta').html(localStorage.getItem('username')+'<a>　　退出</a>');
+    }
+    $('.conta>a').click(function () {
+        localStorage.clear();
+        location.href = 'index.html';
+    })
+</script>
+</html>

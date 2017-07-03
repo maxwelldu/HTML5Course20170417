@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>获取某件商品</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/detail.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-list">
+        <ul>
+            <li><a href="register.html">注册</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </div>
+</div>
+<span class="shop-list"><a href="#"></a>购物车</span>
+<span class="exit"><a href="#">退出登录</a></span>
+<div class="search">
+    <input type="text" id="search-text" placeholder="请输入要搜索的商品名称" style="width: 341px;height: 43px;border: 4px solid #F52648;">
+    <button id="search-btn">搜索</button>
+</div>
+<div class="nav">
+    <ul id="nav-ul"></ul>
+</div>
+<div id="container"></div>
+</body>
+
+
+<script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+</script>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script src="scripts/common.js" charset="utf-8"></script>
+<script src="scripts/detail.js" charset="utf-8"></script>
+<script type="text/javascript">
+    $(function () {
+        $("span[class='shop-list']").click(function () {
+
+            location.assign('cart.html');
+        })
+    })
+</script>
+</html>

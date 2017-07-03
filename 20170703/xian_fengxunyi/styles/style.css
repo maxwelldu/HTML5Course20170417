@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+#top{
+    width: 100%;
+    height: 120px;
+    background-color: teal;
+
+}
+#top a{
+    float: right;
+    padding: 0px 30px;
+    font-size: 20px;
+    color: white;
+    line-height: 80px;
+
+}
+#top a#tuichu{
+    margin-right: 20px;
+
+}
+#top a.oA{
+    float: left;
+   margin-left: 100px;
+}
+.nav{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top:70px;
+}
+.nav #nav-ul{
+    width: 100%;
+    height: 50px;
+
+}
+.nav #nav-ul li{
+    width: 90px;
+    height: 40px;
+    /*background-color: teal;*/
+    float: left;
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-right: 20px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+.nav #nav-ul li:hover{
+    background-color:white;
+}
+.nav #nav-ul li a{
+    width: 90px;
+    height: 40px;
+    display: block;
+    color: white;
+    font-size: 20px;
+}
+.nav #nav-ul li:hover a{
+    color: teal;
+}
+#top-2{
+    position: absolute;
+    right:120px;
+    padding: 0px 30px;
+    color: white;
+    line-height: 80px;
+}
+#search_text{
+    width: 200px;
+    height: 25px;
+    position: absolute;
+    left:800px;
+    top:30px;
+}
+#osearch {
+    width: 60px;
+    height: 29px;
+    position: absolute;
+    left: 1003px;
+    top: 30px;
+}
+#top a.cart{
+    float: left;
+    /*margin-top: 10px;*/
+}
+.bottom{
+    width: 100%;
+    height: 135px;
+    float: left;
+    margin-bottom: 0px;
+
+    background-color: teal;
+    color: white;
+    text-align: center;
+    line-height: 24px;
+}
+.bottomnav{
+    width: 600px;
+    height: 115px;
+    margin: 0 auto;
+    margin-top: 20px;
+    font-size: 14px;
+}

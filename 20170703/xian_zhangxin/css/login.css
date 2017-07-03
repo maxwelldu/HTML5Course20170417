@@ -1,0 +1,53 @@
+            a{
+            	text-decoration: none;
+            }
+           
+            #oDiv{
+		    	width: 400px;
+		    	height: 300px;
+		    	background-color: pink;
+		    	opacity: 0.8;
+		    	border: 2px solid purple;
+		    	border-radius: 3%;
+		    	margin: 100px 800px;
+		    	text-align: center;
+		    }
+		    #oDiv h2{
+		    	color: purple;
+		    }
+		    .obox{
+		    	height: 30px;
+		    	font-size: 18px;
+		    	font-weight: bold;
+		    	margin-top: 30px;
+		    }
+		    .obox input{
+		    	width: 260px;
+		    	height: 30px;
+		    }
+		    #login{
+		    	font-size: 18px;
+		    	width: 100px;
+		    	border: none;
+		    	height: 40px;
+		    	margin-left: 60px;
+		    	background-color: crimson;
+		    }
+		    .obox-1{
+		    	margin-top: 40px;
+		    }
+		    .obox-1 a{
+		    	margin-left: 260px;
+		    }
+			.success {
+		        display: none;
+		        margin-left: 50px;
+		        position: absolute;
+		        color: green;
+		    }
+		    .error {
+		        display: none;
+		        margin-left: 50px;
+		        position: absolute;
+		        color: red;
+		    }

@@ -1,0 +1,30 @@
+#search_text{
+    width: 200px;
+    height: 25px;
+    position: absolute;
+    left:800px;
+    top:30px;
+}
+#osearch{
+    width: 60px;
+    height: 29px;
+    position: absolute;
+    left:1003px;
+    top:30px;
+}
+.detailOli{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 350px;
+    height: 377px;
+    float: left;
+}
+.oImage{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid teal;
+}
+#oBtn{
+    margin-left: 120px;
+}

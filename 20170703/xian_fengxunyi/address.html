@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<link rel="stylesheet" href="styles/reset.css">-->
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .addressnav{
+
+            height: 540px;
+            position: relative;
+        }
+        .addressnav h2{
+            float: left;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .addressnav .newaddress{
+            float: left;
+            margin-top: 70px;
+            margin-left: -100px;
+            cursor: pointer;
+            width: 100px;
+            height: 30px;
+            border: 1px solid black;
+            line-height: 30px;
+        }
+        .addressnav .newaddress:hover{
+            background-color: black;
+            color: white;
+        }
+        .addressnav .alertnew{
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.2);
+
+            position: absolute;
+            top: 0;
+        }
+        .addressnav .alertnew .center{
+            width: 500px;
+            height: 446px;
+            margin: 50px auto;
+            border: 1px solid purple;
+            position: relative;
+            background-color: rgba(255,255,255,1);
+        }
+        .addressnav .alertnew .center input{
+            width: 250px;
+            height: 25px;
+        }
+        .addressnav .alertnew .center p{
+            margin-top: 20px;
+            margin-left: 40px;
+            float: left;
+                font-size: 18px;
+        }
+        .addressnav .alertnew .center p.name{
+            margin-top: 20px;
+        }
+        .addressnav .alertnew .center p.massagenav{
+            margin-top: 0px;
+            margin-left: 0px;
+
+            line-height: 30px;
+
+        }
+        .addressnav .alertnew .center .massagenav .massage{
+            float: left;
+            width: 500px;
+            height: 30px;
+            font-size: 16px;
+            /*margin-top: -17px;*/
+            border-bottom: 1px solid purple;
+        }
+        .addressnav .alertnew .center .massagenav .closed{
+            width: 30px;
+            height: 30px;
+            background-color: white;
+            position: absolute;
+            top:0;
+            left: 470px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .addressnav .alertnew .center .save{
+            width: 122px;
+            height: 30px;
+            background-color: orange;
+            margin-left: 172px;
+            margin-top: 50px;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .bodymassage{
+            width: 1080px;
+            height: 300px;
+            border: 1px solid gainsboro;
+            margin-left: -6px;
+            margin-top: 122px;
+            float: left;
+        }
+        #zongji{
+            float: right;
+            margin-top: 55px;
+            margin-right: 216px;
+            font-size: 18px;
+        }
+        #xiadingdan{
+            float: right;
+            margin-top: 82px;
+            margin-right: -88px;
+            width: 70px;
+            height: 30px;
+            font-size: 18px;
+        }
+
+        #uloli{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="top">
+    <div id="top-2">
+        <a id="denglu" href="login.html">登陆</a>
+        <a id="zhuce" href="biaodanyanzheng.html">注册</a>
+    </div>
+    <a id="tuichu" href="#">退出登录</a>
+
+    <a class="oA" href="index2.html">首页</a>
+    <a class="cart" href="cart.html">购物车</a>
+    <input id="search_text" type="text" placeholder="输入搜索内容"><button id="osearch">搜索</button>
+</div>
+<div class="addressnav">
+    <h2>欢迎进入结算页</h2>
+    <span class="newaddress">新增收货地址</span>
+    <div class="alertnew">
+        <div class="center">
+            <form action="">
+            <p class="massagenav">
+                <span class="massage">新增收货人信息</span>
+                <span class="closed">x</span>
+            </p>
+            <p class="name">收件人姓名:　<input type="text" name="address_name"></p>
+            <p>收件人电话:　<input type="text" name="mobile"></p>
+            <p> 所在省份:　<input type="text" name="province"></p>
+            <p> 所在城市:　<input type="text" name="city"></p>
+            <p> 所在地区:　<input type="text" name="district"></p>
+            <p>具体地址:　<input type="text" name="address"></p>
+            <span class="save">保存收货人信息</span>
+            </form>
+        </div>
+    </div>
+    <ul class="bodymassage">
+        <li><h4>收货人信息</h4></li>
+        <li id="uloli"></li>
+    </ul>
+    <p id="zongji">总计：</p>
+    <input id="xiadingdan" type="button" value="下订单"></button>
+</div>
+
+<div class="bottom">
+    <div class="bottomnav">
+        <p> I like for you to be still: it is as though you are absent</p>
+        <p>我喜欢你是寂静的，仿佛你消失了一样</p>
+        <p>and you hear me from far away and my voice does not touch you</p>
+        <p> 你从远处聆听我，我的声音却无法触及你</p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/common.js"></script>
+<script>
+$(function () {
+    $('.newaddress').click(function () {
+        $('.alertnew').show();
+    })
+    $('.closed').click(function () {
+        $('.alertnew').hide();
+    })
+})
+
+//得到总价，显示在当前页面
+var total = $.getQueryString('total');
+$('#zongji').text('总计：'+total + '元');
+var address_id = 0;
+//给地址栏加上一个点击事件
+$('#uloli').click(function(event){
+    console.log(event.target);
+    if (event.target) {
+        address_id = event.target.getAttribute('data-id');
+    }
+});
+
+$(function(){
+
+    //点击下订单
+    //提交一个ajax请求，真实的下一个订单
+    //下完订单之后跳转到订单列表页面
+    $('#xiadingdan').click(function(){
+
+        if (address_id === 0) {
+            alert('请选择地址后再下订单');
+            return;
+        }
+        shop.api.addOrder(address_id, total, function(response){
+            console.log(response);
+            location.assign('order.html');
+        });
+    });
+
+    //点击新增按钮显示新增表单
+//    $("#addUserAddress").click(function(){
+//        $(".layer").show();
+//    });
+//    $(".layer h2 span").click(function(){
+//        $(".layer").hide();
+//    });
+
+    $('.save').click(function(){
+        var data = $("form").serialize();
+
+        console.log(data);
+        shop.api.addUserAddress(data, function(response){
+            console.log(response);
+            if (response.code === 0) {
+                $('.alertnew').hide();
+                fetchUserAddress();
+            }
+        });
+    });
+
+    fetchUserAddress();
+    function fetchUserAddress() {
+        shop.api.fetchUserAddress(function(response) {
+            var html = "";
+            for (var i = 0; i < response.data.length; i++) {
+                var obj = response.data[i];
+                html += '<div class="address-item" data-id="'+obj.address_id+'">'+ obj.address_name +' ' + obj.mobile  + ' ' + obj.province + ' ' + obj.city + ' ' + obj.district +' ' + obj.address + ' </div>';            }
+            $('#uloli').html(html);
+        });
+    }
+});
+
+
+</script>
+</html>

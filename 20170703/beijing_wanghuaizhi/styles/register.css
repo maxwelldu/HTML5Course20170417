@@ -1,0 +1,32 @@
+header{
+	height: 100px;
+	background-color: #bbb;
+	width: 100%;
+}
+.reg-column
+{
+	width: 300px;
+	height: 600px;
+	margin:20px auto;
+}
+.reg-column span
+{
+	color: #3c3c3c;
+	font-size: 14px;
+	margin-right: 12px;
+	width: 64px;
+	display: inline-block;
+}
+.reg-column>div
+{
+	height: 25px
+	line-height: 25px;
+	margin-bottom:20px;
+}
+.reg-column i
+{
+	font-size: 14px;
+	color: crimson;
+	display: block;
+	margin-top: 5px;
+}

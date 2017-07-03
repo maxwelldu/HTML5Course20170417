@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FRESIS</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/goods_balance.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div  class="header-top">
+                <div class="header-top-left">
+                    <span>考拉欢迎你!</span>
+                    <span class="register" id="register">
+						<!--<a href="goods_login.html">登录</a>-->
+                        <!--<a href="goods_register.html">免费注册</a>-->
+					</span>
+                    <span><em></em><a href="#">手机考拉海购</a></span>
+                </div>
+                <div class="header-top-right">
+                    <ul>
+                        <li><a href="#">每日签到</a></li>
+                        <li><a href="#">我的订单</a></li>
+                        <li><a href="#">个人中心</a></li>
+                        <li><a href="#">客户服务</a></li>
+                        <li><a href="#">充值中心</a></li>
+                        <li><a href="#">消费者告知书</a></li>
+                        <li><a href="#">更多</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="header-bottom">
+            <div class="header-bottom-content">
+                <a href="index.html" class="logo"></a>
+                <h1>FRESIS 结算页</h1>
+            </div>
+        </div>
+    </header>
+    <div class="content-order">
+        <p class="content-order-title">填写并核对订单信息</p>
+        <div class="content-order-desc">
+            <div class="order-receiver">
+                <div class="receiver-top">
+                    <span>收货人信息</span>
+                    <a href="#" id="addReceiver">新增收货地址</a>
+                </div>
+                <div class="receiver-bottom">
+                    <!--<div class="receiverInfo">-->
+                        <!--<span class="receiver-name">王铃涛</span>-->
+                        <!--<em>王铃涛</em>-->
+                        <!--<span>河南 安阳市 林州市 合涧镇合涧镇河间村 </span>-->
+                        <!--<span> 18211002682 </span>-->
+                        <!--<a href="#">编辑</a>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="payType">
+                <div class="order-receiver">
+                    <span>支付方式</span>
+                </div>
+                <div class="payType-bottom">
+                    <div class="receiverInfo">
+
+                    </div>
+                </div>
+            </div>
+            <div class="orderList">
+                <div class="order-receiver">
+                    <span>送货清单</span>
+                </div>
+                <div class="goodsList">
+                    <table>
+                        <tr>
+                            <th>商品名</th>
+                            <th>价格</th>
+                            <th>数量</th>
+                            <th>状态</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="invoiceInfo">
+                <div class="order-receiver">
+                    <span>发票信息</span>
+                    <div class="invoice">
+                        <b></b>
+                        <span>开企业抬头发票须填写纳税人识别号，以免影响报销</span>
+                    </div>
+                    <div>
+                        <i>普通发票</i><i>个人</i><i>明细</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-order-submit">
+            <div>
+                <p class="total">应付总额: <span id="totalPay"></span></p>
+                <p class="address">寄送至: <span id="lastAddress"></span> </p>
+            </div>
+        </div>
+        <a class="submitBtn" id="submitBtn">提交</a>
+    </div>
+    <div class="addAddress">
+        <div class="addressContent">
+            <div class="addrContent-top">
+                <span >新增收货人信息</span>
+                <a href="#" id="addressClose">×</a>
+            </div>
+            <div class="addrContent-bottom">
+                <form>
+                    <div class="address">
+                        <span>所在地区</span>
+                            省份：
+                            <select id="province" name="province">
+                                <option value="0">-请选择-</option>
+                            </select>
+
+                            城市：
+                            <select id="city" name="city">
+                                <option value="0">-请选择-</option>
+                            </select>
+
+                            区县：
+                            <select id="area" name="district">
+                                <option value="0">-请选择-</option>
+                            </select><label id="provinceLabel"></label>
+                    </div>
+                    <div class="receiver">
+                        <span>收货人</span>
+                        <input type="text" name="consignee" id="receiver">
+                        <label id="receiverLabel"></label>
+                    </div>
+                    <div class="detailAddress">
+                        <span>详细地址</span>
+                        <input type="text" name="address" id="detailAddress">
+                        <label id="detailAddressLabel"></label>
+                    </div>
+                    <div class="mobilePhone">
+                        <span>手机号码</span>
+                        <em>0086</em>-
+                        <input type="text" name="mobile" id="mobilePhone">
+                        <label id="mobilePhoneLabel"></label>
+                    </div>
+                    <div class="telephone">
+                        <span>固定电话</span>
+                        <em>0086</em>-
+                        <input type="text" name="telephone" id="telephone">
+                        <label id="telephoneLabel"></label>
+                    </div>
+                    <div class="email">
+                        <span>邮政编码</span>
+                        <input type="text" name="zip_code" id="email">
+                        <label id="emailLabel">用来接收订单提醒邮件，便于您及时了解订单状态</label>
+                    </div>
+                    <div id="submit" class="submit">保存收获人信息</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-2.2.4.min.js"></script>
+    <script src="js/Common.js"></script>
+    <script src="js/threeLevelLinkage.js"></script>
+    <script src="js/goods_balance.js"></script>
+    <script src="js/goods_isLogin.js"></script>
+</body>
+</html>

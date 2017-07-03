@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>获取某个商品分类中的商品列表</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-list">
+        <ul>
+            <li><a href="register.html">注册</a></li>
+            <li><a href="login.html">登录</a></li>
+        </ul>
+    </div>
+</div>
+<span class="shop-list"><a href="#"></a>购物车</span>
+<span class="exit"><a href="#">退出登录</a></span>
+<div class="search">
+    <input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+    <button id="search-btn">搜索</button>
+</div>
+<div class="nav">
+    <ul id="nav-ul"></ul>
+</div>
+
+<div class="goods" style="margin-left: 150px;margin-top: 45px">
+    <ul id="goods-ul"></ul>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<!--<script src="scripts/ajax.js" charset="utf-8"></script>-->
+<script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+</script>
+<script src="scripts/common.js" charset="utf-8"></script>
+<script src="scripts/list.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+
+
+    //请求商品分类数据
+
+
+    //请求分类中的商品
+
+    //得到cat_id, 然后进行ajax请求
+    // var search = location.search.substr(1);
+    // console.log(search);
+    // //cat_id=ajksldfjkl&name=2
+    // var reg = /(&|^)cat_id=([^&]*)(&|$)/;
+    // var r = search.match(reg);
+    // // if (r === null) return null;
+    // // return r[2];
+    // console.log(decodeURI(r[2]));
+    // console.log(r);
+    //
+    // console.log(encodeURI(' '));
+
+
+</script>
+</html>

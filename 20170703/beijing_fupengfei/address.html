@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>收货详情</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/address.css">
+    <script src="../../../../HTML5Course20170417/20170630/shop/scripts/common.js"></script>
+</head>
+<body>
+<header>
+    <div class="nav" id="nav">
+        <div class="cen">
+            <div class="conta-left">
+                <a href="#">每天惠</a>
+                <a href="#">慧顾家</a>
+                <a href="#">兑换中心</a>
+            </div>
+            <div class="conta-wei">
+                <a href="#"><em>&#9742</em>手机版</a>
+                <a href="#"><em>&#9733</em>收藏</a>
+            </div>
+            <div class="conta-rgt">
+                <a href="compras.html">购物车</a>
+                <a href="#">我的订单</a>
+                <a href="#">商家中心</a>
+            </div>
+            <div class="conta">
+                <a href="login.html">登录</a>
+                <a href="register.html">免费注册</a>
+            </div>
+        </div>
+    </div>
+    <div class="search">
+        <div class="logo">
+            <a href="index.html"></a>
+        </div>
+        <!--<input type="text" id="search-text" placeholder="请输入要搜索的商品名称">-->
+        <!--<button id="search-btn">搜索</button>-->
+        <div class="log"></div>
+    </div>
+</header>
+<div class="address">
+    <h1>填写并核对订单单详情</h1>
+    <div class="inform">
+        <h2>收货人信息<span id="newadd">新增收货地址</span></h2>
+        <div class="inr">
+            <span>地区</span>
+            <br/>更多地址>>
+        </div>
+        <div class="pay">
+            <h3>支付方式</h3>
+        </div>
+        <div class="delivery">
+            <h3>配送方式</h3>
+        </div>
+    </div>
+    <div class="submit">
+        <div>
+            <div>
+                <div>
+                    <p>应付总额：<b>￥0.00</b></p>
+                    <p>寄送至：</p>
+                    <p>收货人：</p>
+                </div>
+            </div>
+        </div>
+        <span>提交订单</span>
+    </div>
+</div>
+<div class="newaddres" id="newaddres">
+    <div class="newaddress">
+        <h1><span>创建地址</span><b id="off">x</b></h1>
+        <div class="mian">
+            <p id="province">　所在地区：</p>
+            <p>　详细地址：<textarea class="wen" cols="50" rows="5" placeholder="建议您如实填写详细收货地址，例如街道名称，门牌号码，楼层和房间号等信息"></textarea></p>
+            <p>　邮政编码：<input type="text" placeholder="如您不清楚邮递区号，请填写000000"></p>
+            <p>收货人姓名：<input type="text" placeholder="长度不超过25个字符"></p>
+            <p>　手机号码：<input type="text" placeholder="必填"></p>
+            <button>保存</button>
+        </div>
+    </div>
+</div>
+<div class="foot">
+    <img src="images/background/foot1.png" alt="">
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/common.js"></script>
+<script src="js/address.js"></script>
+<script src="js/jquery.provincesCity.js"></script>
+<script src="js/provincesData.js"></script>
+<script type="text/javascript">
+    if (localStorage.getItem('token')){
+        $('.conta').html(localStorage.getItem('username')+'<a>　　退出</a>');
+    }
+    $('.conta>a').click(function () {
+        localStorage.clear();
+        location.href = 'index.html';
+    })
+    /*调用插件*/
+    $(function(){
+        $("#province").ProvinceCity();
+    });
+</script>
+</body>
+</html>

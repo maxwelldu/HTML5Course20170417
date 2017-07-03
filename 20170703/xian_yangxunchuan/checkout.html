@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body>
+<div class="header">
+    <a href="index.html">首页</a>
+    <a href="login.html">登录</a>
+</div>
+<div>
+    <h1>结算页面</h1>
+    <div id="address"></div>
+    <span id="addUserAddress">新增收货人信息</span>
+    <span id="total">总计：</span>
+    <span id="order">下订单</span>
+
+    <div class="layer">
+        <div class="dialog">
+            <h2>新增收货人信息<span>x</span></h2>
+            <form>
+                收货人名称：<input type="text" name="address_name" value=""><br />
+                <!-- 名称：<input type="text" name="consignee" value="2"><br /> -->
+                <!-- 名称：<input type="text" name="country" value="3"><br /> -->
+                省：<input type="text" name="province" value=""><br />
+                市：<input type="text" name="city" value=""><br />
+                区：<input type="text" name="district" value=""><br />
+                地址：<input type="text" name="address" value=""><br />
+                <!-- 邮编：<input type="text" name="zip_code" value="7"><br /> -->
+                手机号：<input type="text" name="mobile" value=""><br />
+                <!-- 名称：<input type="text" name="email" value="9"><br /> -->
+                <!-- 名称：<input type="text" name="tel" value="11"><br /> -->
+                <!-- 名称：<input type="text" name="besttime" value="12"><br /> -->
+                <!-- 名称：<input type="text" name="sign_building" value="13"><br /> -->
+                <input type="button" id="add" name="" value="添加收货地址">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<!--<script src="scripts/common1.js"></script>-->
+<script src="scripts/checkout.js"></script>
+</html>

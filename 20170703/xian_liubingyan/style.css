@@ -1,0 +1,164 @@
+    /**
+整站风格样式，或者通用样式
+像头部样式，底部样式，导航样式
+都写到这个文件里面
+*/
+           /*.nav ul {
+              }*/
+           /*.nav ul li {
+             float: left;
+             display: inline-block;
+             width: 50px;
+             line-height: 30px;
+             background: #ccc;
+             margin-left: 10px;
+             text-align: center;
+              }*/
+             .head{
+				width: 100%;
+				height: 70px;
+				background-color: #EEEEEE;
+			}
+			.head a{
+				color: white;
+			}
+			#head-con1{
+				float:right;
+				width: 100px;
+				height: 30px;
+				margin-top: 24px;
+				background-color: #FFB800;
+				text-align: center;
+				line-height:30px;
+				margin-right: 200px;
+			}
+			#head-con2{
+				float:right;
+				width: 100px;
+				height: 30px;
+				margin-top: 24px;
+				background-color: #FFB800;
+				text-align: center;
+				line-height:30px;
+				margin-right: 50px;
+			}
+			#head-con3{
+				float:right;
+				width: 100px;
+				height: 30px;
+				margin-top: 24px;
+				background-color: #FFB800;
+				text-align: center;
+				line-height:30px;
+				margin-right: -395px;
+			}
+			
+		
+			.inp1{
+				width: 200px;
+				float: left;
+				margin-top: 19px;
+				margin-left: 206px;
+			    padding-left: 10px;
+				outline: none;
+				height: 30px;
+				
+				line-height:30px;
+			}
+			button{
+				width: 80px;
+				margin-top: 19px;
+			    color: black
+				outline: none;
+				height: 34px;
+			    text-align: center;
+				line-height:30px;
+				
+			}
+		.pic{
+			float: left;
+			margin-left: 80px;
+			margin-top: 10px;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			overflow: hidden;
+		}
+            .goods {
+            clear: both;
+            margin-top: 10px;
+            margin-left: 30px;
+                }
+                 .goods ul{
+                 	float: left;
+                 	margin-top: 10px;
+                 	height:470px;
+                 }
+            .goods ul li {
+              display: block;
+              float: left;
+              width:224px;
+  height:224px;
+  border: 2px solid #FFB800;
+  margin-right: 35px;
+  margin-bottom: 10px;
+  position: relative;
+  border-radius: 10%;
+  overflow: hidden;
+  
+}
+.goods ul li img {
+  width: 100%;
+  height: 100%;
+}
+.goods ul li p{
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 18px;
+  color: orangered;
+  background-color: rgba(0, 0, 0, .2);
+  width: 100%;
+  height: 35px;
+}
+           #nav-ul{
+				margin-top: 5px;
+			}
+			#nav-ul li {
+				float: left;
+				 display: inline-block;
+				width: 95px;
+				height: 35px;
+				line-height: 35px;
+				margin-left: 35px;
+				text-align: center;
+				border-radius: 15%;
+			}
+			#nav-ul li a{
+				color:orangered;
+				font-size: 20px;
+			}
+			#nav-ul li:hover a{
+				color: white;
+			}
+			#nav-ul li:hover{
+				background-color:#FFB800;
+				color: white;
+			}
+			.foot{
+			float: left;
+			width: 100%;
+			height: 70px;
+			background-color: #EEEEEE;
+			
+			text-align: center;
+			color: orangered;
+			font-size: 13px;
+		}
+		.foot .zi{
+			margin-top: 8px;
+		}
+		.foot p{
+			line-height: 20px;
+		}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background-color: #f6f6f6;
+        }
+        .cont{
+            margin: 0 auto;
+            width: 850px;
+            height: 450px;
+        }
+        header{
+            width: 100%;
+            height: 100px;
+            background-color: #ffffff;
+        }
+        .logo{
+            width: 132px;
+            height: 58px;
+            background: url("images/index/logo .png");
+            margin: 20px 130px;
+            float: left;
+        }
+        .logo a{
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+        }
+        .ligin{
+            width: 372px;
+            height: 372px;
+            background: url("images/index/login.png");
+            float: left;
+            margin-top: 39px;
+        }
+        h1{
+            text-align: center;
+            line-height: 60px;
+        }
+        .register{
+            width: 350px;
+            height: 350px;
+            /*margin: 70px auto;*/
+            background-color: #ffffff;
+            padding: 50px;
+            float: left;
+        }
+        p{
+            height: 30px;
+            line-height: 30px;
+        }
+        .username{
+             border:1px solid #cccccc;
+             width: 250px;
+             height: 30px;
+        }
+        #error{
+            color: red;
+        }
+        .password{
+            border:1px solid #cccccc;
+            width: 250px;
+            height: 30px;
+        }
+        #codes{
+            color: red;
+        }
+        #register{
+            margin-top: 20px;
+            width: 100%;
+            height: 40px;
+            background-color: #dd4f50;
+            border:none;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        #coodes{
+            color: red;
+        }
+    </style>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <a href="index.html"></a>
+    </div>
+</header>
+<div class="cont">
+    <div class="ligin"></div>
+    <div class="register">
+        <h1>欢迎注册</h1>
+        <p>用户名：　　<input type="text" name="username" id="username" class="username" placeholder="3-20位字符，可用数字下划线字母"></p>
+        <p id="error" class="hint"></p>
+        <p>密码：　　　<input type="password" name="password" id="password" class="password" placeholder="6-20位字符，可用数字下划线字母"></p>
+        <p id="codes" class="hint"></p>
+        <p>确认密码：　<input type="password" name="password2" id="password2" class="password" placeholder="确认密码"></p>
+        <p id="coodes" class="hint"></p>
+        <p><input type="checkbox" checked="checked" id="ourtreaty" class="vertPos"><span>同意</span><a href="#">  《我们的协议》</a></p>
+        <p><input type="button" name="btn" value="立即注册" id="register"></p>
+    </div>
+</div>
+<div class="foot">
+    <img src="images/background/foot1.png" alt="">
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#username').blur(function () {
+            var username = $('input[name="username"]').val();
+            console.log(username);
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "dataType":"json",
+                "data":{
+                    "status":"check",
+                    "username":username
+                },
+                "success":function (response) {
+                    console.log(response);
+                    if(response.code === 0){
+                        $('#error').html("");
+                    }else if(response.code ===2001){
+                        $('#error').html("用户名已存在");
+                    }else if(response.code ===1000){
+                        $('#error').html('请填写3-20位的英文数字下划线');
+                    }
+                }
+            })
+        })
+        $('#password').blur(function () {
+            var password = $('input[name="password"]').val();
+            if (password.length<6 || password.length>20){
+                $('#codes').html("需要在6-20位之间,数字字母下划线");
+            }else{
+                $('#codes').html('');
+            }
+            console.log(password);
+        })
+        $('#password2').blur(function () {
+            var password = $('input[name="password"]').val();
+            var password2 = $('input[name="password2"]').val();
+            if (password2 === password){
+                $('#coodes').html('');
+            }else{
+                $('#coodes').html("密码不一致");
+            }
+            console.log(password);
+        })
+        $('#register').click(function () {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            console.log([username,password]);
+
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "dataType":"json",
+                "data":{
+                    "status":"register",
+                    "username":username,
+                    "password":password
+                },
+                "success":function (response) {
+                    console.log(response);
+                    if(response.code === 0){
+                        alert("注册成功");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+.hotshopping{
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.hotshopping .shophot{
+    float: right;
+    margin: 10px 0 0  ;
+}
+.hotshopping .shophot a{
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+.hotshopping .shophot img{
+    width: 100%;
+}
+.hotshopping .shophot p{
+    width: 30%;
+    float: left;
+    font-size: 15px;
+    padding: 10px 10px;
+}
+.hotshopping .shophot span{
+    display: inline-block;
+    width: 30%;
+    float: left;
+    font-size: 18px;
+    padding: 10px 10px;
+    color: palegreen;
+}

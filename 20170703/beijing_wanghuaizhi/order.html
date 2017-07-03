@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="styles/order.css">
+	<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+	<title>您的订单</title>
+</head>
+<body>
+	<header>
+		<a href="index.html">返回首页</a>
+	</header>
+	<dialog class="body-mask" >
+		<div class="add-address-ui">
+			<h2>添加收货地址 <button id="cancel">取消</button></h2>
+			<div class="form">
+				<div class="ui-area">
+					<h3><sup>*</sup>收货人</h3>
+					<input type="text" name="" id="getter">
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3><sup>*</sup>地址</h3>
+					<input type="text" name="" id="address-name">
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3><sup>*</sup>所在地区</h3>
+					<div class="area-select">
+						<p>--请选择--</p>
+						<div>
+							<div class="area-container">
+								<a href="" class="area-container-column show current">请选择</a>
+								<a href="" class="area-container-column">请选择</a>
+								<a href="" class="area-container-column">请选择</a>
+								<a href="" class="area-container-column">请选择</a>		
+								<div class="clear"></div>
+							</div>
+							<div class="area-box country current">
+								<a href="">中国</a>
+								<a href="">阿尔及利亚</a>
+								<a href="">阿富汗</a>
+								<a href="">波兰</a>
+								<a href="">美国</a>
+							</div>
+							<div class="area-box province">
+								<a href="">北京</a>
+								<a href="">上海</a>
+								<a href="">天津</a>
+								<a href="">河北</a>
+								<a href="">山西</a>
+								<a href="">黑龙江</a>
+								<a href="">广东</a>
+								<a href="">广西</a>
+								<a href="">河南</a>
+								<a href="">河北</a>
+								<a href="">山东</a>
+								<a href="">江苏</a>
+								<a href="">浙江</a>
+								<a href="">福建</a>
+								<a href="">云南</a>
+								<a href="">贵州</a>
+								<a href="">四川</a>
+								<a href="">西藏</a>
+								<a href="">新疆</a>
+								<a href="">重庆</a>
+								<a href="">辽宁</a>
+								<a href="">吉林</a>
+								<a href="">内蒙古</a>
+								<a href="">台湾</a>
+								<a href="">甘肃</a>
+							</div>
+							<div class="area-box city">
+								<a href="">北京</a>
+							</div>
+							<div class="area-box district">
+								<a href="">东城区</a>
+								<a href="">西城区</a>
+								<a href="">海淀区</a>
+								<a href="">朝阳区</a>
+								<a href="">石景山区</a>
+								<a href="">丰台区</a>
+								<a href="">顺义区</a>
+								<a href="">宣武区</a>
+								<a href="">通州区</a>
+								<a href="">房山区</a>
+								<a href="">怀柔区</a>
+								<a href="">平谷区</a>
+								<a href="">门头沟区</a>
+								<a href="">崇文区</a>
+								<a href="">密云区</a>
+								<a href="">昌平区</a>
+							</div>
+						</div>						
+					</div>
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3><sup>*</sup>手机号码</h3>
+					<input type="text" name="" id="tel-number">
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3>邮箱</h3>
+					<input type="text" name="" id="email">
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3>地址别名</h3>
+					<input type="text" name="" id="address-detail">
+					<span></span>
+				</div>
+				<div class="ui-area">
+					<h3>邮编</h3>
+					<input type="text" name="" id="address-code">
+					<span></span>
+				</div>			
+			</div>
+			<button>保存收货地址</button>
+		</div>		
+	</dialog>
+	<h2>您的订单</h2>
+	<div class="address">
+		<button>新增收货地址</button>
+		<h3>您的收货地址：</h3>
+		<ul class="address-container"></ul>
+	</div>
+	<div class="container-head">
+		<b>预览</b>
+		<span>宝贝名称</span>
+		<span>数量</span>
+		<span>单价</span>
+		<span>总价</span>
+	</div>
+	<ul class="item-container"></ul>
+</body>
+	<script type="text/javascript" src="scripts/order.js"></script>
+</html>

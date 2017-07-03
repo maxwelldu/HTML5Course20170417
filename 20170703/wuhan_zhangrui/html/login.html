@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../css/register.css">
+	<link rel="stylesheet" href="../css/reset.css">
+</head>
+<body>
+	<div class="form">
+		<p>用户名：
+			<input type="text" name='username'>
+			<b>用户名不存在</b>
+			<em></em>
+		</p>
+		<p>密码：
+			<input type="password" name='password'>
+			<i>密码有误</i>
+			<em></em>
+		</p>
+		<p>
+			<button id="login">登录</button>
+		</p>
+	</div>	
+
+</body>
+<script type="text/javascript" src="../jquery-3.2.1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="../js/common.js" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function() {
+		//检测用户名是否存在
+		$('input:eq(0)').blur(function() {
+			var username = $('input[name="username"]').val();
+	        var password = $('input[name="password"]').val();
+	        console.log(password);
+	       
+		shop.api.checkUsernameUnique($(this).val(), function(response) {
+					console.log(response);
+					console.log('失去焦点');
+						if(response.code != 2001 ) {
+							$('p>b').show();
+							return;
+					}else{
+						$('p>b').hide();
+					}
+			});
+		});
+		
+	$('#login').click(function() {
+		var username = $('input[name="username"]').val();
+	    var password = $('input[name="password"]').val();
+		 shop.api.login(username, password, function(response) {
+			console.log(response);
+            	//检测密码是否正确
+            	if(response.code == 0) {
+            		var data = response.data;
+            		$('p>i').hide();
+            		//把数据存储在页面
+            		for(var prop in data) {
+         			if(data.hasOwnProperty(prop)) {
+  					localStorage.setItem(prop,data[prop]);
+            			}
+            		}
+            		var callbackurl = location.hash.substr(13);
+            		console.log(callbackurl)
+            		if(callbackurl){
+            			location.assign(callbackurl)
+            		}else {
+            			 location.assign('index.html');
+            		}
+            	}else{
+            		$('p>i').show();
+            		reutrn;
+            	}	
+            });
+		});
+	});
+</script>
+</html>

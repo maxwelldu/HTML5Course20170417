@@ -1,0 +1,69 @@
+/**
+整站风格样式，或者通用样式
+像头部样式，底部样式，导航样式
+都写到这个文件里面
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.nav{
+    width: 100%;
+    height: 45px;
+}
+.nav #nav-ul{
+    display: block;
+    margin-left: 174px;
+    width: 1000px;
+    height: 45px;
+    background: #D90D16;
+    float: left;
+    line-height: 45px;
+}
+.nav ul li {
+    float: left;
+    display: inline-block;
+    width: 50px;
+    line-height: 30px;
+    margin-left: 45px;
+    text-align: center;
+}
+.nav ul li a{
+    color: white;
+}
+.goods {
+    clear: both;
+    width: 1000px;
+    margin-left: 200px;
+}
+.goods ul li {
+    display: block;
+    float: left;
+    width: 200px;
+    height: 200px;
+    border: 3px solid pink;
+    margin-right: 40px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.goods ul li img {
+    width: 100%;
+    height: 100%;
+}
+.goods ul li p{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    overflow: hidden;
+    font-size: 14px;
+    color: coral;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    height: 20px;
+}

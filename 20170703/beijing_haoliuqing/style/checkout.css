@@ -1,0 +1,126 @@
+.layer{
+    border: solid 1px #e5e5e5;
+    width:90%;
+    margin:0 auto 20px;
+    /*position:relative;*/
+}
+.layer h2{
+    line-height: 36px;
+    padding-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background: #f4f4f4;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.layer .add-address{
+    /*position:absolute;*/
+    /*left:0;*/
+    /*bottom:0;*/
+    cursor:pointer;
+    width:90px;
+    height:30px;
+    background:lightskyblue;
+    line-height:30px;
+    text-align:center;
+}
+.layer .new-address{
+    width: 95%;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid lightskyblue;
+    margin: 0  auto 10px;
+    cursor: pointer;
+}
+.payer{
+    height: 90px;
+}
+.payer .select-pay {
+    /*margin-left: 50px;*/
+}
+.payer .select-pay li{
+    float:left;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #e5e5e5;
+    margin-right: 30px;
+}
+.payer .select-pay li span{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: #f4f4f4;
+    text-align: center;
+    margin-left: 10px;
+
+}
+
+
+
+
+.address {
+    width: 600px;
+    height: 300px;
+    position: fixed;
+    top: 140px;
+    left:50%;
+    margin-left: -300px;
+    background: white;
+    border: 1px solid lightskyblue;
+    /*opacity: 0.9;*/
+    display: none;
+}
+table {
+    width: 600px;
+    height: 300px;
+
+}
+table,tr,td{
+    vertical-align: middle;
+}
+table tr td:first-child{
+    text-align:right;
+}
+table tr td:last-child {
+     padding-left: 40px;
+ }
+table tr:last-child td:last-child {
+    padding-left: 0px;
+}
+table tr:last-child td{
+    text-align:center;
+}
+table tr:last-child td button:first-child{
+    margin-right: 50px;
+}
+table tr td .hide{
+    display:none;
+    margin-left:10px;
+}
+
+.total-price {
+    width: 90%;
+    margin: 0 auto;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid lightskyblue;
+}
+.total-price a{
+    float: left;
+    margin-left: 20px;
+}
+.total-price p {
+    float: right;
+}
+.total-price p span{
+  color:#dd4f50;
+}
+.total-price p button{
+    width: 90px;
+    border:none;
+    background: lightskyblue;
+    height: 40px;
+    margin-top: -1px;
+    margin-right: -1px;
+    margin-left: 10px;
+}

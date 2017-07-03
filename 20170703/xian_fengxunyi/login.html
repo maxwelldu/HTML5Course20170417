@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        body{
+            background: url(img/timg7.jpg);
+        }
+        .odiv{
+            /*margin: 100px 600px;*/
+            width: 427px;
+            height:294px;
+            margin: 150px auto;
+            position: relative;
+            background-color: white;
+        }
+        .op{
+            width: 400px;
+            height: 70px;
+            border: 1px solid gainsboro;
+            font-size: 20px;
+            line-height: 70px;
+            padding-left: 10px;
+            margin-top: 30px;
+        }
+
+        .op input{
+            width: 280px;
+            height: 70px;
+            border: none;
+            float: right;
+            outline: none;
+            font-size: 18px;
+        }
+        .opost{
+            width: 412px;
+            height:70px;
+            border: none;
+            background-color: #EE2222;
+            font-size: 20px;
+            color: white;
+            margin-top:30px;
+            outline: none;
+
+        }
+    </style>
+</head>
+<body>
+<div class="odiv">
+    <p class="op">用户名<input id="userName" type="text" name="username" placeholder="请输入3~20位字母数字下滑线">
+
+    </p>
+    <p class="op op2" >密码<input type="password" name="password" placeholder="密码长度为6~20位"></p>
+
+    <input type="button" id="login" class="opost" value="立即登陆" >
+
+</div>
+</body>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script>
+    $(function () {
+        $('#login').click(function () {
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            console.log([username,password])
+
+            $.ajax({
+                'url': 'http://h6.duchengjiu.top/shop/api_user.php',
+                'type': 'POST',
+                'dataType': 'json',
+                'data': {
+                    'status': 'login',
+                    'username': username,
+                    'password': password
+                },
+                'success': function (response) {
+                    var data = response.data;
+                    for(var property in data){
+                        if(data.hasOwnProperty(property)){
+                            localStorage.setItem(property,data[property]);
+                        }
+                        //location.assign('index2.html');
+                    }
+                    //判断，如果有callbackurl就返回购物车页面
+                   var callbackurl = location.hash.substr(13);
+                    if(callbackurl){
+                        location.assign(callbackurl);
+                    }else{
+                        location.assign('index2.html');
+                    }
+                }
+            })
+        })
+    })
+    
+    
+    
+    
+</script>
+</html>

@@ -1,0 +1,44 @@
+	div{
+		/*margin-left: 100px;*/
+	}
+	img{
+		border: 1px solid firebrick;
+		width: 300px;
+		height: 350px;
+		margin-left: 100px;
+		margin-top: 20px;
+	}
+	p{
+		width: 300px;
+		font-size: 15px;
+		font-weight: bold;
+		margin-left: 100px;
+		
+	}
+    button{
+    	width: 100px;
+    	height: 40px;
+    	background-color: #FF4400;
+    	font-size: 16px;
+    	color: white;
+    	border: none;
+    	margin-left: 100px;
+    	margin-top: 10px;
+    	border-radius: 8px;
+    }
+    span{
+    	width:200px ;
+    	height: 100px;
+    	margin-left: 10px;
+    	margin-top: 10px;
+    	color: orangered;
+    	font-weight: bold;
+    }
+    em{
+    	width:100px ;
+    	height: 30px;
+    	margin-top: 10px;
+    	margin-left: 10px;
+    	font-size: 13px;
+    	color: grey;
+    }

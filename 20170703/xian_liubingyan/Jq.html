@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.red{
+				color: purple;
+			}
+		</style>
+	<body>
+		<ul>
+			<li>我</li>
+			<li>要</li>
+			<li>飞</li>
+			<li>到</li>
+			
+		</ul>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+		$("ul li").each(
+			$(this).css("backgroundColor","red").$("ul li").eq(1).addClass("red"))
+	</script>
+		
+	
+</html>

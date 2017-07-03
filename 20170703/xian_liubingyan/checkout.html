@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<style type="text/css">
+			 
+
+			*{
+				padding: 0;
+				margin: 0;
+				text-decoration: none;
+			}
+			#addUserAddress{
+				display: block;
+				float: left;
+				cursor: pointer;
+				margin-top: 10px;
+				margin-left:-345px;
+				font-size: 20px;
+				font-weight: 700;
+			}
+			#addUserAddress:hover{
+				background-color: orangered;
+				color: white;
+			}
+			
+			.dialog{
+				width: 500px;
+				height: 400px;
+				float: left;
+				margin-top: 110px;
+				margin-left: 710px;
+				border: 2px solid orangered;
+			}
+			form span{
+				font-size: 15px;
+				margin-top: 20px;
+				display: inline-block;
+				margin-left: 35px;
+				font-weight: 700;
+			}
+			form input{
+				width: 300px;
+				height: 30px;
+				outline: none;
+				padding-left: 10px;
+			
+				
+			}
+			form input#add{
+				background-color: orangered;
+				outline: none;
+				float: left;
+				margin-top: 20px;
+				margin-left: 115px;
+				width: 314px;
+				border: none;
+			}
+			.dialog .zi{
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				font-size: 20px;
+			}
+			.dialog .zi #zis1{
+				margin-left: 30px;
+			}
+			.dialog .zi #zis2{
+				float: right;
+				width: 30px;
+				height: 30px;
+				text-align: center;
+				line-height: 30px;
+				background-color: orange;
+				cursor: pointer;
+			}
+			.foot{
+				margin-top: 30px;
+			}
+			.layer {
+      display: none;
+        background: rgba(0, 0, 0, 0.4);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+      }
+
+			#address{
+				width: 500px;
+				height: 400px;
+				border: 2px solid orangered;
+				float: left;
+				margin-top: 50px;
+				margin-left: 160px;
+				font-size: 20px;
+			}
+			#total{
+				float: left;
+				margin-left: 45px;
+				margin-top: 414px;
+				padding: 10px;
+				padding-right: 10px;
+				background-color: orange;
+				cursor: pointer;
+			}
+			#order{
+				float: left;
+				margin-left: 45px;
+				margin-top: 414px;
+				padding: 10px;
+				padding-right: 10px;
+				background-color: orange;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		 <div class="head">
+		  	<div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  <div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  <div id="head-con1">
+	   	  	<a href="logit.html">
+	   	  		登录
+	   	  	</a>
+	   	  	
+	   	  </div>
+	   	  <div id="head-con2">
+	   	  	<a href="register.html">
+	   	  		注册
+	   	  	</a>
+	   	  	 </div>
+	   	  	 <div id="head-con3">
+	   	  
+	   	  		退出
+	   	  	
+	   	  	 </div>
+	   	  	
+	   	  <input type="text" class="inp1" id="search-text"  placeholder="请输入文字" />
+	   	 <button id="search-btn">搜索</button>
+	   	
+	   	  </div>
+	    
+	     
+	     <h1>
+	     	结算页面
+	     </h1>
+	      <div id="address"></div>
+
+	   <span id="addUserAddress">
+	   	新增收货人信息
+	   </span>
+	    <span id="total">总计：</span>
+    <span id="order">下订单</span>
+
+	   <div class="layer">
+	   	<div class="dialog">
+	   		<div class="zi">
+	   			<span id="zis1">
+	   				新增收货人地址
+	   			</span>
+	   			
+	   			<span id="zis2">
+	   				X
+	   			</span>
+	   		</div>
+	   		<form action="">
+	   			<span id="">
+	   				收货人姓名：
+	   			</span>
+	   			<input type="text" name="address_name" value="" /><br />
+                 <span id="">
+                 	所在国家：
+                 </span>
+	   			
+	   			<input type="text" name="province" value="" /><br />
+	   			<span id="">
+	   				所在省份：
+	   			</span>	   			
+	   			<input type="text" name="city" value="" /><br />
+	   			<span id="">
+	   				所在城市：
+	   			</span>
+	   			
+	   			<input type="text"  name="distric" value="" /><br />
+	   			<span id="">
+	   				具体地址：
+	   			</span>
+	   			
+	   			<input type="text" name="address" value="" /><br />
+	   			
+	   			<span id="">
+	   				手机号码：
+	   			</span>
+	   			
+	   			<input type="tel" name="mobile" value="" /><br />
+	   			<input type="button" id="add" value="添加收货地址" />
+	   		</form>
+	   	</div>
+	   </div>
+	   
+	   
+	   <div class="foot">
+       	<div class="zi">
+       		<p>
+                   六芒星（Hexagram），有很浓的宗教色彩。
+       	</p>
+       	<p>
+       		发源于印度教的古代宗派坦陀罗教，传说六芒星可以预见未来和知晓过去。
+       	</p>
+       	<p>
+       		正三角形代表男性和道德，倒三角代表女性和真理。
+       	</p>
+       	</div>
+       	
+       </div>
+	</body>
+	<script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+	<script type="text/javascript"  src="common.js"></script>
+	<script type="text/javascript">
+		$("#addUserAddress").click(function(){
+			$(".layer").show()
+		})
+		$("#zis2").click(function(){
+			$(".layer").hide()
+		})
+		//得到总价，显示在当前页面
+    var total = $.getQueryString('total');
+    $('#total').text('总计：'+total);
+    var address_id = 0;
+    //给地址栏加上一个点击事件
+    $('#address').click(function(event){
+      console.log(event.target);
+      if (event.target) {
+        address_id = event.target.getAttribute('data-id');
+      }
+    });
+
+    $(function(){
+
+      //点击下订单
+      //提交一个ajax请求，真实的下一个订单
+      //下完订单之后跳转到订单列表页面
+      $('#order').click(function(){
+        if (address_id === 0) {
+          alert('请选择地址后再下订单');
+          return;
+        }
+        shop.api.addOrder(address_id, total, function(response){
+          console.log(response);
+          location.assign('order.html');
+        });
+      });
+
+      //点击新增按钮显示新增表单
+//    $("#addUserAddress").click(function(){
+//      $(".layer").show();
+//    });
+//    $(".layer h2 span").click(function(){
+//      $(".layer").hide();
+//    });
+
+      $('#add').click(function(){
+        var data = $("form").serialize();
+        console.log(data);
+        shop.api.addUserAddress(data, function(response){
+          console.log(response);
+          if (response.code === 0) {
+            $('.layer').hide();
+            fetchUserAddress();
+          }
+        });
+      });
+
+      fetchUserAddress();
+      function fetchUserAddress() {
+        shop.api.fetchUserAddress(function(response) {
+          var html = "";
+          for (var i = 0; i < response.data.length; i++) {
+            var obj = response.data[i];
+            console.log(obj)
+            html += '<div class="address-item" data-id="'+obj.address_id+'">'+ obj.address_name +' ' + obj.province+ ' ' + obj.city + ' ' + obj.district + ' ' + obj.address +' ' + obj.mobile + ' </div>';
+
+          }
+          $('#address').html(html);
+        });
+      }
+    });
+
+	</script>
+</html>

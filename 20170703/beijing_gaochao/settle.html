@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/settle.css">
+
+</head>
+<body>
+<div class="head-img">
+    <a href="#">
+        <img src="images/1.jpg" alt="">
+    </a>
+</div>
+<div class="search">
+    <a href="http://localhost:63342/%E7%AC%AC%E4%BA%8C%E5%A4%A9/index.html?_ijt=72i0s3i1kp53ncb9k6rh0sourt" class="logo"></a>
+</div>
+<div class="head-text">
+    <h2>选择收货地址</h2>
+    <div class="head-text-link">
+        <div class="head-text-link-add" id="head-text-link-add"></div>
+        <span id="Add">+新增收货地址</span>
+    </div>
+</div>
+<div class="adds" id="Adds">
+    <div class="adds-text">
+        <div class="adds-texts">
+            <h2>新增收货地址 <span id="DeleteBtnO">×</span></h2>
+        </div>
+        <form class="adds-list" id="addsList">
+            <p class="adds-list-add">
+                <input type="text" name="city" placeholder="或手动输入" id="Ity">
+                <span><i>*</i>&nbsp所在地区</span>
+                省份：
+                <select id="province">
+                    <option value="0" >-请选择-</option>
+                </select>
+
+                城市：
+                <select id="city" >
+                    <option value="0" name="city">-请选择-</option>
+                </select>
+
+                区县：
+                <select id="area">
+                    <option value="0">-请选择-</option>
+                </select>
+
+            </p>
+            <p class="adds-list-region">
+                <span><i>*</i>&nbsp详细地址</span>
+                <textarea placeholder="无需重复填写省市区，小于75个字" name="address" id="address"></textarea>
+
+            </p>
+            <p class="adds-list-name">
+                <span><i>*</i>&nbsp收件人姓名</span>
+                <input type="text" placeholder="不能为昵称、X先生、X小姐等，请使用真实姓名" name="address_name" id="address_name">
+            </p>
+            <p class="adds-list-phone">
+                <span><i>*</i>&nbsp手机号码</span>
+                <input type="text" placeholder="手机号码、电话号码必须填一项" name="mobile" id="modile">
+            </p>
+            <p class="adds-list-Cphone">
+                <span>&nbsp电话号码</span>
+                <input type="text" placeholder="区号" name="phoneC">
+            </p>
+            <p class="adds-list-email">
+                <span>&nbsp邮箱</span>
+                <input type="text" placeholder="接受订单提醒邮件，便于您及时了解订单状态" name="email">
+            </p>
+            <div class="adds-list-btn">
+                <span id="DeleteBtn">取消</span>
+                <em id="KeepBtn">保存新地址</em>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="shop" id="Shop">
+    <h2>确认商品信息</h2>
+    <div class="shop-text">
+        <span class="shop-text-one">商品信息</span>
+        <span class="shop-text-two">单价（元）</span>
+        <span class="shop-text-three">数量</span>
+        <span class="shop-text-four">金额（元）</span>
+    </div>
+</div>
+<div class="shop-balance">
+    <div class="shop-balance-top"></div>
+    <div class="shop-balance-bottom">
+        <div class="shop-balance-bottom-text">
+
+        </div>
+        <div class="shop-balance-bottom-mas">
+            <p><em>商品应付金额：</em><i id="Money"></i>.00</p>
+            <p><em>运费：</em>0.00</p>
+            <p><em>税费：</em>0.00</p>
+            <p><em>应付金额：</em><i id="dMoney"></i>.00</p>
+            <div class="shop-balance-bottom-mas-up" id="shop-balance-bottom-mas-up">
+                <a href="http://localhost:63342/%E7%AC%AC%E4%BA%8C%E5%A4%A9/cart.html?_ijt=a0ko8q6p1pjs9u7ljb0n30fo7">返回购物车修改</a>
+                <span id="Submit">提交订单</span>
+            </div>
+          
+        </div>
+    </div>
+</div>
+<div class="copy">
+    <div class="copy-box">
+        <div class="copy-box-top">
+            <ul>
+                <li>
+                    <i></i>
+                    <span>100%正品</span>
+                    <p>正品保障 假一赔十</p>
+                </li>
+                <li>
+                    <i class="copy-box-top-one"></i>
+                    <span>低价保障</span>
+                    <p>缩减中间环节 确保低价</p>
+                </li>
+                <li>
+                    <i class="copy-box-top-two"></i>
+                    <span>30天无忧退货</span>
+                    <p>国内退货 售后无忧</p>
+                </li>
+                <li>
+                    <i class="copy-box-top-three"></i>
+                    <span>满88包邮</span>
+                    <p>部分特殊商品除外</p>
+                </li>
+            </ul>
+        </div>
+        <div class="copy-box-bottom">
+            <ul>
+                <li class="copy-box-bottom-one">
+                    <a href="#"></a>
+                    <div>
+                        <span>关注我们</span>
+                        <em class="copy-icon-one"></em ><em class="copy-icon-two"></em><em class="copy-icon-three"></em>
+                    </div>
+                </li>
+                <li class="copy-box-bottom-text">
+                    <h5>考拉保障</h5>
+                    <span>假一赔十</span>
+                    <span>廉正监督</span>
+                </li>
+                <li class="copy-box-bottom-text">
+                    <h5>新手指南</h5>
+                    <span>购物流程</span>
+                    <span>支付方式</span>
+                    <span>通关税费</span>
+                    <span>常见问题</span>
+                </li>
+                <li class="copy-box-bottom-text">
+                    <h5>售后服务</h5>
+                    <span>退货政策</span>
+                    <span>退货流程</span>
+                    <span>退款说明</span>
+                    <span>联系客服</span>
+                </li>
+                <li class="copy-box-bottom-text">
+                    <h5>物流配送</h5>
+                    <span>配送方式</span>
+                    <span>配送服务</span>
+                    <span>运费标准</span>
+                    <span>物流跟踪</span>
+                </li>
+                <li class="copy-box-bottom-text">
+                    <h5>关于我们</h5>
+                    <span>联系我们</span>
+                    <span>招商合作</span>
+                    <span>销售联盟</span>
+                    <span>CEO邮箱</span>
+                </li>
+                <li class="copy-box-bottom-link">
+                    <img src="images/8.png" alt="">
+                    <p>考拉联合凤凰知音</p>
+                </li>
+                <li class="copy-box-bottom-link">
+                    <img src="images/13.jpg" alt="">
+                    <p>扫描下载手机版</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="copy-link">
+        <p>About NetEase - 公司简介 - 联系方法 - 友情链接 - 招聘信息 - 客户服务 - 隐私政策 - 网络营销 - 网站地图 - 网易考拉海购 </p>
+        <p>网络文化经营许可证：浙网文[2016]0155-055号&nbsp&nbsp&nbsp&nbsp增值电信业务经营许可证：浙B2-20090185-3 &nbsp&nbsp&nbsp&nbsp出版物经营许可证：新出发浙杭经零字第00136号&nbsp&nbsp&nbsp&nbsp 自营经营者信息 </p>
+        <p><img src="images/9.png" alt="">浙公网安备 33010002000066号 网易公司版权所有©1997-2017 </p>
+        <img src="images/10.png" alt="" class="copy-link-one">
+        <img src="images/1.gif" alt="" class="copy-link-two">
+    </div>
+</div>
+<script type="text/javascript" src="JS/jquery.js"></script>
+<script type="text/javascript" src="JS/common(通用).js"></script>
+<script type="text/javascript" src="JS/settle.js"></script>
+</body>
+</html>

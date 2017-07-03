@@ -1,0 +1,110 @@
+.serch{
+	margin: 0 auto;
+	width: 1050px;
+	height: 80px;
+}
+.serch > p{
+	width: 40%;
+	height: 100%;
+	float: right;
+}
+
+.serch > span{
+	width: 40%;
+	height: 100%;
+	line-height: 200%;
+	float: left;
+	font-size: 40px;
+	text-align: center;
+}
+
+#serchtext{
+	/*border: none;*/
+	margin-top: 3%;
+	width: 65%;
+	height: 50%;
+	float: left;
+}
+
+#goserch{
+	margin-top: 3%;
+	display: inline-block;
+	/*border: none;*/
+	width: 30%;
+	height: 57%;
+}
+
+.hotshopping{
+	width: 1050px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.hotshopping .shophot{
+	width: 525px;
+	float: left;
+	margin: 10px 0 0  ;
+}
+.hotshopping .shophot a{
+	display: inline-block;
+	width: 50%;
+	float: left;
+}
+.hotshopping .shophot img{
+	width: 100%;
+}
+.hotshopping .shophot p{
+	width: 30%;
+	float: left;
+	font-size: 15px;
+	padding: 10px 10px;
+}
+.hotshopping .shophot span{
+	display: inline-block;
+	width: 30%;
+	float: left;
+	font-size: 18px;
+	padding: 10px 10px;
+	color: palegreen;
+}
+
+.page{
+	width: 1050px;
+	height: 100px;
+	margin: 0 auto;
+	/*background: #000;*/
+}
+.pagelist{
+	height: 100%;
+	width: 40%;
+	padding: 0 10px;
+	margin: 0 auto;
+	/*background: red;*/
+	overflow: hidden;
+}
+.last{
+	display: inline-block;
+	float: left;
+	margin-top: 40px;
+	width: 70px;
+	height: 30px;
+}
+.next{
+	display: inline-block;
+	margin-top: 40px;
+	width: 70px;
+	height: 30px;
+	float: right;
+}
+.pagebox{
+	display: inline-block;
+	float: left;
+	margin-top: 40px;
+	width: 280px;
+	height: 30px;
+	background: gray;
+	overflow: hidden;
+}
+.pageyard{
+	float: left;
+height: 100%;
+}

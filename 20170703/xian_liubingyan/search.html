@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="reset.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+		<style type="text/css">
+			*{
+				text-decoration: none;
+			}
+			#container{
+				height: 515px;
+				width: 1400px;
+				margin-left: 35px;
+			}
+			.odiv{
+				display: block;
+              float: left;
+              width:224px;
+              height:235px;
+               border: 2px solid #FFB800;
+              margin-right: 35px;
+              margin-bottom: 10px;
+               position: relative;
+               border-radius: 10%;
+              overflow: hidden;
+              margin-top: 20px;
+			}
+			.odiv img{
+				width: 100%;
+				height:185px;
+			}
+			
+			.odiv a p{
+				color: orangered;
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="head">
+		  	<div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  <div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  <div id="head-con1">
+	   	  	<a href="logit.html">
+	   	  		登录
+	   	  	</a>
+	   	  	
+	   	  </div>
+	   	  <div id="head-con2">
+	   	  	<a href="register.html">
+	   	  		注册
+	   	  	</a>
+	   	  	 </div>
+	   	  	 <div id="head-con3">
+	   	  
+	   	  		退出
+	   	  	
+	   	  	 </div>
+	   	  	
+	   	  <input type="text" class="inp1" id="search-text"  placeholder="请输入文字" />
+	   	 <button id="search-btn">搜索</button>
+	   	
+	   	 </div>
+		<div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+		<div id="container">
+			
+		</div>
+		<div class="foot">
+       	<div class="zi">
+       		<p>
+                   六芒星（Hexagram），有很浓的宗教色彩。
+       	</p>
+       	<p>
+       		发源于印度教的古代宗派坦陀罗教，传说六芒星可以预见未来和知晓过去。
+       	</p>
+       	<p>
+       		正三角形代表男性和道德，倒三角代表女性和真理。
+       	</p>
+       	</div>
+       	
+       </div>
+		<script type="text/mingliang" id="nav-li-template">
+			<li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+
+		</script>
+		<script type="text/javascript"  src="jquery-3.2.1.min.js">
+			
+		</script>
+		<!--<script type="text/javascript" src="changkun.js">			
+		</script>-->
+		<script type="text/javascript" src="search.js">
+			
+		</script>
+		<script type="text/javascript" src="common.js">
+			
+		</script>
+	</body>
+</html>

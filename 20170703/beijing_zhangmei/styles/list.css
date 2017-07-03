@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+}
+menu {
+    width: 1300px;
+    height: 100%;
+    float: left;
+    margin-left: 360px;
+    margin-top: 20px;
+}
+.menu-top {
+    width: 1300px;
+    height: 35px;
+    font-family: 楷体;
+    text-align: center;
+    color: #fff;
+}
+#menu-ul {
+    width: 1300px;
+    height: 100%;
+    float: left;
+}
+#menu-ul li {
+    width: 230px;
+    height: 350px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 70px;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+}
+#menu-ul li img {
+    width: 230px;
+    height: 230px;
+    float: left;
+    border-radius: 50%;
+}
+#menu-ul li p {
+    width: 210px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 240px;
+    left: 10px;
+    float: left;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 18px;
+}
+#menu-ul li .hot {
+    position: absolute;
+    top: 0;
+    background: red;
+    color: #fff;
+    font-family: 楷体;
+    cursor: pointer;
+}
+#menu-ul li .desc {
+    width: 210px;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    top: 285px;
+    left: 10px;
+    color: red;
+    font-family: 楷体;
+    cursor: pointer;
+}
+#menu-ul li .price {
+    position: absolute;
+    bottom: 10px;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 20px;
+}
+#menu-ul li .number {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 20px;
+}
+#menu-ul li .form {
+    width: 35px;
+    height: 15px;
+    background: #FF00FF;
+    position: absolute;
+    bottom: 12px;
+    left: 90px;
+    font-size: 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+.demo {
+    float: left;
+    width: 1300px;
+    height: 500px;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 360px;
+}
+.demo p:first-child {
+    text-align: center;
+    font-family: 宋体;
+    font-size: 180px;
+    font-weight: bold;
+    line-height: 100px;
+    letter-spacing: 5px;
+    color: #fff;
+}
+.demo p:first-child span {
+    cursor: pointer;
+    text-shadow: 0px 0px 2px #686868,
+    0px 1px 1px #ddd,
+    0px 2px 1px #d6d6d6,
+    0px 3px 1px #ccc,
+    0px 4px 1px #c5c5c5,
+    0px 5px 1px #c1c1c1,
+    0px 6px 1px #bbb,
+    0px 7px 1px #777,
+    0px 8px 3px rgba(100, 100, 100, 0.4),
+    0px 9px 5px rgba(100, 100, 100, 0.1),
+    0px 10px 7px rgba(100, 100, 100, 0.15),
+    0px 11px 9px rgba(100, 100, 100, 0.2),
+    0px 12px 11px rgba(100, 100, 100, 0.25),
+    0px 13px 15px rgba(100, 100, 100, 0.3);
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+}
+.demo p:first-child span:hover {
+    text-shadow: 0px 0px 2px #686868,
+    0px 1px 1px #fff,
+    0px 2px 1px #fff,
+    0px 3px 1px #fff,
+    0px 4px 1px #fff,
+    0px 5px 1px #fff,
+    0px 6px 1px #fff,
+    0px 7px 1px #777,
+    0px 8px 3px #fff,
+    0px 9px 5px #fff,
+    0px 10px 7px #fff,
+    0px 11px 9px #fff,
+    0px 12px 11px #fff,
+    0px 13px 15px #fff;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+}
+.demo p:not(:first-child) {
+    text-align: center;
+    color: #666;
+    font-family: 宋体;
+    font-size: 20px;
+    text-shadow: 0 1px 0 #fff;
+    letter-spacing: 1px;
+    line-height: 2em;
+    margin-top: -50px;
+}
+.button{
+    width: 225px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    float: right;
+    margin-right: 150px;
+    margin-top: 50px;
+    background: #fff;
+}
+#ButtonPrev{
+    color: black;
+    float: left;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+    font-size: 20px;
+}
+#ButtonNext{
+    color: black;
+    float: right;
+    width: 50px;
+    height: 30px;
+    border-left: 1px solid gainsboro;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+    font-size: 20px;
+}
+.button-center{
+    float: left;
+    overflow: hidden;
+    width: 124px;
+    height: 30px;
+    text-align: center;
+    background: #fff;
+}
+#ButtonCenter{
+    float: left;
+    width: 100%;
+    height:30px;
+    margin-left: 0px;
+}
+#ButtonCenter span{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border-left: 1px solid #000;
+    background-color: #fff;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+#ButtonCenter span.button-center-span{
+    background: firebrick;
+}
+

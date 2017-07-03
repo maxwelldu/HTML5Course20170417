@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>用户登录.良仓 - 生活美学指南</title>
+        <link rel="stylesheet" type="text/css" href="./style/reset.css" />
+        <link rel="stylesheet" type="text/css" href="./style/login.css" />
+    </head>
+    <body>
+    	<div id="loginMain">
+    		<div class="loginLogo">
+    			<a href="index.html"></a>
+    		</div>
+    		<form method="post" id="loginForm">
+    			<div id="loginUserName">
+    				<input type="text" name="username" class="loginName" placeholder="输入手机号" />
+    			</div>
+    			<div id="loginUserPwd">
+    				<input type="password" name="password" class="loginPwd" placeholder="输入密码" />
+    			</div>
+    			<div id="autoLogin">
+    				<input type="checkbox" value="1" checked="checked" style="vertical-align: middle" />
+    				<span style="vertical-align: middle">自动登录</span>
+    			</div>
+    			<div id="nowLogin">登录</div>
+    		</form>
+    		<div id="moreLogin"><a href="javascript:">更多登录方式&nbsp;&gt;</a></div>
+    	</div>
+    </body>
+    <script src="./scripts/jquery-3.2.1.js"></script>
+    <script src="./scripts/reg-log.js" charset="utf-8"></script>
+</html>

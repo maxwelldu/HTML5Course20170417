@@ -1,0 +1,52 @@
+.shop-list{
+    width: 1200px;
+    height: 100%;
+    float: left;
+    margin: 30px auto;
+    margin-left: 185px;
+    /*overflow: hidden;*/
+}
+.shop-list ul li{
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin-left:20px ;
+    margin-right:20px ;
+}
+.shop-list ul li a{
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+    color: black;
+}
+.shop-list ul li img{
+    width:197px;
+    height: 197px;
+
+}
+.shop-list ul li p{
+    width: 175px;
+    height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 5px auto;
+    text-align: center;
+}
+.shop-list ul li span{
+    display: inline-block;
+    width: 150px;
+    height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    margin-left: 15px;
+    color: #ff8c00;
+}
+.shop-list ul li em{
+    /*display: block;*/
+    display: inline-block;
+    margin-top: 10px;
+    color: #e31436;
+}

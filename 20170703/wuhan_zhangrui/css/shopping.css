@@ -1,0 +1,31 @@
+.details img{width: 150px;height: 200px;}
+.carTab tbody tr th {
+	
+	padding: 10px 30px;
+	font-size: 16px;
+	font-weight: 600;
+}
+.carTab tbody tr th input{
+	width: 20px;
+	height:20px;
+}
+.carTab tbody tr th img {
+	width: 100px;
+	height: 100px;
+}
+.carTab tbody tr th .operate{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 0 15px;
+	background: #BDFF27;
+	line-height: 20px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+.carTab tbody tr th input{width: 20px;height: 20px;border: none;}
+.shoppingcar{margin: 0 50px;}
+.delete-span{cursor: pointer;
+width: 80px;height: 30px;display: inline-block;
+background: orange;line-height: 30px;text-align: center;}

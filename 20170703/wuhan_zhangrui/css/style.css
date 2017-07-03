@@ -1,0 +1,82 @@
+.headers{
+  width: 100%;
+  height: 50px;
+  background: rgba(0,0,0,0.5);
+
+}
+.headerstwo{
+  width: 1000px;
+  margin: 0 auto;
+}
+
+
+.menu{float: right;}
+.menu>ul>li{float: left;position: relative;}
+.menu>ul>li>a{padding: 0 30px;line-height: 50px;text-align: center;color: #FFF}
+.twomenu{position: absolute;top:50px;left: 0;width: 100px;  background: rgba(0,0,0,0.5);z-index: 1;}
+.twomenu>p{margin: 10px 0;text-align: center;}
+.twomenu>p>a{color: #fff;}
+.nav{width: 1000px;height: 30px;margin: 0 auto;}
+
+.nav ul li {
+  float: left;
+  display: inline-block;
+  width: 50px;
+  line-height: 30px;
+  background: orange;
+  
+  padding: 0 25px;
+  text-align: center;
+}
+.nav ul li a {
+  color:black;
+}
+.search{width: 400px;height: 30px;margin: 10px auto;}
+.search input{width: 300px;height: 30px;border:none;}
+.search button{width: 60px;height: 30px;border: none;}
+.goods {overflow: hidden;
+  width: 1000px;
+  margin: 0 auto;
+  clear: both;
+}
+.goods ul li {
+  display: block;
+  float: left;
+  width: 168px;
+  height: 200px;
+  margin: 20px 15px;
+
+  position: relative;
+}
+.goods ul li img {
+  width: 100%;
+  height: 100%;
+}
+.goods ul li p{
+  position: absolute;
+  bottom: 0px;
+  text-align: center;
+  overflow: hidden;
+  font-size: 14px;
+  color: coral;
+  background-color: rgba(0, 0, 0, .5);
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  display: none;
+}
+.goods ul li:hover p{
+  display: block;
+}
+.btn{width: 1000px;height: 50px;background: red;
+margin: 10px auto;position: relative;}
+.btn span{
+  float: left;
+  display:inline-block;
+  width: 100px;
+  height: 50px;
+background: yellow}
+.leftbtn{position: absolute;top:0;left: 0;}
+.rightbtn{position: absolute;top:0;right: 0;}
+.btn-middle{width: 800px;height: 50px;
+background: blue;margin: 0 auto;}

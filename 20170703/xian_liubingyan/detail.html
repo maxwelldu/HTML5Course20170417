@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="reset.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+            <style type="text/css">
+            	a{
+            		text-decoration: none;
+            	}
+	           #odiv1{
+	           	width:100%;
+	           	height:520px
+	           }
+	          
+	          
+	         #zi{
+	         	width: 400px;
+	         	height: 40px;
+	         	color: orangered;
+	         	text-align: center;
+	         	float: left;
+	         	margin-left: 70px;
+	         	margin-top:396px ;
+	         }
+	         span{
+	         	display: block;
+	         	float: left;
+	         	margin-top: 445px;
+	         	margin-left: -281px;
+	         }
+	         #OBtn{
+	         	width: 100px;
+	         	float: left;
+	         	margin-top: 474px;
+	         	margin-left: -246px;
+	         	/*clear: both;*/
+	         }
+	         .cart{
+				float: left;
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				background-color: orange;
+				margin-top: 10px;
+				margin-left: 65px;
+				text-align: center;
+				line-height: 50px;
+				font-weight: 700;
+			}
+	          </style>
+	</head>
+	<body>
+		 <div class="head">
+		  	<div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  	<div class="cart">
+	   	  	<a href="cart.html">购物车</a>
+	   	  </div>
+	   	  <div class="pic">
+	   	  	<img src="img/25.jpg" width="100%" height="100%"/>
+	   	  </div>
+	   	  <div id="head-con1">
+	   	  	<a href="logit.html">
+	   	  		登录
+	   	  	</a>
+	   	  	
+	   	  </div>
+	   	  <div id="head-con2">
+	   	  	<a href="register.html">
+	   	  		注册
+	   	  	</a>
+	   	  	 </div>
+	   	  	 <div id="head-con3">
+	   	  
+	   	  		退出
+	   	  	
+	   	  	 </div>
+	   	  	
+	   	  <input type="text" class="inp1" id="search-text"  placeholder="请输入文字" />
+	   	 <button id="search-btn">搜索</button>
+	   	
+	   	  </div>
+	<div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+    <div id="odiv1">
+    	<div id="zi">
+    		
+    	</div>
+    	<button id="OBtn">
+    		加入购物车
+    	</button>
+    </div>
+     <div class="foot">
+       	<div class="zi">
+       		<p>
+                   六芒星（Hexagram），有很浓的宗教色彩。
+       	</p>
+       	<p>
+       		发源于印度教的古代宗派坦陀罗教，传说六芒星可以预见未来和知晓过去。
+       	</p>
+       	<p>
+       		正三角形代表男性和道德，倒三角代表女性和真理。
+       	</p>
+       	</div>
+       	
+       </div>
+	</body>
+	 <script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+    </script>
+   <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+    <script src="common.js" charset="utf-8"></script>
+    <script src="detail.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    	var odiv1=document.getElementById("odiv1");
+    	var zi =document.getElementById("zi");
+    	var oBtn =document.getElementById("OBtn");
+    </script>
+
+</html>

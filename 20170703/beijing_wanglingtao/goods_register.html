@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考拉海购</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/goods_register.css">
+</head>
+<body>
+    <header>
+        <a href="#">LOGO</a>
+        <div>
+            <span>已有帐号？</span>
+            <a href="goods_login.html">请登录</a>
+        </div>
+    </header>
+    <section>
+        <div class="registerInfo">
+            <div class="userName">
+                <div><span>用&nbsp;户&nbsp;名</span><input type="text" minlength="3" maxlength="20" name="userName" id="username"></div>
+                <label for="username" id="userLabel"></label>
+            </div>
+            <div class="password">
+                <div ><span>设置密码</span><input type="password" name="password" minlength="6" id="password"></div>
+                <label for="password" id="passLabel"></label>
+            </div>
+            <div class="rePassword">
+                <div ><span>确认密码</span><input type="password" name="rePassword" id="rePassword"></div>
+                <label for="rePassword" id="rePassLabel"></label>
+            </div>
+            <div class="mobile">
+                <div ><span>手&nbsp;机&nbsp;号</span><input type="text" name="mobile" id="mobile"></div>
+                <label for="mobile" id="mobileLabel"></label>
+            </div>
+            <button class="registerBtn" id="registerBtn">立即注册</button>
+        </div>
+    </section>
+</body>
+<script src="js/jquery-2.2.4.min.js"></script>
+<script src="js/Common.js"></script>
+<script src="js/public.js"></script>
+<script src="js/goods_register.js"></script>
+</html>

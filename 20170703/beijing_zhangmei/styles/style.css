@@ -1,0 +1,192 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+body {
+	background: #c4e3f3;
+}
+header {
+	width: 100%;
+	height: 160px;
+}
+header .header {
+	width: 100%;
+	height: 30px;
+	background: #F8F8FF;
+}
+.header .user {
+	width: 130px;
+	height: 30px;
+	float: left;
+	margin-left: 1200px;
+	text-align: center;
+	line-height: 30px;
+	color: red;
+	cursor: pointer;
+}
+.user .leftA {
+	float: left;
+	color: red;
+}
+.user .rightA {
+	float: left;
+	margin-left: 15px;
+	color: #000;
+}
+.user a {
+	line-height: 30px;
+	font-family: 楷体;
+}
+.header .quit {
+	width: 40px;
+	height: 30px;
+	float: left;
+	text-align: center;
+	line-height: 30px;
+	color: #000;
+	cursor: pointer;
+	font-family: 楷体;
+	display: none;
+}
+header .search {
+	width: 100%;
+	height: 90px;
+	background: url(../images/logo.png) no-repeat 25% 32%;
+	background-color: #fff;
+}
+.search input {
+	width: 300px;
+	height: 30px;
+	border: 3px solid red;
+	outline: none;
+	float: left;
+	margin-left: 150px;
+	margin-top: 25px;
+}
+.search button {
+	width: 100px;
+	height: 36px;
+	background: red;
+	outline: none;
+	border: none;
+	float: left;
+	margin-top: 25px;
+	font-family: 楷体;
+	font-size: 20px;
+	color: #fff;
+}
+.search img {
+	float: left;
+	margin-left: 427px;
+	margin-top: 58px;
+}
+.search .cart {
+	width:150px;
+	height: 30px;
+	float: left;
+	border: 1px solid #000;
+	border-radius: 10px;
+	margin-top: 27px;
+	margin-left: 170px;
+	text-align: center;
+	line-height: 30px;
+	background: url(../images/gwc.png) no-repeat 5% 45%;
+}
+.cart a {
+	color: #000;
+}
+header .nav {
+	width: 100%;
+	height: 40px;
+	background: red;
+}
+.nav #nav-ul {
+	width: 1300px;
+	height: 40px;
+	float: left;
+	margin-left: 300px;
+}
+#nav-ul>li {
+	width: 100px;
+	height: 40px;
+	float: left;
+	margin-left: 18px;
+	text-align: center;
+	line-height: 40px;
+}
+#nav-ul>li:hover {
+	background: #000;
+}
+#nav-ul .oLi {
+	background: #aa0000;
+}
+#nav-ul .oLi:hover {
+	background: #aa0000;
+}
+#nav-ul>li>a {
+	color: #fff;
+}
+.button{
+	width: 225px;
+	height: 30px;
+	border: 1px solid #fff;
+	border-radius: 20px;
+	float: right;
+	margin-right: 150px;
+	margin-top: 50px;
+	background: #fff;
+}
+#ButtonPrev{
+	color: black;
+	float: left;
+	width: 50px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	cursor:pointer;
+	font-size: 20px;
+}
+#ButtonNext{
+	color: black;
+	float: right;
+	width: 50px;
+	height: 30px;
+	border-left: 1px solid gainsboro;
+	text-align: center;
+	line-height: 30px;
+	cursor:pointer;
+	font-size: 20px;
+}
+.button-center{
+	float: left;
+	overflow: hidden;
+	width: 124px;
+	height: 30px;
+	text-align: center;
+	background: #fff;
+}
+#ButtonCenter{
+	float: left;
+	width: 100%;
+	height:30px;
+	margin-left: 0px;
+}
+#ButtonCenter span{
+	width: 30px;
+	height: 30px;
+	float: left;
+	border-left: 1px solid #000;
+	background-color: #fff;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;
+}
+#ButtonCenter span.button-center-span{
+	background: firebrick;
+}

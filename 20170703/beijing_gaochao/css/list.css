@@ -1,0 +1,179 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+li {
+    list-style: none;
+}
+em{
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.head-img{
+    width: 100%;
+    height: 80px;
+}
+.head-img img{
+    width: 100%;
+    height: 80px;
+}
+nav{
+    width: 100%;
+    height: 30px;
+    background-color: #f2f2f2;
+}
+.nav-main{
+    width: 1090px;
+    height: 100%;
+    margin: 0 auto;
+
+}
+.nav-main-enter{
+    color: #666;
+    margin-left: 20px;
+    line-height: 30px;
+}
+.nav-main em{
+    padding: 0 5px;
+    line-height: 25px;
+}
+.nav-list{
+    float: right;
+}
+.nav-list li{
+    float: left;
+    width: 73px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.shop{
+
+    width: 1200px;
+    height: 1185px;
+    margin: 50px auto;
+    position: relative;
+}
+.shop div{
+    display: inline-block;
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+.shop div img{
+    width: 197px;
+    height: 197px;
+}
+.shop div img:hover{
+    opacity: 0.8;
+}
+.shop div p{
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    margin: 10px auto;
+    color: black;
+    height: 18px;
+}
+.shop div a{
+    font-size: 12px;
+    display: inline-block;
+    color: darkorange;
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    /*height:18px;*/
+}
+.shop div a:hover{
+    text-decoration:none;
+}
+.shop div em{
+    font-size: 12px;
+    height: 18px;
+    display: inline-block;
+    color: darkorange;
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.shop div span{
+
+    display: block;
+    text-align: left;
+    margin: 5px 0 0 5px ;
+    color: #e31436;
+}
+.button{
+    /*position: absolute;*/
+    /*right: 90px;*/
+    /*bottom: -12px;*/
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+}
+#ButtonPrev{
+    color: black;
+    display: inline-block;
+    float: left;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+#ButtonNext{
+    color: black;
+    display: inline-block;
+    float: right;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+.button-center{
+    float: left;
+    overflow: hidden;
+    width:690px;
+    height: 30px;
+}
+#ButtonCenter{
+    float: left;
+    width: 4000px;
+    height:30px;
+    margin-left: 0;
+}
+#ButtonCenter span{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border:1px solid #666666;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 20px;
+    cursor:pointer;
+}
+#ButtonCenter span:hover{
+    background-color: #e31436;
+}
+ #ButtonCenter span.button-center-span{
+     background: firebrick;
+ }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>登录</title>
+    <style type="text/css">
+    	* {
+            margin: 0;
+            padding:0;
+        }
+        .oBox {
+            width: 300px;
+            border: 1px solid lightblue;
+            margin: 0 auto;
+            margin-top: 200px;
+            text-align: center;
+            background-color: lightgoldenrodyellow;
+        }
+    </style>
+  </head>
+  <body>
+  	<div class="oBox">
+  		<div class="">
+		    <input type="text" name="username">
+		  </div>
+		  <div class="">
+		    <input type="password" name="password">
+		  </div>
+		  <div class="">
+		    <a href="index.html"><input type="button" id="login" value="登录"></a>
+		  </div>
+  	</div>
+  </body>
+  <script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+      <script src="scripts/common.js" charset="utf-8"></script>
+      <script type="text/javascript">
+        //点击登录
+        $(function(){
+          $("#login").click(function(){
+            var username = $('input[name="username"]').val();
+            var password = $('input[name="password"]').val();
+            console.log([username, password]);
+            //URL: 协议://IP:端口/path/文件?查询参数#a
+            shop.api.login(username, password, function(response){
+	            console.log(response);
+	            //如果登录成功，把用户信息存储到本地
+	            // localStorage.setItem('token', response.data.token);
+	            if (response.code === 0) {
+	              var data = response.data;
+	              for (var prop in data) {
+	                if (data.hasOwnProperty(prop)) {
+	                  localStorage.setItem(prop, data[prop]);
+	                }
+	              }
+	              //判断有callbackurl则跳回到指定的callbackurl页面, 否则跳到首页
+	              var callbackurl = location.hash.substr(13);
+	              if (callbackurl) {
+	                location.assign(callbackurl);
+	              } else {
+	                location.assign('/');
+	              }
+	            }  
+            });
+          });
+        });
+      </script>
+</html>

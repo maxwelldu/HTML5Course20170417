@@ -1,0 +1,66 @@
+
+.detail-nav{
+    width: 500px;
+    height: 500px;
+}
+#search_text{
+    width: 200px;
+    height: 25px;
+    position: absolute;
+    left:50%;
+    top:30px;
+}
+#osearch{
+    width: 60px;
+    height: 29px;
+    position: absolute;
+    left:995px;
+    top:30px;
+}
+.detailOli{
+    margin-top: 90px;
+    margin-left: 224px;
+    width: 1000px;
+    height: 500px;
+    float: left;
+}
+.totle{
+    float: left;
+    margin-left: 344px;
+    margin-top: -329px;
+    font-size: 20px;
+    font-weight: bolder;
+
+}
+.prices{
+    width: 626px;
+    height: 50px;
+    background-color: #F3F3F3;
+    border-top: 1px dotted darkgray;
+    float: left;
+    margin-left: 352px;
+    margin-top: -282px;
+    font-size: 20px;
+    font-weight: bolder;
+    line-height: 50px;
+    color: red;
+}
+.oImage{
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 1px solid teal;
+}
+#oBtn{
+    width: 137px;
+    height: 49px;
+    border: none;
+    background-color: teal;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    float: left;
+    margin-left: 396px;
+    margin-top: -175px;
+}

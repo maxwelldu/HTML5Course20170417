@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            background-color: #FAEBD7;
+        }
+        #oDiv{
+            width: 400px;
+            height: 320px;
+            border: 2px solid #ccc;
+            margin: 0 auto;
+            margin-top: 100px;
+        }
+        #oDiv input{
+
+            margin-top: 45px;
+
+        }
+        #username{
+            margin-left: 83px;
+            width: 200px;
+            height: 20px;
+            border: 1px solid palevioletred;
+        }
+        #password1{
+            margin-left: 51px;
+            width: 200px;
+            height: 20px;
+            border: 1px solid palevioletred;
+        }
+        #password2{
+            margin-left: 19px;
+            width: 200px;
+            height: 20px;
+            border: 1px solid palevioletred;
+        }
+        p1{
+            margin-left: 19px;
+        }
+        p2{
+            margin-left: 19px;
+        }
+        p3{
+            margin-left: 19px;
+        }
+        #register{
+            margin-left: 140px;
+            background-color: palevioletred;
+            color: white;
+            height: 32px;
+            width: 100px;
+            text-align: center;
+            line-height: 32px;
+        }
+        .success{
+            display: none;
+            color: greenyellow;
+            margin-left: 165px;
+        }
+        .error{
+            display: none;
+            color: red;
+            margin-left: 165px;
+        }
+    </style>
+</head>
+<body>
+    <div id="oDiv">
+
+        <div class="oDiv1">
+            <p1>用户名：</p1><input type="text" name="username" id="username" placeholder="请输入你想设置的用户名">
+            </br>
+            <span class="success">用户名可用</span>
+            <span class="error">用户名已存在</span>
+        </div>
+        <p2>请输入密码：</p2><input type="password" name="password1" id="password1" placeholder="请输入您要设置的密码">
+
+        <p3>请再次输入密码：</p3><input type="password" name="password2" id="password2" placeholder="请再次输入您的密码">
+
+        <input type="button" id="register" value="注册">
+
+    </div>
+</body>
+<script type="text/javascript" src="scripts/jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //点击注册按钮
+        $("#username").blur(function () {
+            var username = $("input[name = 'username']").val();
+            if(!/^\w{3,20}$/.test(username)){
+                alert("用户名长度为3-20位，以字母数字或下划线组成")
+                return;
+            }
+            $.ajax({
+                "url":"http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "dataType":"json",
+                "data":{
+                    "status":"check",
+                    "username":username,
+                },
+                "success":function (response) {
+                    console.log(response)
+                    if(response.code === 0){
+                        $("span[class = 'success']").show();
+                        $("span[class = 'error']").hide();
+                    }else if (response.code === 2001){
+                        $("span[class = 'success']").hide();
+                        $("span[class = 'error']").show();
+                        $("span[class = 'error']").html("该用户名已存在！请重新输入");
+                    }
+
+                }
+            })
+
+
+    })
+        $("#register").click(function () {
+            //获得用户名和密码
+            var username = $("input[name = 'username']").val();
+            var password1 = $("input[name = 'password1']").val();
+            var password2 = $("input[name = 'password2']").val();
+            //验证密码长度
+            if(password1.length < 6 || password1.length > 20){
+                alert("密码需6-20位喔");
+                return;
+            }
+            if(password1 != password2){
+                alert("您输入两次的密码不一致！请重新输入")
+                return;
+            }
+            if(username.length < 3 || username.length >20){
+                alert("用户名需3-20位喔");
+                return;
+            }
+            if(!/^\w{3,20}$/.test(username)){
+                alert("用户名长度为3-20位，以字母数字或下划线组成")
+                return;
+            }
+            console.log([username,password1,password2]);
+            $.ajax({
+                "url":"http://h6.duchengjiu.top/shop/api_user.php",
+                "type":"POST",
+                "dataType":"json",
+                "data":{
+                    "status":"register",
+                    "username":username,
+                    "password":password1,
+                    "password":password2
+                },
+                "success":function (response) {
+                            console.log(response)
+//                            if(response.code == 2001){
+//                                alert("该用户名已存在！请重新输入")
+//                                return;
+//                            }
+//                            if( response.code == 0){
+//                                alert("注册成功！")
+                    location.assign("login.html")
+                    }
+
+            })
+        })
+
+    })
+
+</script>
+
+</html>

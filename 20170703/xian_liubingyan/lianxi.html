@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="nav">
+			<ul id="nav-ul">
+				
+			</ul>
+		</div>
+		<div class="goods">
+			<ul id="goods-ul">
+				
+			</ul>
+		</div>
+	</body>
+	<script type="text/javascript" src="changkun.js">
+		
+	</script>
+	<script type="text/javascript">
+		var nav-ul=document.getElementById("nav-ul");
+		var goods-ul=document.getElementById("goods-ul");
+		$.ajax({			
+			type:"{}",
+			url:"http://lc.shudong.wang/api_cat.php",
+			async:true
+		});
+	</script>
+</html>

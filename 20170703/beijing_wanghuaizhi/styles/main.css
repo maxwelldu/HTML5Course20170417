@@ -1,0 +1,306 @@
+
+.clear
+{
+	width: 100%;
+	height: 1px;
+	clear:both;
+}
+a
+{
+	text-decoration: none;
+	color: #c6c6c6;
+}
+header
+{
+	width: 100%;
+	height: 100px;
+	background-color:#ddd;
+}
+header a
+{
+	float: right;
+	margin-top: 20px;
+	margin-right: 20px;
+	display: inline-block;
+	color: white;
+	font-size: 20px;
+	font-weight: white;
+	background-color: orange;
+	padding:5px;
+}
+article
+{
+	width: 100%;
+	height: 1000px;
+	background-color: #eee;
+}
+footer
+{
+	width: 100%;
+	height: 200px;
+	background-color: #ddd;
+}
+.item
+{
+	width: 810px;
+	height: 600px;
+	margin:0 auto;
+	background-color: white;
+}
+.item li
+{
+	float: left;
+	margin:10px;
+	border:1px solid orange;
+	padding-bottom: 10px;
+	width: 140px;
+	height: 229px;
+	position: relative;
+}
+.item li img
+{
+	width: 100px;
+	border-radius: 50%;
+	background-color: #eee;
+	margin:10px auto;
+	display: block;
+}
+.item li p
+{
+	width: 100%;
+	color: black;
+	text-align: center;
+	height: 86px;
+	overflow: hidden;
+}
+.item li a
+{
+	color: orange;
+	font-size: 14px;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+	max-height: 40px;
+	overflow: hidden;
+	text-overflow: ellipsis;;
+}
+.item li i
+{
+  font-size: 12px;
+  line-height: 14px
+  color: #ccc;
+  max-height: 70px;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+	
+}
+.cart
+{
+	width: 100px;
+	height: 20px;
+	color: white;
+	font-size: 12px;
+	border:0px;
+	outline: none;
+	text-indent:20px;
+	line-height: 20px;
+	background:url("../img/cart.png") no-repeat 0 0 orange;
+
+}
+#detail-cart
+{
+	right: 573px;
+	bottom: 200px;
+}
+.item .cart
+{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+.item-head
+{
+	height: 20px;
+	margin:10px auto 40px;
+	padding-left: 20px;
+}
+.item-head a
+{
+	padding: 5px 10px 5px;
+	border-bottom: 2px solid #999;
+	color: red;
+}
+.item-head-name:hover
+{
+	border-color: red;
+}
+.item li.current
+{
+	display: block;
+}
+header input{
+	width: 500px;
+	border:2px solid orange;
+	padding-left: 30px;
+	float: left;
+	margin-left: 400px;
+	outline: none;
+	height: 25px; 
+	margin-top:30px;
+}
+header button
+{
+	float: left;
+	background-color: orange;
+	width: 50px;
+	height: 30px;
+	border:0px;
+	margin-top: 30px;
+	color: white;
+}
+.search-box
+{
+	width: 402px;
+	margin:20px auto;
+	background-color: white;
+	height: 610px;
+	overflow: hidden;
+}
+.search-box>div
+{
+	width: 400px;	
+	height: 100px;
+	border:1px solid orange;
+	background-color: white;
+	margin-bottom: 20px;
+}
+.search-box>div>img
+{
+	height: 100px;
+	width: 100px;
+	display: block;
+	margin-bottom: 10px;
+	float: left;
+	border-radius: 50%;
+}
+.search-box>div>div
+{
+	color: orange;
+	width: 190px;
+	font-weight: bold;
+	font-size: 16px;
+	float: left;
+	margin-left: 30px;
+	padding-top: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+	overflow: hidden;
+}
+.search-box>div>div>a
+{
+	color: orange;
+	text-align:center;
+	display: block;
+	white-space: normal;
+	line-height: 20px;
+	max-height: 80px;
+	text-overflow: ellipsis;
+}
+.page
+{
+	height: 24px;
+	margin:30px auto;
+}
+.page>li
+{
+	background-color: red;
+	color: white;
+	font-size: 14px;
+	padding:5px;
+	float: left;
+	margin-right: 10px
+}
+.detail>div
+{
+	width: 200px;
+	height: 300px;
+	padding-top: 20px;
+	margin:0 auto;
+	background-color: white;
+	border:2px solid orange;
+	padding:10px;
+}
+.detail img
+{
+	width: 100px;
+	height: 100px;
+	margin:0 auto 10px;
+	display: block;
+	border-radius: 50%;
+}
+.detail i
+{
+	display: block;
+	font-size: 14px;
+	line-height: 20px;
+}
+.detail span
+{
+	display: block;
+	font-weight: bold;
+	font-size: 20px;
+	color: orange;
+	line-height: 25px;
+}
+.detail h3
+{
+	margin-top: 10px;
+	color:red;
+}
+.login-box
+{
+	padding: 10px;
+	height: 30px;
+	background-color: #3c3c3c;
+}
+nav .login
+{
+	width: 530px;
+	float: left;
+	color: white;
+	height: inherit;
+}
+#userInfo{
+	float: right;
+	height: inherit;
+	line-height: 30px;
+}
+#userInfo strong
+{
+	font-size: 16px;
+	color: white;
+	margin-right: 10px;
+}
+#userInfo b,#userInfo span
+{
+	font-size: 18px;
+	color: orange;
+	margin-right:10px;
+}
+#userInfo button
+{
+	cursor: pointer;
+	color: red;
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	margin-right: 10px;
+}
+#userInfo a
+{
+	float: left;
+	margin:0 20px;
+	font-size: 15px;
+	color: white;
+}

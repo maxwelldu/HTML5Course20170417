@@ -1,0 +1,74 @@
+.section {
+	width: 100%;
+	height: auto;
+	padding: 30px 0;
+}
+.section-list {
+	width: 1000px;
+	height: auto;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.section-list>div {
+	 width: 235px;
+    height: 269px;
+    position: relative;
+    z-index: 1;
+    margin: 4px 7px;
+    float: left;
+    overflow: hidden;
+}
+.section-list>div .like {
+	width: 235px;
+    height: 34px;
+}
+.section-list>div>.goods-img .img-1 {
+	max-width: 235px;
+	max-height: 235px;
+}
+.section-list>div>.goods-img .img-2 {
+	position: absolute;
+	right: 5px;
+	top:34px;
+	z-index: 100;
+}
+.section-list .sea-list:hover .sea-shop {
+	display: block;
+}
+.section-list .sea-list:hover .img-2 {
+	display: none;
+}
+.section-list div .sea-shop {
+	position: absolute;
+	top:34px;
+	left:0;
+	display: none;
+	width: 235px;
+	height: 235px;
+	background: rgba(0,0,0,.1);
+}
+.section-list div .sea-shop span{
+	color:white;
+	display: inline-block;
+	font-size: 18px;
+	text-align: left;
+	background: rgba(0,0,0,.5);
+    width: 235px;
+    height: 30px;
+    line-height: 30px;
+    padding: 3px 0;
+}
+.section-list div .sea-shop img {
+	position: absolute;
+	right: 5px;
+	top:2px;
+}
+.section-list div .sea-shop a.con {
+	display: inline-block;
+	width: 235px;
+	height: 199px;
+	line-height: 199px;
+	text-align: center;
+	color: white;
+	font-size: 13px;
+}

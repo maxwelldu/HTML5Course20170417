@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+menu {
+    width: 1300px;
+    height: 100%;
+    float: left;
+    margin-left: 360px;
+    margin-top: 20px;
+}
+.menu-top {
+    width: 1300px;
+    height: 35px;
+    font-family: 楷体;
+    text-align: center;
+    color: #fff;
+}
+#menu-ul {
+    width:1300px;
+    height:100%;
+    float: left;
+}
+#menu-ul li {
+    width: 230px;
+    height: 350px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 70px;
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+}
+#menu-ul li img {
+    width: 230px;
+    height: 230px;
+    float: left;
+    border-radius: 50%;
+}
+#menu-ul li p {
+    width: 210px;
+    height: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 240px;
+    left: 10px;
+    float: left;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 18px;
+}
+#menu-ul li .hot {
+    position: absolute;
+    top: 0;
+    background: red;
+    color: #fff;
+    font-family: 楷体;
+    cursor: pointer;
+}
+#menu-ul li .desc {
+    width: 210px;
+    height: 15px;
+    overflow: hidden;
+    position: absolute;
+    top: 285px;
+    left: 10px;
+    color: red;
+    font-family: 楷体;
+    cursor: pointer;
+}
+#menu-ul li .price {
+    position: absolute;
+    bottom: 10px;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 20px;
+}
+#menu-ul li .number {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    font-family: 楷体;
+    cursor: pointer;
+    font-size: 20px;
+}
+#menu-ul li .form {
+    width: 35px;
+    height: 15px;
+    background: #FF00FF;
+    position: absolute;
+    bottom: 12px;
+    left: 90px;
+    font-size: 12px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}

@@ -1,0 +1,66 @@
+.log{
+    width:160px;
+    height: 92px;
+    background-image: url("../images/index/ewm.png");
+    background-size: 100% 100%;
+    float: right;
+    margin-top: 4px;
+}
+/*下面*/
+.list-two{
+    list-style: none;
+}
+.list-two>h1{
+    margin: 0 auto;
+    color: red;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    line-height: 550px;
+}
+.lines{
+    height: 250px;
+    width: 200px;
+    background-color: #fff;
+    float: left;
+    position: relative;
+    margin: 10px 20px 10px 0;
+    border:1px solid #eeeeee;
+    box-shadow:  0 4px 8px 0 rgba(7,17,27,.1);
+}
+.lines:hover{
+    /*border: 1px solid #f40;*/
+    box-shadow: 0 8px 16px 0 rgba(7,17,27,.2);
+    transition: .3s all linear;
+}
+.list-two li.Lis{
+    margin-right: 0;
+}
+.lines img{
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 5px auto;
+    border-radius: 50%;
+}
+.lines .spans{
+    line-height: 30px;
+    color: #000;
+    display: inline-block;
+    padding: 10px 15px;
+}
+.lines .spana{
+    color: #f40;
+    font-size: 15px;
+    position: absolute;
+    bottom: 5px;
+    left: 15px;
+}
+.lines .buy{
+    position: absolute;
+    bottom:10px;
+    right: 15px;
+    background-color: #f40;
+    color: #fff;
+    padding: 5px 10px;
+}

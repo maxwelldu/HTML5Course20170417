@@ -1,0 +1,210 @@
+header{
+    width: 100%;
+    height: 50px;
+    background-color: bisque;
+    position: relative;
+}
+.body{
+    height:620px;
+}
+.index  a{
+    float: left;
+    text-decoration: none;
+    color:hotpink ;
+    position: absolute;
+    top:14px;
+    left: 100px;
+    font-size: 16px;
+}
+header .cart a{
+    position: absolute;
+    top:14px;
+    left: 200px;
+    cursor: pointer;
+    color: hotpink;
+    text-decoration: none;
+}
+#top{
+    width: 500px;
+    height: 50px;
+    float: left;
+    margin-left: 800px;
+    line-height: 50px;
+}
+#top ul{
+    list-style: none;
+}
+#top ul li{
+    float: left;
+    margin-left: 20px;
+}
+#top ul li #denglu{
+    text-decoration: none;
+    color: hotpink;
+    font-size: 16px;
+}
+#top ul li #zhuce{
+    text-decoration: none;
+    color: hotpink;
+    font-size: 16px;
+}
+/*#top ul li a{*/
+    /*text-decoration: none;*/
+    /*color: hotpink;*/
+    /*font-size: 16px;*/
+/*}*/
+.nav #nav-ul li{
+    float: left;
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: 10px;
+    background-color:  bisque;
+    color: white;
+}
+.nav #nav-ul li a{
+    color: white;
+    text-decoration: none;
+}
+.goods {
+    clear: both;
+}
+.goods ul li {
+    display: block;
+    float: left;
+    width: 200px;
+    height: 200px;
+    border: 1px solid #ccc;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    position: relative;
+    margin-top: 50px;
+}
+.goods ul li img {
+    width: 100%;
+    height: 100%;
+}
+.goods ul li p{
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+    overflow: hidden;
+    font-size: 14px;
+    color: orange;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+.goods ul li span{
+    position: absolute;
+    color: palevioletred;
+    top: 211px;
+    left: 50px;
+}
+
+#search_text{
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    top:12px;
+    left: 935px;
+}
+#search-btn{
+    width: 50px;
+    height: 28px;
+    background-color: #fede4e;
+    color: white;
+    border: none;
+    text-align: center;
+    line-height: 28px;
+    margin-top: 2px;
+    position: absolute;
+    top:8px;
+    left: 1149px;
+}
+#container div{
+    float: left;
+    margin-left: 36px;
+    margin-top: 30px;
+    width: 400px;
+    height: 450px;
+}
+#container div a{
+    text-decoration: none;
+    text-align: center;
+    color: palevioletred;
+}
+#container div p{
+    margin-top: 15px;
+}
+#container img{
+    width: 400px;
+    height: 400px;
+}
+.oDiv{
+    width: 300px;
+    height: 300px;
+   background-color: aqua;
+    float: left;
+    margin-top: 30px;
+    margin-left: 100px;
+    border: 1px solid #ccc;
+}
+.oDiv img{
+    width: 300px;
+    height: 300px;
+}
+.oDiv p{
+    font-size: 14px;
+    margin-top: 10px;
+    color: lightcoral;
+}
+.oDiv button{
+    width: 100px;
+    height: 23px;
+    text-align: center;
+    line-height: 20px;
+    margin-left: 200px;
+    margin-top: 10px;
+    background-color: palevioletred;
+    color: white;
+}
+header span.out{
+    position: absolute;
+    top: 14px;
+    left: 1209px;
+    color: hotpink;
+}
+.container{
+    margin-left: 182px;
+}
+.goods_number{
+    width: 23px;
+    height: 25px;
+}
+.delete{
+    cursor: pointer;
+}
+footer{
+    float: left;
+    width: 100%;
+    height: 100px;
+    background-color: #FFE4C4;
+}
+footer #dibu{
+    text-align: center;
+    padding-top: 20px;
+    color:peru;
+    font-size: 14px;
+}
+h1{
+   position: relative;
+    top:-500px;
+    left: 570px;
+    color: lightcoral;
+    font-size: 20px;
+}

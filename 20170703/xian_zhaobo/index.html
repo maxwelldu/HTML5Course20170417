@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+		<header>
+	  	<div class="header-nav">
+	  		<div class="head">
+	    		<img src="images/logoko (1).png"/>
+		    	<div class="head-nav">
+		    		<a href="register.html">注册</a>
+		      	<a id="last"  href="login.html">登录</a>
+		    	</div>
+		    </div>
+		    <div class="search">
+		    	<a id="cart" href="cart.html">购物车</a>
+		      <input type="text" id="search-text" placeholder="请输入搜索内容">
+		      <button id="search-btn">搜索</button>
+		    </div>
+	  	</div>
+	  </header>
+		<section>
+			<div class="section-nav">
+				<div class="nav">
+		      <ul id="nav-ul"></ul>
+		    </div>
+		    <script type="text/mingliang" id="nav-li-template">
+		      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+		    </script>
+		    <div class="goods">
+		      <ul id="goods-ul"></ul>
+		    </div>
+		    <!-- <script src="scripts/changkun.js" charset="utf-8"></script> -->
+		    <script src="scripts/jquery-3.2.1.min.js" charset="utf-8"></script>
+		    <script src="scripts/common.js" charset="utf-8"></script>
+		    <script src="scripts/index.js" charset="utf-8"></script>
+		    <script type="text/javascript">
+		      if (localStorage.getItem('token')) {
+		        $('.head-nav').html(localStorage.getItem('username')+'<span id="logout">退出</span>');
+		        $('#logout').click(function(){
+		          localStorage.clear();
+		          location.reload();
+		        });
+		      }
+	
+		    </script>
+			</div>
+		</section>
+		<footer>
+			<div class="foot-nav">
+				<p>设计：赵博</p>
+				<p>编写：赵博</p>
+				<span>
+					不做第二个谁，只做第一个我。—— 赵博
+				</span>
+			</div>
+		</footer>
+  </body>
+</html>

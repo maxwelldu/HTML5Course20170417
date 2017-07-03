@@ -1,0 +1,49 @@
+#head{
+    width: 100%;
+    height: 50px;
+    background: blue;
+}
+.header{
+    width: 200px;
+    height: 50px;
+    float: right;
+    margin-right: 100px;
+    text-align: center;
+    line-height: 50px;
+
+}
+.header a{
+    color: white;
+}
+.search{
+    width: 1000px;
+    height: 30px;
+    margin-left: 175px;
+}
+.search #search-text{
+    width: 300px;
+    height: 30px;
+    float: left;
+    margin-left: 100px;
+}
+.search #search-btn{
+    width: 50px;
+    height: 34px;
+    float: left;
+    background: orangered;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+}
+.search a{
+    display: block;
+    width: 80px;
+    height: 30px;
+    float: right;
+    margin-right: 100px;
+    color: darkmagenta;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+}

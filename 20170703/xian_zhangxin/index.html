@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body>
+  	<img id="oImg" src="img/upload_ie4gkmjvgvqtiytdg4zdambqgiyde_220x52.png"/>
+    <div class="header">
+      <a href="register.html">注册</a>
+      <a href="login.html">登录</a>
+    </div>
+    <div class="search">
+      <a href="cart.html">购物车</a>
+      <input type="text" id="search-text" placeholder="请输入要搜索的商品名称">
+      <button id="search-btn">搜索</button>
+    </div>
+    <div class="nav">
+      <ul id="nav-ul"></ul>
+    </div>
+    <script type="text/mingliang" id="nav-li-template">
+      <li class="item {className}"><a href='list.html?cat_id={cat_id}' title="{cat_name}">{cat_name}</a></li>
+    </script>
+    <div class="goods">
+      <ul id="goods-ul"></ul>
+    </div>
+    
+     <!--<script src="js/changkun.js" charset="utf-8"></script>--> 
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+    <script src="js/common.js" charset="utf-8"></script>
+    <script src="js/index.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      if (localStorage.getItem('token')) {
+        $('.header').html(localStorage.getItem('username'));
+      }
+    </script>
+  </body>
+</html>

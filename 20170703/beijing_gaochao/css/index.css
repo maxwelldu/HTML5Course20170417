@@ -1,0 +1,202 @@
+.bigshop{
+    width: 100%;
+    float: left;
+
+}
+
+.shop{
+    width: 1200px;
+    /*height: 635px;*/
+    margin: 0 auto;
+    /*float: left;*/
+}
+.shop div{
+    display: inline-block;
+    float: left;
+    width: 200px;
+    height: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+}
+.shop div img{
+    width: 197px;
+    height: 197px;
+}
+.shop div img:hover{
+    opacity:0.8;
+}
+.shop div p{
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    margin: 10px auto;
+}
+.shop div a{
+    font-size: 12px;
+    color: darkorange;
+    display: inline-block;
+    width: 175px;
+    white-space:nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.shop div a:hover{
+    text-decoration:none;
+}
+.shop div em{
+
+    display: block;
+    text-align: left;
+    margin: 5px 0 0 5px ;
+    color: #e31436;
+}
+.button{
+    /*position: absolute;*/
+    /*right: 90px;*/
+    /*bottom: -12px;*/
+    width: 1000px;
+    height: 30px;
+    margin: 0 auto;
+}
+#ButtonPrev{
+    color: black;
+    display: inline-block;
+    float: left;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+#ButtonNext{
+    color: black;
+    display: inline-block;
+    float: right;
+    width: 140px;
+    height: 30px;
+    border:1px solid gainsboro;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    cursor:pointer;
+}
+.button-center{
+    float: left;
+    overflow: hidden;
+    width:690px;
+    height: 30px;
+}
+#ButtonCenter{
+    float: left;
+    width: 4000px;
+    height:30px;
+    margin-left: 0;
+}
+#ButtonCenter span{
+    width: 30px;
+    height: 30px;
+    float: left;
+    border:1px solid #666666;
+    background-color: #dddddd;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 20px;
+    cursor:pointer;
+}
+#ButtonCenter span.button-center-span{
+    background: firebrick;
+}
+.watch{
+    width: 100%;
+    height: 330px;
+    float: left;
+    position: relative;
+}
+.watch-photo ul li{
+    position:absolute;
+    opacity:0;
+}
+.watch-photo ul li.firsts{
+    opacity:1;
+}
+.watch:hover .left-but{
+    display: block;
+}
+.watch:hover .right-but{
+    display: block;
+}
+.left-but{
+    display: none;
+    width: 30px;
+    height:90px;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top:140px;
+    left:160px;
+    z-index: 1;
+    font-size: 40px;
+    line-height: 90px;
+    color: #666666;
+    cursor:pointer;
+
+}
+.left-but:hover{
+    color: #dddddd;
+}
+.right-but{
+    display: none;
+    width: 30px;
+    height:90px;
+    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    top:140px;
+    right:160px;
+    z-index: 1;
+    font-size: 40px;
+    line-height: 90px;
+    color: #666666;
+    cursor:pointer;
+}
+.right-but:hover{
+    color: #dddddd;
+}
+.watch-small{
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 640px;
+    width:200px;
+    height: 40px;
+}
+.watch-small ul li{
+    width: 20px;
+    height: 20px;
+    border-radius:50%;
+    background-color:rgba(0,0,0,0.4);
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    margin: 0 5px;
+    float: left;
+    cursor:pointer;
+}
+.watch-photo ul li img{
+    width: 100%;
+}
+.watch-small ul li.first{
+    background-color: #e31436;
+}
+.abvert{
+    width: 100%;
+    height: 165px;
+    float: left;
+}
+.abvert img{
+    margin-left: 240px;
+    cursor:pointer;
+}
+

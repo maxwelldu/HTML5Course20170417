@@ -1,0 +1,56 @@
+.shoppingdetail{
+ width: 1050px;
+	height: 520px;
+	overflow : hidden;
+ margin: 0 auto;
+ padding: 2px 0;
+    position: relative;
+}
+.ddd{
+    /*float: left;*/
+    border: none;
+    display: inline-block;
+    padding : 26px;
+    font-size: 20px;
+    margin-left: 10px;
+    background: red;
+    position: absolute;
+    bottom: 195px;
+    right: 25px;
+}
+.detailshop{
+ width: 110%;
+ /*margin-right : 20px;*/
+ overflow : hidden;
+ /*float: left;*/
+}
+.detailimg{
+	display : inline-block;
+	float : left;
+  width : 50%;
+  margin-right : 20px;
+}
+.detailname{
+ display: inline-block;
+ float : left;
+ padding : 40px;
+ color : #ccc;
+ font-size : 30px;
+}
+.detaildesc{
+	width: 38%;
+	display: inline-block;
+ margin : 10px 0;
+ color : #444;
+}
+
+.card{
+    /*float: left;*/
+    border: none;
+    display: inline-block;
+    padding : 26px;
+    font-size: 20px;
+    margin-top: 200px;
+    margin-left: 50px;
+    background: red;
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>添加收货地址</title>
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body>
+<h1>结算页面</h1>
+<div id="address"></div>
+<span id="addUserAddress">新增收货人信息</span>
+<span id="total">总计：</span>
+<span id="order">下订单</span>
+<div class="layer">
+    <div class="dialog">
+        <h2>新增收货人信息<span>x</span></h2>
+        <div class="dialog-align">
+            <form>
+                <!--用户姓名：<input type="text" name="address_name" value="1"><br />-->
+                收件人：<input type="text" name="consignee" value=""><br />
+                <br />
+                国家：<input type="text" name="country" value=""><br />
+                <br />
+                 省：<input type="text" name="province" value=""><br />
+                <br />
+                 市：<input type="text" name="city" value=""><br />
+                <br />
+                 区：<input type="text" name="district" value=""><br />
+                <br />
+                地址：<input type="text" name="address" value=""><br />
+                <br />
+                邮政编码：<input type="text" name="zip_code" value=""><br />
+                <br />
+                电话：<input type="text" name="mobile" value=""><br />
+                <br />
+                e-mail：<input type="text" name="email" value=""><br />
+                <br />
+                <!--名称：<input type="text" name="tel" value="11"><br />-->
+                <!--名称：<input type="text" name="besttime" value="12"><br />-->
+                <!--标志性建筑：<input type="text" name="sign_building" value="13"><br />-->
+                <input type="button" id="add" name="" value="添加收货地址">
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+<script src="scripts/common.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    //开发一个选择框小组件
+    function SelectComponent(width, height, content, value, className, selectedClassName) {
+        this.selected = false;//是否选中
+        this.width = width;
+        this.height = height;
+        this.content = content;
+        this.value = value;
+        this.className = className;
+        this.selectedClassName = selectedClassName;
+        this.dom = null;
+        this.init();
+        this.bindEvent();
+    }
+    SelectComponent.prototype.init = function() {
+        this.dom = document.createElement('div');
+        this.dom.style.width = this.width + 'px';
+        this.dom.style.height = this.height + 'px';
+        this.dom.innerText = this.content;
+        this.dom.className = this.className;
+        document.body.appendChild(this.dom);
+    }
+    SelectComponent.prototype.bindEvent = function() {
+        var self = this;
+        this.dom.addEventListener('click', function(){
+            self.dom.classList.add(self.selectedClassName);
+        });
+    };
+//    new SelectComponent(100, 30, '货到付款', '1', 'normal', 'selected');
+
+    //得到总价，显示在当前页面
+    var total = $.getQueryString('total');
+    $('#total').text('总计：'+total);
+    var address_id = 0;
+    //给地址栏加上一个点击事件
+    $('#address').click(function(event){
+        console.log(event.target);
+        if (event.target) {
+            address_id = event.target.getAttribute('data-id');
+        }
+    });
+
+
+    $(function(){
+        //点击下订单
+        //提交一个ajax请求，真实的下一个订单
+        //下完订单之后跳转到订单列表页面
+        $('#order').click(function(){
+            if (address_id === 0) {
+                alert('请选择地址后再下订单');
+                return;
+            }
+            shop.api.addOrder(address_id, total, function(response){
+                console.log(response);
+                location.assign('order.html');
+            });
+        });
+
+        //点击新增按钮显示新增表单
+        $("#addUserAddress").click(function(){
+            $(".layer").show();
+        });
+        $(".layer h2 span").click(function(){
+            $(".layer").hide();
+        });
+
+        $('#add').click(function(){
+            var data = $("form").serialize();
+            console.log(data);
+            shop.api.addUserAddress(data, function(response){
+                console.log(response);
+                if (response.code === 0) {
+                    $('.layer').hide();
+                    fetchUserAddress();
+                }
+
+            });
+        });
+
+//        shop.api.fetchUserAddress(function(response) {
+//            console.log(response);
+//        });
+        fetchUserAddress();
+        function fetchUserAddress() {
+            shop.api.fetchUserAddress(function(response) {
+                var html = "";
+                for (var i = 0; i < response.data.length; i++) {
+                    var obj = response.data[i];
+                    html += '<div class="address-item" data-id="'+obj.address_id+'">'+ obj.address_name +' ' + obj.city + ' ' + obj.province + ' ' + obj.district + ' ' + obj.address +' ' + obj.mobile + ' </div>';
+                }
+                $('#address').html(html);
+            });
+        }
+
+    });
+
+</script>
+</body>
+</html>

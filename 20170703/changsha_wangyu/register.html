@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>用户注册.良仓 - 生活美学指南</title>
+        <link rel="stylesheet" type="text/css" href="style/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="style/register.css" />
+    </head>
+    <body>
+    	<div id="fullbg">
+    		<div id="signMain">
+    			<form method="post" id="signForm">
+    				<table id="signTable">
+    					<tbody>
+    						<tr valign="middle" align="center">
+    							<td colspan="3" height="160">
+    							       <a href="index.html"><img src="images/logo_icon.png" class="logoLC"></a>
+    							</td>
+    						</tr>
+    						<tr valign="middle" height="50">
+				  			<th align="left" class="regLabel">用户名</th>
+				  			<td align="left" width="270">
+				  				<input type="text" class="regInpt innerPro" id="name" name="username" placeholder="3-20位字符，可用数字下划线字母" />
+				  			</td>
+				  			<td align="left" width="100" id="verify-name"></td>
+		  				</tr>
+    						<tr valign="middle" height="50">
+		  					<th align="left" class="regLabel">创建密码</th>
+		  					<td align="left">
+		  						<input type="password" class="regInpt innerPro" id="pwd" name="password" placeholder="6-20位字符，可用数字下划线字母" />
+		  					</td>
+		  					
+		  				</tr>
+    						<tr valign="middle" height="50">
+				  			<th align="left" class="regLabel" >密码确认</th>
+				  			<td align="left" >
+				  				<input type="password" class="regInpt innerPro" id="pwds" name="repwd" placeholder="确认密码" />
+				  			</td>
+				  			<td align="left" width="100" id="verify-pwd"></td>
+		  				</tr>
+    						<tr valign="center" height="50">
+		  					<th align="left"> </th>
+				  			<td> 
+				  				<div class="agreeLC">
+				  					<input type="checkbox" id="ourtreaty" class="vertPos">
+			  						<label for="ourtreaty" style="padding-left:6px;color:#ffffff;" class="vertPos">同意</label>
+			  						<a href="http://www.iliangcang.com/i/our/service" style="color:#0c79cc;" class="vertPos" target="_blank">&nbsp;良仓注册条款</a>
+				  				</div>	
+				  			</td>
+		  				</tr>
+    						<tr valign="center" align="middle">
+				  			<th align="left"> </th>
+				  			<td align="right">
+				  				<input class="regBtn" type="button" value="立即注册" align="absmiddle"> &nbsp;&nbsp;&nbsp;
+				  			</td>
+		  				</tr>
+				  		<tr valign="center" align="middle">
+				  			<th align="left"> </th>
+			            		<td align="left">
+						            <a href="/i/oauth/qq/" class="quikLoginIcon icon_QQ_36" title="QQ"></a>
+						            <a href="/i/oauth/weibo/" class="quikLoginIcon icon_sina_36" title="新浪微博"></a>
+						            <a href="/i/oauth/douban/" class="quikLoginIcon icon_douban_36" title="豆瓣"></a>
+						            <a href="/i/oauth/tqq/" class="quikLoginIcon icon_qqwb_36" title="腾讯微博"></a>
+						            <a href="login.html" class="regLC regPos" id="regLC">登录良仓</a>
+			            		</td>
+			        		</tr>
+    					</tbody>
+    				</table>
+    			</form>
+    		</div>
+    	</div>
+    </body>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="scripts/register.js" charst="utf-8"></script>
+</html>

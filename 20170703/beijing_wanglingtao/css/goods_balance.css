@@ -1,0 +1,297 @@
+html,body{
+  height:100%;
+}
+.content-order{
+  width: 1050px;
+  margin: 0 auto;
+}
+.content-order .content-order-title{
+  font-size: 16px;
+  margin: 10px 0;
+  color: #666666;
+}
+.content-order .content-order-desc{
+  border: 1px dashed #666666;
+}
+.content-order .content-order-desc .order-receiver{
+  margin:0 10px;
+}
+.content-order .content-order-desc .order-receiver>span{
+  font-size: 14px;
+}
+.content-order .content-order-desc .order-receiver a{
+  display: inline-block;
+  float:right;
+  color:blue;
+  margin-right: 15px;
+}
+.content-order .content-order-desc .order-receiver .receiver-bottom{
+  margin-top:20px;
+}
+.noAddress{
+  height: 30px;
+  color: red;
+  text-align: center;
+}
+.content-order .order-receiver .receiver-bottom .receiverInfo{
+  margin: 10px 0;
+  height: 50px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.content-order .order-receiver .receiver-bottom .receiverInfo span{
+  margin: 0 10px;
+}
+.content-order .order-receiver .receiver-bottom .receiverInfo em{
+  margin-left: 10px;
+  margin-right:10px;
+}
+.receiver-bottom .receiver-name{
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+  text-align:center;
+  border: 2px solid #666666;
+  line-height: 25px;
+  cursor: pointer;
+}
+.receiver-bottom .changeAddress{
+  display: inline-block;
+  width: 100px;
+  height: 25px;
+  text-align:center;
+  border: 2px solid darkred;
+  background: url(../images/header/selected-icon.png) no-repeat right bottom;
+}
+
+.content-order .payType .payType-bottom{
+  margin: 10px;
+}
+.content-order .payType .payType-bottom>div{
+  margin: 10px 0;
+  height: 50px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.receiverInfo  div:hover{
+  border: 2px solid  red;
+}
+.receiverInfo div{
+  margin: 0 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 30px;
+  border: 2px solid  #fff;
+  cursor: pointer;
+}
+.receiverInfo div.changColor{
+  border: 2px solid darkred;
+  background: url(../images/header/selected-icon.png) no-repeat right bottom;
+}
+.goodsList{
+  margin: 10px 10px;
+  border-bottom: 1px solid #E6E6E6;
+}
+.goodsList table{
+  background: #F3FBFE;
+  margin: 10px;
+}
+.goodsList table th,td{
+  width: 262px;
+  text-align: center;
+}
+.goodsList td:first-child{
+  text-align: left;
+}
+.goodsList td:first-child img{
+  float:left;
+  margin-left: 10px;
+}
+.goodsList td:first-child div{
+  float:left;
+  margin-left: 10px;
+  mArgin-top: 10px;
+  font-weight: bold;
+}
+.goodsList table th,td img{
+  width : 60px;
+  height: 60px;
+  margin: 10px 0;
+}
+.goodsList .goods_name{
+  margin-top: 10px;
+  width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.goodsList .cancelGoods{
+  margin-top : 10px;
+  width : 130px;
+  height: 20px;
+  line-height: 20px;
+  text-align: right;
+  background: url(../images/header/purchase-icon-201705.png) no-repeat  left  -82px;
+}
+.invoiceInfo .order-receiver{
+  line-height: 30px;
+}
+.invoiceInfo .order-receiver i{
+  display: inline-block;
+  margin-left: 10px;
+}
+.invoiceInfo span{
+  float: left;
+}
+.invoiceInfo .invoice{
+  display: inline-block;
+  font-size: 10px;
+  margin-left: 10px;
+}
+.invoiceInfo .invoice span{
+  border: 1px solid #DDDDDD;
+  float:left;
+  height: 26px;
+  font-size: 10px;
+  padding: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.15);
+}
+.invoiceInfo .invoice b{
+  display: inline-block;
+  position:relative;
+  left:1px;
+  margin-top: 10px;
+  float:left;
+  width:9px;
+  height: 17px;
+  background: url(../images/header/arrow-left.png) no-repeat  center;
+}
+.content-order-submit{
+  height: 60px;
+  margin: 10px 0;
+  background: #F4F4F4;
+}
+.content-order-submit div{
+  float:right;
+  margin-right: 10px;
+}
+.content-order-submit div p{
+  margin:9px 0;
+}
+#lastAddress,#totalPay{
+  color: darkred;
+  font-weight: bold;
+}
+.submitBtn{
+  display: inline-block;
+  width: 135px;
+  height: 36px;
+  font-size:16px;
+  color:#fff;
+  font-weight: bold;
+  text-align: center;
+  line-height: 36px;
+  float:right;
+  margin-top:10px;
+  background: #E33A3D;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.addAddress{
+  height: 100%;
+  width:100%;
+  background: rgba(125,125,125,0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+.addAddress .addressContent{
+  margin:60px auto;
+  width: 690px;
+  height: 510px;
+  background: rgba(255,255,255,1);
+}
+.addAddress .addressContent .addrContent-top{
+  height: 30px;
+  background:#D9D9D9;
+  line-height: 30px;
+}
+.addAddress .addressContent .addrContent-top span{
+  margin-left: 15px;
+  font-size: 14px;
+}
+.addAddress .addressContent .addrContent-top a{
+  float: right;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 26px;
+  height: 30px;
+}
+.addAddress .addressContent .addrContent-bottom{
+  width: 100%;
+}
+.addAddress .addressContent .addrContent-bottom form{
+  margin:20px 10px;
+}
+.addAddress .addressContent .addrContent-bottom div{
+  margin: 20px 10px;
+}
+.addAddress .addressContent .addrContent-bottom .submit{
+  margin-left:82px;
+  cursor:pointer;
+  width:114px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: #E54144;
+  color:#fff;
+  font-weight: bold;
+  border:none;
+  border-radius: 4px;
+}
+.addAddress .addressContent .addrContent-bottom .submit input{
+
+  outline: hidden;
+}
+.addAddress .addressContent .addrContent-bottom div input{
+  width: 240px;
+  height: 25px;
+}
+.addAddress .addressContent .addrContent-bottom div em{
+  display: inline-block;
+  width: 42px;
+  text-align: center;
+  background: #F4F4F4;
+}
+.addAddress .addressContent .addrContent-bottom div span{
+  display: inline-block;
+  width:60px;
+  margin-left: 10px;
+}
+.addAddress .addressContent .addrContent-bottom div>label{
+  margin-left:20px;
+}

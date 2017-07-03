@@ -1,0 +1,108 @@
+.cardlist{
+    width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+#mingxi{
+    list-style: none;
+    padding: 50px 0;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+}
+#mingxi > li{
+    float: left;
+    margin-right: 100px;
+}
+#cardshop{
+    padding: 10px 10px 30px;
+    /*background: red;*/
+}
+.dombox{
+    width:100%;
+   height: 200px;
+    margin-top:20px;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+
+.cardshopsdel{
+    float: left;
+    margin-left: 100px;
+}
+
+.cardshopsimg{
+    height: 70%;
+    float: left;
+    margin-left: 25px;
+}
+.cardshopsjiage{
+    float: left;
+    margin-left: 50px;
+}
+.cardshopsname{
+   display: inline-block;
+    margin-left: 40px;
+    position: absolute;
+    bottom: 15px;
+    left: 60px;
+}
+.cardshopsshuliang{
+    float: left;
+    margin-left: 104px;
+    overflow: hidden;
+    text-align: center;
+}
+.cardshopsjia{
+    display: inline-block;
+    border: none;
+    float: right;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.cardshopszi{
+    width: 20px;
+    text-align: center;
+}
+.cardshopsjian{
+    border: none;
+    float: left;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+.cardshopsxiaoji{
+    float: left;
+    margin-left: 110px;
+}
+.dombox > input{
+    float: left;
+    margin: 0 20px;
+}
+.zongji{
+    margin-top: 10px;
+    width: 100%;
+    border: 1px solid;
+    border-left: none;
+    border-right: none;
+    overflow: hidden;
+}
+
+#zongji{
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    width: 10%;
+    text-align: left;
+    background: red;
+}
+
+#zongj{
+    float: right;
+    height: 50px;
+    line-height: 50px;
+    width: 10%;
+    text-align: center;
+    background: red;
+}
