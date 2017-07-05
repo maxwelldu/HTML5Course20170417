@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <input type="button" value="按我" id="btn"/>
+
+	<script type="text/javascript">
+		function fun(data){
+			console.log(data.result[2].name);
+		}
+	</script>
+
+	<script type="text/javascript">
+		//得到按钮
+		var btn = document.getElementById("btn");
+
+		//按钮监听
+		btn.onclick = function(){
+			//创建一个script标签，孤儿节点
+			var scriptObj = document.createElement("script");
+			//追加这个script节点
+			document.body.appendChild(scriptObj);
+			//一个script标签如果没有src属性，将什么都不做
+			//一个script标签如果一旦设置src属性，那么将立即发出HTTP请求。
+			scriptObj.src = "jsonp.xiaolei";
+		}
+	</script> -->
+	<button type="button" name="button">click me</button>
+	<script type="text/javascript">
+		// function fun(json) {
+		// 	console.log(json.result);
+		// }
+		// document.getElementsByTagName('button')[0].addEventListener('click', function(){
+		// 	var s = document.createElement('script');
+		// 	s.src = 'jsonp.xiaolei';
+		// 	document.body.appendChild(s);
+		// }, false);
+
+		document.getElementsByTagName('button')[0].onclick =  function(){
+			jsonp('jsonp.xiaolei', 'fun', function(json){
+				console.log(json);
+			});
+		};
+		function jsonp(url, fnName, cb) {
+			window[fnName] = cb;
+			var s = document.createElement('script');
+			s.src = url;
+			document.body.appendChild(s);
+			document.body.removeChild(s);
+			console.log(window[fnName]);
+			// delete window[fnName];
+		}
+	</script>
+</body>
+</html>

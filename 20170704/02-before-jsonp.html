@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script src="js/02.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      show({"name":"xiaolei"});
+    </script>
+    先在外部js文件中定义函数
+    然后在当前页面调用函数
+
+    先在当前页面定义函数
+    然后调用外部js文件执行函数
+    <script type="text/javascript">
+      function showData(json) {
+        console.log(json);
+      }
+    </script>
+    <script src="js/show.js" charset="utf-8"></script>
+  </body>
+</html>

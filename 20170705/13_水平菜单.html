@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.nav {
+			width: 960px;
+			height: 40px;
+			margin: 50px auto;
+		}
+		.nav ul {
+			list-style: none;
+		}
+		.nav ul li {
+			float: left;
+			width: 120px;
+			line-height: 40px;
+			text-align: center;
+			background: coral;
+			position: relative;
+		}
+		.nav ul li a {
+			text-decoration: none;
+			color: white;
+		}
+		.nav ul li .dropbox {
+			position: absolute;
+			width: 120px;
+			left: 0;
+			top: 40px;
+			padding-top: 10px;
+			display: none;
+		}
+		.nav ul li .dropbox .inner {
+			background: #ccc;
+		}
+		.nav ul li .dropbox a {
+			line-height: 30px;
+			text-align: left;
+			display: block;
+		}
+		.nav ul li .dropbox a:hover {
+			background: pink;
+		}
+
+	</style>
+</head>
+<body>
+	<!-- div.nav>ul>li>a+div.dropbox>div.inner>p*3>a -->
+	<div class="nav">
+		<ul>
+			<li>
+				<a href="">北京班</a>
+				<div class="dropbox">
+					<div class="inner">
+						<p><a href="">赵海霞</a></p>
+						<p><a href="">杨洋</a></p>
+						<p><a href="">刘子浩</a></p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="">长沙班</a>
+				<div class="dropbox">
+					<div class="inner">
+						<p><a href="">苏毅</a></p>
+						<p><a href="">尹联彬</a></p>
+						<p><a href="">王瑜</a></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+	<script src="jquery-1.12.3.min.js" charset="utf-8"></script>
+	<script>
+		// 鼠标移入li元素的时候，找到自己的dropbox子节点，让他下拉显示
+		// 鼠标移出li元素的时候，找到自己的dropbox子节点，让他上拉显示
+		$('.nav li').mouseenter(function(){
+			$(this).children('.dropbox').stop(true).slideDown();
+		});
+		$('.nav li').mouseleave(function(){
+			$(this).children('.dropbox').stop(true).slideUp();
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 80px;
+			height: 80px;
+			position: absolute;
+			left: 100px;
+			top: 100px;
+			background-color: blue;
+		}
+		img{
+			width: 300px;
+			position: absolute;
+			display: none;
+		}
+		.no0{
+			top: 111px;
+			left: 111px;
+		}
+		.no1{
+			top: 231px;
+			left: 451px;
+		}
+		.no2{
+			top: 127px;
+			left: 251px;
+		}
+		.no3{
+			top: 337px;
+			left: 51px;
+		}
+		.no4{
+			top: 37px;
+			left: 234px;
+		}
+	</style>
+</head>
+<body>
+	<img src="images/0.jpg" class="no0" />
+	<img src="images/1.jpg" class="no1" />
+	<img src="images/2.jpg" class="no2" />
+	<img src="images/3.jpg" class="no3" />
+	<img src="images/4.jpg" class="no4" />
+	 
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$("img").each(function(i){
+			//attr就表示得到标签内的属性
+			$(this).delay(i * 500).fadeIn(1000);
+		});
+	</script>
+</body>
+</html>

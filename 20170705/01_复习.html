@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 60px;
+			height: 60px;
+			background-color: yellowgreen;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// $函数是jQuery对象，不是原生对象，[0]能转
+		//$("#box")[0].style.backgroundColor = "red";
+
+		// 很多的元素，[]来选择转谁
+		//$("div")[3].style.background = "blue";
+
+
+		// 筛选器
+		// $("div:first").css("background-color","red");
+		// $("div:last").css("background-color","red");
+		// $("div:eq(0)").css("background-color","red");
+		// $("div:lt(1)").css("background-color","red");
+		// $("div:gt(1)").css("background-color","blue");
+		// $("div:odd").css("background-color","red");
+		// $("div:even").css("background-color","orange");
+
+		// css()方法
+		// alert($("div:eq(5)").css("width"));
+
+		// $("div:eq(2)").css("background-color","red");
+		// $("div:eq(2)").css("width","40px");
+		// $("div:eq(2)").css("height",60);
+
+		// var json = {
+		// 	"background-color" : "red",
+		// 	"width" : 600,
+		// 	"height" : 100
+		// }
+
+		// $("div:odd").css(json);
+
+		// $("div").click(function(){
+		// 	$(this).css("width","+=10px");
+		// })
+
+		
+		// animate方法
+		// $("div:odd").animate(json,1000,function(){
+		// 	$(this).css("background-color","red")
+		// });
+
+		// 动画队列
+		// $("div").animate({"width":600},1000);
+		// $("div").animate({"height":200},1000);
+
+		// 不等价于:
+		// $("div").animate({"width":600,"height":200},2000);
+
+		//不同元素的animate是同时进行的，实际上这里就是异步的意思
+		// eq(0)的元素animate很费时间，所以异步进行其他事情。当
+		// eq(0)的动画结束之后，就会回调eq(0)的回调函数，
+		// $("div:eq(0)").animate({"width":600},1000,function(){
+		// 	alert("0号元素动画完成")
+		// });
+		// $("div:eq(1)").animate({"height":600},2000,function(){
+		// 	alert("1号元素动画完成")
+		// });
+
+
+		//添加监听
+		$("div:even").click(function(){
+			$(this).animate({"width":600},2000);
+		});
+	</script>
+</body>
+</html>

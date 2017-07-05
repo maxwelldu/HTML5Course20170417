@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>0000</p>
+	<p>111</p>
+	<p>222</p>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		//html方法表示修改里面的文字，相当于innerHTML
+		console.log($('p'));//jquery 0 1 2
+		console.log($('p').eq(2));//jquery 0
+		// $("p").eq(2).html("哈哈哈哈哈哈");
+
+		//get方法得到的元素，帮你隐形的转为了原生JavaScript对象
+		console.log($('p').get(2));
+		// $("p").get(2).innerHTML = "哈哈哈哈哈哈";
+
+		//等价于：
+		$("p").eq(2)[0].innerHTML = "呜呜呜呜呜呜";
+	</script>
+</body>
+</html>

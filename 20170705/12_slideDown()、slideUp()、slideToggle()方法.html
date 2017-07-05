@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style media="screen">
+			div {
+				width: 100px;
+				height: 100px;
+				background: coral;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button type="button" name="button">下拉</button>
+		<button type="button" name="button">上拉</button>
+		<button type="button" name="button">上下拉</button>
+		<div></div>
+		<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+		<script type="text/javascript">
+			$('button:eq(0)').click(function(){
+				$("div").slideDown(400);
+			});
+			$('button:eq(1)').click(function(){
+				$("div").slideUp(400);
+			});
+			$('button:eq(2)').click(function(){
+				$("div").slideToggle(400);
+			});
+		</script>
+	</body>
+</html>

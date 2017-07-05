@@ -64,7 +64,13 @@ window.shop = {
   },
   api: {
     fetchGoodsCategory: function(callback){
-      $.get(shop.config.API_PREFIX + 'api_cat.php', callback, 'json');
+      // $.get(shop.config.API_PREFIX + 'api_cat.php', callback, 'json');
+      $.ajax({
+        url: shop.config.API_PREFIX + 'api_cat.php?format=jsonp',
+        dataType: 'jsonp',
+        jsonpCallback: "getCategory",
+        success: callback
+      });
     },
     fetchGoodsListByCatId: function(cat_id, page, pagesize, callback){
       var data = {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function deepClone(origin) {
+        var dest = {};
+        for (var i in origin) {
+          if (typeof origin[i] === 'object') {
+            dest[i] = deepClone(origin[i]);
+          } else {
+            dest[i] = origin[i];
+          }
+        }
+        return dest;
+      }
+
+      var xiaoming = {
+        name: 'xiaoming',
+        age: 18,
+        father: {
+          name: "daming",
+          wife: {
+            "name": "xiaoming ta ma",
+            }
+          }
+        }
+      }
+      var xiaomingdidi = deepClone(xiaoming);
+      console.log(xiaomingdidi);
+    </script>
+  </body>
+</html>

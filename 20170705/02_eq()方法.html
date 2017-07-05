@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 600px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		p{
+			float: left;
+			width: 60px;
+			height: 60px;
+			margin-right: 10px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<p></p>
+		<p class="teshu"></p>
+		<p class="teshu"></p>
+		<p></p>
+	</div>
+	<div class="box2">
+		<p class="teshu"></p>
+		<p class="teshu">我想红！我想当明星！</p>
+		<p></p>
+		<p></p>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// $(".box2 p").eq(1).css("background-color","red");
+		// $("p").eq(5).css("background-color","red");
+		// $(".teshu").eq(3).css("background-color","red");
+		// $(".box2 .teshu").eq(1).css("background-color","red");
+
+		$("p:first").css("background-color","red");
+	</script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.tab{
+			margin-right: 20px;
+			float: left;
+			width: 310px;
+			border-top: 2px solid #206F96;
+		}
+		.tab .hd{
+			overflow: hidden;
+		}
+		.tab .hd span{
+			float: left;
+			width: 102px;
+			line-height: 29px;
+			border-left: 1px solid #CFCFCF;
+			border-bottom: 1px solid #CFCFCF;
+			background-color: #EFEFEF;
+			text-align: center;
+			font-size: 14px;
+			font-family: "SimSun";
+		}
+		.tab .hd span.last{
+			border-right: 1px solid #CFCFCF;
+		}
+		.tab .hd span.current{
+			border-bottom-color:white;
+			background-color: white;
+			font-weight: bold;
+		}
+		.tab .hd span a{
+			color:#252525;
+			text-decoration: none;
+		}
+		/*用户触摸链接的时候的样式*/
+		.tab .hd span a:hover{
+			color:#a00;
+			text-decoration: underline;
+		}
+		.tab .bd{
+			padding-top: 15px;
+			padding-left: 8px;
+		}
+		.tab .bd ul{
+			list-style: none;
+		}
+		.tab .bd ul li{
+			font: 14px/27px "SimSun";
+		}
+		.tab .bd ul li a{
+			text-decoration: none;
+			color:#252525;
+		}
+		.tab .bd ul li.headline a{
+			font-weight: bold;
+		}
+		.tab .bd ul li a:hover{
+			text-decoration: underline;
+			color:#a00;
+		}
+		.tab .bd div{
+			display: none;
+			height: 250px;
+		}
+		.tab .bd div.current{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="tab">
+		<div class="hd" id="tab_hd">
+			<span class="current">
+				<a href="">新闻</a>
+			</span>
+			<span class="">
+				<a href="">图片</a>
+			</span>
+			<span class="last">
+				<a href="">军事</a>
+			</span>
+		</div>
+		<div class="bd" id="tab_bd">
+			<div class="current">
+				<ul>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<p>图片<img src="images/songhuiqiao.jpg" width="120" /></p>
+			</div>
+
+			<div>
+				<ul>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="tab">
+		<div class="hd" id="tab_hd">
+			<span class="current">
+				<a href="">新闻</a>
+			</span>
+			<span class="">
+				<a href="">图片</a>
+			</span>
+			<span class="last">
+				<a href="">军事</a>
+			</span>
+		</div>
+		<div class="bd" id="tab_bd">
+			<div class="current">
+				<ul>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+					<li><a href="">新闻新闻新闻新闻新闻新闻新闻新</a></li>
+				</ul>
+			</div>
+
+			<div>
+				<p>图片<img src="images/songhuiqiao.jpg" width="120" /></p>
+			</div>
+
+			<div>
+				<ul>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+					<li><a href="">军事军事军事军事军事军事军事</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$(".hd span").mouseenter(function(){
+			$(this).addClass("current").siblings().removeClass("current").parent().siblings(".bd").children("div").eq($(this).index()).addClass("current").siblings().removeClass("current");
+		})
+	</script>
+</body>
+</html>

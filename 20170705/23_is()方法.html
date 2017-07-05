@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<p class="t"></p>
+	<p class="t"></p>
+	<p></p>
+	<p></p>
+	<p id="m"></p>
+	<p class="t"></p>
+	<p></p>
+	<p class="t"></p>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$("p:eq(4)").animate({"width":600},6000);
+
+		$("p").click(function(){
+			console.log(   $(this).is(".t")    );
+			console.log(   $(this).is("#id")    );
+			console.log(   $(this).is(":first")    );
+			console.log(   $(this).is(":animated")    );
+		});
+	</script>
+</body>
+</html>

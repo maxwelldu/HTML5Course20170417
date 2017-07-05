@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		//测试我们的通用函数
+		jsonp("jsonp.txt","fun",function(data){
+			alert(data);
+		});
+
+
+		//编写一个实用轮子，以后弄jsonp的时候就方便了
+		function jsonp(URL,callbackname,callback){
+			//在window对象上强行增加一个属性，这个属性就是全局变量，是一个函数的名字，值是一个函数
+			window[callbackname] = callback;
+			//创建节点
+			var scriptObj = document.createElement("script");
+			//添加节点
+			document.body.appendChild(scriptObj);
+			//设置新创建的script标签的src属性，HTTP上行请求将发出
+			scriptObj.src = URL;
+			//删除这个script标签
+			document.body.removeChild(scriptObj);
+		}
+	</script>
+</body>
+</html>

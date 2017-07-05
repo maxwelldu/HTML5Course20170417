@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			position: absolute;
+			width: 80px;
+			height: 80px;
+			background-color: orange;
+			left: 100px;
+			top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="stop()"/>
+	<input type="button" value="stop(true)"/>
+	<input type="button" value="stop(true,true)"/>
+	<input type="button" value="stop(false,true)"/>
+	<input type="button" value="finish()"/>
+
+	<div></div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$("div").animate({"left":800},2000);
+		$("div").animate({"top":300},2000);
+		$("div").animate({"left":100},2000);
+		$("div").animate({"top":0},2000);
+
+		$("input:eq(0)").click(function(){
+			$("div").stop();
+		});
+
+		$("input:eq(1)").click(function(){
+			$("div").stop(true);
+		});
+
+		$("input:eq(2)").click(function(){
+			$("div").stop(true,true);
+		});
+
+		$("input:eq(3)").click(function(){
+			$("div").stop(false,true);
+		});
+
+		$("input:eq(4)").click(function(){
+			$("div").finish();
+		});
+	</script>
+</body>
+</html>

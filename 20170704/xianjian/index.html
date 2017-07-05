@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>印象仙剑模拟板</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background-color: #ccc;
+		}
+		.waterfall{
+			width: 730px;
+			position: relative;
+			margin: 0 auto;
+		}
+		.waterfall .gird{
+			position: absolute;	
+			width: 230px;
+			background-color: white;
+			border-radius: 15px;
+		}
+		.waterfall p{
+			line-height: 150%;
+			font-size: 16px;
+		}
+		.waterfall .share{
+			padding: 10px;
+			line-height: 150%;
+			font-size: 	14px;
+		}
+	</style>
+</head>
+<body>
+	<div class="waterfall" id="waterfall">
+
+	</div>
+
+	<script type="text/template" id="template">
+		<div class="gird">
+			<a href="">
+				<img src="<%=url%>" alt="" />
+			</a>
+			<div class="share">
+				<p><%=subject%></p>
+				<a class="like">❤<%=like%></a>
+				<a class="ping">○<%=comment%></a>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="js/underscore.js"></script>
+
+	<script type="text/javascript">
+		//得到最大盒子
+		var $waterfall = $("#waterfall");
+		//模板字符串
+		var templateString = $("#template").html();
+
+		//数据绑定函数
+		var compileFunction = _.template(templateString);
+
+		//三列瀑布流，每列的总高度
+		var colHeight = [0,0,0];
+
+		var page = 1;
+		getJSONandRender(page);
+
+
+		function getJSONandRender(page){
+			//发出jsonp请求
+			$.ajax({
+				"dataType" : "jsonp",
+
+				"jsonpCallback" : "jsonp939",
+
+				"url" : "http://yx.xianjian.com/p/api.php?method=wf&api_key=nimakdkeiLdkfen2lidkdlDLLEKd&page=" + page +"&per_page=10&tag=&type=5&order=2&_ksTS=1462787437444_938&jsoncallback=jsonp939",
+
+				"success" : function(data){
+					//拿到数据
+					var photoarray = data.photos.photo;
+					if(photoarray.length == 0){
+						return;
+					}
+
+					lock = true;
+
+					//遍历数据
+					_.each(photoarray,function(dictionary){
+						//竞速，谁先加载好，谁先上DOM，谁先给用户看
+						var image = new Image();
+						//根据图片类型基准地址不一样
+						if(dictionary.type == 1){
+							image.src = "http://files.haohaowan.com/yxxj/li_" + dictionary.url;
+						}else if(dictionary.type == 3){
+							image.src = "http://files.haohaowan.com/yxxj/sp_" + dictionary.url + ".jpg";
+						}
+						//模板修正
+						dictionary.url = image.src;
+
+						//添加load监听
+						$(image).load(function(){
+							//这张图片加载成功
+							var domString = compileFunction(dictionary);
+							//转jq
+							$grid = $(domString);
+							//上DOM
+							$waterfall.append($grid);
+
+							//根据瀑布流算法，设置它的left、top
+							minValue = _.min(colHeight);
+							minIndex = _.indexOf(colHeight,minValue);
+							$grid.css({
+								"top" : minValue,
+								"left" : minIndex * 250
+							});
+
+							//改变总列高数组的值
+							colHeight[minIndex] += $grid.outerHeight() + 20;
+
+							//让大盒子根据最高的列设置高度
+							$waterfall.css("height",_.max(colHeight));
+						});
+					});
+				}
+			});
+		}
+		
+		
+		var lock = true;
+		//监听滚动
+		$(window).scroll(function(){
+			if(!lock) return;
+			var rate = $(window).scrollTop() / ($(document).height() - $(window).height());
+
+			if(rate >= 0.7){
+				page ++;
+				getJSONandRender(page);
+				lock = false;
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.nav{
+			width: 960px;
+			height: 40px;
+			margin: 50px auto;
+		}
+		.nav ul{
+			list-style: none;
+		}
+		.nav ul li{
+			float: left;
+			width: 120px;
+			height: 40px;
+			text-align: center;
+			line-height: 40px;
+			background-color: yellowgreen;
+			position: relative;
+		}
+		.nav ul li a{
+			text-decoration: none;
+			color: white;
+		}
+		.nav ul li .dropbox{
+			position: absolute;
+			top: 40px;
+			left: 0;
+			width: 180px;
+			display: none;
+			padding-top: 10px;
+		}
+		.nav ul li .dropbox .inner{
+			background-color: #ccc;
+		}
+		.nav ul li .dropbox a{
+			display: block;
+			line-height: 30px;
+			height: 30px;
+			text-align: left;
+		}
+		.nav ul li .dropbox a:hover{
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<ul>
+			<li><a href="#">栏目名称</a></li>
+			<li>
+				<a href="#">公司新闻</a>
+				<div class="dropbox">
+					<div class="inner">
+						<p><a href="">北京总部新闻</a></p>
+						<p><a href="">上海分公司新闻</a></p>
+						<p><a href="">东莞分公司新闻</a></p>
+						<p><a href="">辽宁分公司新闻</a></p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<a href="#">公司财务</a>
+				<div class="dropbox">
+					<div class="inner">
+						<p><a href="">2011财务</a></p>
+						<p><a href="">2012财务</a></p>
+						<p><a href="">2013财务</a></p>
+						<p><a href="">2014财务</a></p>
+						<p><a href="">2015财务</a></p>
+						<p><a href="">2016财务</a></p>
+					</div>
+				</div>
+			</li>
+			<li><a href="#">栏目名称</a></li>
+			<li><a href="#">栏目名称</a></li>
+			<li><a href="#">栏目名称</a></li>
+			<li><a href="#">栏目名称</a></li>
+			<li><a href="#">栏目名称</a></li>
+		</ul>
+	</div>
+ 
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		//鼠标触碰
+		$("li").mouseenter(function(){
+			// //如果自己的dropbox儿子正在运动，那么什么也不做
+			if($(this).children(".dropbox").is(":animated")){
+				return;
+			}
+ 
+			$(this).children(".dropbox").slideDown();
+		})
+
+		//鼠标离开
+		$("li").mouseleave(function(){
+			//超纲了，下午讲节点关系！碰到哪个li，自己的儿子.dropbox展开
+			$(this).children(".dropbox").slideUp();
+		})
+	</script>
+</body>
+</html>	

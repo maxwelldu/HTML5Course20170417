@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 600px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		p{	
+			float: left;
+			width: 60px;
+			height: 60px;
+			margin-right: 10px;
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// $("p").each(function(i){
+		// 	$(this).css("width", i * 10);
+		// });
+
+
+		$("p").each(function(i){
+			$(this).css("width", $(this).index() * 10);
+		});
+	</script>
+</body>
+</html>

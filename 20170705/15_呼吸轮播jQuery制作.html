@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.carousel{
+			width: 560px;
+			height: 300px;
+			margin: 100px auto;
+			border: 1px solid #333;
+			position: relative;
+		}
+		.carousel ul{
+			list-style: none;
+		}
+		.carousel ul li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.carousel ul li.first{
+			display: block;
+		}
+		.btns a{
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			top: 50%;
+			margin-top: -20px;
+			background-color: orange;
+			font-size: 30px;
+			line-height: 40px;
+			text-align: center;
+			border-radius: 50%;
+			font-weight: bold;
+			cursor: pointer;
+			z-index: 999;
+		}
+		.btns a:hover{
+			background-color: gold;
+		}
+		.leftBtn{
+			left: 10px;
+		}
+		.rightBtn{
+			right: 10px;
+		}
+		.circles{
+			position: absolute;
+			width: 150px;
+			height: 16px;
+			bottom: 10px;
+			right: 10px;
+		}
+		.circles ol{
+			list-style: none;
+		}
+		.circles ol li{
+			float: left;
+			width: 16px;
+			height: 16px;
+			background-color: orange;
+			margin-right: 6px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.circles ol li.cur{
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel" id="carousel">
+		<div class="btns">
+			<a class="leftBtn"  id="leftBtn"></a>
+			<a class="rightBtn" id="rightBtn"></a>
+		</div>
+		<div class="imageslist" id="imageslist">
+			<ul>
+				<li class="first"><a><img src="images/0.jpg" alt="" /></a></li>
+				<li><a><img src="images/1.jpg" alt="" /></a></li>
+				<li><a><img src="images/2.jpg" alt="" /></a></li>
+				<li><a><img src="images/3.jpg" alt="" /></a></li>
+				<li><a><img src="images/4.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		var index = 0;
+		//jQuery的变量，我们习惯以$开头
+		var $lis = $('#imageslist ul li');
+
+		$('#rightBtn').click(function(){
+			/*
+			if ($lis.eq(index).is(':animated')) {
+				return;
+			}
+			//当前元素淡出
+			$lis.eq(index).fadeOut();
+			//改变信号量
+			index++;
+			if (index > $lis.length - 1) {
+				index = 0;
+			}
+			//下一个淡入
+			$lis.eq(index).fadeIn();
+			*/
+			pictureChange();
+		});
+
+	$('#leftBtn').click(function(){
+		if ($lis.eq(index).is(':animated')) {
+			return;
+		}
+		$lis.eq(index).fadeOut(1000);
+		index--;
+		if (index < 0) {
+			index = $lis.length - 1;
+		}
+		$lis.eq(index).fadeIn(1000);
+	});
+
+	function pictureChange() {
+		if ($lis.eq(index).is(':animated')) {
+			return;
+		}
+		$lis.eq(index).fadeOut(1000);
+		index++;
+		if (index > $lis.length - 1) {
+			index = 0;
+		}
+		$lis.eq(index).fadeIn(1000);
+	}
+	var timer = 0;
+	function start() {
+		timer = setInterval(function(){
+			pictureChange();
+		}, 1000);
+	}
+	start();
+
+	$('#imageslist').mouseenter(function(){
+		clearInterval(timer);
+	});
+	$('#imageslist').mouseleave(function(){
+		start();
+	});
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

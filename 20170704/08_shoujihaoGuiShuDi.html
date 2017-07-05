@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h2>本站拥有世界上最丰富的手机号码数据库，免费查询哦！</h2>
+	<p>
+		<input type="text" id="shoujihao"/>
+		<input type="button" value="点击查询归属地" id="btn" />
+	</p>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		document.getElementById("btn").onclick = function(){
+			var mobile = document.getElementById("mobile").value;
+			if (!/^1[3578]\d{9}$/.test(mobile)) {
+				alert("手机号不正确，请重新输入");
+				return;
+			}
+			j.get('api/mobile.php', {'mobile':mobile}, function(err,data){
+				if (err) return;
+				var obj = JSON.parse(data);
+				document.getElementById("location").innerHTML = obj.areaName;
+			})
+		}
+	</script>
+</body>
+</html>

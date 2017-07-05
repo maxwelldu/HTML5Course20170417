@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		p{
+			width: 20px;
+			height: 20px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body id="body">
+ 	<div id="box">
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 		<p id="xiaoming">xiaoming</p>
+ 		<p></p>
+ 		<p></p>
+ 		<p></p>
+ 	</div>
+	
+ 	<script type="text/javascript">
+ 		var box = document.getElementById("box");
+ 		var ps = document.getElementsByTagName("p");
+ 		//alert(box.childNodes[0].nodeType);
+ 		//alert(box.childNodes.length);
+
+ 		//box.childNodes[3].style.backgroundColor = "red";
+
+ 		// var childs = [];
+ 		// for(var i = 0 ; i < box.childNodes.length ; i++){
+ 		// 	if(box.childNodes[i].nodeType == 1){
+ 		// 		childs.push(box.childNodes[i]);
+ 		// 	}
+ 		// }
+ 		// childs[1].style.background = "red";
+
+
+ 		// alert(ps[2].parentNode.id);
+
+ 		// ps[2].previousSibling.style.background = "red";
+
+ 		//让xiaoming之前的所有p同胞节点，背景都变红
+ 		var xiaoming = document.getElementById("xiaoming");
+
+
+ 		// var prev = xiaoming;
+ 		// while(prev = prev.previousSibling){
+ 		// 	if(prev.nodeType == 1){
+ 		// 		prev.style.background = "red";
+ 		// 	}
+ 		// }
+
+ 		var next = xiaoming;
+ 		while(next = next.nextSibling){
+ 			if(next.nodeType == 1){
+ 				next.style.background = "red";
+ 			}
+ 		}
+
+ 	</script>
+</body>
+</html>

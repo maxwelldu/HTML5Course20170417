@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2 id="title"></h2>
+    <input type="text" value="" id="title-text">
+    <script type="text/javascript">
+      var oTitle = document.getElementById('title');
+      var oTitleText = document.getElementById('title-text');
+      oTitleText.onkeyup = function(event) {
+        obj.title = oTitleText.value;
+      }
+
+      var obj = {}
+      Object.defineProperty(obj, 'title', {
+        set: function(newValue) {
+          console.log(newValue);
+          oTitle.innerText = newValue;
+        }
+      });
+      Object.defineProperty(obj, 'hidden', {
+        set: function(newValue) {
+          oTitle.style.display = newValue === true ? 'block' : 'none';
+        }
+      })
+    </script>
+  </body>
+</html>

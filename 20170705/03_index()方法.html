@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div{
+			width: 600px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+		p{
+			float: left;
+			width: 60px;
+			height: 60px;
+			margin-right: 10px;
+			background-color: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<div class="box1">
+		<p></p>
+		<p class="teshu">t</p>
+		<p class="teshu">t</p>
+		<p></p>
+	</div>
+	<div class="box2">
+		<p class="teshu">t</p>
+		<p class="teshu">不管你怎么写监听，点我都一定弹出1</p>
+		<p></p>
+		<p></p>
+	</div>
+
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		// $("p").click(function(){
+		// 	alert($(this).index());
+		// });
+
+		$(".teshu").click(function(){
+			alert($(this).index());
+		})
+	</script>
+</body>
+</html>

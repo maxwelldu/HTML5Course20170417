@@ -1,0 +1,12 @@
+baijia	: 百度百家的案例，演示滑动加载更多
+waterfall : 瀑布流
+xianjian :  印象仙剑
+
+01	:  证明ajax不能跨域。用127.0.0.1不能访问127.0.0.2
+02 	:  JSONP的原理
+03  :  利用JSON原理，我们看见了一个真实网站的案例。
+04  ： 点击按钮发送JSONP请求
+05  ： JSONP的一个通用轮子原理
+06	:  测试轮子，轮子写到了j.js里面
+07  ： jQuery中的JSONP跨域
+08	： 手机号归属地, 阿里云数据及API市场 https://market.aliyun.com/data

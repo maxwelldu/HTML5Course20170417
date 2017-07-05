@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p>p1</p>
+  <p>p2</p>
+  <p>p3</p>
+  <div id="change">div1</div>
+  <span></span>
+  <span></span>
+  <span></span>
+  <em></em>
+  <script src="changquery.js"></script>
+  <script>
+    cq('p').css('color', 'red').html('赵海霞');
+    cq('#change').attr('title', 'chang query');
+    cq('span').html('子浩');
+    cq('span').attr('title', '子浩');
+    cq('p').eq(1).css('color', 'green');
+    console.log(cq('p'));
+    console.log(cq('p').eq(1));
+    console.log(cq('span').attr('title'));
+    cq('em').html(cq('span').html());
+
+    cq('span').click(function(){
+      console.log(this);
+      // cq(this).css('color', 'yellow');
+    });
+
+    function C() {
+      this.age = 18;
+    }
+    var c = new C();
+  </script>
+</body>
+</html>

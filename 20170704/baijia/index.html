@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>百度百家模拟</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.header{
+			width: 1000px;
+			margin: 0 auto;
+			height: 300px;
+			background-color: #ccc;
+		}
+		.content{
+			width: 1000px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.content .left_part{
+			float: left;
+			width: 680px;
+		}
+		.content .articles{
+			width: 680px;
+			overflow: hidden;
+		}
+		.content .articles .feed{
+			padding: 20px 0;
+			overflow: hidden;
+			border-bottom: 1px solid #ccc;
+		}
+		.content .articles .feed-image{
+			float: left;
+			width: 180px;
+			height: 100px;
+		}
+		.content .articles .feed-image img{
+			width: 100%;
+			height: 100%;
+		}
+		.content .articles .feed-text{
+			float: left;
+			width: 480px;
+			margin-left: 20px;
+		}
+		.content .articles .feed-text h3{
+			font-size: 20px;
+			line-height: 150%;
+			margin-bottom: 10px;
+		}
+		.content .articles .feed-text .summary{
+			font-size: 14px;
+			color:#333;
+			line-height: 150%;
+			margin-bottom: 14px;
+		}
+		.content .articles .feed-text .info {
+			font-size: 12px;
+		}
+
+		.content .articles .feed-text .info a:link , .content .articles .feed-text .info a:visited{
+			text-decoration: none;
+			color:#333;
+			margin-right: 10px;
+		}
+
+		h3 a{
+			text-decoration: none;
+			color:#333;
+		}
+		.content .articles .feed-text .info .labels{
+			float: right;
+		}
+		.waiting-tip{
+			width: 400px;
+			line-height: 20px;
+			background-color: #ccc;
+			margin: 10px auto;
+			border:1px solid #ccc;
+			border-radius: 20px;
+			text-align: center;
+			font-size: 12px;
+			display: none;
+		}
+		.footer{
+			width: 1000px;
+			margin: 0 auto;
+			height: 100px;
+			background-color: skyblue;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+<div class="header"></div>
+
+<div class="content" id="content">
+	<div class="left_part">
+		<div class="articles" id="article">
+
+		</div>
+		<div class="waiting-tip" id="waiting-tip">
+			正在加载更多新闻... 请稍后
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	我是页面的footer
+</div>
+
+
+<script type="text/template" id="feed_template">
+	<div class="feed">
+		<div class="feed-image">
+			<img src="<%=m_image_url%>"  />
+		</div>
+		<div class="feed-text">
+			<h3><a href="<%=m_display_url%>"><%=m_title%></a></h3>
+			<div class="summary"><%=m_summary%></div>
+			<div class="info">
+				<a href="#"><%=m_writer_name%></a>
+				<span class="time"><%=m_create_time%></span>
+				<span class="yuedushu">阅读(<%=hotcount%>)</span>
+				<span class="labels">
+						<%=labels%>
+					</span>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+<script type="text/javascript" src="js/underscore.js"></script>
+<script type="text/javascript" src="js/j.js"></script>
+
+<script type="text/javascript">
+	//点击每个label去的地方
+	var labelurl = "http://baijia.baidu.com/?tn=listarticle&labelid=";
+
+	//得到页面上的内容区域
+	var oArticle = document.getElementById("article");
+	//得到waiting-tip
+	var oWaitingTip = document.getElementById("waiting-tip");
+	//得到模板字符串
+	var templateString = document.getElementById("feed_template").innerHTML;
+	//能够根据模板字符串来创造一个数据绑定函数，这是underscore的语法
+	var compileFunction = _.template(templateString);
+
+	//全局变量
+	var page = 0;
+	//调用函数
+	getJSONandRender(page);
+
+	//得到JSON并且追加DOM函数。
+	function getJSONandRender(page){
+		//调用这个函数的时候，为了用户体验良好，应该显示“loading中，请稍后”
+		oWaitingTip.style.display = "block";
+		//得到数据，Ajax请求数据
+		j.get("json/baijia" + page + ".json",{"timestamp" : Date.parse(new Date())},function(err,data){
+			console.log(page);
+			data = JSON.parse(data);
+			console.log(data.data.total);
+			//读取返回的JSON，后台哥哥给了我们一个属性total，如果是0就表示到头了。
+			if(data.data.total == 0){
+				oWaitingTip.innerHTML = "没有更多了";
+				j.getElementsByClassName("footer")[0].style.display = 'block';
+				return;		//这个return很关键，后面的DOM不会组装了，后面的开锁语句也不执行
+			}
+
+			//得到字典数组，存放在JSON的data属性里面的list属性里面
+			//dictionaryArray里面存放了10个字典
+			var dictionaryArray = data.data.list;
+			//遍历字典数组中的每个项，完成数据绑定
+			_.each(dictionaryArray,function(dictionary){
+				//现在先进行字典修正，先完成字典修正，然后数据绑定
+				dictionary.labels = "";
+				//遍历这个字典的m_label_names，完成字符串的拼接，就是字典修正了
+				_.each(dictionary.m_label_names,function(labelObj){
+					dictionary.labels += "<a href='" + labelurl + labelObj.m_id + "'>" + labelObj.m_name +"</a>";
+				});
+
+				//数据绑定，此时用的字典是我们修正好的字典
+				var DomString = compileFunction(dictionary);
+				oArticle.innerHTML += DomString;
+			});
+
+			//将全局信号量的锁变为true
+			lock = true;
+
+			//拿掉article的waiting类，拿掉这个类名之后，waiting-tip就不显示
+			oWaitingTip.style.display = 'none';
+		});
+	}
+
+	var lock = true;
+	//窗口的卷动事件监听，一定要函数截流，因为这个事儿很“敏感”
+	window.onscroll = function(){
+		console.log('s');
+		//函数截流
+		if(!lock) return;
+		console.log('t');
+		//当前滚动条滚动到什么位置了，这是一个[0,1]区间的小数
+		console.log(j.scrollTop(), j.documentHeight(), j.windowHeight());
+		var rate = j.scrollTop() / (j.documentHeight() - j.windowHeight());
+		if(rate >= 0.7){
+			page++;	//全局信号量++
+			getJSONandRender(page);
+			//函数截流，每次触发的时候要把锁置为false
+			lock = false;
+		}
+	};
+</script>
+</body>
+</html>
