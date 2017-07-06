@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <input type="text" id="mobile">
+    <span id="info"></span>
+    <input id="view" type="button" value="查询手机归属地">
+    <script>
+      var oView = document.getElementById('view');
+      var oMobile = document.getElementById('mobile');
+      var oInfo = document.getElementById('info');
+
+      oView.onclick = function(){
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4) {
+            var obj = JSON.parse(xhr.responseText);
+            oInfo.innerText = obj.providerName;
+          }
+        }
+        xhr.open('GET', '03-php-call-api.php?m='+oMobile.value, true);
+        xhr.send(null);
+      }
+
+    </script>
+
+    <!-- http://localhost/web1704/03-php-call-api.php?m=18518368051 -->
+
+</body>
+</html>
