@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <form action="12-file-multi-upload.php" method="post"
+    enctype="multipart/form-data">
+    <!-- 如果是要做文件上传，则必须设置 enctype="multipart/form-data" -->
+      <label for="file">Filename:</label>
+      <input type="file" name="image[]" multiple id="file" />
+      <br />
+      <input type="submit" name="submit" value="Submit" />
+    </form>
+  </body>
+</html>

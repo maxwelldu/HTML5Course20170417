@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    label {
+      /*display: block;*/
+    }
+    body {
+      /*writing-mode: vertical-lr;*/
+    }
+  </style>
+</head>
+<body>
+  <form method="get" action="09-get.php">
+    <label>
+      姓名：<input type="text" name="name">
+    </label>
+    <label>
+      年龄：<input type="number" name="age">
+    </label>
+    性别：
+    <label> <input type="radio" value="1" name="sex"> 男</label>
+    <label> <input type="radio" value="0" name="sex"> 女</label>
+    爱好：
+    <label>
+       eat: <input type="checkbox" name="hobby[]" value="1">
+     </label>
+     <label>
+       sleep: <input type="checkbox" name="hobby[]" value="2">
+     </label>
+     <label>
+       play: <input type="checkbox" name="hobby[]" value="3">
+    </label>
+    <input type="submit" value="注册">
+  </form>
+</body>
+</html>
