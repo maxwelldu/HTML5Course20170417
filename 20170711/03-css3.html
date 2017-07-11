@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div[title] {
+      width: 100px;
+      height: 100px;
+      /*background: #ccc;*/
+      margin-top: 10px;
+    }
+    /*div[title="zihao"] {
+      background: red;
+    }*/
+    /*[title] {
+      border: 1px solid blue;
+    }*/
+    /*
+   [title = zihao] {//双引号不能省
+      border: 10px solid yellowgreen;
+    }
+    */
+
+    /*[title="zihao"] {
+      border: 10px solid greenyellow;
+    }*/
+    [title^="z"] {
+      /*background: blue;*/
+    }
+    [title$="n"] {
+      /*background: red;*/
+    }
+    [title~="a"] {/*需要内容有空格分隔,并且是一个单独完整匹配*/
+      /*background: skyblue;*/
+    }
+    [title|="b"] {/*必须以b-开头*/
+      /*background: coral;*/
+    }
+    [title*="b"] {
+      background: purple;
+    }
+  </style>
+</head>
+<body>
+  <div title="zihao a" class="zh"></div>
+  <div title="b-changkun" class="ck"></div>
+  <div title="b-zhangxin" class="zx"></div>
+  <div title="a zhangxin" class="zx"></div>
+  <div title="zhangxin-b" class="zx"></div>
+  <div class="a jy a"></div>
+</body>
+</html>

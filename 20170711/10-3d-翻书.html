@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 500px;
+      background: #ccc;
+      margin: 0 auto;
+      perspective: 600px;
+      position: relative;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      transition: all 10s ease 0s;
+      transform-origin: 0% 0px;
+    }
+    div:nth-child(1):hover img:nth-child(1){
+      transform: rotateY(-180deg);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img width="300" height="300" src="images/2.jpg" alt="">
+  </div>
+</body>
+</html>

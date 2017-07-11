@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 300px;
+      margin: 100px;
+      border: 1px solid #ccc;
+      /*眼睛离div的距离*/
+      perspective: 600px;
+    }
+    img {
+      border: 1px solid #ccc;
+      transition: all 1s ease 0s;
+    }
+    img:nth-child(1) {
+      transform: rotateX(45deg);
+    }
+    div:hover img {
+      transform: none;
+    }
+    img:nth-child(2) {
+      transform: rotateY(45deg);
+    }
+    img:nth-child(3) {
+      transform: rotateZ(45deg);
+    }
+    img:nth-child(4) {
+      transform: rotateX(30deg) rotateY(30deg);
+    }
+    img:nth-child(5) {
+      transform: rotateY(30deg) rotateX(30deg);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="images/2.jpg" alt="">
+    <img src="images/3.jpg" alt="">
+    <img src="images/1.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+    <img src="images/2.jpg" alt="">
+  </div>
+</body>
+</html>

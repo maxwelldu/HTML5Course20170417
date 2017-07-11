@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    <div>
+       <p>搜索<input type="text" ></p>
+       <div id="text"></div>
+    </div>
+    </body>
+    <script>
+document.getElementsByTagName("input")[0].oninput = function(event) {
+    var search = event.target.value;
+    if (search.length === 1) {
+         var xhr = new XMLHttpRequest();
+           xhr.onreadystatechange = function(){
+            if (xhr.readyState === 4) {
+              localStorage.respon = xhr.responseText;
+              show(search);
+            }
+           };
+           xhr.open("GET", "h5.json");
+           xhr.send(null);
+    } else{
+       show(search);
+    };
+};
+    function show(search){
+        var city = JSON.parse(localStorage.respon).city
+        document.getElementsByTagName("div")[1].innerHTML = '';
+        for (var i = 0; i < city.length; i++) {
+           if (city[i].match(search)) {
+            document.getElementsByTagName("div")[1].innerHTML
+            += "<p>"+city[i]+"</p>"
+           };
+        };
+    }
+    </script>
+</html>

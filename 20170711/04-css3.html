@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 1000px;
+      margin: 0 auto;
+    }
+    ul {
+      overflow: hidden;
+    }
+    ul li {
+      list-style: none;
+      width: 200px;
+      height: 200px;
+      float: left;
+      margin-left: 10px;
+      margin-top: 10px;
+      background: coral;
+    }
+    ul li:first-child {
+      margin-left: 0px;
+    }
+    ul li:last-child {
+      /*background-color: red;*/
+    }
+    ul li:nth-child(3) {
+      /*background-color: green;*/
+    }
+    ul li:nth-child(4n) {//n的值相当于从0开始，一直加，看你有多少元素
+      /*background: blue;*/
+    }
+    ul li:nth-child(4n+1) {
+      /*border: 1px solid red;*/
+    }
+    ul li:nth-child(2n+1) {
+      background: red;
+    }
+    ul li:nth-child(2n) {
+      background: green;
+    }
+
+    section div{
+      width: 100px;
+      height: 100px;
+      margin: 5px;
+    }
+    section div:nth-child(2) {
+      background: red;
+    }
+
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <section>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+</body>
+</html>

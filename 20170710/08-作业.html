@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		header{
+			width: 100%;
+			height: 50px;
+			background-color: #222222;
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+		nav{
+			width: 1000px;
+			margin: 0 auto;
+			height: 50px;
+		}
+		nav ul li{
+			float: left;
+			width: 120px;
+			height: 50px;
+			position: relative;
+		}
+
+		nav ul li a{
+			display: block;
+			height: 47px;
+			line-height: 50px;
+			padding-left: 60px;
+			transition:all 0.5s ease 0s;
+			/*transparent是CSS3里面的新的颜色值，叫做透明色，IE8开始兼容*/
+			border-bottom: 3px solid transparent;
+		}
+		nav ul li:hover a{
+			background-color: white;
+			color:#d00;
+			border-bottom: 3px solid #d00;
+		}
+		nav ul li:before{
+			content:"";
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			top: 50%;
+			left: 10px;
+			background:url(images/tingicos.png) no-repeat;
+			transition:all  0.5s ease 0s;
+		}
+		nav ul li:nth-child(1):before{width:31px;height:30px;margin-top: -15px;background-position: -80px 0px;}
+		nav ul li:nth-child(1):hover:before{background-position: -80px -113px;}
+		nav ul li:nth-child(2):before{width:30px;height:27px;margin-top: -13px;background-position: -81px -30px;}
+		nav ul li:nth-child(2):hover:before{background-position: -81px  -143px;}
+		nav ul li:nth-child(3):before{width:39px;height:25px;margin-top: -13px;background-position: -76px -57px;}
+		nav ul li:nth-child(3):hover:before{background-position: -76px -170px;}
+		nav ul li:nth-child(4):before{width:31px;height:30px;margin-top: -15px;background-position: -84px -704px;}
+		nav ul li:nth-child(4):hover:before{margin-top: -23px;}
+		nav ul li:nth-child(4):hover a{background-color: #222; color:white; border-bottom: 3px solid transparent; line-height: 25px;}
+
+		nav ul li a{
+			color:white;
+			text-decoration: none;
+			font-size: 14px;
+		}
+		.tip{
+			position: absolute;
+			top: 30px;
+   			left: -10px;
+			width: 138px;
+			height: 51px;
+			background: url(images/tools.png);
+			text-align: center;
+			line-height: 60px;
+			color:white;
+			font-size: 12px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<!--[if lte IE 8]>
+		<script type="text/javascript">
+			window.location = "error.html";
+		</script>
+	<![endif]-->
+
+	<header>
+		<nav>
+			<ul>
+				<li>
+					<a href="">音乐</a>
+				</li>
+				<li><a href="">音乐</a></li>
+				<li><a href="">音乐</a></li>
+				<li class="chaozhao">
+					<a href="">查找</a>
+					<span class="tip">点击查找</span>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		$(".chaozhao").mouseenter(function(){
+			$(this).children(".tip").stop(true).fadeIn();
+		});
+
+		$(".chaozhao").mouseleave(function(){
+			$(this).children(".tip").stop(true).fadeOut();
+		});
+	</script>
+</body>
+</html>

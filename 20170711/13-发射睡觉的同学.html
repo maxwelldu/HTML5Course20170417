@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #ccc;
+      perspective: 500px;
+      margin:100px auto;
+    }
+    img {
+      border: 1px solid coral;
+      transition: all 10s ease 0s;
+      transform: none;
+    }
+    div.fly img {
+      transform: rotateX(720deg) rotateY(720deg) translateX(500px) translateY(100px) translateZ(500px);
+    }
+    /*
+    transition 过渡
+    transform 变形
+    translate 移动
+    */
+  </style>
+</head>
+<body>
+  <div>
+    <img src="images/1.jpg" alt="">
+  </div>
+
+  <input type="button" id="fly">
+  <script>
+    var oFly = document.querySelector('#fly');
+    var oDiv = document.querySelector('div');
+    oFly.addEventListener('click', function(){
+      oDiv.className = 'fly';
+    });
+  </script>
+</body>
+</html>

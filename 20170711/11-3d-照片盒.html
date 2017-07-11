@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 158px;
+      height: 158px;
+      margin: 30px;
+      position: relative;
+      float: left;
+      perspective: 500px;
+    }
+    img {
+      position: absolute;
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+      transition: all 10s ease 0s;
+      width: 158px;
+      height: 158px;
+    }
+    div:nth-child(1) img {
+      /*第二个0%表示top*/
+      /*当希望以上面这条边为轴时，只需要设置第二个值为top或者0%, 第一个是多少无所谓*/
+      transform-origin: 0% 0%;
+    }
+    div:nth-child(1):hover .girl {
+      transform: rotateX(180deg);
+    }
+
+    div:nth-child(2) img {
+      /*下边为轴,第一个值无所谓*/
+      transform-origin: 0% 100%;
+    }
+    div:nth-child(2):hover .girl {
+      transform: rotateX(-180deg);
+    }
+
+    div:nth-child(3) img{
+      /*左边为轴，第二个值无所谓*/
+      transform-origin: 0% 100%;
+    }
+    div:nth-child(3):hover .girl {
+      transform: rotateY(-180deg);
+    }
+
+    div:nth-child(4) img{
+      /*右边为轴，第二个无所谓*/
+      transform-origin: 100% 100%;
+    }
+    div:nth-child(4):hover .girl {
+      transform: rotateY(180deg);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img class="boy" src="images/1.jpg" alt="">
+    <img class="girl" src="images/2.jpg" alt="">
+  </div>
+  <div>
+    <img class="boy" src="images/1.jpg" alt="">
+    <img class="girl" src="images/2.jpg" alt="">
+  </div>
+  <div>
+    <img class="boy" src="images/1.jpg" alt="">
+    <img class="girl" src="images/2.jpg" alt="">
+  </div>
+  <div>
+    <img class="boy" src="images/1.jpg" alt="">
+    <img class="girl" src="images/2.jpg" alt="">
+  </div>
+
+</body>
+</html>

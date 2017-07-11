@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .stage {
+      width: 200px;
+      height: 200px;
+      border: 1px solid #000;
+      margin: 100px;
+      perspective: 600px;
+    }
+    .stage .unit {
+      width: 200px;
+      height: 200px;
+      position: relative;
+    }
+    .stage .unit p {
+      width: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .stage .unit p:nth-child(1){background:red; z-index: 2}
+    .stage .unit p:nth-child(2){background:orange;}
+    .stage .unit p:nth-child(3){background:yellow;}
+    .stage .unit p:nth-child(4){background:green;}
+    .stage .unit p:nth-child(5){background:navy;}
+    .stage .unit p:nth-child(6){background:blue;}
+
+    .stage .unit p:nth-child(1){transform: translateZ(100px)}
+    .stage .unit p:nth-child(2){transform: rotateX(90deg) translateZ(100px);}
+    .stage .unit p:nth-child(3){transform: rotateX(180deg) translateZ(100px);}
+    .stage .unit p:nth-child(4){transform: rotateX(-90deg) translateZ(100px);}
+    .stage .unit p:nth-child(5){transform: rotateY(-90deg) translateZ(100px);}
+    .stage .unit p:nth-child(6){transform: rotateY(90deg) translateZ(100px);;}
+
+    .unit {
+      transform-style: preserve-3d;
+      transition: all 10s ease 0s;
+    }
+    .stage:hover .unit {
+      transform: rotateX(360deg) rotateY(720deg) rotateZ(720deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="unit">
+      <p>1正面</p>
+      <p>2顶面</p>
+      <p>3背面</p>
+      <p>4底面</p>
+      <p>5侧面</p>
+      <p>6侧面</p>
+    </div>
+  </div>
+</body>
+</html>

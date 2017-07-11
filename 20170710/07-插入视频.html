@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <embed src='http://player.youku.com/player.php/sid/XMjg3OTg0NjEwNA==/v.swf' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed> -->
+
+  <video src="video/c.mp4" width="500" height="300" poster="images/img.jpg" id="v">
+  </video>
+  <input type="button" value="play" id="play">
+  <input type="button" value="pause" id="pause">
+  <script>
+    var oV = document.querySelector('#v');
+    var oPlay = document.querySelector('#play');
+    var oPause = document.querySelector('#pause');
+    oV.addEventListener('pause', function(){
+      var oImg = document.createElement('img');
+      oImg.src = 'images/img.jpg';
+      oImg.style.position = 'absolute';
+      oImg.style.left = "480px";
+      oImg.style.top = "10px";
+      document.body.appendChild(oImg);
+    });
+    oPlay.addEventListener('click', function(){
+      oV.play();
+    });
+    oPause.addEventListener('click', function(){
+      oV.pause();
+    });
+  </script>
+
+  <!-- <embed src="mp3/一次就好.mp3"></embed> -->
+  <!-- <object data="mp3/一次就好.mp3"></object> -->
+  <audio class="audio-player">
+    <source src="mp3/一次就好.mp3">
+  </audio>
+  <input type="button" id="play-mp3" value="播放">
+  <input type="button" id="muted" value="静音">
+  <input type="number" id="volume" value="100" min="0" max="100">
+  <script>
+    var oAudioPlayer = document.querySelector('.audio-player');
+    var oPlayMp3 = document.querySelector('#play-mp3');
+    var oMuted = document.querySelector('#muted');
+    var oVolume = document.querySelector('#volume');
+    oPlayMp3.addEventListener('click', function(){
+      if (oPlayMp3.value === '播放') {
+        oPlayMp3.value = '暂停';
+        oAudioPlayer.play();
+      } else {
+        oPlayMp3.value = '播放';
+        oAudioPlayer.pause();
+      }
+    });
+    oMuted.addEventListener('click', function(){
+      oAudioPlayer.muted = !oAudioPlayer.muted;
+      oMuted.value = oAudioPlayer.muted ? '不静音' : '静音';
+    });
+    oVolume.addEventListener('change', function(){
+      oAudioPlayer.volume = this.value/100;
+    });
+  </script>
+
+
+
+</body>
+</html>

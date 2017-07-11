@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .stage {
+      width: 300px;
+      height: 300px;
+      margin: 100px auto;
+      perspective: 1500px;
+    }
+    .unit {
+      width: 300px;
+      height: 300px;
+      position: relative;
+    }
+    .unit img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+    }
+    .unit img.boy {
+      /*让这个人飘到天花板上*/
+      transform: rotateX(90deg) translateZ(150px);
+    }
+    .unit img.girl {
+      transform: translateZ(150px);
+      z-index: 2;
+    }
+    .unit {
+      /*当一个组合体自己要进行旋转的时候，一定要加上这个属性：*/
+      transform-style: preserve-3d;
+      transform: rotateX(0deg);
+      transition: all 10s ease 0s;
+    }
+    .stage:hover .unit {
+      transform: rotateX(-90deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="unit">
+      <img class="boy" src="images/1.jpg" alt="">
+      <img class="girl" src="images/2.jpg" alt="">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: black;
+      color: #ccc;
+      cursor: pointer;
+    }
+    img {
+      width: 200px;
+      height: 200px;
+    }
+    .stage {
+      width: 800px;
+      height: 400px;
+      broder: 1px solid #000;
+      margin: 0 auto;
+      perspective: 900px;
+    }
+    .stage .unit {
+      width: 800px;
+      height: 400px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: all .5s ease 0s;
+    }
+    .stage .unit ul {
+      list-style: none;
+    }
+    .stage .unit ul li {
+      position: absolute;
+      left : 300px;
+      top: 135px;
+    }
+  </style>
+</head>
+<body>
+  <h1>请滚动滚轮</h1>
+  <div class="stage">
+    <div class="unit">
+      <ul>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpg" alt=""></li>
+        <li><img src="images/3.jpg" alt=""></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="scripts/jquery-1.12.3.min.js" charset="utf-8"></script>
+  <script src="scripts/jquery.mousewheel.min.js" charset="utf-8"></script>
+  <script>
+    var $unit = $('.unit');
+
+    //初始化，遍历每个li, 让每个li旋转不一样的度数
+    $('.unit ul li').each(function(i){
+      $(this).css('transform', "rotateY(" + (40*i) + "deg) translateZ(400px)");
+    });
+
+    var nowdegree = 0; //信号量，当前滚动的度数
+    var lock = true; //函数截流
+
+    //滚轮事件
+    $('.stage').mousewheel(function(event,delta){
+      if (!lock) return;
+
+      //阻止默认事件
+      event.preventDefault();
+      //信号量根据鼠标滚轮的方向来改变
+      nowdegree -= delta * 40;
+
+      $unit.css('transform', "rotateY(" + nowdegree + "deg)");
+
+      //过河拆桥
+      lock = false;
+      //函数截流，因为transition的动画是0.5秒，所以500毫秒开锁
+      setTimeout(function(){
+        lock = true;
+      }, 500);
+    });
+
+    //拖拽
+    var startX;
+    var startY;
+    $(document).mousedown(function(event){
+      startX = event.clientX;
+      startY = event.clientY;
+      console.log(startX, startY);
+      $unit.css("transtion", "none");
+
+      $(document).mousemove(function(event){
+        var deltaX = event.clientX - startX;
+        var deltaY = event.clientY - startY;
+        console.log(deltaX, deltaY);
+
+        $unit.css("transform", "rotateY(" + -deltaX/5 + 'deg) rotateX(' + -deltaY/5 + 'deg)');
+      })
+    });
+
+    $(document).mouseup(function(){
+      $(document).off("mousemove");
+      $unit.css("transition", "all 0.5s ease 0s");
+    });
+  </script>
+</body>
+</html>

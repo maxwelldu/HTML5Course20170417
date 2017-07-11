@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+    li {
+      float: left;
+      width: 100px;
+      height: 30px;
+      background-color: #ccc;
+      margin-right: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    li::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background: yellowgreen;
+      top: 100%;
+      transition: all 0.2s ease 0s;
+    }
+    li:nth-child(1)::before {
+      background: red;
+    }
+    li:nth-child(2)::before {
+      background: orange;
+    }
+    li:nth-child(3)::before {
+      background: yellow;
+    }
+    li:nth-child(4)::before {
+      background: green;
+    }
+    li:nth-child(5)::before {
+      background: navy;
+    }
+    li:nth-child(6)::before {
+      background: blue;
+    }
+    li:nth-child(7)::before {
+      background: purple;
+    }
+    li:nth-child(8)::before {
+      background: black;
+    }
+    li:nth-child(9)::before {
+      background: lightblue;
+    }
+    li:nth-child(10)::before {
+      background: lightgreen;
+    }
+    li:hover::before {
+      top: 0;
+    }
+    li.cur::before {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <div class="audio">
+    <audio src="audio/c4.ogg"></audio>
+    <audio src="audio/d4.ogg"></audio>
+    <audio src="audio/e4.ogg"></audio>
+    <audio src="audio/f4.ogg"></audio>
+    <audio src="audio/g4.ogg"></audio>
+    <audio src="audio/a4.ogg"></audio>
+    <audio src="audio/b4.ogg"></audio>
+    <audio src="audio/c5.ogg"></audio>
+    <audio src="audio/d5.ogg"></audio>
+    <audio src="audio/e5.ogg"></audio>
+  </div>
+  <script>
+    var oLis = document.querySelectorAll('li');
+    var oAudios = document.querySelectorAll('audio');
+
+    for (var i = 0; i < oLis.length; i++) {
+      oLis[i].index = i;
+
+      oLis[i].onmouseover = function(){
+        //对应的audio就play
+        oAudios[this.index].load();
+        oAudios[this.index].play();
+      }
+    }
+
+    //键盘1-0
+    var key = {
+      49: 0,
+      50: 1,
+      51: 2,
+      52: 3,
+      53: 4,
+      54: 5,
+      55: 6,
+      56: 7,
+      57: 8,
+      48: 9
+    }
+    console.log(key);
+    document.onkeydown = function(event){
+      console.log(event.keyCode);
+      if (event.keyCode > 47 && event.keyCode < 58) {
+        var index = key[event.keyCode];
+        oAudios[index].load();
+        oAudios[index].play();
+
+        //cur
+        for (var i = 0; i < oLis.length; i++) {
+          oLis[i].className = '';
+        }
+        oLis[index].className = 'cur';
+      }
+    }
+
+    document.onkeyup = function(){
+      for (var i = 0; i < oLis.length; i++) {
+        oLis[i].className = '';
+      }
+    }
+  </script>
+</body>
+</html>

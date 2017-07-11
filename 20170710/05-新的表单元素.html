@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #menu {
+      display: none;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <form action="" id="reg" method="get"></form>
+  用户名：<input type="text" name="username" form="reg"><br />
+  年龄：<input type="number" min="18" max="40" step="1" name="age" id="age" form="reg"><span id="age-error"></span><br />
+  邮箱：<input type="email" form="reg"><br />
+  请输入你的个人主页：<input type="url" form="reg"><br />
+  电话：<input type="tel" pattern="^1[34578]\d{9}$" form="reg"><br />
+  生日：<input type="date" form="reg"><br />
+  你喜欢的幸运色：<input type="color" id="color" form="reg"><br />
+  生日：<input type="date" form="reg"><br />
+  <input type="submit" form="reg" value="注册">
+
+  <div id="menu">
+    <ul>
+      <li>常坤</li>
+      <li>子浩</li>
+      <li>张昊</li>
+    </ul>
+  </div>
+  <script>
+    var oAge = document.querySelector('#age');
+    var oAgeError = document.querySelector('#age-error');
+    oAge.addEventListener('invalid', function(e){
+      e.preventDefault();
+      oAgeError.innerText = '年龄只能在18-40岁之间';
+    });
+
+    var oColor = document.querySelector('#color');
+    oColor.addEventListener('change', function(){
+      // console.log(this.value);
+      document.body.bgColor = this.value;
+    });
+
+    //当右击空白处时
+    var oMenu = document.querySelector('#menu');
+    document.addEventListener('contextmenu', function(e){
+      console.log(1);
+      e.preventDefault();
+      oMenu.style.display = 'block';
+      oMenu.style.left = e.clientX + 'px';
+      oMenu.style.top = e.clientY + 'px';
+    });
+  </script>
+</body>
+</html>
