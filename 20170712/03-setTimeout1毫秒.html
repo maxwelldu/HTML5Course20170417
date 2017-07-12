@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 200px;
+      height: 200px;
+      background: coral;
+      transition: all 10s ease 0s;
+    }
+  </style>
+</head>
+<body>
+  <script src="scripts/jquery-1.12.3.min.js" charset="utf-8"></script>
+  <script>
+    //创建一个div元素，追回到body元素身上
+    $("<div></div>").appendTo("body");
+
+    // 修改样式,让他自己产生一个过渡效果
+    setTimeout(function(){
+      $("div").css("width", 1000);
+    }, 1);
+  </script>
+</body>
+</html>

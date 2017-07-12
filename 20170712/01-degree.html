@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div id="circle"></div>
+  <script>
+
+    var oCircle = document.querySelector('#circle');
+    var yuanxin = {a:300,b:300};//圆心的坐标
+    var r = 100;
+    var degree = 0; //信号量，当前多少度
+    setInterval(function(){
+      degree +=5;
+      if (degree > 360) {
+        degree = 0;
+      }
+      go(degree);
+    }, 50);
+
+    //设置这一个角度的时候，盒子应该在的位置
+    function go(degree) {
+      oCircle.style.left = yuanxin.a + r * Math.sin(degree2Rad(degree)) + 'px';
+      oCircle.style.top = yuanxin.b - r * Math.cos(degree2Rad(degree)) + 'px';
+    }
+
+    function degree2Rad(degree) {
+      return degree * Math.PI / 180;
+    }
+  </script>
+</body>
+</html>

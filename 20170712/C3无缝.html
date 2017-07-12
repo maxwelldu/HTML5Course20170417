@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>无缝</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .watch{
+            width: 500px;
+            height: 300px;
+            margin:0 auto;
+            overflow: hidden;
+            border: 1px solid darkred;
+            position: relative;
+        }
+        @-webkit-keyframes move {
+            from{
+                left: 0;
+            }
+            to{
+                left: -1000px;
+            }
+        }
+        .box{
+            width: 10000px;
+            height: 300px;
+            margin:0 auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation:move 3s infinite alternate;
+        }
+        ul{
+            list-style: none;
+        }
+        li {
+            float: left;
+        }
+        img{
+            height: 300px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div class="watch">
+  <div class="box">
+      <ul>
+          <li> <img src="images/1.jpg" alt=""></li>
+          <li> <img src="images/2.jpg" alt=""></li>
+          <li><img src="images/3.jpg" alt=""></li>
+          <li> <img src="images/4.jpg" alt=""></li>
+          <li> <img src="images/5.jpg" alt=""></li>
+      </ul>
+  </div>
+</div>
+</body>
+</html>

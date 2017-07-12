@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /*定义动画*/
+    @-webkit-keyframes fly{
+      0% {
+        left: 100px;
+      }
+      30% {
+        left: 700px;
+        transform: rotate(180deg);
+      }
+      60% {
+        top: 300px;
+        transform: rotate(360deg);
+      }
+      100% {
+        top: 0px;
+      }
+    }
+    div {
+      width: 60px;
+      height: 60px;
+      background: orange;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      animation: fly 1s linear 0s 3 alternate forwards;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+</body>
+</html>

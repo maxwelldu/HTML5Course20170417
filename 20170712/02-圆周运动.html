@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background: skyblue;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script>
+    var oDivs = document.querySelectorAll('div');
+    circleMove({
+      "obj": oDivs[0],
+      "yuanxin": [200,200],
+      "r": 200,
+      "looptime": 4000
+    });
+    circleMove({
+      "obj": oDivs[1],
+      "yuanxin": [200,200],
+      "r": 200,
+      "looptime": 4000,
+      "degree": 90
+    });
+    circleMove({
+      "obj": oDivs[2],
+      "yuanxin": [200,200],
+      "r": 200,
+      "looptime": 4000,
+      "degree": 180
+    });
+    circleMove({
+      "obj": oDivs[3],
+      "yuanxin": [200,200],
+      "r": 200,
+      "looptime": 4000,
+      "degree": 270
+    });
+
+    //圆周运动
+    function circleMove(argsJSON) {
+      //要运动的对象
+      var o = argsJSON.obj;
+      //圆心
+      var a = argsJSON.yuanxin[0];
+      var b = argsJSON.yuanxin[1];
+      //半径
+      var r = argsJSON.r;
+      //方向
+      var direction = argsJSON.direction || 1;
+      //信号量，当前的度数，0度是12点方向
+      var degree = argsJSON.degree || 0;
+      //动画每帧的间隔时间
+      var interval = 20;
+      //运动一圈的时间
+      var looptime = argsJSON.looptime;
+      //运动一圈的帧数
+      var loopframes = looptime / interval;
+      //而运动一圈是360度，每帧要运动的度数
+      var degreeDelta = 360 / loopframes;
+
+      //核心定时器，每帧调用go函数
+      setInterval(function(){
+        degree += degreeDelta * direction;
+        if (degree > 360) {
+          degree = 0;
+        }
+        go(degree);
+      }, interval);
+
+      //设置这一个角度的时候，盒子应该在的位置
+      function go(degree) {
+        o.style.left = a + r * Math.sin(degree2Rad(degree)) + 'px';
+        o.style.top = b - r * Math.cos(degree2Rad(degree)) + 'px';
+      }
+
+      function degree2Rad(degree) {
+        return degree * Math.PI / 180;
+      }
+    }
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 500px;
+      height: 300px;
+      perspective: 400px;
+      border: 1px solid #000;
+    }
+    img {
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <input type="button" value="biubiu">
+  <div>
+    <img src="images/1.jpg" alt="">
+  </div>
+  <script src="scripts/jquery-1.12.3.min.js" charset="utf-8"></script>
+  <script src="scripts/velocity.min.js" charset="utf-8"></script>
+  <script>
+    $('input').click(function(){
+      // $('img').velocity({"rotateZ":"40deg"}, 1000);
+      // $('img').velocity({"rotateY":"40deg"}, 1000);
+      // $('img').velocity({"rotateX":"45deg"}, 1000);
+      // $('img').velocity({'translateX': '400px'}, 1000);
+      // $('img').velocity({'translateY': '400px'}, 1000);
+      // $('img').velocity({'translateZ': '400px'}, 1000);
+      // $('img').velocity({'translateZ': '-400px'}, 1000);
+      // $('body').velocity({"backgroundColor":"#123"}, 1000);
+      $('img').velocity({
+        "rotateX": '40deg',
+        "rotateY": '40deg',
+        "translateZ": "400px"
+      }, 1000, function(){
+        $(this).fadeOut();
+      });
+    });
+  </script>
+</body>
+</html>

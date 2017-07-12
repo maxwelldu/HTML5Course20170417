@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+
+    }
+    @-webkit-keyframes drop {
+      0% {
+        opacity: 1;
+        transform: rotate(-10deg) translateX(0) translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: rotate(30deg) translateX(300px) translateY(450px);
+      }
+    }
+    .leaf {
+      width: 90px;
+      height: 65px;
+      background: url(images/page.png);
+      background-position: 0 -150px;
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      animation: drop 10s ease 0s infinite;
+    }
+
+    @-webkit-keyframes zhuan {
+      0% {transform: rotate(0deg)}
+      60% {transform: rotate(360deg)}
+      100% {transform: rotate(360deg)}
+    }
+    .triangle {
+      width: 170px;
+      height: 170px;
+      background: url(images/page.png);
+      background-position: 0 -311px;
+      position: absolute;
+      top: 226px;
+      left: 100px;
+      animation: zhuan 2s ease 0s infinite;
+    }
+    .square {
+      width: 96px;
+      height: 96px;
+      background-image: url(images/page.png);
+      background-position: 0 -215px;
+      position: absolute;
+      top: 300px;
+      left: 100px;
+      animation: zhuan 2s ease 0s infinite;
+    }
+
+    .lamp {
+      width: 191px;
+      height: 267px;
+      background: url(images/page.png);
+      background-position: 0 -620px;
+      position: absolute;
+      top: 200px;
+      left: 600px;
+    }
+    @-webkit-keyframes faguang {
+      0% {opacity: 0}
+      80% {opacity: 1}
+      100% {opacity: 1}
+    }
+    .light {
+      width: 341px;
+      height: 256px;
+      background: url(images/page.png);
+      background-position: 0 -887px;
+      position: absolute;
+      top: 200px;
+      left: 600px;
+      margin-left: -75px;
+      margin-top: -80px;
+      opacity: 0;
+      animation: faguang 1s ease 0s infinite alternate;
+    }
+    @-webkit-keyframes chandou {
+      from {transform: none;}
+      to {transform: translate3d(-10px, -10px, 0);}
+    }
+    .rocket {
+      width: 430px;
+      height: 220px;
+      background: url(images/page.png) no-repeat;
+      background-position: -239px 0;
+      position: absolute;
+      top: 150px;
+      left: 900px;
+      animation: chandou 0.3s linear 0s infinite alternate;
+    }
+
+    @-webkit-keyframes yidong {
+      from {transform: translate3d(1000px, -1000px, 0);}
+      to {transform: translate3d(-1000px, 1000px, 0)}
+    }
+    .line-one {
+      width: 156px;
+      height: 153px;
+      background: url(images/page.png) -239px -220px;
+      position: absolute;
+      top: 150px;
+      left: 900px;
+      animation: yidong 2s ease 0s infinite;
+    }
+    .line-two {
+      width: 75px;
+      height: 73px;
+      background: url(images/page.png) -165px -150px;
+      position: absolute;
+      top: 150px;
+      left: 900px;
+      animation: yidong 1.5s ease 0s infinite;
+    }
+    .line-three {
+      width: 156px;
+      height: 153px;
+      background: url(images/page.png) -239px -220px;
+      position: absolute;
+      top: 290px;
+      left: 960px;
+      animation: yidong 2.5s ease 0s infinite;
+    }
+  </style>
+</head>
+<body>
+  <!-- div.leaf+div.triangle+div.square+div.lamp+div.light+div.rocket+div.line-one+div.line-two+div.line-three -->
+  <div class="leaf"></div>
+  <div class="triangle"></div>
+  <div class="square"></div>
+  <div class="lamp"></div>
+  <div class="light"></div>
+  <div class="rocket"></div>
+  <div class="line-one"></div>
+  <div class="line-two"></div>
+  <div class="line-three"></div>
+</body>
+</html>
