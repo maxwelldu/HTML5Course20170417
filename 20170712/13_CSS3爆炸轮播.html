@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			overflow: hidden;
+		}
+		.carousel{
+			width: 560px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			position: relative;
+			perspective:500px;
+		}
+		.carousel ul{
+			list-style: none;
+		}
+		.carousel ul li{
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.carousel ul li.cur{
+			display: block;
+		}
+		.btns a{
+			width: 40px;
+			height: 40px;
+			background-color: orange;
+			position: absolute;
+			top: 50%;
+			margin-top: -20px;
+			z-index: 999;
+		}
+		.btns a.leftBtn{
+			left: 10px;
+		}
+		.btns a.rightBtn{
+			right: 10px;
+		}
+		.maoni div{
+			position: absolute;
+			transition:all 1s ease 0s;
+			transform:none;
+		}
+	</style>
+</head>
+<body>
+	<h3>老师写好右按钮业务了。左按钮业务、定时器业务请课后自己完成。</h3>
+	<div class="carousel">
+		<div class="imagelist">
+			<ul>
+				<li class="cur"><a href=""><img src="images/0.jpg" alt="" /></a></li>
+				<li><a href=""><img src="images/1.jpg" alt="" /></a></li>
+				<li><a href=""><img src="images/2.jpg" alt="" /></a></li>
+				<li><a href=""><img src="images/3.jpg" alt="" /></a></li>
+				<li><a href=""><img src="images/4.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+
+		<div class="btns">
+			<a href="javascript:void(0);" class="leftBtn"></a>
+			<a href="javascript:void(0);" class="rightBtn"></a>
+		</div>
+
+		<div class="maoni">
+
+		</div>
+	</div>
+
+	<script type="text/javascript" src="scripts/jquery-1.12.3.min.js"></script>
+	<script type="text/javascript">
+		//图片li
+	 	var $imageLis = $(".imagelist li");
+	 	//图片列表
+	 	var $images = $(".imagelist li img");
+
+	 	//猫腻
+	 	var $maoni = $(".maoni");
+		//信号量
+		var idx = 0;
+
+		//防流氓
+		var lock = true;
+		$(".rightBtn").click(function(){
+			if(!lock) return;
+			//点击右按钮之后
+			//第一步，要生成猫腻元素生成横向8个，纵向5个。5行8列。
+			//每个碎片宽度70，高度60
+			for(var row = 0 ; row < 5 ; row++){
+				for(var col = 0 ; col < 8 ; col++){
+					$("<div></div>")
+					.css({
+						"left" : col * 70,
+						"top" : row * 60,
+						"width" : 70,
+						"height" : 60,
+						"background-image" : "url(" + $images.eq(idx).attr("src") + ")",
+						"background-position" : -col * 70 + "px " + (-row * 60) + "px"
+					})
+					//.html("我是猫腻" + row + "-" + col)
+					.appendTo($maoni);
+				}
+			}
+
+			//第二步，让生成的猫腻瞬间飞走。
+			//transition需要准备时间，所以就需要给1毫秒之后给父亲加fei类
+			setTimeout(function(){
+				$maoni.find("div").each(function(i){
+					$(this).css({
+						"transform":"rotateX(" + (Math.random() * 360 - 180) + "deg) rotateY(" +  (Math.random() * 360 - 180) + "deg) translateZ(900px)",
+						"opacity" : 0
+					});
+				})
+			},1);
+
+			//第三步骤，换图
+			idx++;
+			if(idx > $imageLis.length - 1){
+				idx = 0;
+			}
+			$imageLis.eq(idx).addClass("cur").siblings().removeClass("cur");
+
+
+			lock = false;
+			//第四步骤，猫腻div没有用了，杀掉他们
+			//没有回调函数，所以我们只能用setTimeout()模拟回调函数
+			setTimeout(function(){
+				$maoni.html("");
+				lock = true;
+			},1000)
+
+		});
+	</script>
+</body>
+</html>
