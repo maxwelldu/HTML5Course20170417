@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>personal-homepage</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/swiper.min.css">
+    <link rel="stylesheet" href="styles/animate.min.css">
+    <link rel="stylesheet" href="styles/styles.css"/>
+</head>
+<body>
+<!--向上箭头-->
+<div class="up-arrow">
+    <img src="images/arrow-up.png" alt="滑动切换">
+</div>
+<!--音乐-->
+<audio src="images/MP3.mp3" autoplay loop></audio>
+<div class="swiper-container" >
+    <div class="shade"></div>
+    <div class = "menu">
+        <div class = "head-portrait"></div>
+        <h3>Home</h3>
+        <ul id = "list">
+            <li class = "first">主页</li>
+            <li>个人简介</li>
+            <li>基本信息</li>
+            <li>教育背景</li>
+            <li>掌握技能</li>
+            <li>求职意向</li>
+            <li>自我评价</li>
+            <li>联系方式</li>
+        </ul>
+    </div>
+    <header>
+        <span id ="menu"></span>
+        <h4>Home</h4>
+        <div id = "lock"></div>
+    </header>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class = "content">
+                    <h1 id = "date" class = "ani"
+                        swiper-animate-effect="fadeInUp"
+                        swiper-animate-duration="2s"
+                        swiper-animate-delay="0.6s"
+                    ></h1>
+                    <h2 id = "week" class = "ani"
+                        swiper-animate-effect="slideInUp"
+                        swiper-animate-duration="2s"
+                        swiper-animate-delay="0.7s"
+                    ></h2>
+                    <h3 id = "time" class = "ani"
+                        swiper-animate-effect="bounceInLeft"
+                        swiper-animate-duration="2s"
+                        swiper-animate-delay="0.7s"
+                    ></h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img class = "stars" src="images/bg-two.png" alt="">
+                <strong id = "ind" class= "ani"
+                        swiper-animate-effect="bounceInDown"
+                        swiper-animate-duration="1s"
+                        swiper-animate-delay="1s"
+                >个</strong>
+                <strong id = "person" class= "ani"
+                        swiper-animate-effect="bounceInLeft"
+                        swiper-animate-duration="1s"
+                        swiper-animate-delay="1s"
+                >人</strong>
+                <strong id = "brief" class= "ani"
+                        swiper-animate-effect="zoomInDown"
+                        swiper-animate-duration="1s"
+                        swiper-animate-delay="1s"
+                >简</strong>
+                <strong id = "calendar" class= "ani"
+                        swiper-animate-effect="zoomInLeft"
+                        swiper-animate-duration="1s"
+                        swiper-animate-delay="1s"
+                >介</strong>
+                <img id = "logo-first"  class= "ani"
+                     swiper-animate-effect="bounceInUp"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                     src="images/logo-1.png" alt="">
+                <img id = "logo-second" class= "ani"
+                     swiper-animate-effect="bounceInRight"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                     src="images/logo-2.png" alt="">
+                <img id = "logo-third" class= "ani"
+                     swiper-animate-effect="zoomInUp"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="1s"
+                     src="images/logo-3.png" alt="">
+                <img id = "logo-four" class= "ani"
+                     swiper-animate-effect="zoomInRight"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="1s"
+                     src="images/logo-4.png" alt="">
+                <h1 id = "individual" class = "ani"
+                    swiper-animate-effect="rollIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="2s"
+                >Individual Resume</h1>
+                <h3 id = "motto" class = "ani"
+                    swiper-animate-effect="zoomIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="2s"
+                > A Different Firework</h3>
+            </div>
+            <div class="swiper-slide">
+                <img class = "stars" src="images/bg-3.png" alt="">
+                <h1 class = "message ani"
+                    swiper-animate-effect="lightSpeedIn"
+                    swiper-animate-duration="0.8s"
+                    swiper-animate-delay="0.6s"
+                >基本信息:<br/>Basic Information
+                </h1>
+                <pre class = "message-content ani"
+                     swiper-animate-effect="bounceInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                ></pre>
+            </div>
+            <div class="swiper-slide">
+                <img  class = "four-bg" src="images/four-bg.jpg" alt="">
+                <div id = "first-stars" ></div>
+                <div id = "second-stars"></div>
+                <div id = "third-stars" class = "ani"></div>
+                <div class = "education-head ani"
+                         swiper-animate-effect="flash"
+                         swiper-animate-duration="0.8s"
+                         swiper-animate-delay="0.6s"
+                    >
+                        <span class="education-text ani"
+                              swiper-animate-effect="zoomInDown"
+                              swiper-animate-duration="1s"
+                              swiper-animate-delay="1s"
+                        >教育背景</span>
+                    </div>
+                <div id = "radiation" class = "ani"
+                     swiper-animate-effect="bounceInUp"
+                     swiper-animate-duration="0.8s"
+                     swiper-animate-delay="1s"
+                ></div>
+                <div id = "first-year" class = "ani"
+                     swiper-animate-effect="bounceInLeft"
+                     swiper-animate-duration="0.8s"
+                     swiper-animate-delay="1.5s"
+                >2008-2011</div>
+                <div  id = "first-education" class = "ani"
+                      swiper-animate-effect="bounceInLeft"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="1.5s"
+                >家里蹲中学</div>
+                <div id = "second-year" class = "ani"
+                     swiper-animate-effect="bounceInRight"
+                     swiper-animate-duration="0.8s"
+                     swiper-animate-delay="1.5s"
+                >2011-2013</div>
+                <div  id = "second-education" class = "ani"
+                      swiper-animate-effect="bounceInRight"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="1.5s"
+                >家里蹲高中</div>
+                <div id = "third-year" class = "ani"
+                     swiper-animate-effect="bounceInLeft"
+                     swiper-animate-duration="0.8s"
+                     swiper-animate-delay="1.5s"
+                >2014-2017</div>
+                <div  id = "third-education" class = "ani"
+                      swiper-animate-effect="bounceInLeft"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="1.5s"
+                >家里蹲大学</div>
+
+            </div>
+            <div class="swiper-slide">
+                <img src="images/five-bg2.jpg" class = "five-bg-two" alt="">
+                <img src="images/five-border.png" class = "five-border ani" alt="">
+                <div id = "solid-div" class = "ani"></div>
+                <h1 id = "skill" class = "ani"
+                    swiper-animate-effect="bounceInLeft"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="0.5s"
+                >掌握技能</h1>
+                <div id = "circle-first" class = "circle"></div>
+                <span id = "circle-text-first" class = "circle-text">html</span>
+                <div id = "progress-first" class = "progress-bar ani"
+                     swiper-animate-effect="slideInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="1.5s"
+                >掌握程度80%</div>
+                <div id = "circle-second" class = "circle"></div>
+                <span id = "circle-text-second" class = "circle-text">css</span>
+                <div id = "progress-second" class = "progress-bar ani"
+                     swiper-animate-effect="slideInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="1.8s"
+                >掌握程度80%</div>
+                <div id = "circle-third" class = "circle"></div>
+                <span id = "circle-text-third" class = "circle-text">js</span>
+                <div id = "progress-third" class = "progress-bar ani"
+                     swiper-animate-effect="slideInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="1.9s"
+                >掌握程度50%</div>
+
+            </div>
+            <div id = "six-swiper" class="swiper-slide">
+                <div id = "semicircle"></div>
+                <div id = "intention" class = "ani"
+                     swiper-animate-effect="zoomInDown"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.1s"
+                >求职意向</div>
+                <img id = "brush-left" src="images/shuazi.png" alt="" class = "ani"
+                     swiper-animate-effect="bounceInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                >
+                <img id = "brush-right" src="images/shuazi2.png" alt="" class = "ani"
+                     swiper-animate-effect="bounceInRight"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                >
+                <img id= "wall" src="images/qiang.png" alt="" class = "ani"
+                     swiper-animate-effect="bounceIn"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.7s"
+                >
+                <span id = "wall-text" class = "ani"
+                      swiper-animate-effect="fadeIn"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="1.3s"
+                >我有两把刷子</span>
+                <h1 id = "me" class = "ani"
+                    swiper-animate-effect="bounceInRight"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="0.6s"
+                    swiper-animate-effect="flash"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="1s"
+                >我</h1>
+                <h5 id = "me-text" class = "ani"
+                    swiper-animate-effect="bounceInLeft"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="0.6s"
+                >期待一个自我展示的舞台</h5>
+                <h3 id = "comma" class = "ani"
+                    swiper-animate-effect=" bounceInDown"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="1.5s"
+                >,</h3>
+            </div>
+            <div id = "seven-swiper" class="swiper-slide">
+                <img  id = "brag" src="images/gif.gif" alt="">
+                <div id = "self-confidence" class = "ani"
+                     swiper-animate-effect="zoomIn"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="0.6s"
+                ></div>
+                <h1 id = "head-self" class = "ani"
+                    swiper-animate-effect="rollIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="0.8s"
+                >自我评价：</h1>
+                <h2 id = "issue-first" class="ani"
+                    swiper-animate-effect="fadeInLeft"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="1s"
+                >此人自负吗？</h2>
+                <h2 id = "answer-first" class = "ani"
+                    swiper-animate-effect="bounceIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="2.5s"
+                >NO</h2>
+                <h2 id = "issue-second" class = "ani"
+                    swiper-animate-effect="fadeInLeft"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="1.1s"
+                >此人友善吗？</h2>
+                <h2 id = "answer-second" class = "ani"
+                    swiper-animate-effect="bounceIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="2.7s"
+                >YES</h2>
+                <h2 id = "issue-third" class = "ani"
+                    swiper-animate-effect="fadeInLeft"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="1.2s"
+                >此人消极吗?</h2>
+                <h2 id = "answer-third" class = "ani"
+                    swiper-animate-effect="bounceIn"
+                    swiper-animate-duration="1s"
+                    swiper-animate-delay="2.9s"
+                >NO</h2>
+                <pre id = "summarize" class = "ani"
+                     swiper-animate-effect="bounceInLeft"
+                     swiper-animate-duration="1s"
+                     swiper-animate-delay="3.2s"
+                >总结:<br/>人性热情开朗 待人友善<br/>为人诚实谦虚 工作勤奋<br/>能够吃苦耐劳 尽职尽责
+
+                </pre>
+            </div>
+            <div id = "eight-swiper" class="swiper-slide">
+                <img id = "portrait" src="images/head-portrait.jpg" alt="">
+                <div id = "head-circle"></div>
+                <div id = "head-circle-inner"></div>
+                <img id = "phone" class = "ani" src="images/phone.png" alt="">
+                <span id = "phone-number" class = "ani"
+                      swiper-animate-effect="bounceInDown"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="0.3s"
+                >13994067592</span>
+                <img id = "qq" src="images/qq.png" alt="">
+                <span id = "qq-number" class = "ani"
+                      swiper-animate-effect="slideInLeft"
+                      swiper-animate-duration="1s"
+                      swiper-animate-delay="0.3s"
+                >129587790</span>
+                <img id = "qr-code" src="images/QP%20code.jpg" alt="">
+
+            </div>
+        </div>
+</div>
+    <script src = "scripts/swiper.min.js"></script>
+    <script src = "scripts/swiper.animate.min.js"></script>
+    <script>
+        function clear() {
+            for (var j = 0; j < oLi.length; j++){
+                oLi[j].className= "";
+            }
+        }
+        var numb = 0;
+        //首页日期
+        var date = document.getElementById("date");
+        var week = document.getElementById("week");
+        var time = document.getElementById("time");
+        setInterval(function () {
+            var myDate = new Date();
+            var dataText = myDate.toLocaleDateString();
+            var timeText = myDate.toLocaleTimeString();
+            var weekText = "";
+            switch(myDate.getDay()){
+                case 1:
+                    weekText = "星期一";
+                    break;
+                case 2:
+                    weekText = "星期二";
+                    break;
+                case 3:
+                    weekText = "星期三";
+                    break;
+                case 4:
+                    weekText = "星期四";
+                    break;
+                case 5:
+                    weekText = "星期五";
+                    break;
+                case 6:
+                    weekText = "星期六";
+                    break;
+                case 0:
+                    weekText = "星期日";
+                    break;
+            }
+            date.innerText = dataText;
+            time.innerText = timeText;
+            week.innerText = weekText;
+        },1000);
+        var shade = document.getElementsByClassName("shade")[0];
+        var oLi = document.getElementById("list").getElementsByTagName("li");
+            for (var i = 0; i < oLi.length; i++) {
+                oLi[i].index = i;
+                oLi[i].onclick = function () {
+                    clear();
+                    this.className = "first";
+                    switch (this.index){
+                        case 0 :
+                            swiper.slideTo(0, 10, true);
+                            break;
+                        case 1 :
+                            swiper.slideTo(1, 10, true);
+                            break;
+                        case 2 :
+                            swiper.slideTo(2, 10, true);
+                            setTimeout(function () {
+                                typing();
+                            },3000);
+                            break;
+                        case 3 :
+                            swiper.slideTo(3, 10, true);
+                            break;
+                        case 4 :
+                            swiper.slideTo(4, 10, true);
+                            break;
+                        case 5 :
+                            swiper.slideTo(5, 10, true);
+                            break;
+                        case 6 :
+                            swiper.slideTo(6, 10, true);
+                            break;
+                        case 7 :
+                            swiper.slideTo(7, 10, true);
+                            break;
+                    }
+                }
+            }
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical',
+            grabCursor: true,
+            onInit: function(swiper) {
+                swiperAnimateCache(swiper);
+                swiperAnimate(swiper);
+            },
+            onSlideChangeEnd: function(swiper) {
+                swiperAnimate(swiper);
+                shade.style.backgroundColor = "rgba(0,0,0,0.3)";
+                clear();
+                var a = swiper.activeIndex;
+                switch (a){
+                    case 0:
+                        oLi[0].className = "first";
+                        break;
+                    case 1:
+                        oLi[1].className = "first";
+                        break;
+                    case 2:
+                        oLi[2].className = "first";
+                        setTimeout(function () {
+                        typing();
+                    },2000);
+                        break;
+                    case 3:
+                        oLi[3].className = "first";
+                        break;
+                    case 4:
+                        oLi[4].className = "first";
+                        break;
+                    case 5:
+                        oLi[5].className = "first";
+                        break;
+                    case 6:
+                        oLi[6].className = "first";
+                        break;
+                    case 7:
+                        oLi[7].className = "first";
+                        break;
+
+                }
+//                oLi[a].className = "first";
+//                if(a = 2) {
+//                    setTimeout(function () {
+//                        typing();
+//                    },4000);
+//                }
+            }
+        });
+        //      菜单的点击效果
+        var menu = document.getElementById("menu");
+        var menuBox = document.querySelector(".menu");
+        var upArrow = document.getElementsByClassName("up-arrow")[0];
+        var number = 0;
+            menu.onmouseover = function () {
+                menuBox.style.left = 0;
+                shade.style.backgroundColor = "rgba(0,0,0,1)";
+            }
+            menu.onmouseout =function () {
+                menuBox.style.left = "-80%";
+                shade.style.backgroundColor = "rgba(0,0,0,0.3)";
+            }
+
+//背景音乐的按钮
+        var musicBtn = document.getElementById("lock");
+        var oAudio = document.querySelector("audio");
+        musicBtn.addEventListener('click', function(){
+            if (oAudio.paused) {
+                oAudio.paused = false;
+                oAudio.play();
+                musicBtn.className = 'btn-music-on';
+                musicBtn.style.animationPlayState = 'running';
+            } else {
+                oAudio.paused = true;
+                oAudio.pause();
+                musicBtn.className = 'btn-music-on btn-music-off';
+                musicBtn.style.animationPlayState = 'paused';
+            }
+        });
+
+        var str = '姓名 ： 程晓磊' +"<br/>"+
+            'name ： Clycheng' +"<br/>"+
+            '性别 ：男'+"<br/>"+
+            'sex ：man'+"<br/>"+
+            "年龄 ：22"+"<br/>"+
+            "age ：twenty-two"+"<br/>"+
+            "手机号 ：13994067592"+"<br/>"+
+            "phone ：13994067592"+"<br/>"+
+            "地址 ：北京市石景山区"+"<br/>"+
+            "address ：beijing"+"<br/>"
+        ;
+        function typing(){
+            var preInner = document.getElementsByTagName("pre")[0];
+//            preInner.removeChild();
+            if ( numb <= str.length) {
+                preInner.innerHTML = str.slice(0, numb++) + '_';
+                var timer = setTimeout('typing()', 200);//递归调用
+            }
+            else{
+                preInner.innerHTML = str;//结束打字,移除 _ 光标
+            }
+        }
+
+    </script>
+</body>
+</html>

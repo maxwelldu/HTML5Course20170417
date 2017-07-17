@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      font-size: 16px;
+    }
+    .box1 {
+      width: 30em; /*600  相当于自身的font-size:20*/
+      height: 10em; /*200*/
+      line-height: 3em;
+      font-size: 20px;
+      background-color: coral;
+    }
+    .box2 {
+      /*
+      60  相当于父级元素（其实是继承过来的font-size大小）的字体大小*3
+      */
+      width: 3em;
+      /*60*/
+      height: 3em;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">box1
+    <div class="box2">box2</div>
+  </div>
+</body>
+</html>

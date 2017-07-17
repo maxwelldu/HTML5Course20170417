@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      float: left;
+      width: 50%;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      background: url(images/b.png) no-repeat;
+      background-size: contain;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <script>
+    /*393         50%
+    --    =     ----
+    207         26.3358779%*/
+    var oDiv = document.querySelectorAll('div');
+    // oDiv[0].style.paddingTop = '26.3358779%';
+    // oDiv[1].style.paddingTop = '26.3358779%';
+    var divWidth = parseFloat(getComputedStyle(oDiv[0])['width']);
+    oDiv[0].style.height = divWidth / (393/207) + 'px';
+    oDiv[1].style.height = divWidth / (393/207) + 'px';
+
+    console.log(divWidth);
+
+    //动态获取图片的宽高信息
+
+  </script>
+</body>
+</html>

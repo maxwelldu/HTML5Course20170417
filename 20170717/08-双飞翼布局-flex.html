@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      display: -webkit-box;
+    }
+    p:first-child {
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+    p:nth-child(2) {
+      -webkit-box-flex: 1;
+      height: 100px;
+      padding: 0 100px 0 200px;
+      background-color: blue;
+      border: 5px solid purple;
+      box-sizing: border-box;
+    }
+    p:last-child {
+      width: 100px;
+      height: 100px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+  </div>
+</body>
+</html>

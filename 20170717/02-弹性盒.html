@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      /*自己的子元素都是弹性盒模型
+      这个div是弹性盒模型的容器*/
+      display: -webkit-box;
+    }
+    p {
+      height: 100px;
+    }
+    p:first-child {
+      /*box-flex属性表示比例*/
+      -webkit-box-flex: 1;
+      background-color: red;
+    }
+    p:nth-child(2) {
+      -webkit-box-flex: 2;
+      background-color: purple;
+    }
+    p:last-child {
+      -webkit-box-flex: 3;
+      background-color: yellowgreen;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p></p>
+    <p></p>
+    <p></p>
+  </div>
+</body>
+</html>
