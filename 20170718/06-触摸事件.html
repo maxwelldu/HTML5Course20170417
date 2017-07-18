@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="title"></div>
+  <script>
+    var oTitle = document.querySelector('#title');
+    //触摸开始
+    document.addEventListener('touchstart', function(event) {
+      event.preventDefault();
+      console.log(event);
+      oTitle.innerText = "你正在用" + event.touches.length + '根手指在触摸页面';
+    }, false);
+
+    //触摸移动
+    document.addEventListener('touchmove', function(event) {
+      //阻止默认事件
+      event.preventDefault();
+      oTitle.innerText = '';
+      var text = '';
+      for (var i = 0; i < event.touches.length; i++) {
+        text += '第' + i + '跟猪手信息<br />';
+        text += event.touches[i].clientX
+                + '<br />'
+                + event.touches[i].clientY
+                + '<br />';
+      }
+      oTitle.innerHTML = text;
+    }, false);
+
+    //触摸结束
+    document.addEventListener('touchend', function(event){
+      event.preventDefault();
+      oTitle.innerText = '结束了touch';
+    }, false);
+  </script>
+</body>
+</html>

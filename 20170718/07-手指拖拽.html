@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <img src="images/4.jpg" alt="">
+
+  <script>
+    //得到图片
+    var oImg = document.querySelector('img');
+
+    //手指距离图片左上角的误差
+    var deltaX, deltaY;
+    //信号量
+    var nowX = 0;//和样式里面的left:0一样
+    var nowY = 0;//和样式里面的top:0一样
+
+    //开始触摸
+    oImg.addEventListener('touchstart', function(event){
+      event.preventDefault();
+      deltaX = event.touches[0].clientX - nowX;
+      deltaY = event.touches[0].clientY - nowY;
+    }, false);
+    //触摸移动时
+    oImg.addEventListener('touchmove', function(event){
+      event.preventDefault();
+      //改变信号号
+      nowX = event.touches[0].clientX - deltaX;
+      nowY = event.touches[0].clientY - deltaY;
+
+      oImg.style.left = nowX + 'px';
+      oImg.style.top = nowY + 'px';
+    }, false);
+
+  </script>
+</body>
+</html>
