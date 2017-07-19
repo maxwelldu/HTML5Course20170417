@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      background-color: #333;
+    }
+    .page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .no0 { background-color: skyblue;}
+    .no1 { background-color: green;}
+    .no2 { background-color: greenyellow;}
+    .no3 { background-color: coral;}
+    .no4 { background-color: navy;}
+    .no5 { background-color: gray;}
+    h1 {position: fixed; top:0px;left:0px;}
+  </style>
+</head>
+<body>
+  <!-- (div.page.no$>h1{$})*6 -->
+  <h1></h1>
+  <div class="page no0"> <h1>0</h1> </div>
+  <div class="page no1"> <h1>1</h1> </div>
+  <div class="page no2"> <h1>2</h1> </div>
+  <div class="page no3"> <h1>3</h1> </div>
+  <div class="page no4"> <h1>4</h1> </div>
+  <div class="page no5"> <h1>5</h1> </div>
+  <script>
+    //得到所有的页
+    var h1 = document.querySelector('h1');
+    var pages = document.querySelectorAll('.page');
+    //得到窗口的高度
+    var windowHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    h1.innerText = windowHeight;
+    //所有的page就位
+    for (var i = 1; i < pages.length; i++) {
+      pages[i].style.webkitTransform = "translateY(" + windowHeight + 'px)';
+    }
+
+    //给document添加事件
+    document.addEventListener('touchstart', touchstartHandler, false);
+    document.addEventListener('touchmove', touchmoveHandler, false);
+    document.addEventListener('touchend', touchendHandler, false);
+
+    //开始滑动的位置
+    var startY, distanceY;
+    //三个相关的page
+    var idx = 0;
+    var next = 1;
+    var prev = NaN;
+
+    function touchstartHandler(event) {
+      startY = event.touches[0].clientY;
+
+      pages[idx].style.webkitTransition = "none";
+      !isNaN(prev) && (pages[prev].style.webkitTransition = "none");
+      !isNaN(next) && (pages[next].style.webkitTransition = "none");
+
+      pages[idx].style.zIndex = 666;
+      !isNaN(prev) && (pages[prev].style.zIndex = 888);
+      !isNaN(next) && (pages[next].style.zIndex = 888);
+    }
+    function touchmoveHandler(event) {
+      //y是手指的位置减去起始值
+      distanceY = event.touches[0].clientY - startY;
+
+      //到头的情况
+      if (idx === 0 && distanceY > 0) {
+        return;
+      } else if(idx === pages.length - 1 && distanceY < 0) {
+        return;
+      }
+
+      if (distanceY < 0) {//往上滑动
+        pages[idx].style.webkitTransform = "scale(" + (1 - Math.abs(distanceY) / windowHeight) + ")";
+        pages[next].style.webkitTransform = "scale(1) translateY(" + (windowHeight + distanceY) + "px)";
+      } else if (distanceY > 0) {
+        pages[idx].style.webkitTransform = "scale(" + (1 - Math.abs(distanceY) / windowHeight) + ")";
+        pages[prev].style.webkitTransform = "scale(1) translateY(" + (-windowHeight + distanceY) + "px)";
+      }
+    }
+
+    function touchendHandler(event) {
+      console.log(distanceY);
+      //到头了
+      if (idx === 0 && distanceY > 0) {//如果是第一张，并且还在往下滑动，则停止
+        return;
+      } else if (idx === pages.length - 1 && distanceY < 0) {
+        //如果是最后一张，并且还在往上滑动，则停止
+        return;
+      }
+
+      //判断滚屏成功
+      if (distanceY < -windowHeight / 4) {
+        prev = idx;
+        idx = next;
+        next++;
+        if (next > pages.length - 1) {
+          idx = pages.length - 1;
+          next = NaN;
+        }
+
+        //加上过渡
+        !isNaN(prev) && (pages[prev].style.webkitTransition = "all 0.4s ease 0s");
+        pages[idx].style.webkitTransition = "all 0.4s ease 0s";
+
+        //最终位置
+        pages[prev].style.webkitTransform = "scale(0)";
+        pages[idx].style.webkitTransform = "translateY(0px)";
+      } else if ( distanceY > windowHeight / 4) {
+        //往下滚动成功
+        //先改变
+        next = idx;
+        idx = prev;
+        prev--;
+        if (prev < 0) {
+          idx = 0;
+          prev = NaN;
+        }
+
+        pages[idx].style.webkitTransition = "all 0.4s ease 0s";
+        !isNaN(next) && (pages[next].style.webkitTransition = "all 0.4s ease 0s");
+
+        //最终位置
+        pages[next].style.webkitTransform = "scale(0)";
+        pages[idx].style.webkitTransform = "translateY(0px)";
+      } else {
+        //滚屏失败
+        pages[idx].style.webkitTransition = "all 0.4s ease 0s";
+        !isNaN(prev) && (pages[prev].style.webkitTransition = "all 0.4s ease 0s");
+        !isNaN(next) && (pages[next].style.webkitTransition = "all 0.4s ease 0s");
+
+        pages[idx].style.webkitTransform = "scale(1)";
+        !isNaN(next) && (pages[next].style.webkitTransform = "translateY(" + windowHeight + "px)");
+        !isNaN(prev) && (pages[prev].style.webkitTransform = "translateY(" + -windowHeight + "px)");
+      }
+
+      inanimateArray[idx]();
+    }
+
+    var inanimateArray = [function(){},function(){},function(){},function(){},function(){},function(){}];
+    inanimateArray[0] = function(){
+      //出场动画
+      console.log('第一页出来了');
+    }
+  </script>
+</body>
+</html>

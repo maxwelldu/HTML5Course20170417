@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    div {
+      width: 50px;
+      height: 50px;
+      background-color: orange;
+      margin-right: 10px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div></div>
+    <div></div>
+    <p></p>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </section>
+  <script src="js/zepto.js" charset="utf-8"></script>
+  <script>
+    // $('div:first-of-type').css('background-color', 'red');
+    // $('div:last-of-type').css('background-color', 'red');
+    // $('div:nth-of-type(3n+2)').css('background-color', 'red');
+    // $('div:nth-of-type(n+4)').css('background-color', 'red');
+    $('div').html('你真会玩儿我');
+    $('div:first-child').parent('section').children().eq(5).siblings().html('冤枉我啊');
+    alert($('div:nth-child(4)').offset().left);
+    $('div').addClass('areyou');
+    $('<span>你真的是被冤枉的吗</span>').appendTo('div');
+    $('div:first-child').clone().appendTo('section');
+  </script>
+</body>
+</html>
