@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      background-color: #E51650;
+    }
+    header .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 40px;
+      background-color: pink;
+      z-index: 999;
+    }
+    header .btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60px;
+      height: 40px;
+      background-color: pink;
+      z-index: 999;
+    }
+    header nav {
+      width: 100%;
+      height: 40px;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 0 60px 0 100px;
+    }
+    header nav .unit {
+      width: 100%;
+      height: 40px;
+    }
+    header nav ul {
+      list-style: none;
+      width: 1000px;
+      height: 40px;
+      padding-left: 10px;
+    }
+    header ul li {
+      float: left;
+      width: 60px;
+      line-height: 40px;
+    }
+    header ul li a {
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- header>(div.logo)+(nav>div.unit>ul>li*13>a[href=#]{购物$$$})+div.btn -->
+  <header>
+    <div class="logo"></div>
+    <nav id="nav">
+      <div class="unit" id="unit">
+        <ul>
+          <li><a href="#">购物001</a></li>
+          <li><a href="#">购物002</a></li>
+          <li><a href="#">购物003</a></li>
+          <li><a href="#">购物004</a></li>
+          <li><a href="#">购物005</a></li>
+          <li><a href="#">购物006</a></li>
+          <li><a href="#">购物007</a></li>
+          <li><a href="#">购物008</a></li>
+          <li><a href="#">购物009</a></li>
+          <li><a href="#">购物010</a></li>
+          <li><a href="#">购物011</a></li>
+          <li><a href="#">购物012</a></li>
+          <li><a href="#">购物013</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="btn"></div>
+  </header>
+  <script>
+    var unit = document.querySelector('#unit');
+    var ul = document.querySelector('ul');
+    //得到导航条
+    var nav = document.querySelector('#nav');
+    //总宽度是多少
+    var alllength = unit.querySelectorAll('li').length * 60;
+    //屏幕宽度
+    var windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+    //左边最小的translateX的值
+    var min = alllength - (windowWidth - 100 - 60);
+
+    //起点的位置
+    var deltaX;
+    //信号量
+    var nowx = 0;
+    //移动的数组
+    var movearr = [0,0];
+
+    unit.addEventListener('touchstart', function(event){
+      event.preventDefault();
+      movearr = [0, 0];
+      //去掉过渡
+      ul.style.transition = "none";
+      //记录误差值
+      deltaX = event.touches[0].clientX - nowx;
+    }, false);
+
+    unit.addEventListener('touchmove', function(event){
+      event.preventDefault();
+      nowx = event.touches[0].clientX - deltaX;
+
+      //相对移动
+      ul.style.transform = "translateX(" + nowx + "px)";
+      ul.style.webkitTransform = "translateX(" + nowx + "px)";
+      movearr.push(event.touches[0].clientX);
+    });
+
+    unit.addEventListener('touchend', function(event) {
+      event.preventDefault();
+      var s = movearr[movearr.length-1] - movearr[movearr.length-2];
+      var targetx = nowx + s * 3;
+      if (targetx < -min) {
+        targetx = -min;
+        ul.style.transition = "all 0.6s cubic-bezier(0.15, 0.85, 0.15, 2.08) 0s";
+      } else if (targetx > 0) {
+        targetx = 0;
+        ul.style.transition = "all 0.6s cubic-bezier(0.15, 0.85, 0.15, 2.08) 0s";
+      } else {
+        ul.style.transition = "all 0.4s cubic-bezier(0.18, 0.68, 0.65, 0.88) 0s";
+      }
+      ul.style.transform = "translateX(" + targetx + "px)";
+      ul.style.webkitTransform = "translateX(" + targetx + "px)";
+      nowx = targetx;
+    });
+
+
+  </script>
+</body>
+</html>

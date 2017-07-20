@@ -1,0 +1,45 @@
+header {
+  margin: 0 auto;
+  width: 1200px;
+  height: 80px;
+  background-color: #ccc;
+}
+header .logo {
+  float: left;
+  margin: 10px;
+  width: 120px;
+  height: 60px;
+  background-color: orange;
+}
+header nav {
+  float: left;
+  margin-top: 10px;
+  width: 840px;
+  height: 60px;
+  background-color: pink;
+}
+header nav ul li {
+  float: left;
+  margin-right: 20px;
+  line-height: 60px;
+}
+header .tools {
+  float: left;
+  margin: 10px;
+  width: 200px;
+  height: 60px;
+  background-color: yellowgreen;
+}
+.main {
+  margin: 10px auto;
+  width: 1200px;
+  height: 400px;
+  background-color: #ccc;
+}
+.main .col {
+  float: left;
+  margin-right: 10px;
+  width: 190px;
+  height: 180px;
+  background-color: gold;
+}

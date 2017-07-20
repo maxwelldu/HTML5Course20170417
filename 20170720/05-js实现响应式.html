@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/index1200.css">
+  <link rel="stylesheet" href="" id="rwdlink">
+  <script>
+    var rwdlink = document.querySelector("#rwdlink");
+    
+    setCSS();
+    window.onresize = setCSS;
+    function setCSS() {
+      var windowWidth = document.documentElement.clientWidth || document.body.clientWidth;
+      if (windowWidth >= 1200) {
+        rwdlink.href = "";
+      } else if (windowWidth >= 980) {
+        rwdlink.href = "css/index980.css";
+      } else if (windowWidth >= 640) {
+        rwdlink.href = "css/index640.css";
+      } else {
+        rwdlink.href = "css/index320.css";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- header>(div.logo)+(nav>ul>li*10>a[href=#]{网站栏目})+div.tools+div.btns -->
+  <header>
+    <div class="logo"></div>
+    <nav>
+      <ul>
+        <li><a href="#">网站栏目</a></li>
+        <li><a href="#">网站栏目</a></li>
+        <li><a href="#">网站栏目</a></li>
+        <li><a href="#">网站栏目</a></li>
+        <li><a href="#">网站栏目</a></li>
+        <li><a href="#">网站栏目</a></li>
+        <li class="s"><a href="#">网站栏目</a></li>
+        <li class="s"><a href="#">网站栏目</a></li>
+        <li class="s"><a href="#">网站栏目</a></li>
+        <li class="s"><a href="#">网站栏目</a></li>
+      </ul>
+    </nav>
+    <div class="tools"></div>
+    <div class="btns"></div>
+  </header>
+
+  <!-- section.main>div.col{$}*6 -->
+  <section class="main">
+    <div class="col">1</div>
+    <div class="col">2</div>
+    <div class="col">3</div>
+    <div class="col">4</div>
+    <div class="col">5</div>
+    <div class="col hide-980">6</div>
+  </section>
+
+  <script src="js/jquery-2.2.4.min.js" charset="utf-8"></script>
+  <script>
+    $(".btns").click(function(){
+      $('nav').slideToggle();
+    });
+  </script>
+</body>
+</html>

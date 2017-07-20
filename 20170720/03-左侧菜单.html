@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      background-color: white;
+    }
+    header {
+      position: fixed;
+      width: 100%;
+      height: 40px;
+      box-shadow: 1px 1px 1px black;
+      background-color: skyblue;
+    }
+    header .btn{
+      position: relative;
+      float: left;
+      width: 10%;
+      height: 40px;
+      background-color: greenyellow;
+    }
+    header .btn::before {
+      content: ">";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      font-size: 20px;
+      text-align: center;
+      font-weight: bold;
+      transition: all 1s ease 0s;
+    }
+    header .btn.isopen::before {
+      transform: rotate(180deg);
+    }
+    header .title {
+      text-align: center;
+    }
+    header .title h1 {
+      font-size: 22px;
+      line-height: 40px;
+    }
+    .content {
+      width: 100%;
+    }
+
+    /*左侧菜单的样式*/
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #333;
+    }
+    nav .title {
+      font-size: 16px;
+      color: gold;
+    }
+    nav ul {
+      list-style: none;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      line-height: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- nav>div.title{新浪网}+ul>li*8>a{网站栏目} -->
+  <nav>
+    <div class="title">新浪网</div>
+    <ul>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+      <li><a href="">网站栏目</a></li>
+    </ul>
+  </nav>
+
+  <!-- div.container>(header>div.btn#btn+(div.title>h1{新浪网})+div.user)+(section.content>p*5>img[src=images/$.jpg]) -->
+  <div class="container">
+    <header>
+      <div class="btn" id="btn"></div>
+      <div class="title">
+        <h1>新浪网</h1>
+      </div>
+      <div class="user"></div>
+    </header>
+    <section class="content">
+      <p><img src="images/1.jpg" alt=""></p>
+      <p><img src="images/2.jpg" alt=""></p>
+      <p><img src="images/3.jpg" alt=""></p>
+      <p><img src="images/4.jpg" alt=""></p>
+      <p><img src="images/5.jpg" alt=""></p>
+    </section>
+  </div>
+
+  <script src="js/zeptoWithFx.js" charset="utf-8"></script>
+  <script>
+    var navisopen = false;
+    $('.btn').click(function(event){
+      event.stopPropagation();
+      if (navisopen) {
+        $(this).removeClass('isopen');
+        $(".container").animate({"left": "0%"}, 300);
+      } else {
+        $(this).addClass('isopen');
+        $(".container").animate({"left": "30%"}, 300);
+      }
+      navisopen = !navisopen;
+    });
+
+    $('.container').click(function(event){
+      //事件委托，事件代理
+      // if (event.target.id === 'btn' || !navisopen) {
+        // return;
+      // }
+      $('.btn').removeClass('isopen');
+      $(this).animate({"left": "0%"}, 300);
+      navisopen = false;
+    });
+  </script>
+</body>
+</html>
