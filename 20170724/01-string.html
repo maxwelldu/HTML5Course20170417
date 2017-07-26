@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var json = [
+      {'title':'a'},
+      {'title':'b'},
+      {'title':'c'}
+    ];
+    var template = "<div>${title}</div>";
+    var r = getResultByTemplate(json, template);
+    console.log(r);
+
+    function getResultByTemplate(json, template) {
+      var result = '';
+      for (var i = 0; i < json.length; i++) {
+        result += format(template, json[i]);
+      }
+      return result;
+    }
+    function format(template, data) {
+      var keys = Object.keys(data),
+                  dataList;
+      dataList = keys.map(function(key) {
+        return data[key];
+      });
+      return new Function(keys.join(','), 'return `' + template + '`;').apply(null, dataList);
+    }
+  </script>
+</body>
+</html>

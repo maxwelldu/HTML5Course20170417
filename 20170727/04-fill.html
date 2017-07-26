@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [1,2,3];
+    console.log(arr.fill('小磊'));
+
+    console.log(diyFill(arr, '晓磊'));
+    function diyFill(arr, value) {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i] = value;
+      }
+      return arr;
+    }
+
+    Array.prototype.diyFill = function(value) {
+      // console.log(this);
+      for (var i = 0; i < this.length; i++) {
+        this[i] = (typeof value) === 'function' ? value() : value;
+      }
+      return this;
+    }
+    console.log(arr.diyFill('靖宇'));
+    console.log(arr.diyFill(function(){
+      return '子浩';
+    }))
+
+  </script>
+</body>
+</html>

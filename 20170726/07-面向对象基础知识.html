@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  var DT = function() {
+
+  }
+  var age = 10;
+  function showName() {
+
+  }
+  window.DT = function() {
+
+  }
+
+  function(){
+    var DT = function () {
+
+    }
+    window.DT = DT;
+  }
+
+
+  //封装分两层，
+  //一个是把属性和方法封装到一个对象上面
+  //另外一层，把对象封装在IIFE里面，只公开出来需要使用的对象
+  (function(){
+    var snake = function(){}
+    var map = function(){}
+    var food = function(){}
+    var game = function(){}
+    window.game = game;
+  })();
+  new game(0);
+
+
+</body>
+</html>

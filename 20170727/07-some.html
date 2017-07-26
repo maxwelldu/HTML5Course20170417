@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1,3,5,7,9,10, 12, 15];
+		console.log(arr.some(function(v){
+			//
+			return v % 17 === 0;
+		}));
+
+		console.log(some(arr, function(v){
+			return v === 99;
+		}));
+		function some(arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				if (fn(arr[i])) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+
+		//当每一个元素都符合条件的时候就返回true
+		var arr = [5,10,15];
+		console.log(every(arr, function(v){
+			return v % 5 === 0;
+		}));
+		function every(arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				if (!fn(arr[i])) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		//过滤出符合条件的元素
+		var arr = [1,5,10];
+		console.log(arr.filter(function(v){
+			return v % 5 === 0;
+		}));
+		console.log(filter([3,6,9,10], function(v){
+			return v % 3 === 0;
+		}));
+		function filter(arr, fn){
+			var result = [];
+			for (var i = 0; i < arr.length; i++) {
+				if (fn(arr[i])) {
+					result.push(arr[i]);
+				}
+			}
+			return result;
+		}
+
+		//累加
+		var arr = [1,2,3];
+		console.log(arr.reduce(function(sum, currentvalue) {
+			return sum + currentvalue;
+		}));
+		console.log(arr);
+
+		console.log(reduce([1,2,3,4], function(s,v){
+			return s + v * 2;
+		}));
+		function reduce(arr, fn) {
+			var result = arr[0];
+			for (var i = 1; i < arr.length; i++) {
+				result = fn(result, arr[i]);
+			}
+			return result;
+		}
+
+		//从右累加
+		console.log(reduceRight([1,3,5], function(s,v){
+			return s + v;
+		}));
+		function reduceRight(arr, fn) {
+			var result = arr[arr.length-1];
+			for (var i = arr.length - 2; i > -1; i--) {
+				console.log(arr[i], result);
+				result = fn(result, arr[i]);
+			}
+			return result;
+		}
+
+	</script>
+</body>
+</html>

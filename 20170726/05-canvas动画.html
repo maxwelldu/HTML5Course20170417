@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid gray;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="800" height="800"></canvas>
+  <script>
+    //得到canvas
+    var canvas = document.querySelector('canvas');
+    //得到context
+    var ctx = canvas.getContext('2d');
+    //创建一个图片对象
+    var image = new Image();
+    //设置图片的src
+    image.src = 'images/girl.png';
+    //设置图片的onload事件 = function(){
+    image.onload = function(){
+      //图片加载完成之后就可以实现动画
+      var step = 0;
+      //女孩当前的步子
+      var left = 0;
+      //信号量x轴的值，left
+      setInterval(function(){
+        //清除画布
+        ctx.clearRect(0, 0, 800, 800);
+        step++;
+        //步子+1
+        if (step > 7) {
+          step = 0;
+        }
+        left += 3;
+        ctx.drawImage(image, 79*step, 108*2, 79, 108, left, 100, 79, 108);
+        // 绘制图片到指定的位置
+      }, 50);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+  <canvas width="800" height="800">ddddddddd  <a href="jdskfj">aaa</a></canvas>
+</body>
+<script>
+  (function(){
+    var DrawTable = function(canvas,listInfo){
+      this.canvas = canvas;
+      this.ctx = canvas.getContext('2d');
+      //线宽为2
+      this.lineWidth = 2;
+      //边线留白
+      this.fornumber = 40;
+      //可用的宽度
+      this.width = this.canvas.width - this.lineWidth - this.fornumber;
+      //可用的高度
+      this.height = this.canvas.height - this.lineWidth - this.fornumber;
+      //行数
+      this.row = listInfo.row;
+      //点数高度的数组
+      this.itemHeights = listInfo.data;
+      //点的个数
+      this.itemnumber = listInfo.data.length;
+      //两点之间的间距
+      this.itemSpace = this.width / this.itemnumber;
+      //单位刻度的高
+      this.lineHeight = this.height / this.row;
+      
+      this.addTable();
+    }
+    DrawTable.prototype.addLine = function(begin, end){
+      this.ctx.beginPath();
+      this.ctx.lineWidth = this.lineWidth;
+      this.ctx.moveTo(begin.x, begin.y);
+      this.ctx.lineTo(end.x, end.y);
+      this.ctx.stroke();
+    }
+    DrawTable.prototype.addTable = function(){
+      this.addLine({x:this.fornumber,y:this.fornumber},{x:this.fornumber,y:this.height});
+      this.addLine({x:this.fornumber,y:this.height},{x:this.width,y:this.height});
+      for (var i = 0; i < (this.width)/this.itemSpace; i++) {
+        this.ctx.fillText(i,35+i*this.itemSpace,this.height+10);
+      }
+      for (var i = 1; i < this.height/this.lineHeight; i++) {
+        this.ctx.fillText(i*this.lineHeight,0,this.height-i*this.lineHeight);
+      }
+      for (var i = 0; i < this.itemHeights.length-1; i++) {
+        this.addLine({x:i*this.itemSpace+40,y:this.height-this.itemHeights[i]},{x:(i+1)*this.itemSpace+40,y:this.height-this.itemHeights[i+1]});
+      }
+    }
+    window.DrawTable = DrawTable;
+  })();
+  var canvas = document.querySelector('canvas');
+  var data = {
+  row: 10,
+  data: [200, 450, 600, 300, 250, 100, 125, 321, 581]
+  }
+  var dt = new DrawTable(canvas, data);
+</script>
+</html>

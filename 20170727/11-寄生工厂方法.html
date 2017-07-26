@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function People() {}
+    function Student() {}
+    function make(superClass) {
+      //创建一个寄生类
+      var F = function(){}
+      //原型继承
+      F.prototype = superClass;
+      //实例化寄生类
+      return new F();
+    }
+    console.log(make(People));
+    console.log(make(Student));
+  </script>
+</body>
+</html>

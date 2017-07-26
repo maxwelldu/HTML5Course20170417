@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container"></div>
+  <script>
+    "use strict";
+    var obj = {
+      title: "ES6",
+      href: 'http://www.baidu.com'
+    }
+    var str = `<li>
+      <a href="${obj.href}">${obj.title} 'abc'</a>
+    </li>`;
+    document.querySelector('.container').innerHTML = str;
+
+    var arr = [1,2,3,4,5,6,7];
+    /*
+    for (var i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+    console.log(i);
+    */
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+    // console.log(i);
+
+    //常量, 并且赋初值，并且不能够修改, 只能声明一次
+    const CHANGKUN  = '常坤';
+    console.log(CHANGKUN);
+    // CHANGKUN = '坤';
+
+    /*
+    const XIAOLEI;
+    XIAOLEI = '晓磊';
+    console.log(XIAOLEI);
+    */
+
+    // const AGE = 10;
+    // const AGE = 20;
+
+    [1,2,3].forEach(function(v){
+      console.log(this);
+      console.log(v);
+    });
+    [1,2,3].forEach( v => console.log(v));
+    [1,2,3].forEach( (v,k) => console.log(v,k));
+    [1,2,3].forEach( (v,k) => {
+      console.log(v);
+      console.log(k);
+    });
+
+    var fn = x => x * x;
+    console.log(fn(3));
+
+    var fn = () => 3;
+    // function fn() {
+      // return 3;
+    // }
+    console.log(fn());
+
+    var obj = {
+      birth: 1990,
+      getAge: function() {
+        var b = this.birth;//1990
+        // this//obj
+        /*
+        var self = this;
+        var fn = function() {
+          // this window
+          console.log(this);
+          return new Date().getFullYear() - self.birth;
+        }
+        */
+        var fn = () => new Date().getFullYear() - this.birth;
+        return fn();
+      }
+    }
+    console.log(obj.getAge());
+
+    var {a,b} = {a:"晓磊", b:'海霞'};
+    console.log(a, b);
+    function fun() {
+      return {"name":"常坤"};
+    }
+    var {name} = fun();
+    var {name} = {"name": "常坤"};
+    console.log(name);
+
+    var [name, age] = ["海霞", 18];
+    console.log(name, age);
+
+    var [m,a,x] = "max";
+    var [m,a,x] = ['m','a','x'];
+    console.log(m,a,x);
+
+    //默认参数
+    function f(name) {
+      name = name || "晓磊";
+      console.log(name);
+    }
+    f();
+    f("高超");
+
+    function f(name = '晓磊') {
+      console.log(name);
+    }
+    f();
+    f('子浩');
+
+    //剩余参数
+    function f(a, ...rest) {
+      console.log(a);
+      console.log(rest);
+    }
+    f(1);
+    f(1,2,3);
+    f(3,2,1);
+
+    //扩展参数
+    var people=['zf','John','Sherlock'];
+
+    function sayHello(people1,people2,people3){
+        console.log(`Hello ${people1},${people2},${people3}`);
+    }
+    sayHello(people[0], people[1], people[2]);
+    sayHello.apply(null, people);
+    sayHello(...people);
+
+  </script>
+</body>
+</html>

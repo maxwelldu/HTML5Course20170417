@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var date = new Date();
+    console.log(date);
+    console.log(date.toJSON());
+
+
+    var obj = {
+      name: "高超"
+    }
+    // f.call(obj);
+    // f.apply(obj);
+
+    var fun = f.bind(obj);
+    // console.log(fun);
+    fun();
+
+    function f() {
+      console.log(this);
+      console.log(arguments);
+    }
+    function bind(fn, obj) {
+      // console.log([1,2,3].slice(2));
+      // var args = arguments.slice(2);
+      var args = [].slice.call(arguments, 2);
+      console.log(args);
+      return function() {
+        var params = args.concat([].slice.call(arguments));
+        fn.apply(obj, params);
+      }
+    }
+    
+    var func = bind(f, obj, 5, 4, 3, 2, 1);
+    func('晓磊', 18);
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//整个脚本开启严格模式
+		// "use strict";
+
+		// zhangmei = '张美';
+		// console.log(zhangmei);
+
+		function fun() {
+			"use strict";
+			// zhangmei = '张美';
+			// console.log(zhangmei);
+			console.log(this);
+		}
+		fun();
+
+		// function f(name, name) {
+		// 	console.log(name);
+		// }
+		// f('张美', '晓磊');
+
+		var obj = {
+			name: "张美",
+			name: "晓磊"
+		}
+		console.log(obj);
+
+		// var public = 'green';
+		// console.log(public);
+
+		function demo() {
+			console.log(this);
+			console.log(arguments);
+			// var arguments = 1;
+			// console.log(arguments);
+		}
+		// demo();
+
+		// var eval = '123';
+		// console.log(eval);
+
+		var age = 18;
+		// delete age;
+		console.log(age);
+
+		function f() { }
+		// delete f;
+		console.log(f);
+
+		var obj = {
+			age : 18
+		};
+		delete obj.age;
+		console.log(obj);
+
+		var diyEval = eval;
+		diyEval("var age = 17");
+		console.log(age);
+
+		function addNumber(num) {
+			if (num <= 1) {
+				return num;
+			}
+			// return num + addNum(num - 1);
+			// console.log(arguments.callee);
+			return num + arguments.callee(num - 1);
+		}
+		console.log(addNumber(3));
+
+		var a = 4;
+		var b = 5;
+		var c = 7;
+		var obj = {c:6, d:{c:8}};
+		var o = {c:7};
+		with(obj) {
+			// with(o) {
+				a = a + b + c;//c 相当于 obj.c
+			// }
+		}
+		console.log(a, b, obj);
+
+	</script>
+</body>
+</html>

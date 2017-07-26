@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+    	//1.
+    	function fun(fn) {
+    		fn(1,2,3);
+    	}
+    	fun(function(first, second, third){
+    		//1,2,3
+    		console.log(first, second, third);
+    	});
+
+    	//2.
+    	Array.prototype.fun = function(fn) {
+    		fn(1,2,3);
+    	}
+    	[].fun(function(first, second, third){
+    		//1,2,3
+    		console.log(first, second, third);
+    	});
+    	//3.
+    	function f(){
+    		console.log(this);
+    	}
+    	f(); //window
+
+    	//4.
+    	Array.prototype.fun = function(fn) {
+    		console.log(this); //1,2
+    	}
+    	[1,2].fun(function(){});
+    	//5.
+    	f.call([3,4]); //3,4  call强制的把函数中的this指向第一个参数
+    	
+
+
+
+
+
+
+
+
+    	var arr = [1,2,3];
+    	arr.forEach(function(a,b,c){
+    		console.log(a,b,c);
+    	});
+
+
+    	Array.prototype.diyForEach = function(fn){
+    		//this = 调用的数组arr
+    		for (var i = 0; i < this.length; i++) {
+    			// fn(this[i], i, this);
+    			// 如果想让fn执行时作用域是this, 只需要更改作用域就可以了
+    			fn.call(this, this[i], i, this);
+    		}
+    	}
+    	arr.diyForEach(function(value, index, array) {
+    		console.log(this);
+    		console.log(value, index, array);
+    	});
+
+
+    </script>
+</body>
+</html>
