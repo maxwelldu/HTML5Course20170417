@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    canvas {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="600" height="600">您的浏览器不支持canvas, 为了更好的体验，请下载chrome, safari<a href='http://www.baidu.com'>chrom</a></canvas>
+  <script>
+    //得到画布
+    var canvas = document.querySelector('canvas');
+    //得到上下文
+    var ctx = canvas.getContext('2d');
+    //接下来画东西，都是ctx的方法、属性
+    ctx.fillStyle = "red"; //填充颜色
+    ctx.fillRect(100, 100, 30, 70);//画一个矩形
+
+    ctx.strokeStyle = "blue"; //更改笔触的颜色
+    ctx.lineWidth = "4"; //更改笔触的宽度
+    ctx.strokeRect(100, 200, 200, 200);
+
+    ctx.beginPath();//开始绘制路径
+    ctx.moveTo(200, 200);//把绘制点移动到200,200的位置
+    ctx.lineTo(500, 100);//绘制一条线，这条线从200,200 - 500,100
+    ctx.lineTo(300, 300); //绘制一条线，这条线是50, 100 - 300, 300
+    ctx.closePath(); //闭合路径，系统会帮我们多绘制一条线300,300 - 200,200
+
+    ctx.strokeStyle = "green";
+    ctx.lineWidth = "40";
+    ctx.stroke();//把刚刚绘制的所有线添加笔触，显示出来
+    ctx.fillStyle = "orange";
+    ctx.fill(); //把刚刚绘制的所有线，添加填充色
+
+    ctx.beginPath();
+    ctx.arc(60, 60, 60, 0, 6.3, false);
+    ctx.stroke();
+    ctx.closePath();
+
+    //写文本
+    ctx.font = "40px 微软雅黑";
+    ctx.fillText("今天晚上的作业用面向对象的方式写折线图", 0, 500);
+
+    //画图片
+    var image = new Image();//创建一个图片对象
+    image.src = "images/4.jpg";
+    //当图片加载完成时
+    image.onload = function(){
+      ctx.drawImage(image, 0, 0, 400, 400, 300, 300, 150, 150);
+    }
+
+
+
+  </script>
+</body>
+</html>

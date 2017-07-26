@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+    canvas {
+      background: gray;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="800" height="800">ddddddddd  <a href="#">aaa</a></canvas>
+</body>
+<script>
+
+  //找到数组中的最大值，用于最大高度，使用最大值+一个固定值
+  function arrmax(sarr){
+    var max = sarr[0];
+    for (var i = 1; i < sarr.length; i++) {
+      if (max < sarr[i]) {
+        max = sarr[i];
+      }
+    }
+    return max;
+  }
+
+  //得到canvas
+  var canvas = document.querySelector('canvas');
+  //数据
+  var pointYArray = [20,60,40,55,66,99,100,1,200, 100, 50];
+  //动态设置宽度
+  canvas.setAttribute('width', 300 + parseInt(pointYArray.length*100));
+  //动态设置高度
+  canvas.setAttribute('height', 600 + parseInt(arrmax(pointYArray)));
+
+  //获取上下文
+  var ctx = canvas.getContext('2d');
+
+  //画一条竖线
+  ctx.beginPath();
+  ctx.moveTo(120, 300);
+  ctx.lineTo(120, 0);
+  ctx.strokeStyle = "orange";
+  ctx.lineWidth = "10";
+  ctx.stroke();
+
+  //画纵向的刻度
+  for (var i = 0; i < pointYArray.length+1; i++) {
+    // fillText(文字，x坐标，y坐标)
+    ctx.fillText(i*50,90,310-i*50);
+  }
+
+  //画x轴横线
+  ctx.beginPath();
+  ctx.moveTo(120, 300);
+  ctx.lineTo(200 + 80 * pointYArray.length+1,300);
+  ctx.strokeStyle = "orange";
+  ctx.lineWidth = "10";
+  ctx.stroke();
+
+
+  //x轴刻度
+  for (var i = 0; i < pointYArray.length+1; i++) {
+    ctx.fillText(i, 115+80*i, 333);
+  }
+
+  ctx.beginPath();
+  ctx.moveTo(120,200);
+  ctx.lineTo(200,300-pointYArray[0]);
+  ctx.lineWidth = "10";
+  ctx.strokeStyle = "green";
+  ctx.stroke();
+
+  for (var i = 0; i < pointYArray.length; i++) {
+    ctx.beginPath();
+    ctx.moveTo(120+80*i,300-(pointYArray[i-1]));
+    ctx.lineTo(120+80*(i+1),300-(pointYArray[i]));
+    //根据上升趋势和下降趋势设置不同的颜色
+    if (pointYArray[i] > pointYArray[i-1]) {
+      ctx.strokeStyle = "red";
+    } else {
+      ctx.strokeStyle = "green";
+    }
+    ctx.lineWidth = "10";
+    ctx.stroke();
+  }
+
+  for (var i = 0; i < pointYArray.length; i++) {
+    ctx.beginPath();
+    ctx.strokeStyle = "orange";
+    ctx.arc(120+80*(i+1),300-pointYArray[i],5,0,Math.PI*2,false);
+    ctx.stroke();
+  }
+</script>
+</html>
