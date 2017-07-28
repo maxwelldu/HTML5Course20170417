@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      (function(){
+        function Map() {
+          console.log('i am map');
+        }
+        function Point() {
+
+        }
+        function MapTypeControl() {
+
+        }
+        window.BMap = {
+          Map: Map,
+          Point: Point,
+          MapTypeControl: MapTypeControl
+        }
+      })();
+      var map = new BMap.Map();
+
+    </script>
+</body>
+</html>
