@@ -8,27 +8,17 @@
 </head>
 <body>
   <script>
-    function XiaoLei() {
-
+    function f() {
+      console.log(this);
     }
-    function JingYu() {
-
-    }
-
-
-
-
-
-
-    function make(number) {
-      if (number === 1) {
-        return new XiaoLei();
-      } else if (number === 2){
-        return new JingYu();
-      }
-    }
-    console.log(make(1));
-    console.log(make(2));
+    var obj = {name:"max"};
+    // setTimeout(f.call(obj), 3000);
+    /*
+    setTimeout(function(){
+      f.call(obj);
+    }, 3000);
+    */
+    setTimeout(f.bind(obj), 3000);
   </script>
 </body>
 </html>

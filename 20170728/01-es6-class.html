@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Point(x,y){
+      this.x = x;
+      this.y = y;
+    }
+
+    Point.prototype.toString = function () {
+      return '(' + this.x + ', ' + this.y + ')';
+    }
+    var point = new Point(10, 20);
+    console.log(point.toString());
+
+    class DiyPoint {
+      //构造方法，不是自定义的，在new这个对象的时候会自动调用此方法, 初始化, 通常给赋值赋初值, 做准备工作
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+      }
+      //自定义方法，名字随意
+      toString() {
+        return '(' + this.x + ', ' + this.y + ')';
+      }
+    }
+    var diyPoint = new DiyPoint(30, 40);
+    console.log(diyPoint.toString());
+
+
+
+    //类的定义
+    class Animal {
+        //ES6中新型构造器
+        constructor(name) {
+            this.name = name;
+        }
+        //实例方法
+        sayName() {
+            console.log('My name is '+this.name);
+        }
+    }
+    /*
+    function Animal(name) {
+      this.name = name;
+    }
+    Animal.prototype.sayName = function() {
+      console.log('My name is ' + this.name);
+    }
+    */
+    //类的继承
+    class Programmer extends Animal {
+        constructor(name,age) {
+            //直接调用父类构造器进行初始化
+            super(name);
+            this.age = age;
+        }
+        program() {
+            console.log("I'm coding...");
+        }
+    }
+
+    //测试我们的类
+    var animal=new Animal('dummy'),
+    zf=new Programmer('zf');
+
+    animal.sayName();//输出 ‘My name is dummy’
+    zf.sayName();//输出 ‘My name is zf’
+    zf.program();//输出 ‘I'm coding...’
+  </script>
+</body>
+</html>

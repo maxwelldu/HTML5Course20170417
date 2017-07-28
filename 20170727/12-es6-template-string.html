@@ -85,6 +85,10 @@
     }
     console.log(obj.getAge());
 
+    var obj = {a:"晓磊", b:'海霞'};
+    var a = obj.a;
+    var b = obj.b;
+
     var {a,b} = {a:"晓磊", b:'海霞'};
     console.log(a, b);
     function fun() {
@@ -93,6 +97,10 @@
     var {name} = fun();
     var {name} = {"name": "常坤"};
     console.log(name);
+
+    var arr = ["海霞", 18];
+    var name = arr[0];
+    var age = arr[1];
 
     var [name, age] = ["海霞", 18];
     console.log(name, age);
@@ -104,6 +112,12 @@
     //默认参数
     function f(name) {
       name = name || "晓磊";
+      /*
+      if (!name) {
+        name = "晓磊";
+      }
+      // throw new Error('哥们儿，这个参数是必值的');
+      */
       console.log(name);
     }
     f();
