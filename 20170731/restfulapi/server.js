@@ -10,6 +10,7 @@ var morgan = require('morgan');
 var mongoose = require('mongoose');
 //引入jsonwebtoken模块，方便的生成token
 var jwt = require('jsonwebtoken');
+
 //引入自己写的config文件，里面只有一个config对象，里面有一个secret和database属性
 var config = require('./config');
 //引入自定义的user对象，里面定义了model, model里面定义了对应的schema
@@ -97,6 +98,7 @@ apiRoutes.use(function(req, res, next) {
       }
     });
   } else {
+    //设置 返回码403
     return res.status(403).send({
       success: false,
       message: '没有提供token!'
@@ -111,10 +113,10 @@ apiRoutes.get('/users', function(req, res) {
     res.json(users);
   });
 });
-
-
+//当访问到/api时，使用apiRoutes这个对象处理
 app.use('/api', apiRoutes);
 //路由结束
 
+//监听端口
 app.listen(port);
 console.log('Magic happends at http://localhost:' + port);
