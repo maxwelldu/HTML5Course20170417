@@ -11,15 +11,15 @@ apiRoutes.post('/auth', function(req, res) {
     name: req.body.name
   }, function(err, user) {
     if (err) {
-      res.json({success: false, message: "查询用户失败：" + err})
+      return res.json({success: false, message: "查询用户失败：" + err})
     };
 
     //如果找不到用户
     if (!user) {
-      res.json({success: false, message: '认证失败，用户名找不到'});
+      return res.json({success: false, message: '认证失败，用户名找不到'});
     } else if (user) {//如果有此用户，验证密码
       if (user.password != req.body.password) {
-        res.json({success: false, message:"认证失败，密码错误"});
+        return res.json({success: false, message:"认证失败，密码错误"});
       } else {
         //用户登录成功，用户名密码正确
         //创建token
@@ -28,7 +28,7 @@ apiRoutes.post('/auth', function(req, res) {
         });
 
         //返回token
-        res.json({
+        return res.json({
           success: true,
           message: 'Enjoy your token',
           token: token

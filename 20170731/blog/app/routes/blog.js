@@ -10,7 +10,6 @@ apiRoutes.get('/', function(req, res) {
     var reg = new RegExp('^'+category+'$');
     whereObj = {category: reg};
   }
-  console.log(whereObj);
 
   Blog.find(whereObj, function(err, blogs) {
     if (err) {
