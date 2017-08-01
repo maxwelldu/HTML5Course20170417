@@ -34,3 +34,7 @@ Gulp的使用：
     CSS文件合并
     拷贝到目标位置
   处理JS:
+    babel转换ES6代码到ES5
+    uglify js压缩
+    eslint
+    typescript

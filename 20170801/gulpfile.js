@@ -9,7 +9,11 @@ let gulp  = require('gulp'),
   // sass    = require('gulp-sass'),
   stylus  = require('gulp-stylus'),
   babel   = require('gulp-babel'),
-  sourcemaps = require('gulp-sourcemaps')
+  sourcemaps = require('gulp-sourcemaps'),
+  uglify  = require('gulp-uglify'),
+  eslint  = require('gulp-eslint'),
+  imagemin= require('gulp-imagemin')
+  pngquant= require('imagemin-pngquant')
   ;
 var LessAutoprefix = require('less-plugin-autoprefix');
 var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
@@ -20,34 +24,31 @@ gulp.task('eat', () => console.log('eating'));
 gulp.task('study', ['sleep', 'eat'], () => console.log('studing'));
 */
 
-gulp.task('default', ['clean', 'copy-html', 'watch', 'server', 'less', 'stylus', 'compile-js'], () => {
+gulp.task('default', ['watch', 'server', 'dist'], () => {
   console.log('ok');
 });
-// 拷贝文件到指定的目标
-// HTML文件最小化
-gulp.task('copy-html', () => {
-  return gulp.src('index.html')
-  .pipe(htmlmin({collapseWhitespace: true}))
-  .pipe(gulp.dest('dist/'))
-  .pipe(connect.reload());
-});
-
+//生成目标代码
+gulp.task('dist', ['clean','copy-html','less', 'sass', 'stylus', 'compile-js', 'compress-image']);
 //实时监听index.html, 如果发生变化则让copy-html处理
 // 监控对应的文件，实时编译
-gulp.task('watch', ['watch-html', 'watch-less', 'watch-sass', 'watch-stylus', 'watch-js'], () => {
-});
+gulp.task('watch', ['watch-html', 'watch-less', 'watch-sass', 'watch-stylus', 'watch-js', 'lint']);
+//监控html文件
 gulp.task('watch-html', () => {
   return gulp.watch('index.html', ['copy-html']);
 });
+//监控less文件
 gulp.task('watch-less', () => {
   return gulp.watch('src/styles/*.less', ['less']);
 });
+//监控sass文件，安装这个比较麻烦点
 gulp.task('watch-sass', () => {
   // return gulp.watch('src/styles/*.s(a|c)ss', ['sass']);
 });
+//监控stylus文件
 gulp.task('watch-stylus', () => {
   return gulp.watch('src/styles/*.styl', ['stylus']);
 });
+//监控js文件
 gulp.task('watch-js', () => {
   return gulp.watch('src/**/*.js', ['compile-js']);
 });
@@ -65,7 +66,14 @@ gulp.task('server', () => {
 gulp.task('clean', () => {
   del(['dist/*']);
 });
-
+// 拷贝文件到指定的目标
+// HTML文件最小化
+gulp.task('copy-html', () => {
+  return gulp.src('index.html')
+  .pipe(htmlmin({collapseWhitespace: true}))
+  .pipe(gulp.dest('dist/'))
+  .pipe(connect.reload());
+});
 //编译less文件并压缩，并放入生产环境
 gulp.task('less', () => {
   return gulp.src([
@@ -87,6 +95,7 @@ gulp.task('less', () => {
     .pipe(connect.reload());
 });
 gulp.task('sass', () => {
+  /*
   return gulp.src([
     'src/styles/index.sass',
     'src/styles/footer.scss'
@@ -95,7 +104,9 @@ gulp.task('sass', () => {
   .pipe(cssmin())
   .pipe(concat('bundle-sass.css'))
   .pipe(rename({suffix: '.min'}))
-  .pipe(gulp.dest('dist/css'));
+  .pipe(gulp.dest('dist/css'))
+  .pipe(connect.reload());
+  */
 });
 gulp.task('stylus', () => {
   return gulp.src([
@@ -118,7 +129,24 @@ gulp.task('compile-js', () => {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(concat("all.js"))
+    .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest("dist/js"));
+});
+//js代码检查
+gulp.task('lint', () => {
+  return gulp.src(['**/*.js','!node_modules/**'])
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
+});
+//压缩图片
+gulp.task('compress-image', () => {
+  return gulp.src('src/images/*')
+    .pipe(imagemin({
+        progressive: true,
+        use: [pngquant()] //使用pngquant来压缩png图片
+    }))
+    .pipe(gulp.dest('dist/images/'));
 });
