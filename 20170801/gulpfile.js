@@ -13,10 +13,11 @@ let gulp  = require('gulp'),
   uglify  = require('gulp-uglify'),
   eslint  = require('gulp-eslint'),
   imagemin= require('gulp-imagemin')
-  pngquant= require('imagemin-pngquant')
+  pngquant= require('imagemin-pngquant'),
+  plumber = require('gulp-plumber')
   ;
-var LessAutoprefix = require('less-plugin-autoprefix');
-var autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
+let LessAutoprefix = require('less-plugin-autoprefix');
+let autoprefix = new LessAutoprefix({ browsers: ['last 2 versions'] });
 
 /*
 gulp.task('sleep', () => console.log('sleeping'));
@@ -27,23 +28,29 @@ gulp.task('study', ['sleep', 'eat'], () => console.log('studing'));
 gulp.task('default', ['watch', 'server', 'dist'], () => {
   console.log('ok');
 });
+
 //生成目标代码
 gulp.task('dist', ['clean','copy-html','less', 'sass', 'stylus', 'compile-js', 'compress-image']);
+
 //实时监听index.html, 如果发生变化则让copy-html处理
 // 监控对应的文件，实时编译
 gulp.task('watch', ['watch-html', 'watch-less', 'watch-sass', 'watch-stylus', 'watch-js', 'lint']);
+
 //监控html文件
 gulp.task('watch-html', () => {
   return gulp.watch('index.html', ['copy-html']);
 });
+
 //监控less文件
 gulp.task('watch-less', () => {
   return gulp.watch('src/styles/*.less', ['less']);
 });
+
 //监控sass文件，安装这个比较麻烦点
 gulp.task('watch-sass', () => {
   // return gulp.watch('src/styles/*.s(a|c)ss', ['sass']);
 });
+
 //监控stylus文件
 gulp.task('watch-stylus', () => {
   return gulp.watch('src/styles/*.styl', ['stylus']);
