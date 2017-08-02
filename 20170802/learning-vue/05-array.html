@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input v-model="todo" @keyup.enter="addTodo">
+    过滤：
+    <input v-model="filtertodo" @keyup.enter="filterTodo">
+    <ul>
+      <li v-for="item in filtertodos">{{item}}</li>
+    </ul>
+  </div>
+    <script src="scripts/vue.js" charset="utf-8"></script>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          todo: "",
+          filtertodo: "",
+          todos: [],
+          filtertodos: []
+        },
+        methods: {
+          addTodo: function(){
+            this.todos.push(this.todo);
+            this.filtertodos.push(this.todo);
+          },
+          filterTodo: function() {
+            this.filtertodos = this.todos.filter(v => {
+              return v.match(new RegExp('^' + this.filtertodo + '$'));
+            });
+          }
+        }
+      })
+    </script>
+</body>
+</html>

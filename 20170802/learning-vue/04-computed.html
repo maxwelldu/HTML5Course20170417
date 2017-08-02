@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <div id="app">
+    {{ message }}
+    <hr />
+    {{ reverseMessage }}
+    <hr />
+    单价A：<input v-model="pricea"> 数量：<input v-model="numbera">
+    单价B：<input v-model="priceb"> 数量B：<input v-model="numberb">
+    总价： {{ sum }}
+
+    <div :class="{ active: isActive }">活动的</div>
+
+    <h1 v-if="ok">Yes</h1>
+    <h1 v-else>No</h1>
+
+    <h1 v-show="ok">Hello!</h1>
+
+    <ul>
+      index相当于for循环中的i
+      item相当于for循环中的items[i], 是一个变量
+      <li v-for="(item,index) in items">
+        {{ index === 1 ? '海霞' : '张美' }} -  {{ item.message }}
+        <p :class="{active: index === 1}">
+          Hello
+        </p>
+      </li>
+    </ul>
+  </div>
+  <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        isActive: false,
+        ok: true,
+        items: [
+           { message: 'Foo' },
+           { message: 'Bar' }
+         ],
+
+        pricea: 1,
+        numbera: 1,
+        priceb: 5,
+        numberb: 5,
+        message: "today is fine day"
+      },
+      computed: {
+        sum: function() {
+          return this.pricea * this.numbera + this.priceb * this.numberb;
+        },
+        reverseMessage: function() {
+          return this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

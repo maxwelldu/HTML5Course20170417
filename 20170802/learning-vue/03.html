@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p>{{ message | replace }}</p>
+    <input type="checkbox" v-bind:checked="checked">
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: "张美又睡觉了",
+        checked: true
+      },
+      filters: {
+        replace: function(value) {
+          console.log(value);
+          if (value.length === 6) {
+            return "晓磊没有睡觉";
+          } else {
+            return "张美没有睡觉";
+          }
+        }
+      },
+      beforeCreate: function() {
+        console.log('beforeCreate');
+        this.message = '董强睡觉了';//失效
+      },
+      created: function() {
+        console.log('created');
+        this.message = '张美真的睡觉了';
+      },
+      beforeMount: function() {
+        console.log('beforeMount');
+        console.log(this.$el);
+      },
+      mounted: function() {
+        console.log('mounted');
+        console.log(this.$el);
+      },
+      beforeUpdate: function() {
+        console.log('beforeUpdate');
+        debugger;
+      },
+      updated: function() {
+        console.log('updated');
+        debugger;
+      },
+      beforeDestroy: function() {
+        console.log('beforeDestroy');
+      },
+      destroyed: function() {
+        console.log('destroyed');
+      }
+    });
+  </script>
+
+  <input type="checkbox" checked>
+  <input type="checkbox" checked="true">
+  <input type="checkbox" checked="false">
+  <input type="checkbox" checked="checked">
+</body>
+</html>
