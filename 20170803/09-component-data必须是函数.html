@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <ol>
+      <my-li></my-li>
+      <my-li></my-li>
+      <my-li></my-li>
+    </ol>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    let data = {counter: 0};
+    var li = {
+      template: '<li @click="counter++">{{counter}}</li>',
+      data: function() {
+        // return data;
+        //不能像上面这样返回同一个对象，必须要返回不一样的
+        return {
+          counter: 0
+        };
+      }
+    };
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: ''
+      },
+      components: {
+        'my-li': li
+      }
+    })
+  </script>
+</body>
+</html>

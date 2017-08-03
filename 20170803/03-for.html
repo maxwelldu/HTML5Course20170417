@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-for="item in items">{{item}}</p>
+    <div v-for="student in students">{{student.name}}</div>
+    <div v-for="(student, index) in students">{{index}} - {{student.name}}</div>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        items: [
+          '张美',
+          'Yes',
+          '高超',
+          'No'
+        ],
+        students: [
+          {"name": "张美"},
+          {"name": "高超"},
+        ]
+      }
+    });
+  </script>
+</body>
+</html>

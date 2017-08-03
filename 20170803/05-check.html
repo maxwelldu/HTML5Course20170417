@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <label>
+      <input type="checkbox" v-model="zhangmei" />
+      <p>{{ msg }}</p>
+    </label>
+
+    <label>
+      <input type="checkbox" value='zm' v-model="students"/>
+      张美
+    </label>
+    <label>
+      <input type="checkbox" value='gc' v-model="students"/>
+      高超
+    </label>
+    <div v-for="student in students">{{ student }}</div>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: { zhangmei: true, students: []},
+      computed: {
+        msg: function() {
+          return this.zhangmei ? "张美" : "高超";
+        }
+      }
+    });
+  </script>
+</body>
+</html>

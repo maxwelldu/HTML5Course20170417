@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .router-link-active {
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script src="scripts/vue-router.js" charset="utf-8"></script>
+  <div id="app">
+    <h1>Hello</h1>
+    <nav>
+      <router-link to="/Foo">Foo</router-link>
+      <router-link to="/Bar">Bar</router-link>
+    </nav>
+    <router-view></router-view>
+  </div>
+  <script>
+    var Foo = {template:"<span>Foo</span>"}
+    var Bar = {template:"<span>bar</span>"}
+    var routes = [
+      {path: '/Foo', component: Foo},
+      {path: '/Bar', component: Bar},
+    ]
+    var router = new VueRouter({
+      routes
+    });
+    var app = new Vue({
+      el: '#app',
+      router
+    });
+  </script>
+</body>
+</html>

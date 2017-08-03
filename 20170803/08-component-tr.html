@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <table>
+      <!-- <my-row></my-row> -->
+      <tr is="my-row"></tr>
+    </table>
+    <select>
+      <!-- <my-option></my-option> -->
+      <option is="my-option"></option>
+    </select>
+    <ul>
+      <my-li></my-li>
+    </ul>
+    <ol>
+      <my-li></my-li>
+    </ol>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'my-row': {
+          template: '<tr><td>123</td></tr>'
+        },
+        'my-option': {
+          template: '<option>abc</option>'
+        },
+        'my-li': {
+          template: '<li>1qaz</li>'
+        }
+      }
+    })
+  </script>
+</body>
+</html>

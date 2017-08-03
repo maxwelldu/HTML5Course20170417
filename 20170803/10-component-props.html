@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <child :student="students[0]" my-money="1万"></child>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    let child = {
+      // 声明 props
+      props: ['student', 'myMoney'],
+      // 就像 data 一样，prop 可以用在模板内
+      // 同样也可以在 vm 实例中像“this.message”这样使用
+      template: '<span>{{student}} - {{myMoney}}</span>'
+    };
+    let app = new Vue({
+      el: '#app',
+      data: {
+        students: [
+          '张美',
+          '海霞'
+        ]
+      },
+      components: {
+        'child': child
+      }
+    })
+  </script>
+</body>
+</html>

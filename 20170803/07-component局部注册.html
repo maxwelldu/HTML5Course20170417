@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <zhangmei-gaochao></zhangmei-gaochao>
+    <changkun></changkun>
+    <!-- <xiaolei></xiaolei> -->
+    <z-h-x></z-h-x>
+  </div>
+  <script src="scripts/vue.js" charset="utf-8"></script>
+  <script>
+    //组件里面必须有且只有一个根
+    var child = {
+      template: '<div>张美和高超<p>是好朋(ji)友</p></div>'
+    };
+    var xiaolei = {
+      template: '<span>晓磊</span>'
+    }
+    var changkun = {
+      template: '<span>常坤<xiaolei></xiaolei></span>',
+      components: {
+        'xiaolei': xiaolei
+      }
+    };
+    var zihao = {
+      template: '<b><i>子浩兄</i></b>'
+    };
+    let app = new Vue({
+      el: '#app',
+      components: {
+        //这个组件只能在当前的实例里面使用
+        'zhangmei-gaochao': child,
+        'changkun': changkun,
+        'ZHX': zihao
+      }
+    })
+  </script>
+</body>
+</html>
