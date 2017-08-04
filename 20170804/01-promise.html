@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('成功');
+      }, 3000);
+    });
+    promise.then(msg => {
+      console.log(`承诺兑现了${msg}`);
+    });
+
+    function preloadImage(path) {
+      return new Promise(function (resolve, reject) {
+        var image = new Image();
+        image.onload  = resolve;
+        image.onerror = reject;
+        image.src = path;
+      });
+    };
+    preloadImage('http://www.chinawht.com/statics/images/wht1/wholeness/banner.pngg').then(function() {
+      console.log('图片加载成功');
+    }, function() {
+      console.log('图片加载失败');
+    });
+
+    var preloadImage = path => {
+      return new Promise((resolve, reject) => {
+        var image = new Image();
+        image.onload  = resolve;
+        image.onerror = reject;
+        image.src = path;
+      });
+    };
+    preloadImage('http://www.chinawht.com/statics/images/wht1/wholeness/banner.pngg').then(() => {
+      console.log('图片加载成功');
+    }, () => {
+      console.log('图片加载失败');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .goods {
+      float: left;
+      width: 200px;
+      height: 350px;
+      border: 1px solid red;
+    }
+    .goods .img {
+      width: 100%;
+      height: 200px;
+    }
+    .goods .img img{
+      width: 100%;
+      height: 100%;
+    }
+    .goods .desc i{
+      color: red;
+      font-style: normal;
+      padding-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <script src="node_modules/axios/dist/axios.min.js" charset="utf-8"></script>
+  <script>
+    axios.get('http://h6.duchengjiu.top/shop/api_goods.php')
+      .then(response => {
+        console.log(response);
+        response.data.data.forEach(v => {
+          document.body.innerHTML += `
+          <div class="goods">
+            <div class="img">
+              <img src="${v.goods_thumb}" alt="">
+            </div>
+            <div class="desc">
+              <i>${v.price}</i> <span>${v.goods_name}</span>
+            </div>
+          </div>
+          `;
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{counter}}
+    <button @click="add">+</button>
+    <button @click="reduce">-</button>
+  </div>
+  <script src="../scripts/vue.js" charset="utf-8"></script>
+  <script src="../scripts/vuex.js" charset="utf-8"></script>
+  <script>
+    var store = new Vuex.Store({
+      //状态
+      state: {
+        count: 0
+      },
+      mutations: {
+        increment: state => state.count++,
+        decrement: state => state.count--
+      }
+    });
+    var app = new Vue({
+      el: '#app',
+      computed: {
+        counter () {
+          return store.state.count;
+        }
+      },
+      //actions, 里面可以调用api, 或者提交mutations
+      methods: {
+        add () {
+          //提交mutations
+          store.commit('increment');
+        },
+        reduce () {
+          store.commit('decrement');
+        }
+      }
+    })
+  </script>
+</body>
+</html>
