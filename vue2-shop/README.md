@@ -45,3 +45,5 @@ vue-cli vue-router axios
 ###业务组件
   - 商品组件
   - 轮播图
+###TODO
+  - 分类页面无法滚动

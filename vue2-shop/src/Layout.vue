@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <router-view></router-view>
+    <section>
+      <app-nav></app-nav>
+      <router-view></router-view>
+    </section>
     <app-footer></app-footer>
   </div>
 </template>
@@ -9,19 +12,21 @@
 <script>
 import AppHeader from './components/Header'
 import AppFooter from './components/Footer'
+import AppNav from './components/Nav'
 import Index from './components/Index'
 
 export default {
   name: 'app',
   components: {
     AppHeader,
+    AppNav,
     Index,
     AppFooter
   }
 }
 </script>
 
-<style>
+<style lang="css">
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; font-family: 楷体}
 body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; }
 h1, h2, h3, h4, h5, h6{ font-size:100%; }
@@ -39,7 +44,7 @@ button, input, select, textarea { font-size:100%; }
 table { border-collapse:collapse; border-spacing:0; }
 /*首页头部底部的样式*/
 body, html{
-    height:100%;
+    /*height:100%;*/
 }
 header{
     width: 100%;
@@ -103,12 +108,12 @@ nav{
 .searchBut{
     width: 60px;
     height: 48px;
-    background:#fb3434;
-    border:none;
+    background: #fb3434;
+    border: none;
     outline: none;
     cursor: pointer;
     border-radius: 0 5px 5px 0;
-    float:left;
+    float: left;
 }
 .searchBut img{
     width: 25px;
@@ -459,5 +464,24 @@ footer ul li a{
     font-size: 20px;
     float: left;
     color:red;
+}
+
+.standard{
+  width: 1200px;
+  height: 200px;
+  margin:0 auto;
+}
+.standard a{
+  display: block;
+  width:100%;
+  height: 80px;
+  background:url("./assets/header/standard.png");
+  background-size: 100%;
+}
+.standard-img h1{
+  text-align: center;
+  line-height: 100px;
+  font-size: 30px;
+  color:#ff4411;
 }
 </style>

@@ -11,19 +11,6 @@ $(function () {
     $("#login").click(function () {
         Login();
     });
-    $.ajax({
-       "url":"http://h6.duchengjiu.top/shop/api_cat.php",
-        "type":"GET",
-        "dataType":"json",
-        "success":function (reaponse) {
-            console.log(reaponse);
-            var goodsList = $("#goodsList ul");
-            for(var i = 0; i < reaponse.data.length; i++){
-                var obj = reaponse.data[i];
-                goodsList.append("<li><a href='List.html?cat_id=" + obj.cat_id + "'>" + obj.cat_name + "</a></li>")
-            }
-        }
-    });
     function Login() {
         $("body").append("<div class='shade'></div>");
         $("body").append("<div class='loginContainer'><button class='login-off' id='loginOff'>关闭</button><p>登录账户：<input type='text' placeholder='请输入账户' id='username'></p><p>登录密码：<input type='password' placeholder='请输入密码' name='' id='password'></p><button id='enter'>登录</button></div>");

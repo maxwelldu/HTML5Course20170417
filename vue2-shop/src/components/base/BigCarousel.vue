@@ -58,5 +58,50 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+  .carousel{
+    width:100%;
+    height: 340px;
+    background:coral;
+  }
+  .carousel{
+    width: 750px;
+    height: 340px;
+    float: left;
+    overflow: hidden;
+    position: relative;
+  }
+  #carouselUl {
+    width: 5000px;
+    height: 340px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1;
+  }
+  #carouselUl>li {
+    float:left;
+  }
+  #circle{
+    width:60px;
+    height: 20px;
+    position: absolute;
+    left: 0;
+    right:0;
+    margin: 0 auto;
+    bottom: 10px;
+    z-index: 3;
+  }
+
+  #circle>li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,50,0,0.3);
+    float: left;
+    margin: 0 5px;
+  }
+  #circle>li.circleLi{
+    background: rgba(255,50,0,1);
+  }
 </style>

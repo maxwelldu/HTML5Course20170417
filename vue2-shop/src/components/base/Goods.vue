@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.goods ul li {
+li {
     width: 200px;
     height: 398px;
     float:left;
@@ -26,17 +26,17 @@ export default {
     transition: 1s;
     overflow: hidden;
 }
-.goods ul li:hover{
+li:hover{
     border: 2px solid #ff4411;
 }
-.goods ul li:hover h1{
+li:hover h1{
     top:0;
 }
-.goods ul li img{
+li img{
     width: 200px;
     height:200px;
 }
-.goods ul li h1{
+li h1{
     width:100%;
     line-height: 30px;
     position: absolute;
@@ -49,7 +49,7 @@ export default {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-.goods ul li span{
+li span{
     display: block;
     width: 100px;
     padding: 10px;
@@ -58,12 +58,12 @@ export default {
     font-size: 20px;
     font-weight: bold;
 }
-.goods ul li p{
+li p{
     padding:20px 5px;
     text-indent: 2em;
     line-height: 30px;
 }
-.goods ul li a{
+li a{
     position: absolute;
     top:0;
     display: block;

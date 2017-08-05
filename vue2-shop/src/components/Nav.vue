@@ -1,7 +1,7 @@
 <template lang="html">
   <div  id="goodsList">
       <ul id="goodsListUl">
-        <li v-for="obj in navList"><a href='List.html?cat_id='>{{obj.cat_name}}</a></li>
+        <li v-for="obj in navList"><router-link :to="'/list/'+obj.cat_id">{{obj.cat_name}}</router-link></li>
       </ul>
   </div>
 </template>

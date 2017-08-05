@@ -1,6 +1,5 @@
 <template lang="html">
-  <section>
-      <app-nav></app-nav>
+    <div>
       <div class="carouselContainer">
           <div class="sans">
               <small-carousel :list="smallCarouselList"></small-carousel>
@@ -22,7 +21,8 @@
       <div class="goods" id="goods">
         <ul>
           <goods
-            v-for="item in goodsList"
+            v-for="(item,index) in goodsList"
+            :key="index"
           :item="item"
           ></goods>
         </ul>
@@ -42,11 +42,10 @@
               </ul>
           </div>
       </div>
-  </section>
+    </div>
 </template>
 
 <script>
-import AppNav from './Nav'
 import SmallCarousel from './base/SmallCarousel'
 import BigCarousel from './base/BigCarousel'
 import Goods from './base/Goods'
@@ -63,7 +62,7 @@ export default {
       ],
       goodsList: [],
       page: 1,
-      pageSize: 500,
+      pageSize: 10,
       lock: false,
       isEnd: false
     }
@@ -132,7 +131,6 @@ export default {
     }
   },
   components: {
-    AppNav,
     SmallCarousel,
     BigCarousel,
     Goods
@@ -140,30 +138,7 @@ export default {
 }
 </script>
 
-<style lang="css">
-.carousel{
-    width:100%;
-    height: 340px;
-    background:coral;
-}
-.standard{
-    width: 1200px;
-    height: 200px;
-    margin:0 auto;
-}
-.standard a{
-    display: block;
-    width:100%;
-    height: 80px;
-    background:url("../assets/header/standard.png");
-    background-size: 100%;
-}
-.standard-img h1{
-    text-align: center;
-    line-height: 100px;
-    font-size: 30px;
-    color:#ff4411;
-}
+<style lang="css" >
 .goods ul{
     height: 860px;
 }
@@ -177,46 +152,7 @@ export default {
     width: 1150px;
     margin:0 auto;
 }
-.carousel{
-    width: 750px;
-    height: 340px;
-    float: left;
-    overflow: hidden;
-    position: relative;
-}
-#carouselUl {
-    width: 5000px;
-    height: 340px;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: 1;
-}
-#carouselUl>li {
-    float:left;
-}
-#circle{
-    width:60px;
-    height: 20px;
-    position: absolute;
-    left: 0;
-    right:0;
-    margin: 0 auto;
-    bottom: 10px;
-    z-index: 3;
-}
 
-#circle>li{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(255,50,0,0.3);
-    float: left;
-    margin: 0 5px;
-}
-#circle>li.circleLi{
-      background: rgba(255,50,0,1);
-}
 
 #userLog{
     width:200px;
