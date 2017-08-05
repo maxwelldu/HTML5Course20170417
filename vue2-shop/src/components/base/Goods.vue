@@ -1,5 +1,5 @@
 <template lang="html">
-  <li><i :class="{'Hot': item.is_hot == 1}"></i><img :src="item.goods_thumb" :alt="item.goods_desc" :title="item.goods_desc"><h1>{{item.goods_name}}</h1><span>￥:{{item.price}}</span><p>{{item.goods_desc}}</p><a href=""></a></li>
+  <li><i :class="{'Hot': item.is_hot == 1}"></i><img :src="item.goods_thumb" :alt="item.goods_desc" :title="item.goods_desc"><h1>{{item.goods_name}}</h1><span>￥:{{item.price}}</span><p>{{item.goods_desc}}</p><router-link :to="'/detail/'+item.goods_id"></router-link></li>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <header>
       <nav>
           <div class="header-nav">
-              <a href="#">欢迎来到一淘网，阿里巴巴旗下生活省钱利器！</a>
+              <router-link to="/">欢迎来到一淘网，阿里巴巴旗下生活省钱利器！</router-link>
               <ul>
                   <li id="line">
                       <a href="#" id="login" class="login">亲！请登录</a>
@@ -17,9 +17,9 @@
       </nav>
       <div class="header-top">
           <div class="logo">
-              <a href="index.html">
+              <router-link to="/">
                   <img src="../assets/header/logo.png" alt="" class="logo">
-              </a>
+              </router-link>
           </div>
           <div class="container">
               <input type="text" id="search" class="search">

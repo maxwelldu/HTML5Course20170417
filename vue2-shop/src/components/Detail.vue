@@ -1,313 +1,132 @@
 <template lang="html">
   <div>
-    <p>1</p>
-    <p>2</p>
-    <p>3</p>
-    <p>4</p>
-    <p>5</p>
-    <p>6</p>
-    <p>7</p>
-    <p>8</p>
-    <p>9</p>
-    <p>10</p>
-    <p>11</p>
-    <p>12</p>
-    <p>13</p>
-    <p>14</p>
-    <p>15</p>
-    <p>16</p>
-    <p>17</p>
-    <p>18</p>
-    <p>19</p>
-    <p>20</p>
-    <p>21</p>
-    <p>22</p>
-    <p>23</p>
-    <p>24</p>
-    <p>25</p>
-    <p>26</p>
-    <p>27</p>
-    <p>28</p>
-    <p>29</p>
-    <p>30</p>
-    <p>31</p>
-    <p>32</p>
-    <p>33</p>
-    <p>34</p>
-    <p>35</p>
-    <p>36</p>
-    <p>37</p>
-    <p>38</p>
-    <p>39</p>
-    <p>40</p>
-    <p>41</p>
-    <p>42</p>
-    <p>43</p>
-    <p>44</p>
-    <p>45</p>
-    <p>46</p>
-    <p>47</p>
-    <p>48</p>
-    <p>49</p>
-    <p>50</p>
-    <p>51</p>
-    <p>52</p>
-    <p>53</p>
-    <p>54</p>
-    <p>55</p>
-    <p>56</p>
-    <p>57</p>
-    <p>58</p>
-    <p>59</p>
-    <p>60</p>
-    <p>61</p>
-    <p>62</p>
-    <p>63</p>
-    <p>64</p>
-    <p>65</p>
-    <p>66</p>
-    <p>67</p>
-    <p>68</p>
-    <p>69</p>
-    <p>70</p>
-    <p>71</p>
-    <p>72</p>
-    <p>73</p>
-    <p>74</p>
-    <p>75</p>
-    <p>76</p>
-    <p>77</p>
-    <p>78</p>
-    <p>79</p>
-    <p>80</p>
-    <p>81</p>
-    <p>82</p>
-    <p>83</p>
-    <p>84</p>
-    <p>85</p>
-    <p>86</p>
-    <p>87</p>
-    <p>88</p>
-    <p>89</p>
-    <p>90</p>
-    <p>91</p>
-    <p>92</p>
-    <p>93</p>
-    <p>94</p>
-    <p>95</p>
-    <p>96</p>
-    <p>97</p>
-    <p>98</p>
-    <p>99</p>
-    <p>100</p>
-    <p>101</p>
-    <p>102</p>
-    <p>103</p>
-    <p>104</p>
-    <p>105</p>
-    <p>106</p>
-    <p>107</p>
-    <p>108</p>
-    <p>109</p>
-    <p>110</p>
-    <p>111</p>
-    <p>112</p>
-    <p>113</p>
-    <p>114</p>
-    <p>115</p>
-    <p>116</p>
-    <p>117</p>
-    <p>118</p>
-    <p>119</p>
-    <p>120</p>
-    <p>121</p>
-    <p>122</p>
-    <p>123</p>
-    <p>124</p>
-    <p>125</p>
-    <p>126</p>
-    <p>127</p>
-    <p>128</p>
-    <p>129</p>
-    <p>130</p>
-    <p>131</p>
-    <p>132</p>
-    <p>133</p>
-    <p>134</p>
-    <p>135</p>
-    <p>136</p>
-    <p>137</p>
-    <p>138</p>
-    <p>139</p>
-    <p>140</p>
-    <p>141</p>
-    <p>142</p>
-    <p>143</p>
-    <p>144</p>
-    <p>145</p>
-    <p>146</p>
-    <p>147</p>
-    <p>148</p>
-    <p>149</p>
-    <p>150</p>
-    <p>151</p>
-    <p>152</p>
-    <p>153</p>
-    <p>154</p>
-    <p>155</p>
-    <p>156</p>
-    <p>157</p>
-    <p>158</p>
-    <p>159</p>
-    <p>160</p>
-    <p>161</p>
-    <p>162</p>
-    <p>163</p>
-    <p>164</p>
-    <p>165</p>
-    <p>166</p>
-    <p>167</p>
-    <p>168</p>
-    <p>169</p>
-    <p>170</p>
-    <p>171</p>
-    <p>172</p>
-    <p>173</p>
-    <p>174</p>
-    <p>175</p>
-    <p>176</p>
-    <p>177</p>
-    <p>178</p>
-    <p>179</p>
-    <p>180</p>
-    <p>181</p>
-    <p>182</p>
-    <p>183</p>
-    <p>184</p>
-    <p>185</p>
-    <p>186</p>
-    <p>187</p>
-    <p>188</p>
-    <p>189</p>
-    <p>190</p>
-    <p>191</p>
-    <p>192</p>
-    <p>193</p>
-    <p>194</p>
-    <p>195</p>
-    <p>196</p>
-    <p>197</p>
-    <p>198</p>
-    <p>199</p>
-    <p>200</p>
-    <p>201</p>
-    <p>202</p>
-    <p>203</p>
-    <p>204</p>
-    <p>205</p>
-    <p>206</p>
-    <p>207</p>
-    <p>208</p>
-    <p>209</p>
-    <p>210</p>
-    <p>211</p>
-    <p>212</p>
-    <p>213</p>
-    <p>214</p>
-    <p>215</p>
-    <p>216</p>
-    <p>217</p>
-    <p>218</p>
-    <p>219</p>
-    <p>220</p>
-    <p>221</p>
-    <p>222</p>
-    <p>223</p>
-    <p>224</p>
-    <p>225</p>
-    <p>226</p>
-    <p>227</p>
-    <p>228</p>
-    <p>229</p>
-    <p>230</p>
-    <p>231</p>
-    <p>232</p>
-    <p>233</p>
-    <p>234</p>
-    <p>235</p>
-    <p>236</p>
-    <p>237</p>
-    <p>238</p>
-    <p>239</p>
-    <p>240</p>
-    <p>241</p>
-    <p>242</p>
-    <p>243</p>
-    <p>244</p>
-    <p>245</p>
-    <p>246</p>
-    <p>247</p>
-    <p>248</p>
-    <p>249</p>
-    <p>250</p>
-    <p>251</p>
-    <p>252</p>
-    <p>253</p>
-    <p>254</p>
-    <p>255</p>
-    <p>256</p>
-    <p>257</p>
-    <p>258</p>
-    <p>259</p>
-    <p>260</p>
-    <p>261</p>
-    <p>262</p>
-    <p>263</p>
-    <p>264</p>
-    <p>265</p>
-    <p>266</p>
-    <p>267</p>
-    <p>268</p>
-    <p>269</p>
-    <p>270</p>
-    <p>271</p>
-    <p>272</p>
-    <p>273</p>
-    <p>274</p>
-    <p>275</p>
-    <p>276</p>
-    <p>277</p>
-    <p>278</p>
-    <p>279</p>
-    <p>280</p>
-    <p>281</p>
-    <p>282</p>
-    <p>283</p>
-    <p>284</p>
-    <p>285</p>
-    <p>286</p>
-    <p>287</p>
-    <p>288</p>
-    <p>289</p>
-    <p>290</p>
-    <p>291</p>
-    <p>292</p>
-    <p>293</p>
-    <p>294</p>
-    <p>295</p>
-    <p>296</p>
-    <p>297</p>
-    <p>298</p>
-    <p>299</p>
-    <p>300</p>
+    <div class="standard-img" id="standard-img"><h1>商品详情</h1></div>
+    <div class="goods" id="goods">
+      <div id="goodsDetails" class="goodsDetails">
+        <div id="ImgContainer">
+          <img :src="item.goods_thumb" :alt="item.goods_desc" :title="item.goods_desc">
+          <div class="detailsShade" id="deailsShade"></div>
+          <div class="detailBigImg" id="deailBigImg">
+            <img src="">
+          </div>
+        </div>
+        <h1>{{item.goods_name}}</h1>
+        <b>￥{{item.price}} </b>
+        <p></p>
+        <div id="goodsNumber" class="goodsNumber">
+          <button class="numLeft" id="numLeft">-</button><input type="tel" class="goodsNmu" id="goodsNmu" min="1" max="10" value="1"><button class="numRight" id="numRight">+</button>
+        </div>
+        <br><a href="#">立即购买</a><a id="purchase">加入购物车</a>
+    </div>
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
+export default {
+  data () {
+    return {
+      item: {}
+    }
+  },
+  mounted () {
+    this.$http.get(`http://h6.duchengjiu.top/shop/api_goods.php?goods_id=${this.$route.params.goods_id}`).then((response) => {
+      this.item = response.data.data[0]
+    })
   }
+}
 </script>
 
 <style lang="css" scoped>
-
+.goodsDetails{
+    width:100%;
+    border-top:2px solid #ff4411;
+    border-bottom:2px solid #ff4411;
+    overflow: hidden;
+    font-size: 25px;
+    padding: 50px 0 50px 0;
+    margin-bottom: 20px;
+}
+#purchase{
+    cursor: pointer;
+}
+.goodsDetails h1{
+    width: 640px;
+    font-size: 25px;
+    padding: 50px;
+    float:left;
+}
+.goodsDetails b{
+    color:red;
+    float:left;
+}
+.goodsDetails p{
+    width: 640px;
+    padding: 30px;
+    text-indent: 2em;
+    float:left;
+}
+.goodsNumber{
+    width: 600px;
+    float:left;
+    padding-left: 30px;
+}
+.goodsNmu{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.numLeft, .numRight{
+    width: 54px;
+    height: 54px;
+}
+.goodsDetails a{
+    float:left;
+    width: 150px;
+    height: 50px;
+    background:#fb3434;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    margin: 30px 30px;
+}
+#ImgContainer{
+    width: 433px;
+    height: 433px;
+    float:left;
+    border:1px solid #ff4411;
+    margin: 10px;
+    position: relative;
+}
+#ImgContainer>img{
+    width: 433px;
+    height: 433px;
+}
+.detailsShade{
+    width: 200px;
+    height: 200px;
+    background:rgba(0,255,0,0.5);
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+}
+.detailBigImg{
+    width:500px;
+    height: 500px;
+    border: 1px solid #757373;
+    position: absolute;
+    top:0;
+    left: 450px;
+    overflow: hidden;
+    display: none;
+    position: relative;
+}
+.detailBigImg>img{
+    width: 800px;
+    height: 800px;
+    position: absolute;
+    top:0;
+    left:0;
+}
 </style>
