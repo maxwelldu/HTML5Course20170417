@@ -1,0 +1,39 @@
+section{
+    height: 600px;
+    border-top: 2px solid #ff4411;
+    border-bottom: 2px solid #ff4411;
+    padding-top:100px;
+}
+section div{
+    width: 320px;
+    height: 60px;
+    position: relative;
+    margin: 30px auto;
+}
+section span{
+    font-size: 12px;
+    color:red;
+    padding-left: 10px;
+}
+section div i{
+    display: block;
+    position: absolute;
+    top: 6px;
+    left: 15px;
+    color:#757373;
+}
+section div input{
+    width: 200px;
+    height: 30px;
+    padding-left: 100px;
+    border:1px solid #3c3c3c;
+    outline-color: #ff4400;
+}
+.registerBut{
+    width: 80px;
+    height: 30px;
+    border:1px solid red;
+    color:#ffffff;
+    background:#ff4400;
+    margin:10px 20px 0 0 ;
+}
