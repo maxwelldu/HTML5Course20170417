@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import GoodsList from '@/components/GoodsList'
 import Detail from '@/components/Detail'
 import Cart from '@/components/Cart'
+import Search from '@/components/Search'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/detail/:goods_id',
       name: 'Detail',
       component: Detail
+    },
+    {
+      path: '/search/:search_text',
+      name: 'Search',
+      component: Search
     }
   ]
 })

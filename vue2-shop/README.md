@@ -21,6 +21,9 @@ npm run build --report
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 #项目整体规划
+在一个已经使用ajax技术实现的网站的基础之上，修改为一个vue的项目
+动态网站的线上地址：http://60.205.209.241/yitao/index.html
+
 ##技术选型
 vue-cli vue-router axios
 ##开发环境
@@ -49,9 +52,12 @@ vue-cli vue-router axios
   - 分类页面无法滚动
 ##开发进度
   首页布局组件完成
-  头部
-  底部
-  路由
+  头部完成
+  底部完成
+  路由完成
   商品组件完成
-  列表页
+  列表页: 正常情况显示内容，无内容时，错误的页面请求
   详情页
+  搜索页面,TODO：分页功能
+  注册组件+验证
+  登录组件+验证

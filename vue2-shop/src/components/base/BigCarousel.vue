@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="carousel" id="carousel" >
-      <ul id="carouselUl">
+  <div class="carousel">
+      <ul class="carouselUl">
           <li
             v-for="(item, index) in list"
             :key="index"
@@ -8,14 +8,13 @@
             v-show="index === idx"
           ><a href="#"><img :src="item.img" :alt="item.title"></a></li>
       </ul>
-      <ul id="circle">
+      <ul class="circle">
           <li
             v-for="(item, index) in list"
             :key="index"
             :class="{'circleLi': index === idx}"
             @mouseover="show(index)"
             ></li>
-
       </ul>
   </div>
 </template>
@@ -71,7 +70,7 @@ export default {
     overflow: hidden;
     position: relative;
   }
-  #carouselUl {
+  .carouselUl {
     width: 5000px;
     height: 340px;
     position: absolute;
@@ -79,10 +78,10 @@ export default {
     left:0;
     z-index: 1;
   }
-  #carouselUl>li {
+  .carouselUl>li {
     float:left;
   }
-  #circle{
+  .circle{
     width:60px;
     height: 20px;
     position: absolute;
@@ -92,8 +91,7 @@ export default {
     bottom: 10px;
     z-index: 3;
   }
-
-  #circle>li{
+  .circle>li{
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -101,7 +99,7 @@ export default {
     float: left;
     margin: 0 5px;
   }
-  #circle>li.circleLi{
+  .circle>li.circleLi{
     background: rgba(255,50,0,1);
   }
 </style>

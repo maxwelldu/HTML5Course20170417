@@ -6,7 +6,7 @@
               <big-carousel :list="bigCarouselList"></big-carousel>
               <div id="userLog">
                   <div class="headerPortrait"><img src="../assets/header/head.png" alt=""></div>
-                  <a href="login.html">会员登录</a><a href="register.html">用户注册</a>
+                  <a href="login.html">会员登录</a><a @click="showRegister=true">用户注册</a>
                   <div class="sign-in">
                       <img src="../assets/header/signIn1.png" alt="">
                       <img src="../assets/header/signIn.png" alt="">
@@ -42,6 +42,10 @@
               </ul>
           </div>
       </div>
+
+      <!-- <app-dialog @closeRegister="closeRegisterDialog" v-show="showRegister"><p>登录账户：<input type="text" placeholder="请输入账户" id="username"></p><p>登录密码：<input type="password" placeholder="请输入密码" name="" id="password"></p><button id="enter">登录</button></app-dialog> -->
+
+      <register-dialog @close="closeRegisterDialog" v-show="showRegister"></register-dialog>
     </div>
 </template>
 
@@ -49,6 +53,9 @@
 import SmallCarousel from './base/SmallCarousel'
 import BigCarousel from './base/BigCarousel'
 import Goods from './base/Goods'
+import AppDialog from './base/Dialog'
+import RegisterDialog from './RegisterDialog'
+
 export default {
   data () {
     return {
@@ -64,7 +71,8 @@ export default {
       page: 1,
       pageSize: 10,
       lock: false,
-      isEnd: false
+      isEnd: false,
+      showRegister: false
     }
   },
   created () {
@@ -78,6 +86,9 @@ export default {
     }
   },
   methods: {
+    closeRegisterDialog () {
+      this.showRegister = false
+    },
     getGoods () {
       if (this.lock === true || this.isEnd === true) {
         return
@@ -133,12 +144,14 @@ export default {
   components: {
     SmallCarousel,
     BigCarousel,
-    Goods
+    Goods,
+    AppDialog,
+    RegisterDialog
   }
 }
 </script>
 
-<style lang="css" >
+<style lang="css" scoped>
 .goods ul{
     height: 860px;
 }
