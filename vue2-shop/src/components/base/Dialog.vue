@@ -1,5 +1,9 @@
-<template lang="html">
-  <div class="">
+<template lang="jade">
+  div
+    div.shade
+    div.loginContainer
+      button.login-off#loginOff
+  <div>
     <div class="shade"></div>
     <div class="loginContainer"><button class="login-off" id="loginOff" @click="closeDialog">关闭</button>
       <slot />
@@ -17,7 +21,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="stylus" scoped>
 .shade{
     width:100%;
     height:100%;

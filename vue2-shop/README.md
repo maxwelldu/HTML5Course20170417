@@ -25,7 +25,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 动态网站的线上地址：http://60.205.209.241/yitao/index.html
 
 ##技术选型
-vue-cli vue-router axios
+ES6 vue-cli Element vue-router axios vue-axios vuex jade stylus
 ##开发环境
   atom + git bash + webpack + npm + yarn
 ##前期准备
@@ -61,3 +61,59 @@ vue-cli vue-router axios
   搜索页面,TODO：分页功能
   注册组件+验证
   登录组件+验证
+
+  将所有的ajax请求都放到actions里面，返回的所有数据都存放到state
+  使用Element的组件
+  购物车页面
+
+
+##Vuex
+###使用Vue
+- cnpm i -S vuex
+- 项目根目录新建一个store目录，里面放置一个index.js
+```
+import Vue from 'vue'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
+const state = {
+}
+const mutations = {
+  login (state) {
+    state.user = {
+      avatar
+    }
+  }
+}
+const actions = {
+  login ({ commit }) {
+    commit('login')
+  }
+}
+const getters = {
+}
+
+export default new Vuex.Store({
+  state,
+  actions,
+  mutations,
+  getters
+})
+```
+- 在main.js中
+```
+import store from './store'
+new Vue({
+  el: '#app',
+  router,
+  store,
+  template: '<Layout/>',
+  components: { Layout }
+})
+```
+
+VueComponent  dispatch Action
+Action commit mutation
+mutation change state
+state computed VueComponent
