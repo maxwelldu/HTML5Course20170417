@@ -1,0 +1,18 @@
+<view class="page-header">
+  <input type="text" class="page-header-text" placeholder="输入搜索关键词" autofocus bindchange="search"></input>
+</view>
+<scroll-view class="page-body" scroll-y="true">
+  <navigator url="../movie/movie?id={{movie.id}}" wx:for="{{movies}}" wx:for-item="movie">
+    <view class="item">
+      <image src="{{movie.images.small}}" class="poster"></image>
+      <view class="meta">
+        <text class="title">{{movie.title}}</text>
+        <text class="sub-title">{{movie.original_title}}({{movie.year}})</text>
+        <text class="artists"><text wx:for="{{movie.directors}}" wx:for-item="director">{{director.name}}</text></text>
+      </view>
+      <view class="rating">
+        <text>{{item.rating.average}}</text>
+      </view>
+    </view>
+  </navigator>
+</scroll-view>

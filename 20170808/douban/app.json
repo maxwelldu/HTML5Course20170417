@@ -1,0 +1,41 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/movie/movie",
+    "pages/search/search",
+    "pages/profile/profile"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "付荣的电影",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "color":"#ccc",
+    "selectedColor":"green",
+    "backgroundColor":"#111",
+    "borderStyle":"3rpx dashed orange",
+    "list":[
+      {
+        "text":"推荐电影",
+        "pagePath":"pages/index/index",
+        "iconPath":"images/featured.png",
+        "selectedIconPath":"images/featured-actived.png"
+      },
+      {
+        "text":"搜索",
+        "pagePath":"pages/search/search",
+        "iconPath":"images/search.png",
+        "selectedIconPath":"images/search-actived.png"
+      },
+      {
+        "text":"关于我",
+        "pagePath":"pages/profile/profile",
+        "iconPath":"images/profile.png",
+        "selectedIconPath":"images/profile-actived.png"
+      }
+    ]
+  },
+  "debug":true
+}
