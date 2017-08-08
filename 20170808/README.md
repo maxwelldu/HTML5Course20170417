@@ -30,3 +30,11 @@ alias cnpm="npm --registry=https://registry.npm.taobao.org \
   7个回车，两个n, 按一下ctrl+c
 - cd vuex-demo
 - cnpm i
+
+
+#小程序
+注册一个邮箱：http://126.com  haixiaxiaxiaxia@126.com 12345asdfg
+注册帐号： https://mp.weixin.qq.com/cgi-bin/wx haixiaxiaxiaxia@126.com 12345asdfg!@#$%
+下载开发者工具：https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html
+启动开发者工具：选择本地小程序项目
+https://mp.weixin.qq.com/debug/wxadoc/dev/index.html

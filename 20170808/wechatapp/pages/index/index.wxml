@@ -1,0 +1,10 @@
+<view>
+首页
+{{xiaolei}}
+<view wx:for="{{classes}}" wx:key="{{index}}">{{item}}</view>
+<button bindtap="click_zhang_mei">点张美</button>
+<view wx:for="{{goodsList}}" wx:key="{{index}}">
+  <view class="img"><image src="{{item.goods_thumb}}"></image></view>
+  <view class="title">{{item.goods_name}}</view>
+</view>
+</view>

@@ -1,0 +1,10 @@
+.img {
+  padding: 10px;
+  width: 750rpx;
+  border: 1px solid red;
+}
+.title {
+  margin-top: 10rpx;
+  color: green;
+  line-height: 40rpx;
+}

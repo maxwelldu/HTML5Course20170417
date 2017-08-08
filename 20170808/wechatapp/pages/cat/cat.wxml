@@ -1,0 +1,3 @@
+<view>
+  <view wx:for="{{catList}}" wx:key="index">{{item.cat_name}}</view>
+</view>

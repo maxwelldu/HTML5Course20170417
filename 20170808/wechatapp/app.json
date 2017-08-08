@@ -1,0 +1,39 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/cat/cat",
+    "pages/search/search",
+    "pages/mine/mine"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#F00",
+    "navigationBarTitleText": "海虾虾虾虾",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "blue",
+    "selectedColor": "yellowgreen",
+    "backgroundColor": "red",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cat/cat",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  }
+}
